@@ -1,0 +1,5 @@
+# SAATHI AI — RAG-specific dependencies (install separately)
+pinecone-client==3.2.2
+sentence-transformers==3.0.1
+torch==2.3.1            # CPU-only for embedding; GPU if available
+numpy==1.26.4
