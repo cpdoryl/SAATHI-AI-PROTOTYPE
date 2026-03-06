@@ -22,7 +22,7 @@ Mark done with `[x]` after Claude confirms completion.
 
 ---
 
-## P0 — Investor Demo Critical (Must Ship)
+## P0 — Investor Demo Critical (Must Ship) execute the below  task 
 
 - [x] Create TASKS.md for GitHub command-board workflow
 - [ ] Implement `_detect_patient_stage()` with real async DB query (Patient table)
