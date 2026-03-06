@@ -38,3 +38,7 @@ class WebSocketManager:
             "type": "CRISIS_ALERT",
             "data": alert_data,
         }))
+
+
+# Module-level singleton — shared across all services
+ws_manager = WebSocketManager()

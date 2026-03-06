@@ -2,10 +2,9 @@
 WebSocket routes — real-time clinician alerts and live chat streaming.
 """
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
-from services.websocket_manager import WebSocketManager
+from services.websocket_manager import ws_manager as manager
 
 router = APIRouter()
-manager = WebSocketManager()
 
 
 @router.websocket("/clinician/{clinician_id}")
