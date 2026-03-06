@@ -80,3 +80,7 @@ redis_data/
 
 # ─── Alembic auto-generated ──────────────────────────────────────────────────
 therapeutic-copilot/server/alembic/__pycache__/
+
+# ─── Watcher runtime files ────────────────────────────────────────────────────
+.watcher.lock
+watcher.log
