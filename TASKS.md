@@ -22,8 +22,16 @@ Mark done with `[x]` after Claude confirms completion.
 
 ---
 
-## P0 — Investor Demo Critical (Must Ship) execute the below  task 
+## P0 — Investor Demo Critical (Must Ship)
+
 - [x] Create TASKS.md for GitHub command-board workflow
+- [x] Implement `_detect_patient_stage()` with real async DB query (Patient table)
+- [x] Persist TherapySession record to DB in `start_session()`
+- [x] Complete auth `/login` route — real DB query + bcrypt verify + return JWT
+- [x] Wire chat pipeline: persist ChatMessage to DB after each AI response
+- [x] Update `TherapySession.current_step` after each Stage 2 message
+- [x] Crisis escalation: WebSocket alert to clinician room (via ws_manager singleton)
+- [x] Widget token validation: real DB lookup in `widget_routes.py`
 - [ ] Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
   1. Auth /login — POST with valid bcrypt-hashed password from DB, expect JWT returned. File: therapeutic-copilot/server/routes/auth_routes.py
   2. _detect_patient_stage() — call with a real patient_id from DB (or seed one), expect PatientStage enum returned. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
@@ -33,13 +41,6 @@ Mark done with `[x]` after Claude confirms completion.
   6. Crisis WebSocket alert — send message containing "suicide" keyword, confirm WebSocket alert fires to clinician room and SendGrid email attempted. File: therapeutic-copilot/server/services/therapeutic_ai_service.py, therapeutic-copilot/server/services/websocket_manager.py
   7. Widget token validation — call GET /api/v1/widget/validate-token with a valid token, expect 200. File: therapeutic-copilot/server/routes/widget_routes.py
   Write all results to RESULTS.md in the repo root. Commit with message: test(p0): smoke test all P0 implementations
-- [ ] Implement `_detect_patient_stage()` with real async DB query (Patient table)
-- [ ] Persist TherapySession record to DB in `start_session()`
-- [ ] Complete auth `/login` route — real DB query + bcrypt verify + return JWT
-- [ ] Wire chat pipeline: persist ChatMessage to DB after each AI response
-- [ ] Update `TherapySession.current_step` after each Stage 2 message
-- [ ] Crisis escalation: WebSocket alert to clinician room + SendGrid email
-- [ ] Widget token validation: real DB lookup in `widget_routes.py`
 
 ---
 

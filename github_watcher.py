@@ -138,9 +138,10 @@ def invoke_claude(tasks: list[str]) -> bool:
     for t in tasks:
         log(f"  Task: {t}")
 
+    claude_cmd = r"C:\Users\B P Verma\AppData\Roaming\npm\claude.cmd"
     result = subprocess.run(
         [
-            "claude",
+            claude_cmd,
             "--dangerouslySkipPermissions",  # needed for unattended automation
             "--allowedTools",
             "Bash,Read,Write,Edit,Glob,Grep,TodoWrite",
