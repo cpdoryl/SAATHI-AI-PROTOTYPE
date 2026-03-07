@@ -6,7 +6,6 @@
 ---
 
 ## HOW TO USE
-
 1. Open this file on GitHub: `github.com/cpdoryl/SAATHI-AI-PROTOTYPE/blob/main/TASKS.md`
 2. Click the pencil (Edit) icon
 3. Add your task under the correct priority section using the format below
