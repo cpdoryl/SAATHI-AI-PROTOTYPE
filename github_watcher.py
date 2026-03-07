@@ -142,7 +142,7 @@ def invoke_claude(tasks: list[str]) -> bool:
     result = subprocess.run(
         [
             claude_cmd,
-            "--dangerouslySkipPermissions",  # needed for unattended automation
+            "--dangerously-skip-permissions",  # needed for unattended automation
             "--allowedTools",
             "Bash,Read,Write,Edit,Glob,Grep,TodoWrite",
             "-p",
