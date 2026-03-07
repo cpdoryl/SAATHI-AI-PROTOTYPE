@@ -23,8 +23,16 @@ Mark done with `[x]` after Claude confirms completion.
 ---
 
 ## P0 — Investor Demo Critical (Must Ship) execute the below  task 
-
 - [x] Create TASKS.md for GitHub command-board workflow
+- [ ]  Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
+  1. Auth /login — POST with valid bcrypt-hashed password from DB, expect JWT returned. File: therapeutic-copilot/server/routes/auth_routes.py
+  2. _detect_patient_stage() — call with a real patient_id from DB (or seed one), expect PatientStage enum returned. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
+  3. TherapySession persist — call start_session(), query DB to confirm TherapySession row was created. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
+  4. ChatMessage persist — call process_message(), query DB to confirm user + assistant ChatMessage rows saved. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
+  5. Stage 2 step advance — call process_message() with stage=2 twice, confirm TherapySession.current_step incremented in DB.
+  6. Crisis WebSocket alert — send message containing "suicide" keyword, confirm WebSocket alert fires to clinician room and SendGrid email attempted. File: therapeutic-copilot/server/services/therapeutic_ai_service.py, therapeutic-copilot/server/services/websocket_manager.py
+  7. Widget token validation — call GET /api/v1/widget/validate-token with a valid token, expect 200. File: therapeutic-copilot/server/routes/widget_routes.py
+  Write all results to RESULTS.md in the repo root. Commit with message: test(p0): smoke test all P0 implementations
 - [ ] Implement `_detect_patient_stage()` with real async DB query (Patient table)
 - [ ] Persist TherapySession record to DB in `start_session()`
 - [ ] Complete auth `/login` route — real DB query + bcrypt verify + return JWT
