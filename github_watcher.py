@@ -142,17 +142,19 @@ def invoke_claude(tasks: list[str]) -> bool:
     result = subprocess.run(
         [
             claude_cmd,
-            "--dangerously-skip-permissions",  # needed for unattended automation
-            "--allowedTools",
-            "Bash,Read,Write,Edit,Glob,Grep,TodoWrite",
-            "-p",
-            prompt,
+            "--dangerously-skip-permissions",
+            "--allowedTools", "Bash,Read,Write,Edit,Glob,Grep,TodoWrite",
+            "--print",          # non-interactive mode
         ],
+        input=prompt,           # pass prompt via stdin (avoids Windows arg-length limits)
         cwd=REPO_DIR,
-        capture_output=False,   # stream output so you can see progress in terminal
         text=True,
         timeout=3600,           # 1-hour max per task batch
     )
+    if result.stdout:
+        print(result.stdout, flush=True)
+    if result.stderr:
+        print(result.stderr, flush=True)
     return result.returncode == 0
 
 
