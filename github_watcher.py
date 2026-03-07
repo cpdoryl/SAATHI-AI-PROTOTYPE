@@ -74,13 +74,11 @@ def pull_latest():
 
 def extract_pending_tasks(tasks_md: str) -> list[str]:
     """
-    Parse all unchecked  - [ ]  items from P0 and P1 sections of TASKS.md.
-    Stops at ## P2 (production tasks) to avoid running heavy infra work remotely.
+    Parse all unchecked  - [ ]  items from P0, P1, and P2 sections of TASKS.md.
     Skips tasks with BLOCKED: note.
     """
     pending = []
     current_priority = None
-    stop_at = "## P2"
 
     for line in tasks_md.splitlines():
         stripped = line.strip()
@@ -89,8 +87,10 @@ def extract_pending_tasks(tasks_md: str) -> list[str]:
             current_priority = "P0"
         elif stripped.startswith("## P1"):
             current_priority = "P1"
-        elif stripped.startswith(stop_at):
-            break  # Don't auto-run P2 infra tasks
+        elif stripped.startswith("## P2"):
+            current_priority = "P2"
+        elif stripped.startswith("## ") and current_priority:
+            current_priority = None  # stop at any other section (STANDING INSTRUCTIONS etc.)
 
         if current_priority and stripped.startswith("- [ ]"):
             task_text = stripped[5:].strip()
