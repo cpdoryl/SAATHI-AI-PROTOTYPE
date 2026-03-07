@@ -80,3 +80,4 @@ Mark done with `[x]` after Claude confirms completion.
 | 2026-03-07 | ClinicianDashboard wired to /api/v1/patients | feat(dashboard): wire ClinicianDashboard to real API |
 | 2026-03-07 | Assessment flow wired to /api/v1/assessments | feat(assessment): wire frontend assessment flow |
 | 2026-03-07 | Real SSE token streaming (Together AI + llama.cpp) | feat(inference): real token streaming |
+| 2026-03-07 | GitHub watcher: fix claude.cmd path + stdin prompt + correct flag | fix(watcher): full autonomous loop working |
