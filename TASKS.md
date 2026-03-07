@@ -32,6 +32,7 @@ Mark done with `[x]` after Claude confirms completion.
 - [x] Crisis escalation: WebSocket alert to clinician room (via ws_manager singleton)
 - [x] Widget token validation: real DB lookup in `widget_routes.py` 
 - [ ] Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
+      
   1. Auth /login — POST with valid bcrypt-hashed password from DB, expect JWT returned. File: therapeutic-copilot/server/routes/auth_routes.py
   2. _detect_patient_stage() — call with a real patient_id from DB (or seed one), expect PatientStage enum returned. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
   3. TherapySession persist — call start_session(), query DB to confirm TherapySession row was created. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
