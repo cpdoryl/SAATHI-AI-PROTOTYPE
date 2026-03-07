@@ -24,7 +24,7 @@ Mark done with `[x]` after Claude confirms completion.
 
 ## P0 — Investor Demo Critical (Must Ship) execute the below  task 
 - [x] Create TASKS.md for GitHub command-board workflow
-- [ ]  Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
+- [ ] Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
   1. Auth /login — POST with valid bcrypt-hashed password from DB, expect JWT returned. File: therapeutic-copilot/server/routes/auth_routes.py
   2. _detect_patient_stage() — call with a real patient_id from DB (or seed one), expect PatientStage enum returned. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
   3. TherapySession persist — call start_session(), query DB to confirm TherapySession row was created. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
