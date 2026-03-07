@@ -4,15 +4,24 @@
  */
 import React, { useState, useEffect } from 'react'
 import { Patient, CrisisAlert } from '@/types'
-import { listLeads } from '@/lib/api'
+import { listPatients } from '@/lib/api'
 
 export function ClinicianDashboard() {
   const [patients, setPatients] = useState<Patient[]>([])
   const [crisisAlerts, setCrisisAlerts] = useState<CrisisAlert[]>([])
   const [activeTab, setActiveTab] = useState<'patients' | 'alerts' | 'analytics'>('patients')
+  const [loadingPatients, setLoadingPatients] = useState(true)
 
+  // Load patients from API on mount
   useEffect(() => {
-    // Connect to clinician WebSocket for real-time alerts
+    listPatients()
+      .then((res) => setPatients(res.data.patients || []))
+      .catch((err) => console.error('Failed to load patients:', err))
+      .finally(() => setLoadingPatients(false))
+  }, [])
+
+  // Connect to clinician WebSocket for real-time crisis alerts
+  useEffect(() => {
     const clinicianId = localStorage.getItem('clinician_id') || ''
     const ws = new WebSocket(`ws://localhost:8000/ws/clinician/${clinicianId}`)
     ws.onmessage = (event) => {
@@ -62,7 +71,9 @@ export function ClinicianDashboard() {
         {activeTab === 'patients' && (
           <div>
             <h2 className="text-lg font-semibold text-gray-700 mb-4">Patient Overview</h2>
-            {patients.length === 0 ? (
+            {loadingPatients ? (
+              <p className="text-gray-400 text-sm">Loading patients...</p>
+            ) : patients.length === 0 ? (
               <p className="text-gray-400 text-sm">No patients yet. New leads will appear here.</p>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
