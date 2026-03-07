@@ -31,26 +31,17 @@ Mark done with `[x]` after Claude confirms completion.
 - [x] Update `TherapySession.current_step` after each Stage 2 message
 - [x] Crisis escalation: WebSocket alert to clinician room (via ws_manager singleton)
 - [x] Widget token validation: real DB lookup in `widget_routes.py` 
-- [ ] Smoke test all P0 implementations and write results to RESULTS.md — test each item below using pytest or direct async calls, mark PASS/FAIL with error details if failing:
-      
-  1. Auth /login — POST with valid bcrypt-hashed password from DB, expect JWT returned. File: therapeutic-copilot/server/routes/auth_routes.py
-  2. _detect_patient_stage() — call with a real patient_id from DB (or seed one), expect PatientStage enum returned. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
-  3. TherapySession persist — call start_session(), query DB to confirm TherapySession row was created. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
-  4. ChatMessage persist — call process_message(), query DB to confirm user + assistant ChatMessage rows saved. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
-  5. Stage 2 step advance — call process_message() with stage=2 twice, confirm TherapySession.current_step incremented in DB.
-  6. Crisis WebSocket alert — send message containing "suicide" keyword, confirm WebSocket alert fires to clinician room and SendGrid email attempted. File: therapeutic-copilot/server/services/therapeutic_ai_service.py, therapeutic-copilot/server/services/websocket_manager.py
-  7. Widget token validation — call GET /api/v1/widget/validate-token with a valid token, expect 200. File: therapeutic-copilot/server/routes/widget_routes.py
-  Write all results to RESULTS.md in the repo root. Commit with message: test(p0): smoke test all P0 implementations
+- [x] Smoke test all P0 implementations and write results to RESULTS.md — 10/10 PASS. See RESULTS.md.
 
 ---
 
 ## P1 — Demo Polish
 
-- [ ] Razorpay end-to-end test in sandbox mode
-- [ ] Google Calendar OAuth token storage + event creation
-- [ ] ClinicianDashboard: wire to real patient/session API (currently empty arrays)
-- [ ] Assessment flow: wire frontend to `/api/v1/assessments` endpoints
-- [ ] Real token streaming from Together AI (replace word-split hack in `stream()`)
+- [x] Razorpay end-to-end test in sandbox mode — 4/4 PASS (order creation, HMAC verify, tamper-detect, e2e API)
+- [x] Google Calendar OAuth token storage + event creation — CalendarService + /api/v1/calendar routes added
+- [x] ClinicianDashboard: wire to real patient/session API — /api/v1/patients added, dashboard loads on mount
+- [x] Assessment flow: wire frontend to `/api/v1/assessments` endpoints — PatientPortal fetches questions + submits
+- [x] Real token streaming from Together AI (replace word-split hack in `stream()`) — SSE streaming implemented
 
 ---
 
@@ -83,3 +74,9 @@ Mark done with `[x]` after Claude confirms completion.
 | 2026-03-06 | DEVELOPER_GUIDE.md + CODEBASE_EXPLAINED.md | docs: add guides |
 | 2026-03-06 | Merge master → main (GitHub default branch) | merge commit |
 | 2026-03-06 | Create TASKS.md command board | P0 start |
+| 2026-03-07 | P0 smoke tests (10/10 PASS) + RESULTS.md | test(p0): smoke test all P0 implementations |
+| 2026-03-07 | Razorpay e2e sandbox test (4/4 PASS) | test(payments): Razorpay end-to-end sandbox test |
+| 2026-03-07 | Google Calendar OAuth + event creation | feat(calendar): Google Calendar OAuth token storage |
+| 2026-03-07 | ClinicianDashboard wired to /api/v1/patients | feat(dashboard): wire ClinicianDashboard to real API |
+| 2026-03-07 | Assessment flow wired to /api/v1/assessments | feat(assessment): wire frontend assessment flow |
+| 2026-03-07 | Real SSE token streaming (Together AI + llama.cpp) | feat(inference): real token streaming |
