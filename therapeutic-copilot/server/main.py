@@ -20,12 +20,14 @@ from routes.rag_routes import router as rag_router
 from routes.widget_routes import router as widget_router
 from routes.payment_routes import router as payment_router
 from routes.websocket_routes import router as ws_router
+from routes.calendar_routes import router as calendar_router
 
 # ─── API route imports ────────────────────────────────────────────────────────
 from api.tenants import router as tenants_router
 from api.users import router as users_router
 from api.leads import router as leads_router
 from api.appointments import router as appointments_router
+from api.patients import router as patients_router
 
 
 @asynccontextmanager
@@ -74,6 +76,8 @@ app.include_router(tenants_router,     prefix="/api/v1/tenants",     tags=["Tena
 app.include_router(users_router,       prefix="/api/v1/users",       tags=["Users"])
 app.include_router(leads_router,       prefix="/api/v1/leads",       tags=["Leads"])
 app.include_router(appointments_router, prefix="/api/v1/appointments", tags=["Appointments"])
+app.include_router(patients_router,    prefix="/api/v1/patients",    tags=["Patients"])
+app.include_router(calendar_router,    prefix="/api/v1/calendar",    tags=["Calendar"])
 
 
 @app.get("/", tags=["Health"])
