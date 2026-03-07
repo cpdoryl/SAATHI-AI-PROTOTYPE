@@ -45,6 +45,31 @@ async def get_widget_config(
     }
 
 
+@router.get("/validate-token")
+async def validate_token(
+    x_widget_token: str = Header(None),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Validate a widget token — used by smoke tests and health checks.
+    Returns 200 with tenant_id if valid, 401 if not.
+    """
+    if not x_widget_token:
+        raise HTTPException(status_code=401, detail="Widget token required")
+
+    result = await db.execute(
+        select(Tenant).where(
+            Tenant.widget_token == x_widget_token,
+            Tenant.is_active.is_(True),
+        )
+    )
+    tenant = result.scalar_one_or_none()
+    if not tenant:
+        raise HTTPException(status_code=401, detail="Invalid or inactive widget token")
+
+    return {"valid": True, "tenant_id": tenant.id}
+
+
 @router.get("/bundle.js")
 async def serve_widget_bundle():
     """Serve the compiled widget JavaScript bundle."""
