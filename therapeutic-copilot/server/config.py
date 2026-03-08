@@ -33,6 +33,8 @@ class Settings(BaseSettings):
     TOGETHER_API_KEY: str = ""
     TOGETHER_MODEL: str = "Qwen/Qwen2.5-7B-Instruct-Turbo"
     LLAMA_CPP_SERVER_URL: str = "http://localhost:8080"
+    # Set to GGUF model path to use llama-cpp-python native bindings (prod preferred)
+    LLAMA_CPP_PYTHON_MODEL_PATH: str = ""
 
     # ─── RAG / Pinecone ───────────────────────────────────────────────────────
     PINECONE_API_KEY: str = ""
