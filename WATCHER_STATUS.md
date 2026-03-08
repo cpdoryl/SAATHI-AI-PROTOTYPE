@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:39:22
-**Status**:  TASK FAILED -- [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clin
+**Updated**: 2026-03-08 15:39:30
+**Status**:  TASK FAILED -- [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + in
 
 ## Progress
 
-- Tasks completed : 54 / 48
-- Last task       : `P5-ML::Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
+- Tasks completed : 55 / 48
+- Last task       : `P6-DB::Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
+**Task**: `[P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:38:54] [INFO] [46/61] START: [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 15:38:54] [INFO] Invoking Claude: [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 15:38:58] [ERROR] Claude FAILED for: [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 15:39:02] [INFO] [46/61] SKIP (task error): [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 15:39:02] [INFO] [47/61] START: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 15:39:02] [INFO] Invoking Claude: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 15:39:06] [ERROR] Claude FAILED for: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:39:21] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:39:21] [WARN] Could not acquire lock -- waiting 60s...
 [2026-03-08 15:39:22] [ERROR] Claude FAILED for: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 15:39:26] [INFO] [49/61] SKIP (task error): [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 15:39:26] [INFO] [50/61] START: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:39:26] [INFO] Invoking Claude: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:39:30] [ERROR] Claude FAILED for: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 ```
