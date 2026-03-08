@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:39:11
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list te
+**Updated**: 2026-03-08 11:39:20
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/
 
 ## Progress
 
-- Tasks completed : 32 / 71
-- Last task       : `════════════════════════════════════════════════::AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx`
+- Tasks completed : 33 / 71
+- Last task       : `════════════════════════════════════════════════::Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx`
+**Task**: `[════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:38:33] [INFO] [28/71] SKIP (failed): [════════════════════════════════════════════════] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:33] [INFO] [29/71] START: [════════════════════════════════════════════════] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
-[2026-03-08 11:38:33] [INFO] Invoking Claude: [════════════════════════════════════════════════] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
-[2026-03-08 11:38:36] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
 [2026-03-08 11:38:40] [INFO] [29/71] SKIP (failed): [════════════════════════════════════════════════] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
 [2026-03-08 11:38:40] [INFO] [30/71] START: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
 [2026-03-08 11:38:40] [INFO] Invoking Claude: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:08] [INFO] [33/71] START: [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
 [2026-03-08 11:39:08] [INFO] Invoking Claude: [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
 [2026-03-08 11:39:11] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
+[2026-03-08 11:39:15] [INFO] [33/71] SKIP (failed): [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
+[2026-03-08 11:39:15] [INFO] [34/71] START: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 11:39:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 11:39:20] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 ```
