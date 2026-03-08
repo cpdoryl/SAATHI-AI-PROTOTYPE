@@ -1261,6 +1261,103 @@ switch_adapter(stage):
 
 ---
 
+## Session: 2026-03-08 — Google Calendar Routes (P1-BE)
+
+### Task Completed
+Complete Google Calendar routes — `GET /auth-url`, `GET /callback`, `POST /events`, `GET /events`
+
+### Files Changed
+- `therapeutic-copilot/server/config.py`
+- `therapeutic-copilot/server/services/calendar_service.py`
+- `therapeutic-copilot/server/routes/calendar_routes.py`
+
+### What Was Done
+
+**`config.py`**
+Added `GOOGLE_REDIRECT_URI: str` setting (default `http://localhost:8000/api/v1/calendar/callback`)
+so the redirect URI is configurable via `.env` rather than hardcoded in the service layer.
+
+**`calendar_service.py`**
+- `build_oauth_flow()` now calls `_redirect_uri()` (returns `settings.GOOGLE_REDIRECT_URI`) instead
+  of the previously hardcoded string.
+- `get_authorization_url()` accepts an optional `state` kwarg (clinician_id) which is forwarded
+  to Google's authorization URL — enables the callback to identify which DB row to update.
+- `create_appointment_event()` adds `conferenceData` with `createRequest` and
+  `conferenceSolutionKey.type = "hangoutsMeet"`, and passes `conferenceDataVersion=1` to the
+  Calendar API insert call. This triggers automatic Google Meet link generation. The `hangoutLink`
+  field is extracted from the response; falls back to iterating `conferenceData.entryPoints` for
+  video entry point URI if `hangoutLink` is absent.
+- Added `list_events()` method: calls `events().list()` with `timeMin`, `maxResults`,
+  `singleEvents=True`, `orderBy="startTime"` — returns a flat list of dicts with
+  `event_id`, `summary`, `start`, `end`, `meet_link`, `html_link`, `status`.
+
+**`calendar_routes.py`**
+Full rewrite adding four specification endpoints:
+
+| Endpoint | Auth | Details |
+|----------|------|---------|
+| `GET /auth-url` | JWT Bearer | Decodes clinician_id from JWT, generates OAuth URL with `state=clinician_id`, returns `{auth_url}` as JSON |
+| `GET /callback` | None (Google redirect) | Exchanges `code` param for token, reads `state` param as clinician_id, writes JSON to `Clinician.google_calendar_token` |
+| `POST /events` | None (clinician_id in body) | Resolves clinician + patient from DB, computes end time, creates Calendar event + Meet link, returns `{event_id, html_link, meet_link, start, end}` |
+| `GET /events` | JWT Bearer | Lists upcoming events from clinician's calendar; supports `max_results` and `time_min` query params |
+
+Legacy endpoints (`/authorize`, `/oauth/callback`, `/status`) are retained for
+backward compatibility. `/oauth/callback` delegates to the new `/callback` handler.
+
+### Design Decisions
+
+1. **`GET /auth-url` returns JSON, not a redirect**: SPA clients (React) cannot follow
+   server-side redirects for OAuth; they need the URL to open in a new tab or popup. The
+   legacy `/authorize` endpoint (browser redirect) is kept for direct browser navigation.
+
+2. **`state` param carries clinician_id**: Google's OAuth state parameter is the idiomatic
+   way to correlate a callback to a specific user in stateless server flows. No server-side
+   session is needed.
+
+3. **`conferenceDataVersion=1`**: Required by the Google Calendar API to generate Meet links.
+   Without this flag the API silently ignores the `conferenceData` block.
+
+4. **Naive datetime treated as IST**: `POST /events` converts timezone-naive `scheduled_at`
+   values to UTC+5:30 (IST) before sending to Google. All SAATHI AI clinics are India-based.
+
+5. **`POST /events` resolves patient email for attendee**: If the patient has an email on file,
+   it is added as an event attendee so Google sends them a calendar invitation automatically.
+
+6. **Error isolation via `502 BAD_GATEWAY`**: Google API failures are wrapped in a 502 so
+   the client knows the internal service call failed, distinct from a 4xx client error.
+
+### Algorithm
+```
+GET /auth-url:
+  1. Decode JWT → clinician_id (401 if invalid)
+  2. Fetch Clinician from DB (404 if missing)
+  3. CalendarService.get_authorization_url(state=clinician_id)
+  4. Return {auth_url}
+
+GET /callback:
+  1. Validate ?code and ?state present (400 otherwise)
+  2. Fetch Clinician by state=clinician_id (404 if missing)
+  3. CalendarService.exchange_code_for_token(code) → JSON string (502 on failure)
+  4. clinician.google_calendar_token = token_json; await db.commit()
+  5. Return {message, clinician_id}
+
+POST /events:
+  1. Fetch Clinician by clinician_id (404 if not found)
+  2. 422 if clinician.google_calendar_token is None
+  3. Fetch Patient by patient_id (404 if not found)
+  4. Compute start_dt (localize to IST if naive), end_dt = start_dt + duration_minutes
+  5. CalendarService.create_appointment_event(...) → {google_event_id, html_link, meet_link}
+  6. Return {event_id, html_link, meet_link, start, end}
+
+GET /events:
+  1. Decode JWT → clinician_id (401 if invalid)
+  2. Fetch Clinician (404 if missing); 422 if no token
+  3. CalendarService.list_events(token_json, max_results, time_min)
+  4. Return {clinician_id, events: [...]}
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
