@@ -351,39 +351,73 @@ def release_lock():
 
 def build_claude_prompt(task: dict) -> str:
     """
-    Compact, token-efficient prompt.
-    Only the ONE relevant blueprint is named — Claude reads that single file,
-    not all six. This is the primary token-saving change.
+    Token-efficient but quality-preserving prompt.
+
+    Token savings come from cutting the verbose role-play preamble (~800 tokens)
+    and directing Claude to exactly ONE blueprint. All quality standards, the
+    verify step, and git hygiene rules are kept in full.
     """
     phase     = task["phase"]
     text      = task["text"]
     blueprint = PHASE_BLUEPRINTS.get(phase, "DEVELOPER_GUIDE.md")
 
-    return f"""You are a senior engineer on SAATHI AI (RYL NEUROACADEMY PRIVATE LIMITED).
+    return f"""You are a senior full-stack engineer on SAATHI AI (RYL NEUROACADEMY PRIVATE LIMITED).
 Working directory: {REPO_DIR}
-Stack: FastAPI/Python3.11, React18/TS/Vite/Tailwind, SQLAlchemy async, Redis, Razorpay, Pinecone, Shadow DOM widget, Docker.
+Stack: FastAPI/Python 3.11, SQLAlchemy 2.0 async, Alembic, Redis, Razorpay, Pinecone,
+       React 18/TypeScript/Vite/Tailwind, Zustand, TanStack Query, Recharts,
+       Shadow DOM widget, Qwen 2.5-7B via llama.cpp / Together AI, Docker.
 
-TASK ({phase}): {text}
+═══════════════════════════════════════════════
+TASK  [{phase}]  {text}
+═══════════════════════════════════════════════
 
-STEPS — do exactly these, nothing more:
-1. Read blueprint: {blueprint}
-2. Read only the files directly needed for this task.
-3. Implement. Production code only — no placeholders, no TODO, no hardcoded secrets.
-   Backend rules: logic in services/, HTTP in routes/, Loguru logging, HTTPException errors.
-   Frontend rules: API calls only in lib/api.ts or hooks, handle loading+error states.
-   DB rules: SQLAlchemy ORM only, schema changes via Alembic migration.
-4. git add <changed files only — never .env>
-   git commit -m "feat({phase.lower()}): <short description>"
-   git push origin main
-5. In TASKS.md change: - [ ] {text}
-                    to: - [x] {text}
-   git commit -m "chore(tasks): mark task complete"
-   git push origin main
-6. Append one entry to BUILD_DESIGN_RECORD.md: date, task, files changed, decision.
-   git commit -m "docs(build-record): {text[:50]}"
-   git push origin main
+EXECUTION — follow every step in order:
 
-Do not read blueprints or files unrelated to this task. Stop as soon as step 6 is done.
+STEP 1 — READ BLUEPRINT
+  Read: {blueprint}
+  This defines design requirements and completion criteria you must satisfy.
+
+STEP 2 — READ EXISTING CODE
+  Read every file you will modify before touching it.
+  Understand existing patterns, naming, and architecture.
+  Do NOT read files unrelated to this task.
+
+STEP 3 — IMPLEMENT (production quality — non-negotiable)
+  • No placeholder returns, no TODO comments, no hardcoded secrets.
+  • Backend: business logic in services/, HTTP handling in routes/ (never mix).
+             Every async DB call uses SQLAlchemy AsyncSession correctly.
+             Every endpoint has proper HTTPException error handling.
+             Use Loguru for logging. Config values from Pydantic settings / .env only.
+  • Frontend: API calls only in lib/api.ts or custom hooks, never inside components.
+              Every component handles loading state AND error state.
+  • Database: all schema changes via Alembic migration — never create_all().
+              No raw SQL — SQLAlchemy ORM only.
+  • Tests: add a test for every new function / endpoint introduced.
+
+STEP 4 — VERIFY BEFORE COMMITTING
+  Re-read every file you just modified.
+  Confirm: (a) matches blueprint requirements, (b) does not break existing code,
+           (c) no .env values hardcoded, (d) no leftover debug prints.
+  Fix anything wrong before proceeding.
+
+STEP 5 — COMMIT & PUSH implementation
+  git add <only the changed source files — never .env, *.gguf, __pycache__, node_modules>
+  git commit -m "feat({phase.lower()}): <concise description>"
+  git push origin main
+
+STEP 6 — MARK TASK DONE in TASKS.md
+  Find the exact line:  - [ ] {text}
+  Change it to:         - [x] {text}
+  git commit -m "chore(tasks): mark [{text[:55]}] complete"
+  git push origin main
+
+STEP 7 — UPDATE BUILD RECORD
+  Append to BUILD_DESIGN_RECORD.md:
+    Date, Task, Files changed, Design decision and why, Algorithm / pattern used.
+  git commit -m "docs(build-record): {text[:50]}"
+  git push origin main
+
+Stop immediately after step 7. Do not start the next task.
 """
 
 
