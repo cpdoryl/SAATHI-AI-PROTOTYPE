@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:40:58
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → veri
+**Updated**: 2026-03-08 11:41:07
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implem
 
 ## Progress
 
-- Tasks completed : 46 / 71
-- Last task       : `════════════════════════════════════════════════::Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py`
+- Tasks completed : 47 / 71
+- Last task       : `════════════════════════════════════════════════::Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py`
+**Task**: `[════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:40:20] [INFO] [42/71] SKIP (failed): [════════════════════════════════════════════════] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
-[2026-03-08 11:40:20] [INFO] [43/71] START: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
-[2026-03-08 11:40:20] [INFO] Invoking Claude: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
-[2026-03-08 11:40:24] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 11:40:32] [INFO] [43/71] SKIP (failed): [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 11:40:32] [INFO] [44/71] START: [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 11:40:32] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:40:54] [INFO] [47/71] START: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:40:54] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:40:58] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 11:41:03] [INFO] [47/71] SKIP (failed): [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 11:41:03] [INFO] [48/71] START: [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
+[2026-03-08 11:41:03] [INFO] Invoking Claude: [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
+[2026-03-08 11:41:07] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
 ```
