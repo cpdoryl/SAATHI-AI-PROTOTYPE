@@ -2,9 +2,12 @@
 Clinical Assessment routes.
 Supports: PHQ-9, GAD-7, PCL-5, ISI, OCI-R, SPIN, PSS, WHO-5
 """
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
+from loguru import logger
 from database import get_db
+from models import Assessment
 from services.assessment_service import AssessmentService
 
 router = APIRouter()
@@ -46,5 +49,16 @@ async def submit_assessment(
 
 @router.get("/{patient_id}/history")
 async def get_assessment_history(patient_id: str, db: AsyncSession = Depends(get_db)):
-    """Return all past assessment results for a patient."""
-    return {"patient_id": patient_id, "assessments": []}
+    """Return all past assessment results for a patient, ordered by most recent first."""
+    try:
+        result = await db.execute(
+            select(Assessment)
+            .where(Assessment.patient_id == patient_id)
+            .order_by(Assessment.administered_at.desc())
+        )
+        assessments = result.scalars().all()
+        logger.info(f"Assessment history for patient {patient_id}: {len(assessments)} records")
+        return {"patient_id": patient_id, "assessments": assessments}
+    except Exception as exc:
+        logger.error(f"Failed to fetch assessment history for patient {patient_id}: {exc}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve assessment history")
