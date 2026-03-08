@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:37:40
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api
+**Updated**: 2026-03-08 11:37:46
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] PatientPortal assessment history — call GET /api/
 
 ## Progress
 
-- Tasks completed : 21 / 71
-- Last task       : `════════════════════════════════════════════════::PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+- Tasks completed : 22 / 71
+- Last task       : `════════════════════════════════════════════════::PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+**Task**: `[════════════════════════════════════════════════] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:37:00] [INFO] [17/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
-[2026-03-08 11:37:00] [INFO] [18/71] START: [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 11:37:00] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 11:37:03] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:37:10] [INFO] [18/71] SKIP (failed): [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:37:10] [INFO] [19/71] START: [════════════════════════════════════════════════] Complete ChatWidget — implement full chat UI: WebSocket connect to /ws/chat/{session_id}, send message, receive and stream tokens into assistant message bubble, typing indicator (animated dots), auto-scroll. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx and hooks/useChat.ts
 [2026-03-08 11:37:10] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete ChatWidget — implement full chat UI: WebSocket connect to /ws/chat/{session_id}, send message, receive and stream tokens into assistant message bubble, typing indicator (animated dots), auto-scroll. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx and hooks/useChat.ts
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:37:36] [INFO] [22/71] START: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 [2026-03-08 11:37:36] [INFO] Invoking Claude: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 [2026-03-08 11:37:40] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:43] [INFO] [22/71] SKIP (failed): [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:43] [INFO] [23/71] START: [════════════════════════════════════════════════] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:43] [INFO] Invoking Claude: [════════════════════════════════════════════════] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:46] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 ```
