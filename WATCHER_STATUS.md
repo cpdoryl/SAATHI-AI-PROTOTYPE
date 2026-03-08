@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:41:49
-**Status**:  TASK FAILED -- [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + in
+**Updated**: 2026-03-08 15:41:55
+**Status**:  TASK FAILED -- [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic
 
 ## Progress
 
 - Tasks completed : 67 / 48
-- Last task       : `P6-DB::Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
+- Last task       : `P7-TEST::Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
+**Task**: `[P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:41:31] [INFO] [5/20] SKIP (failed): [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 15:41:31] [INFO] [6/20] START: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 15:41:31] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 15:41:32] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 15:41:36] [INFO] [6/20] SKIP (failed): [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 15:41:36] [INFO] [7/20] START: [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 15:41:36] [INFO] Invoking Claude: [P6-DB] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 15:41:48] [INFO] [10/20] START: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 15:41:48] [INFO] Invoking Claude: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 15:41:49] [ERROR] Claude FAILED for: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:41:54] [INFO] [10/20] SKIP (failed): [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:41:54] [INFO] [11/20] START: [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 15:41:54] [INFO] Invoking Claude: [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 15:41:55] [ERROR] Claude FAILED for: [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 ```
