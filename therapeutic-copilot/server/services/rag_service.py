@@ -7,6 +7,21 @@ from typing import List, Dict, Optional
 from config import settings
 from loguru import logger
 
+# ─── Module-level singleton ───────────────────────────────────────────────────
+# Loaded once on first use; shared across all RAGService instances.
+# Avoids ~2s model reload penalty on every _embed() call.
+_sentence_transformer_model = None
+
+
+def _get_embedding_model():
+    """Return the module-level SentenceTransformer singleton (lazy-init)."""
+    global _sentence_transformer_model
+    if _sentence_transformer_model is None:
+        from sentence_transformers import SentenceTransformer
+        _sentence_transformer_model = SentenceTransformer("all-MiniLM-L6-v2")
+        logger.info("SentenceTransformer singleton loaded: all-MiniLM-L6-v2")
+    return _sentence_transformer_model
+
 
 class RAGService:
     """Pinecone-backed RAG for per-tenant knowledge retrieval."""
@@ -63,7 +78,6 @@ class RAGService:
         return {"status": "ingested", "doc_id": doc_id}
 
     async def _embed(self, text: str) -> List[float]:
-        """Generate 384-dim embedding using sentence-transformers."""
-        from sentence_transformers import SentenceTransformer
-        model = SentenceTransformer("all-MiniLM-L6-v2")
+        """Generate 384-dim embedding using the module-level singleton model."""
+        model = _get_embedding_model()
         return model.encode(text).tolist()
