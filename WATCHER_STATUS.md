@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:43:12
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboar
+**Updated**: 2026-03-08 11:43:19
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Run full backend test suite and report — run pyte
 
 ## Progress
 
-- Tasks completed : 64 / 71
-- Last task       : `════════════════════════════════════════════════::Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
+- Tasks completed : 65 / 71
+- Last task       : `════════════════════════════════════════════════::Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
+**Task**: `[════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:42:44] [INFO] [60/71] SKIP (failed): [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
-[2026-03-08 11:42:44] [INFO] [61/71] START: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
-[2026-03-08 11:42:44] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
-[2026-03-08 11:42:47] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 [2026-03-08 11:42:50] [INFO] [61/71] SKIP (failed): [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 [2026-03-08 11:42:50] [INFO] [62/71] START: [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:42:50] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:43:09] [INFO] [65/71] START: [════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 [2026-03-08 11:43:09] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 [2026-03-08 11:43:12] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 11:43:15] [INFO] [65/71] SKIP (failed): [════════════════════════════════════════════════] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 11:43:15] [INFO] [66/71] START: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 11:43:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 11:43:19] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 ```
