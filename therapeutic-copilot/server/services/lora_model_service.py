@@ -3,7 +3,10 @@ SAATHI AI — LoRA Model Service
 Manages switching between Stage 1 (r=8) and Stage 2 (r=16) LoRA adapters.
 Only active when using self-hosted llama.cpp in production.
 """
+import httpx
 from loguru import logger
+
+from config import settings
 
 
 LORA_ADAPTERS = {
@@ -45,9 +48,31 @@ class LoRAModelService:
         config = self.get_adapter_config(stage)
         logger.info(f"Switching to LoRA adapter: {config['name']} (rank={config['rank']})")
 
-        # TODO: Call llama.cpp API to hot-swap LoRA adapter
-        self._current_stage = stage
-        return True
+        lora_url = f"{settings.LLAMA_CPP_SERVER_URL.rstrip('/')}/lora"
+        payload = [{"path": config["path"], "scale": 1.0}]
+
+        try:
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                response = await client.post(lora_url, json=payload)
+                response.raise_for_status()
+            logger.info(
+                f"LoRA adapter hot-swap successful: {config['name']} "
+                f"(stage={stage}, rank={config['rank']})"
+            )
+            self._current_stage = stage
+            return True
+        except httpx.HTTPStatusError as exc:
+            logger.error(
+                f"llama.cpp /lora returned {exc.response.status_code} "
+                f"for adapter '{config['name']}': {exc.response.text}"
+            )
+            return False
+        except httpx.RequestError as exc:
+            logger.error(
+                f"Failed to reach llama.cpp server at {lora_url}: {exc}. "
+                "Continuing with currently loaded adapter."
+            )
+            return False
 
     def get_system_prompt_modifier(self, stage: int) -> str:
         """Return stage-specific prompt modifier for the LoRA adapter."""
