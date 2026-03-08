@@ -1137,6 +1137,51 @@ Complete `PaymentService.handle_webhook()` to process three Razorpay events:
 
 ---
 
+## SESSION 12 — 2026-03-08 — AUTH /me AND /logout ENDPOINTS
+
+### Task Completed
+Add `GET /api/v1/auth/me` and `POST /api/v1/auth/logout` to complete the
+authentication surface defined in the backend blueprint (TASK-BE-06).
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/routes/auth_routes.py` | Added `GET /me`, `POST /logout`, Redis helper functions; imported `decode_token` directly at module level |
+
+### Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| Token blacklisting via Redis `blacklist:{token}` key | Stateless JWTs cannot be invalidated server-side without a denylist; Redis with exact TTL ensures the key auto-expires precisely when the token would have expired, keeping memory bounded |
+| TTL computed from `exp` claim, not configured lifetime | A token issued 20 minutes ago with a 30-minute lifetime should only be blacklisted for 10 more minutes. Using the remaining time is correct and avoids over-retention |
+| `_get_redis()` returns `None` on failure (graceful degrade) | If Redis is down, `/me` skips blacklist check and still serves the profile; logout logs a warning but does not 503 the user. Availability > perfect security for non-critical Redis outage |
+| Separate `_is_blacklisted()` helper | Reusable check that can be called from other protected routes or the `verify_jwt` middleware in the future |
+| `/me` checks blacklist before `decode_token()` | Ordering: if the token is in the blacklist, skip decode entirely — avoid unnecessary crypto work |
+| `/logout` returns 200 even for already-expired tokens | Idempotent — calling logout on an expired token is a no-op; returning 200 prevents unnecessary client errors |
+| `HTTPBearer` dependency on `_bearer` instance | Consistent with how other protected routes use bearer extraction; returns 403 automatically for requests without Authorization header |
+
+### Algorithm
+
+```
+GET /api/v1/auth/me
+  1. Extract Bearer token via HTTPBearer dependency
+  2. Check Redis blacklist:{token} → 401 if found
+  3. decode_token(token) → 401 if invalid/expired
+  4. SELECT * FROM clinicians WHERE id = payload["sub"]
+  5. 404 if not found, 403 if is_active=False
+  6. Return {id, email, full_name, tenant_id, specialization, is_active}
+
+POST /api/v1/auth/logout
+  1. Extract Bearer token via HTTPBearer dependency
+  2. decode_token(token) → if invalid, return {"message": "Logged out"} (already expired)
+  3. Compute remaining_ttl = payload["exp"] - now()
+  4. If remaining_ttl <= 0 → return success (already expired)
+  5. Redis.setex("blacklist:{token}", remaining_ttl, "1")
+  6. Return {"message": "Logged out successfully"}
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
