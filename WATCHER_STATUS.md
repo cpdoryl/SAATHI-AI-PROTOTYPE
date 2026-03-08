@@ -1,28 +1,24 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 19:04:41
-**Status**:  TASK FAILED -- [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files f
+**Updated**: 2026-03-08 19:16:27
+**Status**:  RUNNING -- task 49/33
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
 
-- Tasks completed : 47 / 33
-- Last task       : `P4-RAG::Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py`
+- Tasks completed : 48 / 33
+- Last task       : `P4-RAG::Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 ## Details
 
-Claude returned exit code 1.
-
-Task skipped. Review `watcher.log` to fix manually.
+**Task**: `[P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 ## Recent Log
 
 ```
-[2026-03-08 19:04:39] [INFO] ============================================================
-[2026-03-08 19:04:39] [INFO] SAATHI AI Remote Task Runner started
-[2026-03-08 19:04:39] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
-[2026-03-08 19:04:39] [INFO] ============================================================
-[2026-03-08 19:04:39] [INFO] [48/33] Executing: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-[2026-03-08 19:04:39] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
-[2026-03-08 19:04:41] [ERROR] Claude FAILED (exit 1): [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+[2026-03-08 19:16:26] [INFO] ============================================================
+[2026-03-08 19:16:26] [INFO] SAATHI AI Remote Task Runner started
+[2026-03-08 19:16:26] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
+[2026-03-08 19:16:26] [INFO] ============================================================
+[2026-03-08 19:16:27] [INFO] [49/33] Executing: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 ```
