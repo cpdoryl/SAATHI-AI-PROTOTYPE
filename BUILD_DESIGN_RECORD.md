@@ -884,7 +884,42 @@ a loading spinner, then summary text + key insights + crisis score.
 | Session 4 — Watcher | 2026-03-07 | 4 fixes | 4 | github_watcher.py |
 | Session 5 — P2 Prod | 2026-03-08 | 6 | 6 | middleware, session, scheduler, rag, inference |
 | Session 6 — ChatWidget streaming | 2026-03-08 | 3 | 2 | useChat.ts, ChatWidget.tsx |
-| **Total** | | **27** | **~34** | **~52 files modified** |
+| Session 7 — Chat session retrieval | 2026-03-08 | 1 | 1 | chat_routes.py |
+| **Total** | | **28** | **~35** | **~52 files modified** |
+
+---
+
+## SESSION 7 — 2026-03-08 — CHAT SESSION RETRIEVAL FIX
+
+### Task Completed
+Fix `GET /api/v1/chat/session/{id}` which previously returned a hardcoded empty `[]`.
+Now queries `TherapySession` and `ChatMessage` tables from DB using SQLAlchemy async ORM.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/routes/chat_routes.py` | Added real DB query for TherapySession + ChatMessage ordered by created_at; 404 on missing session |
+
+### Design Decisions
+
+**Pattern**: Query session first, 404 if not found, then query messages ordered by `created_at`.
+Matches blueprint TASK-BE-01 exactly. Uses `scalar_one_or_none()` for session (single row)
+and `scalars().all()` for messages (list). Loguru logs retrieval count for observability.
+
+**Error handling**: Returns HTTP 404 with `"Session not found"` detail rather than empty dict
+— prevents frontend from silently treating missing sessions as sessions with no messages.
+
+**No raw SQL**: All queries use `sqlalchemy.future.select` + `.where()` + `.order_by()` per
+project ORM-only rule.
+
+### Algorithm
+```
+GET /api/v1/chat/session/{session_id}
+  1. SELECT * FROM therapy_sessions WHERE id = session_id → scalar_one_or_none()
+  2. If None → raise HTTPException 404
+  3. SELECT * FROM chat_messages WHERE session_id = session_id ORDER BY created_at → scalars().all()
+  4. Return {"session": session, "messages": messages}
+```
 
 ---
 
