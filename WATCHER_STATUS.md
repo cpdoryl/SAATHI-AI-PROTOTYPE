@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:40:01
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel
+**Updated**: 2026-03-08 11:40:08
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget session persistence — store session_id in 
 
 ## Progress
 
-- Tasks completed : 39 / 71
-- Last task       : `════════════════════════════════════════════════::Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+- Tasks completed : 40 / 71
+- Last task       : `════════════════════════════════════════════════::Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+**Task**: `[════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:39:31] [INFO] [35/71] SKIP (failed): [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
-[2026-03-08 11:39:31] [INFO] [36/71] START: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 11:39:31] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 11:39:35] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 [2026-03-08 11:39:38] [INFO] [36/71] SKIP (failed): [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 [2026-03-08 11:39:38] [INFO] [37/71] START: [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:38] [INFO] Invoking Claude: [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:57] [INFO] [40/71] START: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:57] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:40:01] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:40:04] [INFO] [40/71] SKIP (failed): [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:40:04] [INFO] [41/71] START: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:40:04] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:40:08] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 ```
