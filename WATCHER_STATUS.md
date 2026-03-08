@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:39:20
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/
+**Updated**: 2026-03-08 11:39:28
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] TypeScript types completion — ensure all interfac
 
 ## Progress
 
-- Tasks completed : 33 / 71
-- Last task       : `════════════════════════════════════════════════::Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.`
+- Tasks completed : 34 / 71
+- Last task       : `════════════════════════════════════════════════::TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.`
+**Task**: `[════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:38:40] [INFO] [29/71] SKIP (failed): [════════════════════════════════════════════════] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
-[2026-03-08 11:38:40] [INFO] [30/71] START: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
-[2026-03-08 11:38:40] [INFO] Invoking Claude: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
-[2026-03-08 11:38:45] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
 [2026-03-08 11:38:48] [INFO] [30/71] SKIP (failed): [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
 [2026-03-08 11:38:48] [INFO] [31/71] START: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 [2026-03-08 11:38:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:15] [INFO] [34/71] START: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 [2026-03-08 11:39:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 [2026-03-08 11:39:20] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 11:39:25] [INFO] [34/71] SKIP (failed): [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 11:39:25] [INFO] [35/71] START: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 11:39:25] [INFO] Invoking Claude: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 11:39:28] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 ```
