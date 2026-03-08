@@ -1,28 +1,24 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 21:00:48
-**Status**:  TASK FAILED -- [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: te
+**Updated**: 2026-03-08 21:12:55
+**Status**:  RUNNING -- task 59/33
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
 
-- Tasks completed : 57 / 33
-- Last task       : `P6-DB::Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
+- Tasks completed : 58 / 33
+- Last task       : `P6-DB::Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
 
 ## Details
 
-Claude returned exit code 1.
-
-Task skipped. Review `watcher.log` to fix manually.
+**Task**: `[P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
 
 ## Recent Log
 
 ```
-[2026-03-08 21:00:45] [INFO] ============================================================
-[2026-03-08 21:00:45] [INFO] SAATHI AI Remote Task Runner started
-[2026-03-08 21:00:45] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
-[2026-03-08 21:00:45] [INFO] ============================================================
-[2026-03-08 21:00:45] [INFO] [58/33] Executing: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
-[2026-03-08 21:00:47] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
-[2026-03-08 21:00:48] [ERROR] Claude FAILED (exit 1): [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 21:12:55] [INFO] ============================================================
+[2026-03-08 21:12:55] [INFO] SAATHI AI Remote Task Runner started
+[2026-03-08 21:12:55] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
+[2026-03-08 21:12:55] [INFO] ============================================================
+[2026-03-08 21:12:55] [INFO] [59/33] Executing: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 ```
