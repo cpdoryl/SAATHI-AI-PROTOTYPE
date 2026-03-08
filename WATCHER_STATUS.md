@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:43:19
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Run full backend test suite and report — run pyte
+**Updated**: 2026-03-08 11:43:25
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurr
 
 ## Progress
 
-- Tasks completed : 65 / 71
-- Last task       : `════════════════════════════════════════════════::Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
+- Tasks completed : 66 / 71
+- Last task       : `════════════════════════════════════════════════::Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
+**Task**: `[════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:42:50] [INFO] [61/71] SKIP (failed): [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
-[2026-03-08 11:42:50] [INFO] [62/71] START: [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
-[2026-03-08 11:42:50] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
-[2026-03-08 11:42:54] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:42:56] [INFO] [62/71] SKIP (failed): [════════════════════════════════════════════════] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:42:56] [INFO] [63/71] START: [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 11:42:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:43:15] [INFO] [66/71] START: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 11:43:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 11:43:19] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 11:43:21] [INFO] [66/71] SKIP (failed): [════════════════════════════════════════════════] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 11:43:21] [INFO] [67/71] START: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
+[2026-03-08 11:43:21] [INFO] Invoking Claude: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
+[2026-03-08 11:43:25] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 ```
