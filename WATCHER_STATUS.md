@@ -1,25 +1,27 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:34:22
-**Status**:  IN PROGRESS -- 17 done, 50 remaining
+**Updated**: 2026-03-08 15:34:40
+**Status**:  TASK FAILED -- [P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session 
 
 ## Progress
 
 - Tasks completed : 17 / 52
-- Last task       : `None`
+- Last task       : `P2-FE::PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 ## Details
 
-**Just completed**: `[P1-BE] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py`
+Claude Code returned a non-zero exit code.
 
-**Up next**: `[P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+**Likely cause**: implementation error in the task itself.
+
+**Task**: `[P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+
+The watcher has skipped this task and moved to the next one.
+Review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-08 15:31:03] [WARN] Could not acquire lock -- waiting 60s...
-[2026-03-08 15:32:03] [WARN] Lock held by PID 37292. Skipping.
-[2026-03-08 15:32:03] [WARN] Lock still held. Skipping task this cycle.
 [2026-03-08 15:32:03] [INFO] [6/52] START: [P2-FE] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 [2026-03-08 15:32:03] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:32:03] [WARN] Could not acquire lock -- waiting 60s...
@@ -37,4 +39,7 @@
 [2026-03-08 15:34:03] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:34:03] [WARN] Could not acquire lock -- waiting 60s...
 [2026-03-08 15:34:22] [INFO] [11/61] DONE: [P1-BE] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
+[2026-03-08 15:34:26] [INFO] [12/61] START: [P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 15:34:26] [INFO] Invoking Claude: [P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 15:34:40] [ERROR] Claude FAILED for: [P2-FE] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 ```
