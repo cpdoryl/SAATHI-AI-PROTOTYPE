@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:35:59
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current
+**Updated**: 2026-03-08 11:36:06
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add GET /api/v1/patients/{id}/sessions endpoint —
 
 ## Progress
 
-- Tasks completed : 8 / 71
-- Last task       : `════════════════════════════════════════════════::Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
+- Tasks completed : 9 / 71
+- Last task       : `════════════════════════════════════════════════::Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
+**Task**: `[════════════════════════════════════════════════] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:26:42] [INFO] [4/71] START: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
-[2026-03-08 11:26:42] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
-[2026-03-08 11:28:38] [INFO] [4/71] DONE: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
-[2026-03-08 11:28:41] [INFO] [5/71] START: [════════════════════════════════════════════════] Complete POST /api/v1/chat/session/{id}/end — fetch last 10 messages, call LLM to summarize, persist to TherapySession.session_summary, update status=COMPLETED, delete Redis key. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
 [2026-03-08 11:28:41] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete POST /api/v1/chat/session/{id}/end — fetch last 10 messages, call LLM to summarize, persist to TherapySession.session_summary, update status=COMPLETED, delete Redis key. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
 [2026-03-08 11:31:20] [INFO] [5/71] DONE: [════════════════════════════════════════════════] Complete POST /api/v1/chat/session/{id}/end — fetch last 10 messages, call LLM to summarize, persist to TherapySession.session_summary, update status=COMPLETED, delete Redis key. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
 [2026-03-08 11:31:29] [INFO] [6/71] START: [════════════════════════════════════════════════] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:35:56] [INFO] [9/71] START: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 11:35:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 11:35:59] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 11:36:03] [INFO] [9/71] SKIP (failed): [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 11:36:03] [INFO] [10/71] START: [════════════════════════════════════════════════] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
+[2026-03-08 11:36:03] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
+[2026-03-08 11:36:06] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
 ```
