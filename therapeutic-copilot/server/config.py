@@ -53,6 +53,7 @@ class Settings(BaseSettings):
     # ─── Google Calendar ─────────────────────────────────────────────────────
     GOOGLE_CLIENT_ID: str = ""
     GOOGLE_CLIENT_SECRET: str = ""
+    GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/calendar/callback"
 
     @property
     def cors_origins_list(self) -> List[str]:
