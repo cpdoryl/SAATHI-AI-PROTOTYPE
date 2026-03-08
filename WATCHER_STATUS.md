@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:41:45
-**Status**:  TASK FAILED -- [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clin
+**Updated**: 2026-03-08 15:41:49
+**Status**:  TASK FAILED -- [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + in
 
 ## Progress
 
 - Tasks completed : 67 / 48
-- Last task       : `P6-DB::Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
+- Last task       : `P6-DB::Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
+**Task**: `[P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:41:26] [INFO] [4/20] SKIP (failed): [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 15:41:26] [INFO] [5/20] START: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 15:41:26] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 15:41:27] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 15:41:31] [INFO] [5/20] SKIP (failed): [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 15:41:31] [INFO] [6/20] START: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 15:41:31] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 15:41:44] [INFO] [9/20] START: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:41:44] [INFO] Invoking Claude: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:41:45] [ERROR] Claude FAILED for: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 15:41:48] [INFO] [9/20] SKIP (failed): [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 15:41:48] [INFO] [10/20] START: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:41:48] [INFO] Invoking Claude: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 15:41:49] [ERROR] Claude FAILED for: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 ```
