@@ -988,6 +988,50 @@ POST /api/v1/chat/session/{session_id}/end
 
 ---
 
+## SESSION 9 — 2026-03-08 — ASSESSMENT HISTORY FROM DB
+
+### Task Completed
+Complete `GET /api/v1/assessments/{patient_id}/history` — was returning a stub empty list `[]`.
+Now queries the `assessments` table by `patient_id`, ordered by `administered_at DESC`, returning
+all past assessment records for a patient.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/routes/assessment_routes.py` | Replaced stub return with real AsyncSession query; added imports for `select`, `HTTPException`, `logger`, `Assessment` |
+
+### Design Decisions
+
+**ORM-only**: Used SQLAlchemy async `select(Assessment).where(...).order_by(...)` — no raw SQL.
+Follows the same pattern as `GET /api/v1/chat/session/{id}` in `chat_routes.py`.
+
+**DESC ordering**: `administered_at.desc()` surfaces the most recent assessment first — the natural
+UI expectation for a history timeline displayed newest-to-oldest.
+
+**Error handling**: Any unexpected DB exception is caught, logged with Loguru at ERROR level, and
+returned as HTTP 500 (detail: "Failed to retrieve assessment history"). The `patient_id` is
+included in the log line for fast debugging.
+
+**Empty result is valid**: If no assessments exist for a patient, `scalars().all()` returns `[]`
+and the endpoint responds `{"patient_id": ..., "assessments": []}` with HTTP 200 — not 404.
+An empty history is a valid state for a new patient.
+
+### Algorithm
+```
+GET /api/v1/assessments/{patient_id}/history
+  1. AsyncSession.execute(
+       SELECT * FROM assessments
+       WHERE patient_id = patient_id
+       ORDER BY administered_at DESC
+     )
+  2. result.scalars().all() → list[Assessment]
+  3. logger.info(count)
+  4. Return {"patient_id": patient_id, "assessments": list}
+  5. On exception: logger.error + raise HTTPException 500
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
