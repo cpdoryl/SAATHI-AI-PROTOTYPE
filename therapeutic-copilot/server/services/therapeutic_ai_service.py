@@ -10,6 +10,7 @@ from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
 from services.websocket_manager import ws_manager
+from services.redis_session_service import redis_session_store
 from models import Patient, PatientStage, TherapySession, SessionStatus, ChatMessage
 from loguru import logger
 
@@ -51,6 +52,15 @@ class TherapeuticAIService:
         await self.db.commit()
         await self.db.refresh(session)
 
+        # Cache session state in Redis for fast subsequent lookups
+        await redis_session_store.set_session(session.id, {
+            "patient_id": patient_id,
+            "tenant_id": tenant_id or "default",
+            "stage": stage,
+            "current_step": 0,
+            "status": SessionStatus.IN_PROGRESS.value,
+        })
+
         greeting = await self.llm.generate(
             prompt=self.chatbot.build_greeting_prompt(stage=stage),
             stage=stage,
@@ -73,7 +83,11 @@ class TherapeuticAIService:
         7. Persist assistant ChatMessage
         8. Advance Stage 2 step
         """
-        # Load session for step tracking and tenant lookup
+        # Try Redis cache first; fall back to DB if cache miss
+        cached = await redis_session_store.get_session(session_id)
+        if cached:
+            await redis_session_store.refresh_ttl(session_id)
+
         result = await self.db.execute(
             select(TherapySession).where(TherapySession.id == session_id)
         )
@@ -135,6 +149,8 @@ class TherapeuticAIService:
         # Advance step for Stage 2 (caps at step 10, the final step)
         if session and stage == 2 and session.current_step < 10:
             session.current_step += 1
+            # Sync updated step back to Redis cache
+            await redis_session_store.update_step(session_id, session.current_step)
         if session:
             session.crisis_score = max(session.crisis_score or 0.0, crisis_result["severity"])
 
