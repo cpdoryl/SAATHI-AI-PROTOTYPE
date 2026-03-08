@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:37:51
-**Status**:  TASK FAILED -- [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns
+**Updated**: 2026-03-08 15:37:57
+**Status**:  TASK FAILED -- [P5-ML] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training us
 
 ## Progress
 
-- Tasks completed : 42 / 52
-- Last task       : `P4-RAG::Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py`
+- Tasks completed : 43 / 52
+- Last task       : `P5-ML::Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py`
+**Task**: `[P5-ML] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:37:18] [INFO] [32/61] SKIP (task error): [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
-[2026-03-08 15:37:18] [INFO] [33/61] START: [P4-RAG] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
-[2026-03-08 15:37:18] [INFO] Invoking Claude: [P4-RAG] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
-[2026-03-08 15:37:22] [ERROR] Claude FAILED for: [P4-RAG] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 15:37:24] [INFO] [33/61] SKIP (task error): [P4-RAG] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 15:37:24] [INFO] [34/61] START: [P4-RAG] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 15:37:24] [INFO] Invoking Claude: [P4-RAG] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:37:47] [INFO] [37/61] START: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:37:47] [INFO] Invoking Claude: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:37:51] [ERROR] Claude FAILED for: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 15:37:53] [INFO] [37/61] SKIP (task error): [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
+[2026-03-08 15:37:53] [INFO] [38/61] START: [P5-ML] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
+[2026-03-08 15:37:53] [INFO] Invoking Claude: [P5-ML] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
+[2026-03-08 15:37:57] [ERROR] Claude FAILED for: [P5-ML] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
 ```
