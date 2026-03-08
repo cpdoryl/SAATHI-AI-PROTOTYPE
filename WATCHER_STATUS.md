@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:40:41
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to b
+**Updated**: 2026-03-08 11:40:49
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to 
 
 ## Progress
 
-- Tasks completed : 44 / 71
-- Last task       : `════════════════════════════════════════════════::Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py`
+- Tasks completed : 45 / 71
+- Last task       : `════════════════════════════════════════════════::Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py`
+**Task**: `[════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:40:04] [INFO] [40/71] SKIP (failed): [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:40:04] [INFO] [41/71] START: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:40:04] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:40:08] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:40:12] [INFO] [41/71] SKIP (failed): [════════════════════════════════════════════════] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:40:12] [INFO] [42/71] START: [════════════════════════════════════════════════] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
 [2026-03-08 11:40:12] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:40:38] [INFO] [45/71] START: [════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
 [2026-03-08 11:40:38] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
 [2026-03-08 11:40:41] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+[2026-03-08 11:40:46] [INFO] [45/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+[2026-03-08 11:40:46] [INFO] [46/71] START: [════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
+[2026-03-08 11:40:46] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
+[2026-03-08 11:40:49] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 ```
