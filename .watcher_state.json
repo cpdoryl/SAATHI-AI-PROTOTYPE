@@ -1,10 +1,33 @@
 {
   "completed_tasks": [
-    "P2-FE::PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx",
-    "P2-FE::PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx",
-    "P2-FE::PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add \"Book Appointment\" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx"
+    "HOW::Task title — context: what file, what problem, what expected result",
+    "HOW::Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx",
+    "HOW::Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py",
+    "════════════════════════════════════════════════::Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py",
+    "════════════════════════════════════════════════::Complete POST /api/v1/chat/session/{id}/end — fetch last 10 messages, call LLM to summarize, persist to TherapySession.session_summary, update status=COMPLETED, delete Redis key. File: therapeutic-copilot/server/services/therapeutic_ai_service.py",
+    "════════════════════════════════════════════════::Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py",
+    "P1-BE::Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status=\"paid\"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py",
+    "P1-BE::Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py",
+    "P1-BE::Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py",
+    "P1-BE::Complete LoRA adapter hot-swap API call in lora_model_service.py — POST to {LLAMA_CPP_SERVER_URL}/lora with adapter path on stage change. File: therapeutic-copilot/server/services/lora_model_service.py",
+    "P1-BE::Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py",
+    "P1-BE::Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py",
+    "P1-BE::Write test_auth.py — test login correct password→JWT, wrong password→401, unknown email→401, register→201, refresh→new token. File: therapeutic-copilot/server/tests/test_auth.py",
+    "P1-BE::Write test_rag.py — test ingest→Pinecone upsert, query→top-k chunks returned, wrong tenant→empty, fallback to default namespace. File: therapeutic-copilot/server/tests/test_rag.py",
+    "P1-BE::Write test_websocket.py — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens. File: therapeutic-copilot/server/tests/test_websocket.py",
+    "P1-BE::Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py",
+    "P1-BE::Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py",
+    "P4-RAG::Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py",
+    "P4-RAG::Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to \"default\" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py",
+    "P4-RAG::Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py",
+    "P6-DB::Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py",
+    "P6-DB::Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py",
+    "P7-TEST::Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py",
+    "P7-TEST::Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py",
+    "P7-TEST::Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py",
+    "P8-OPS::Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example"
   ],
   "current_task": null,
-  "session_started": "2026-03-08T15:29:45.727213",
-  "tasks_total": 48
+  "session_started": "2026-03-08T11:18:37.106746",
+  "tasks_total": 0
 }
