@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:39:55
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat pan
+**Updated**: 2026-03-08 11:40:01
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel
 
 ## Progress
 
-- Tasks completed : 38 / 71
-- Last task       : `════════════════════════════════════════════════::Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+- Tasks completed : 39 / 71
+- Last task       : `════════════════════════════════════════════════::Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+**Task**: `[════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:39:25] [INFO] [34/71] SKIP (failed): [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
-[2026-03-08 11:39:25] [INFO] [35/71] START: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
-[2026-03-08 11:39:25] [INFO] Invoking Claude: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
-[2026-03-08 11:39:28] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 [2026-03-08 11:39:31] [INFO] [35/71] SKIP (failed): [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 [2026-03-08 11:39:31] [INFO] [36/71] START: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 [2026-03-08 11:39:31] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:51] [INFO] [39/71] START: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:51] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:55] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:57] [INFO] [39/71] SKIP (failed): [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:57] [INFO] [40/71] START: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:57] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:40:01] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 ```
