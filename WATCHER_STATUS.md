@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:41:30
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — cou
+**Updated**: 2026-03-08 11:41:36
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — strati
 
 ## Progress
 
-- Tasks completed : 50 / 71
-- Last task       : `════════════════════════════════════════════════::Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total`
+- Tasks completed : 51 / 71
+- Last task       : `════════════════════════════════════════════════::Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total`
+**Task**: `[════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:40:54] [INFO] [46/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
-[2026-03-08 11:40:54] [INFO] [47/71] START: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
-[2026-03-08 11:40:54] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
-[2026-03-08 11:40:58] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:41:03] [INFO] [47/71] SKIP (failed): [════════════════════════════════════════════════] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 11:41:03] [INFO] [48/71] START: [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
 [2026-03-08 11:41:03] [INFO] Invoking Claude: [════════════════════════════════════════════════] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:41:26] [INFO] [51/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
 [2026-03-08 11:41:26] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
 [2026-03-08 11:41:30] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
+[2026-03-08 11:41:33] [INFO] [51/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
+[2026-03-08 11:41:33] [INFO] [52/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
+[2026-03-08 11:41:33] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
+[2026-03-08 11:41:36] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 ```
