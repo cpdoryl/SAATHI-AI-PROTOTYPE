@@ -58,7 +58,7 @@
 - [x] APScheduler dropout re-engagement cron
 - [x] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
 - [x] Complete POST /api/v1/chat/session/{id}/end — fetch last 10 messages, call LLM to summarize, persist to TherapySession.session_summary, update status=COMPLETED, delete Redis key. File: therapeutic-copilot/server/services/therapeutic_ai_service.py
-- [ ] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
+- [x] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
 - [ ] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
 - [ ] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 - [ ] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
