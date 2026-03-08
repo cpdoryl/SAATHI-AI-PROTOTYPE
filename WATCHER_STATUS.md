@@ -1,27 +1,22 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:24:42
-**Status**:  IN PROGRESS -- 2 done, 69 remaining
+**Updated**: 2026-03-08 11:26:40
+**Status**:  IN PROGRESS -- 3 done, 68 remaining
 
 ## Progress
 
-- Tasks completed : 2 / 71
+- Tasks completed : 3 / 71
 - Last task       : `None`
 
 ## Details
 
-**Just completed**: `[HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx`
+**Just completed**: `[HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py`
 
-**Up next**: `[HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py`
+**Up next**: `[════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py`
 
 ## Recent Log
 
 ```
-[2026-03-08 11:18:34] [INFO] Repo  : c:\saath ai prototype
-[2026-03-08 11:18:34] [INFO] Branch: main
-[2026-03-08 11:18:34] [INFO] Poll  : every 5 min for new tasks
-[2026-03-08 11:18:34] [INFO] Log   : c:\saath ai prototype\watcher.log
-[2026-03-08 11:18:34] [INFO] State : c:\saath ai prototype\.watcher_state.json
 [2026-03-08 11:18:34] [INFO] ============================================================
 [2026-03-08 11:18:34] [INFO] Runs all pending TASKS.md tasks in order. Resumes after restart.
 [2026-03-08 11:18:34] [INFO] Press Ctrl+C to stop cleanly.
@@ -37,4 +32,9 @@
 [2026-03-08 11:24:40] [WARN] Claude did not update TASKS.md -- force-marking.
 [2026-03-08 11:24:42] [WARN] Force-marked task done in TASKS.md: Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}
 [2026-03-08 11:24:42] [INFO] [2/71] DONE: [HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
+[2026-03-08 11:24:45] [INFO] [3/71] START: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
+[2026-03-08 11:24:45] [INFO] Invoking Claude: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
+[2026-03-08 11:26:37] [WARN] Claude did not update TASKS.md -- force-marking.
+[2026-03-08 11:26:40] [WARN] Force-marked task done in TASKS.md: Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by
+[2026-03-08 11:26:40] [INFO] [3/71] DONE: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
 ```
