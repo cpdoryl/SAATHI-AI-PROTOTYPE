@@ -7,8 +7,8 @@ import {
   BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts'
-import { Patient, CrisisAlert, Appointment } from '@/types'
-import { listPatients, getAnalyticsSummary, listAppointments, createAppointment, cancelAppointment } from '@/lib/api'
+import { Patient, CrisisAlert, Appointment, TherapySession, AssessmentResult } from '@/types'
+import { listPatients, getAnalyticsSummary, listAppointments, createAppointment, cancelAppointment, listPatientSessions, getAssessmentHistory } from '@/lib/api'
 
 // ─── Analytics data shapes ────────────────────────────────────────────────────
 
@@ -42,6 +42,7 @@ export function ClinicianDashboard() {
   const [crisisAlerts, setCrisisAlerts] = useState<CrisisAlert[]>([])
   const [activeTab, setActiveTab] = useState<'patients' | 'alerts' | 'analytics' | 'appointments'>('patients')
   const [loadingPatients, setLoadingPatients] = useState(true)
+  const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null)
 
   // Load patients from API on mount
   useEffect(() => {
@@ -97,6 +98,14 @@ export function ClinicianDashboard() {
         ))}
       </div>
 
+      {/* Patient detail drawer */}
+      {selectedPatient && (
+        <PatientDetailDrawer
+          patient={selectedPatient}
+          onClose={() => setSelectedPatient(null)}
+        />
+      )}
+
       {/* Content */}
       <main className="px-6 py-6">
         {activeTab === 'patients' && (
@@ -109,7 +118,7 @@ export function ClinicianDashboard() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {patients.map((p) => (
-                  <PatientCard key={p.id} patient={p} />
+                  <PatientCard key={p.id} patient={p} onClick={() => setSelectedPatient(p)} />
                 ))}
               </div>
             )}
@@ -803,10 +812,14 @@ function RiskBadge({ score }: { score: number }) {
   )
 }
 
-function PatientCard({ patient }: { patient: Patient }) {
+function PatientCard({ patient, onClick }: { patient: Patient; onClick: () => void }) {
   const stageColors = { lead: 'bg-yellow-100 text-yellow-800', active: 'bg-green-100 text-green-800', dropout: 'bg-red-100 text-red-800', archived: 'bg-gray-100 text-gray-600' }
   return (
-    <div className="bg-white rounded-lg shadow-sm p-4 border border-gray-100">
+    <button
+      type="button"
+      onClick={onClick}
+      className="w-full text-left bg-white rounded-lg shadow-sm p-4 border border-gray-100 hover:border-indigo-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all cursor-pointer"
+    >
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2 min-w-0">
           <h3 className="font-medium text-gray-900 truncate">{patient.fullName || 'Anonymous'}</h3>
@@ -817,7 +830,7 @@ function PatientCard({ patient }: { patient: Patient }) {
         </span>
       </div>
       <p className="text-xs text-gray-500">Last Active: {new Date(patient.lastActive).toLocaleDateString()}</p>
-    </div>
+    </button>
   )
 }
 
@@ -831,5 +844,251 @@ function CrisisAlertCard({ alert }: { alert: CrisisAlert }) {
       <p className="text-xs text-red-700">Keywords: {alert.detectedKeywords?.join(', ')}</p>
       <p className="text-xs text-red-600 mt-1">Session: {alert.sessionId}</p>
     </div>
+  )
+}
+
+// ─── Patient Detail Drawer ─────────────────────────────────────────────────────
+
+const SESSION_STATUS_COLORS: Record<string, string> = {
+  pending: 'bg-gray-100 text-gray-600',
+  in_progress: 'bg-blue-100 text-blue-700',
+  completed: 'bg-green-100 text-green-700',
+  crisis_escalated: 'bg-red-100 text-red-700',
+}
+
+function PatientDetailDrawer({
+  patient,
+  onClose,
+}: {
+  patient: Patient
+  onClose: () => void
+}) {
+  const [sessions, setSessions] = useState<TherapySession[]>([])
+  const [lastPhq9, setLastPhq9] = useState<AssessmentResult | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setLoading(true)
+    setError(null)
+    Promise.all([
+      listPatientSessions(patient.id),
+      getAssessmentHistory(patient.id),
+    ])
+      .then(([sessionsRes, assessmentsRes]) => {
+        const sessionList: TherapySession[] = sessionsRes.data.sessions ?? sessionsRes.data ?? []
+        setSessions(sessionList)
+
+        const assessments: AssessmentResult[] = assessmentsRes.data.assessments ?? assessmentsRes.data ?? []
+        const phq9List = assessments
+          .filter((a) => a.assessmentType?.toLowerCase().includes('phq'))
+          .sort((a, b) => new Date(b.administeredAt).getTime() - new Date(a.administeredAt).getTime())
+        setLastPhq9(phq9List[0] ?? null)
+      })
+      .catch(() => setError('Failed to load patient details.'))
+      .finally(() => setLoading(false))
+  }, [patient.id])
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [onClose])
+
+  const stageColors = {
+    lead: 'bg-yellow-100 text-yellow-800',
+    active: 'bg-green-100 text-green-800',
+    dropout: 'bg-red-100 text-red-800',
+    archived: 'bg-gray-100 text-gray-600',
+  }
+
+  const recentSessions = sessions.slice(0, 5)
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/30 z-40 transition-opacity"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Slide-over panel */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Patient details for ${patient.fullName}`}
+        className="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-xl flex flex-col"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+          <h2 className="text-base font-semibold text-gray-900">Patient Details</h2>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded p-1 transition-colors"
+            aria-label="Close drawer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Scrollable body */}
+        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+          {/* Patient info */}
+          <section>
+            <div className="flex items-center gap-3 mb-3">
+              {/* Avatar placeholder */}
+              <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                <span className="text-indigo-600 font-bold text-lg">
+                  {(patient.fullName || 'A').charAt(0).toUpperCase()}
+                </span>
+              </div>
+              <div className="min-w-0">
+                <p className="font-semibold text-gray-900 truncate">{patient.fullName || 'Anonymous'}</p>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${stageColors[patient.stage]}`}>
+                    {patient.stage}
+                  </span>
+                  <RiskBadge score={patient.dropoutRiskScore} />
+                </div>
+              </div>
+            </div>
+
+            <dl className="space-y-2 text-sm">
+              {patient.email && (
+                <div className="flex items-center gap-2">
+                  <dt className="text-gray-500 w-20 flex-shrink-0">Email</dt>
+                  <dd className="text-gray-800 truncate">{patient.email}</dd>
+                </div>
+              )}
+              {patient.phone && (
+                <div className="flex items-center gap-2">
+                  <dt className="text-gray-500 w-20 flex-shrink-0">Phone</dt>
+                  <dd className="text-gray-800">{patient.phone}</dd>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <dt className="text-gray-500 w-20 flex-shrink-0">Language</dt>
+                <dd className="text-gray-800 uppercase">{patient.language}</dd>
+              </div>
+              <div className="flex items-center gap-2">
+                <dt className="text-gray-500 w-20 flex-shrink-0">Last Active</dt>
+                <dd className="text-gray-800">
+                  {new Date(patient.lastActive).toLocaleDateString('en-IN', {
+                    day: 'numeric', month: 'short', year: 'numeric',
+                  })}
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          {/* Stats row */}
+          {loading ? (
+            <div className="flex items-center justify-center py-10">
+              <div className="w-7 h-7 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : error ? (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-700">
+              {error}
+            </div>
+          ) : (
+            <>
+              {/* KPI strip */}
+              <section className="grid grid-cols-3 gap-3">
+                <div className="bg-indigo-50 rounded-lg p-3 text-center">
+                  <p className="text-2xl font-bold text-indigo-600">{sessions.length}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Sessions</p>
+                </div>
+                <div className="bg-purple-50 rounded-lg p-3 text-center">
+                  <p className="text-2xl font-bold text-purple-600">
+                    {lastPhq9 ? lastPhq9.score : '—'}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5">Last PHQ-9</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-3 text-center">
+                  <p className="text-2xl font-bold text-gray-700">
+                    {(patient.dropoutRiskScore * 100).toFixed(0)}%
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5">Risk Score</p>
+                </div>
+              </section>
+
+              {/* PHQ-9 severity */}
+              {lastPhq9 && (
+                <section>
+                  <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                    PHQ-9 Assessment
+                  </h3>
+                  <div className="bg-white border border-gray-100 rounded-lg px-4 py-3 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-gray-800">
+                        Score: <span className="text-indigo-600">{lastPhq9.score}</span>
+                        <span className="ml-2 text-xs text-gray-500 font-normal capitalize">
+                          ({lastPhq9.severity})
+                        </span>
+                      </p>
+                      <p className="text-xs text-gray-400 mt-0.5">
+                        {new Date(lastPhq9.administeredAt).toLocaleDateString('en-IN', {
+                          day: 'numeric', month: 'short', year: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* Recent sessions */}
+              <section>
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                  Recent Sessions {sessions.length > 5 && `(showing 5 of ${sessions.length})`}
+                </h3>
+                {recentSessions.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center py-8 text-gray-400">
+                    <svg className="w-10 h-10 mb-2 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    <p className="text-sm">No sessions yet.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {recentSessions.map((s) => (
+                      <div
+                        key={s.id}
+                        className="bg-white border border-gray-100 rounded-lg px-4 py-3"
+                      >
+                        <div className="flex items-center justify-between mb-1">
+                          <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${SESSION_STATUS_COLORS[s.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                            {s.status.replace('_', ' ')}
+                          </span>
+                          <span className="text-xs text-gray-400">
+                            Stage {s.stage}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>
+                            {new Date(s.startedAt).toLocaleDateString('en-IN', {
+                              day: 'numeric', month: 'short', year: 'numeric',
+                            })}
+                          </span>
+                          {s.crisisScore > 0 && (
+                            <span className={`font-medium ${s.crisisScore > 0.7 ? 'text-red-600' : s.crisisScore >= 0.3 ? 'text-yellow-600' : 'text-gray-500'}`}>
+                              Crisis: {(s.crisisScore * 100).toFixed(0)}%
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            </>
+          )}
+        </div>
+      </div>
+    </>
   )
 }

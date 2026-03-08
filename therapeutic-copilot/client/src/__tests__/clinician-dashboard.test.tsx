@@ -4,7 +4,7 @@
  */
 import React from 'react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 
 // ─── Mock API + WebSocket ─────────────────────────────────────────────────────
 
@@ -14,6 +14,8 @@ vi.mock('@/lib/api', () => ({
   listAppointments: vi.fn(),
   createAppointment: vi.fn(),
   cancelAppointment: vi.fn(),
+  listPatientSessions: vi.fn(),
+  getAssessmentHistory: vi.fn(),
 }))
 
 // Prevent real WebSocket connections in tests
@@ -99,6 +101,128 @@ describe('ClinicianDashboard — Patients tab', () => {
       const badge = screen.getByText('10% risk')
       expect(badge.className).toContain('bg-green-100')
       expect(badge.className).toContain('text-green-700')
+    })
+  })
+})
+
+// ─── Patient Detail Drawer tests ───────────────────────────────────────────────
+
+describe('PatientDetailDrawer', () => {
+  const patient = {
+    id: 'p42',
+    fullName: 'Priya Nair',
+    stage: 'active' as const,
+    dropoutRiskScore: 0.4,
+    lastActive: '2026-03-01T10:00:00Z',
+    language: 'hi',
+    email: 'priya@test.com',
+    phone: '9876543210',
+  }
+
+  const mockSessions = [
+    {
+      id: 's1',
+      patientId: 'p42',
+      stage: 1,
+      currentStep: 3,
+      status: 'completed',
+      crisisScore: 0.1,
+      startedAt: '2026-02-28T09:00:00Z',
+    },
+    {
+      id: 's2',
+      patientId: 'p42',
+      stage: 2,
+      currentStep: 1,
+      status: 'in_progress',
+      crisisScore: 0,
+      startedAt: '2026-03-01T10:00:00Z',
+    },
+  ]
+
+  const mockAssessments = [
+    {
+      id: 'a1',
+      patientId: 'p42',
+      assessmentType: 'phq9',
+      score: 14,
+      severity: 'moderate',
+      administeredAt: '2026-02-25T08:00:00Z',
+    },
+  ]
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.mocked(api.listPatients).mockResolvedValue({
+      data: { patients: [patient] },
+    } as never)
+    vi.mocked(api.listPatientSessions).mockResolvedValue({
+      data: { sessions: mockSessions },
+    } as never)
+    vi.mocked(api.getAssessmentHistory).mockResolvedValue({
+      data: { assessments: mockAssessments },
+    } as never)
+  })
+
+  it('opens drawer when a patient card is clicked', async () => {
+    render(<ClinicianDashboard />)
+    await waitFor(() => expect(screen.getByText('Priya Nair')).toBeDefined())
+
+    fireEvent.click(screen.getByText('Priya Nair'))
+
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeDefined()
+      expect(screen.getByText('Patient Details')).toBeDefined()
+    })
+  })
+
+  it('drawer shows session count after loading', async () => {
+    render(<ClinicianDashboard />)
+    await waitFor(() => expect(screen.getByText('Priya Nair')).toBeDefined())
+
+    fireEvent.click(screen.getByText('Priya Nair'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Sessions')).toBeDefined()
+      // session count kpi
+      expect(screen.getByText('2')).toBeDefined()
+    })
+  })
+
+  it('drawer shows last PHQ-9 score', async () => {
+    render(<ClinicianDashboard />)
+    await waitFor(() => expect(screen.getByText('Priya Nair')).toBeDefined())
+
+    fireEvent.click(screen.getByText('Priya Nair'))
+
+    await waitFor(() => {
+      expect(screen.getByText('14')).toBeDefined()
+      expect(screen.getByText('Last PHQ-9')).toBeDefined()
+    })
+  })
+
+  it('drawer closes when close button is clicked', async () => {
+    render(<ClinicianDashboard />)
+    await waitFor(() => expect(screen.getByText('Priya Nair')).toBeDefined())
+
+    fireEvent.click(screen.getByText('Priya Nair'))
+    await waitFor(() => expect(screen.getByRole('dialog')).toBeDefined())
+
+    fireEvent.click(screen.getByLabelText('Close drawer'))
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+    })
+  })
+
+  it('drawer shows patient email and phone', async () => {
+    render(<ClinicianDashboard />)
+    await waitFor(() => expect(screen.getByText('Priya Nair')).toBeDefined())
+
+    fireEvent.click(screen.getByText('Priya Nair'))
+
+    await waitFor(() => {
+      expect(screen.getByText('priya@test.com')).toBeDefined()
+      expect(screen.getByText('9876543210')).toBeDefined()
     })
   })
 })
