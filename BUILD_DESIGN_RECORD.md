@@ -1596,6 +1596,40 @@ python scripts/setup_db.py
 
 ---
 
+---
+
+## Session: 2026-03-08 — AuditLog Model + Alembic Migration (P1-BE)
+
+### Task Completed
+Added `AuditLog` SQLAlchemy ORM model to `models.py` and created a new Alembic migration to create the `audit_logs` table.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/models.py` | Added `AuditLog` model class |
+| `therapeutic-copilot/server/alembic/versions/20260308_1100_7c4e9f2a1b8d_add_audit_logs.py` | New migration: creates `audit_logs` table with indexes |
+
+### Design Decision
+The `audit_logs` table is a security requirement for HIPAA-adjacent compliance. It records every actor action (login, view_patient, export_data) with actor ID, action name, resource reference, and client IP. No foreign key constraint on `actor_id` was added deliberately — this allows logging system-initiated actions (actor_id='system') and preserves audit records even if the referenced clinician is deleted.
+
+### Migration Pattern
+The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the existing project pattern:
+- Manual migration file rather than auto-generated, for clarity and review
+- Added two indexes (`ix_audit_logs_actor_id`, `ix_audit_logs_created_at`) for hot query paths: per-actor audit trails and time-range log exports
+- Full `downgrade()` implemented: drops indexes then table in correct order
+
+### Model Fields
+| Field | Type | Purpose |
+|-------|------|---------|
+| `id` | String UUID PK | Unique log entry |
+| `actor_id` | String | Clinician UUID or `'system'` |
+| `action` | String(100) | `'login'`\|`'view_patient'`\|`'export_data'` |
+| `resource` | String(100) | `'patient:uuid'`\|`'session:uuid'` |
+| `ip_address` | String(45) | IPv4 or IPv6 (max 45 chars covers IPv6) |
+| `created_at` | DateTime | Auto-set to `utcnow` on insert |
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
