@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:42:32
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test da
+**Updated**: 2026-03-08 11:42:39
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade he
 
 ## Progress
 
-- Tasks completed : 58 / 71
-- Last task       : `════════════════════════════════════════════════::Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
+- Tasks completed : 59 / 71
+- Last task       : `════════════════════════════════════════════════::Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
+**Task**: `[════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:41:56] [INFO] [54/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 11:41:56] [INFO] [55/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 11:41:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 11:42:00] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 11:42:07] [INFO] [55/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 11:42:07] [INFO] [56/71] START: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:42:07] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:28] [INFO] [59/71] START: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 11:42:28] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 11:42:32] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 11:42:36] [INFO] [59/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 11:42:36] [INFO] [60/71] START: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 11:42:36] [INFO] Invoking Claude: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 11:42:39] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 ```
