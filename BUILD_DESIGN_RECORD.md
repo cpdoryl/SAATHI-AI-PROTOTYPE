@@ -826,6 +826,54 @@ claude_cmd = r"C:\Users\B P Verma\AppData\Roaming\npm\claude.cmd"
 
 ---
 
+## SESSION 6 — 2026-03-08 — CHATWIDGET WEBSOCKET TOKEN STREAMING
+
+### Task Completed
+Complete ChatWidget WebSocket token streaming — connect to `/ws/chat/{session_id}`, receive
+tokens, append to message bubble in real time. Includes crisis banner and session end modal.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/client/src/hooks/useChat.ts` | Full rewrite — streaming protocol, crisis state, endSession |
+| `therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx` | Full rewrite — streaming bubble, crisis banner, summary modal |
+
+### Design Decisions
+
+**1. Dual-protocol WebSocket handler**
+The backend may send either the new streaming protocol (`token` / `done` / `crisis` events)
+or the legacy protocol (`AI_TYPING` / `AI_RESPONSE` / `CRISIS_ALERT`). The hook handles both
+transparently so no backend change is required for the demo to work.
+
+**2. Streaming placeholder pattern**
+When `sendMessage()` is called, a placeholder `ChatMessage` with `content: ""` and a stable
+`streamId` is inserted into the messages array immediately. Incoming `token` events find this
+message by `streamId` via `streamingIdRef` and append each token in place. This avoids a
+full array re-render per token — only the targeted message object changes.
+
+**3. Blinking cursor vs animated dots**
+- Content is empty (waiting for first token): show 3 bouncing dots (standard chat UX).
+- Content is non-empty and streaming: show a blinking `|` cursor appended to the last char.
+- Stream done: cursor disappears, message is finalized.
+
+**4. Dynamic WebSocket URL**
+`getWsBase()` reads `VITE_WS_URL` env var first, then falls back to
+`ws(s)://window.location.host`. This means the widget works in dev (localhost:8000),
+staging, and production without code changes.
+
+**5. Crisis banner UX**
+The crisis banner renders as an `absolute inset-0 z-50` overlay inside the widget container
+so it cannot be accidentally missed. Default Indian helplines (iCALL, Vandrevala, AASRA)
+are shown if the backend provides no `resources` array. The user must click "I'm safe —
+continue" to dismiss it.
+
+**6. Session end modal**
+The "End session" button in the header calls `POST /api/v1/sessions/{id}/summary` via the
+`endSession()` hook function (also sends `END_SESSION` over WebSocket). The modal shows
+a loading spinner, then summary text + key insights + crisis score.
+
+---
+
 ## SUMMARY — TOTAL BUILD OUTPUT
 
 | Phase | Date | Tasks | Commits | Files Changed |
@@ -835,7 +883,8 @@ claude_cmd = r"C:\Users\B P Verma\AppData\Roaming\npm\claude.cmd"
 | Session 3 — P1 Polish | 2026-03-07 | 5 | 5 | payments, calendar, dashboard, assessment, inference |
 | Session 4 — Watcher | 2026-03-07 | 4 fixes | 4 | github_watcher.py |
 | Session 5 — P2 Prod | 2026-03-08 | 6 | 6 | middleware, session, scheduler, rag, inference |
-| **Total** | | **24** | **~32** | **~50 files modified** |
+| Session 6 — ChatWidget streaming | 2026-03-08 | 3 | 2 | useChat.ts, ChatWidget.tsx |
+| **Total** | | **27** | **~34** | **~52 files modified** |
 
 ---
 
