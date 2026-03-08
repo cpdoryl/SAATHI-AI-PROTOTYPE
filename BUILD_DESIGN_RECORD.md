@@ -1633,3 +1633,46 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
+
+---
+
+## Session: 2026-03-08 — ClinicianDashboard Appointments Tab
+
+**Task**: [P2-FE] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form.
+
+**Files Changed**:
+- `therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx` — added `AppointmentsTab` and `AppointmentRow` components; extended `activeTab` union type to include `'appointments'`
+- `therapeutic-copilot/client/src/__tests__/appointments.test.tsx` — created; 14 tests covering all new functionality
+
+**Design Decisions**:
+
+1. **Weekly calendar as a 7-column CSS grid** — `grid-cols-7 divide-x` gives a lightweight, dependency-free calendar without a heavy library. Appointments are filtered client-side to the correct day using date comparison, keeping the API call simple (one `GET /appointments` for all appointments).
+
+2. **`getWeekStart` always returns Monday** — ISO week convention. The `today` highlight uses `date.getTime()` comparison at midnight precision to avoid timezone edge cases.
+
+3. **`AppointmentRow` extracted as separate component** — keeps `AppointmentsTab` render tree readable and isolates the cancel-button logic (disabled state, per-row spinner via `cancellingId`).
+
+4. **Optimistic cancel update** — on `cancelAppointment` success the local state immediately reflects `status: 'cancelled'` without a refetch, giving instant UI feedback. If the call fails a toast error is shown and the row stays `scheduled/confirmed`.
+
+5. **Form payload shape** — field names use snake_case (`patient_id`, `clinician_id`, `scheduled_at`) to match the backend API contract directly, avoiding any transform layer.
+
+6. **`clinician_id` sourced from `localStorage.getItem('clinician_id')`** — consistent with the existing WebSocket and auth patterns in the same file.
+
+7. **Toast auto-dismiss at 4 s via `useEffect` cleanup** — matches UX standards in `FRONTEND_BLUEPRINT.md` (section 8: "auto-dismiss 4s").
+
+**Algorithm / Pattern**:
+- `getWeekStart(date)`: shift to Monday → `day === 0 ? -6 : 1 - day`
+- `getWeekDays(weekStart)`: `Array.from({length: 7}, (_, i) => date + i days)`
+- `appointmentsOnDay(day)`: filter by year/month/date equality (avoids timezone string comparison)
+- Inline form validation before API call: patientId required, scheduledAt required, durationMinutes ≥ 15, amountInr ≥ 0
+
+**Test Strategy**:
+- All API calls mocked with `vi.mock('@/lib/api')`
+- WebSocket stubbed to prevent jsdom errors
+- Recharts mocked to avoid canvas/SVG jsdom failures
+- Tests cover: render, API call, list display, loading state, error state, empty state, form open, inline validation, create submit, cancel action, calendar headers
+
+---
+
+*Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
+*Company: RYL NEUROACADEMY PRIVATE LIMITED*
