@@ -104,13 +104,71 @@ def fetch_remote_tasks() -> tuple:
 
 
 def pull_latest():
+    """
+    Pull latest from remote.
+
+    Handles the case where .watcher_state.json exists locally as untracked
+    but is tracked on the remote — git pull would fail with
+    "untracked file would be overwritten by merge".
+
+    Strategy:
+      1. Save local state to memory.
+      2. Stage + stash ONLY the state file so git pull can proceed.
+      3. Pull.
+      4. Merge remote state with the local backup (union of completed_tasks).
+    """
+    # -- Save local state before touching anything --------------------------
+    local_state = None
+    stashed     = False
+    if STATE_FILE.exists():
+        try:
+            local_state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+        # Stage it so git stash can take it (works whether tracked or not)
+        git(["add", "--", str(STATE_FILE)])
+        stash_r = git(["stash", "push", "-m", "watcher-state-pre-pull",
+                       "--", str(STATE_FILE)])
+        stashed = stash_r.returncode == 0 and "No local changes" not in stash_r.stdout
+
+    # -- Pull ---------------------------------------------------------------
     result = git(["pull", "--ff-only", "origin", BRANCH])
     if result.returncode != 0:
         log(f"Pull failed: {result.stderr.strip()}", "WARN")
 
+    # -- Restore / merge state ---------------------------------------------
+    if stashed:
+        git(["stash", "pop"])   # restore local state file
+
+    if local_state:
+        # Merge: union of completed_tasks from both local and remote
+        try:
+            remote_state = load_state()
+            merged_keys  = list({
+                *local_state.get("completed_tasks", []),
+                *remote_state.get("completed_tasks", []),
+            })
+            remote_state["completed_tasks"]  = merged_keys
+            remote_state["tasks_total"]      = max(
+                local_state.get("tasks_total", 0),
+                remote_state.get("tasks_total", 0),
+            )
+            if not remote_state.get("session_started"):
+                remote_state["session_started"] = local_state.get("session_started")
+            save_state(remote_state)
+        except Exception as e:
+            log(f"State merge warning: {e}", "WARN")
+            save_state(local_state)   # fall back to local
+
 
 def commit_and_push(files: list, message: str) -> bool:
-    """Stage specified files, commit, push. Returns True on success."""
+    """
+    Stage specified files, commit, push. Returns True on success.
+
+    If push is rejected (local behind remote), automatically rebase on
+    origin and retry once — handles the case where pull_latest() partially
+    failed and remote has newer commits.
+    """
     for f in files:
         git(["add", "--", f])
     r = git(["commit", "-m", message])
@@ -119,11 +177,27 @@ def commit_and_push(files: list, message: str) -> bool:
             return True
         log(f"Commit failed: {r.stderr.strip()}", "WARN")
         return False
+
     r2 = git(["push", "origin", BRANCH])
-    if r2.returncode != 0:
-        log(f"Push failed: {r2.stderr.strip()}", "WARN")
-        return False
-    return True
+    if r2.returncode == 0:
+        return True
+
+    # Push rejected — try rebase on remote then push again
+    push_err = r2.stderr.strip()
+    if "non-fast-forward" in push_err or "rejected" in push_err:
+        log("Push rejected (behind remote). Rebasing on origin and retrying...", "WARN")
+        rb = git(["pull", "--rebase", "origin", BRANCH])
+        if rb.returncode != 0:
+            log(f"Rebase failed: {rb.stderr.strip()}", "WARN")
+            return False
+        r3 = git(["push", "origin", BRANCH])
+        if r3.returncode != 0:
+            log(f"Push failed after rebase: {r3.stderr.strip()}", "WARN")
+            return False
+        return True
+
+    log(f"Push failed: {push_err}", "WARN")
+    return False
 
 # ---------------------------------------------------------------------------
 # State persistence  (.watcher_state.json)
@@ -569,19 +643,81 @@ def force_mark_task_done(task: dict):
 # Main task queue runner
 # ---------------------------------------------------------------------------
 
-def run_task_queue():
+def reconcile_tasks_md(completed_keys: set, content: str) -> str:
+    """
+    TASKS.md source-of-truth reconciliation.
+
+    Problem: state file may list tasks as 'completed' that are still
+    marked - [ ] in TASKS.md (Claude ran them but forgot to update the file,
+    or the task was skipped-as-failed). This causes the watcher to see
+    "no pending tasks" while GitHub shows unchecked items.
+
+    Fix: for every key in completed_keys, if TASKS.md still shows - [ ] task,
+    force it to - [x] task, commit and push, so TASKS.md stays accurate.
+
+    Returns the updated file content.
+    """
+    dirty = False
+    new_content = content
+
+    for key in completed_keys:
+        # key format: "PHASE::task text"
+        if "::" not in key:
+            continue
+        task_text = key.split("::", 1)[1]
+        unchecked = f"- [ ] {task_text}"
+        checked   = f"- [x] {task_text}"
+        if unchecked in new_content:
+            new_content = new_content.replace(unchecked, checked, 1)
+            dirty = True
+            log(f"Reconcile: fixing unchecked entry in TASKS.md: {task_text[:70]}", "WARN")
+
+    if dirty:
+        try:
+            TASKS_FILE.write_text(new_content, encoding="utf-8")
+            commit_and_push(
+                [str(TASKS_FILE)],
+                "chore(tasks): reconcile -- mark completed tasks [x] in TASKS.md",
+            )
+            log("TASKS.md reconciliation committed and pushed.")
+        except Exception as e:
+            log(f"Reconcile commit failed: {e}", "WARN")
+
+    return new_content
+
+
+def run_task_queue(remote_content: str = ""):
     """
     Pull all pending tasks from TASKS.md in document order.
     Execute one task at a time. Persist state after each task.
     On resume, skip already-completed tasks.
+
+    remote_content: the already-fetched remote TASKS.md content from
+    fetch_remote_tasks(). Using this avoids re-reading a stale local file
+    when git pull fails.
     """
     state = load_state()
     completed_keys = set(state.get("completed_tasks", []))
 
-    # Pull latest code before scanning
+    # Pull latest code (handles untracked .watcher_state.json gracefully)
     pull_latest()
 
-    content = TASKS_FILE.read_text(encoding="utf-8", errors="replace")
+    # Use remote content if provided (already fetched before pull attempt).
+    # Fall back to local file only if remote content is empty.
+    if remote_content:
+        content = remote_content
+    else:
+        try:
+            content = TASKS_FILE.read_text(encoding="utf-8", errors="replace")
+        except Exception as e:
+            log(f"Cannot read TASKS.md: {e}", "ERROR")
+            return
+
+    # ── Reconciliation pass ────────────────────────────────────────────────
+    # Fix TASKS.md for any task that is in completed_keys but still - [ ].
+    # This keeps TASKS.md accurate and prevents false "all done" reports.
+    content = reconcile_tasks_md(completed_keys, content)
+
     all_pending = extract_ordered_pending_tasks(content)
 
     # Remove tasks already done in previous runs
@@ -766,7 +902,7 @@ def main():
 
     while True:
         try:
-            remote_hash, _remote_content = fetch_remote_tasks()
+            remote_hash, remote_content = fetch_remote_tasks()
 
             if last_hash != remote_hash:
                 if last_hash is None:
@@ -775,7 +911,9 @@ def main():
                     log("TASKS.md changed on GitHub -- rescanning tasks...")
 
                 last_hash = remote_hash
-                run_task_queue()
+                # Pass the already-fetched remote content so run_task_queue
+                # doesn't fall back to a stale local file if pull fails.
+                run_task_queue(remote_content=remote_content)
 
             else:
                 log(f"No changes on GitHub. Next check in {POLL_INTERVAL // 60} min.")
