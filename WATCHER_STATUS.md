@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:42:17
-**Status**:  TASK FAILED -- [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time
+**Updated**: 2026-03-08 15:42:22
+**Status**:  TASK FAILED -- [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime sta
 
 ## Progress
 
 - Tasks completed : 67 / 48
-- Last task       : `P7-TEST::Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md`
+- Last task       : `P8-OPS::Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md`
+**Task**: `[P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:41:57] [INFO] [11/20] SKIP (failed): [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
-[2026-03-08 15:41:57] [INFO] [12/20] START: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
-[2026-03-08 15:41:57] [INFO] Invoking Claude: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
-[2026-03-08 15:41:59] [ERROR] Claude FAILED for: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 15:42:03] [INFO] [12/20] SKIP (failed): [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 15:42:03] [INFO] [13/20] START: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
 [2026-03-08 15:42:03] [INFO] Invoking Claude: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 15:42:16] [INFO] [16/20] START: [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 [2026-03-08 15:42:16] [INFO] Invoking Claude: [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 [2026-03-08 15:42:17] [ERROR] Claude FAILED for: [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
+[2026-03-08 15:42:21] [INFO] [16/20] SKIP (failed): [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
+[2026-03-08 15:42:21] [INFO] [17/20] START: [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
+[2026-03-08 15:42:21] [INFO] Invoking Claude: [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
+[2026-03-08 15:42:22] [ERROR] Claude FAILED for: [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
 ```
