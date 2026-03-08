@@ -923,6 +923,71 @@ GET /api/v1/chat/session/{session_id}
 
 ---
 
+## SESSION 8 — 2026-03-08 — CHAT SESSION END WITH AI SUMMARY
+
+### Task Completed
+Complete `POST /api/v1/chat/session/{id}/end` — was returning a hardcoded placeholder string.
+Now fetches the last 10 messages, calls the LLM for a structured clinical summary + insights,
+persists both fields to the DB, marks session COMPLETED, and deletes the Redis cache entry.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/services/therapeutic_ai_service.py` | Added `end_session()` method with full LLM summarisation pipeline |
+| `therapeutic-copilot/server/routes/chat_routes.py` | Replaced placeholder return with `service.end_session()` call |
+
+### Design Decisions
+
+**Idempotency**: If `session.status == COMPLETED` and `session_summary` is already set,
+`end_session()` returns the cached summary immediately without a second LLM call.
+This prevents double-billing API tokens if the endpoint is called twice.
+
+**Message fetch order**: Fetched with `ORDER BY created_at DESC LIMIT 10` then reversed
+in Python — one DB round-trip, chronological order for the LLM prompt.
+
+**Structured LLM prompt**: The prompt requests a strict JSON response with two keys:
+`"summary"` (2-4 sentence narrative) and `"insights"` (object with `primary_concerns`,
+`therapeutic_techniques_used`, `patient_engagement`, `recommended_followup`).
+This maps directly to `TherapySession.session_summary` (Text) and `ai_insights` (JSON column).
+
+**JSON parse fallback**: If the LLM response cannot be parsed as JSON (model hallucination,
+network truncation), the raw text is stored as `session_summary` and `ai_insights` is set
+to `{}`. Session is still marked COMPLETED — no exception is raised to the caller.
+
+**Markdown fence stripping**: Before JSON parsing, a regex strips ` ```json ... ``` ` or
+` ``` ... ``` ` wrappers that some LLM backends add. Ensures compatibility with Together AI
+and llama.cpp which sometimes wrap JSON in code fences.
+
+**Redis cleanup**: `redis_session_store.delete_session(session_id)` is called after DB commit.
+Failures in Redis deletion are logged as warnings but do not fail the request — the session
+is already COMPLETED in DB (source of truth).
+
+**Error surface**: `ValueError` from the service (session not found) → HTTP 404.
+Any other exception → HTTP 500. Both are logged with Loguru before raising.
+
+### Algorithm
+```
+POST /api/v1/chat/session/{session_id}/end
+  1. SELECT * FROM therapy_sessions WHERE id = session_id → scalar_one_or_none()
+  2. If None → raise ValueError → HTTP 404
+  3. If status == COMPLETED and session_summary → return cached {summary, insights}
+  4. SELECT * FROM chat_messages WHERE session_id ORDER BY created_at DESC LIMIT 10
+  5. Reverse list for chronological order
+  6. Build summarisation prompt: transcript + structured JSON instruction
+  7. llm.generate(prompt, stage, max_tokens=1024)
+  8. Strip markdown code fences; json.loads(); extract summary + insights
+  9. On JSONDecodeError: store raw response as summary, insights = {}
+ 10. session.session_summary = summary_text
+     session.ai_insights = ai_insights
+     session.status = SessionStatus.COMPLETED
+     session.ended_at = datetime.utcnow()
+ 11. db.commit()
+ 12. redis_session_store.delete_session(session_id)
+ 13. Return {"summary": summary_text, "insights": ai_insights}
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
