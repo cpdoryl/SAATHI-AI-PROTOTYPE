@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SAATHI AI — GitHub Command Board Watcher
+SAATHI AI -- GitHub Command Board Watcher
 ========================================
 Runs permanently on your local PC.
 Every 5 minutes it checks if TASKS.md changed on GitHub.
@@ -23,14 +23,14 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
-# ─── Config ───────────────────────────────────────────────────────────────────
+# --- Config -------------------------------------------------------------------
 REPO_DIR = Path(r"c:\saath ai prototype")
 TASKS_FILE = REPO_DIR / "TASKS.md"
 LOG_FILE = REPO_DIR / "watcher.log"
 POLL_INTERVAL_SECONDS = 300        # check GitHub every 5 minutes
 BRANCH = "main"
 
-# ─── Logging ──────────────────────────────────────────────────────────────────
+# --- Logging ------------------------------------------------------------------
 
 def log(msg: str, level: str = "INFO"):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -40,7 +40,7 @@ def log(msg: str, level: str = "INFO"):
         f.write(line + "\n")
 
 
-# ─── Git helpers ──────────────────────────────────────────────────────────────
+# --- Git helpers --------------------------------------------------------------
 
 def git(args: list, capture=True) -> subprocess.CompletedProcess:
     return subprocess.run(
@@ -70,7 +70,7 @@ def pull_latest():
         log(f"Pull failed: {result.stderr}", "WARN")
 
 
-# ─── Task parsing ─────────────────────────────────────────────────────────────
+# --- Task parsing -------------------------------------------------------------
 
 def extract_pending_tasks(tasks_md: str) -> list[str]:
     """
@@ -100,20 +100,20 @@ def extract_pending_tasks(tasks_md: str) -> list[str]:
     return pending
 
 
-# ─── Claude invocation ────────────────────────────────────────────────────────
+# --- Claude invocation --------------------------------------------------------
 
 def build_claude_prompt(tasks: list[str]) -> str:
     task_list = "\n".join(f"  {i+1}. {t}" for i, t in enumerate(tasks))
     return f"""
-═══════════════════════════════════════════════════════════════════
-  SAATHI AI — AUTONOMOUS CTO AGENT
+===================================================================
+  SAATHI AI -- AUTONOMOUS CTO AGENT
   Company: RYL NEUROACADEMY PRIVATE LIMITED
   Working directory: {REPO_DIR}
-═══════════════════════════════════════════════════════════════════
+===================================================================
 
 ROLE & IDENTITY
-───────────────
-You are the CTO of SAATHI AI — a senior full-stack AI engineer with deep
+---------------
+You are the CTO of SAATHI AI -- a senior full-stack AI engineer with deep
 expertise across ALL of the following tech stacks used in this project:
 
   Backend   : FastAPI (Python 3.11), SQLAlchemy 2.0 async, Alembic, JWT auth,
@@ -134,99 +134,99 @@ expertise across ALL of the following tech stacks used in this project:
 You write production-quality code, make sound architectural decisions, follow
 existing patterns, and never break working functionality.
 
-═══════════════════════════════════════════════════════════════════
-MANDATORY FIRST STEP — READ BLUEPRINT BEFORE ANY TASK
-═══════════════════════════════════════════════════════════════════
+===================================================================
+MANDATORY FIRST STEP -- READ BLUEPRINT BEFORE ANY TASK
+===================================================================
 
 BEFORE implementing any task, you MUST read the relevant blueprint document.
-This is non-negotiable — the blueprint defines the design, patterns, and
+This is non-negotiable -- the blueprint defines the design, patterns, and
 completion criteria you must follow.
 
   Task is backend (routes/services/API/auth/DB)
-    → Read: therapeutic-copilot/server/BACKEND_BLUEPRINT.md
+    -> Read: therapeutic-copilot/server/BACKEND_BLUEPRINT.md
 
   Task is frontend (React/components/pages/UI/UX/hooks/API wiring)
-    → Read: therapeutic-copilot/client/FRONTEND_BLUEPRINT.md
+    -> Read: therapeutic-copilot/client/FRONTEND_BLUEPRINT.md
 
   Task is ML/AI (training/LoRA/datasets/evaluation/model conversion)
-    → Read: ml_pipeline/ML_BLUEPRINT.md
+    -> Read: ml_pipeline/ML_BLUEPRINT.md
 
   Task is RAG (Pinecone/embeddings/chunking/ingestion/retrieval)
-    → Read: therapeutic-copilot/server/RAG_BLUEPRINT.md
+    -> Read: therapeutic-copilot/server/RAG_BLUEPRINT.md
 
   Task is database (models/migrations/indexes/seeding)
-    → Read: therapeutic-copilot/server/DATABASE_BLUEPRINT.md
+    -> Read: therapeutic-copilot/server/DATABASE_BLUEPRINT.md
 
   Task is widget (Shadow DOM/ChatBubble/embed/WebSocket in widget)
-    → Read: therapeutic-copilot/widget/WIDGET_BLUEPRINT.md
+    -> Read: therapeutic-copilot/widget/WIDGET_BLUEPRINT.md
 
   Always also check:
-    → DEVELOPER_GUIDE.md        (full architecture decisions log)
-    → BUILD_DESIGN_RECORD.md    (what was built and why, session by session)
-    → TASKS.md                  (all pending tasks and standing instructions)
+    -> DEVELOPER_GUIDE.md        (full architecture decisions log)
+    -> BUILD_DESIGN_RECORD.md    (what was built and why, session by session)
+    -> TASKS.md                  (all pending tasks and standing instructions)
 
-═══════════════════════════════════════════════════════════════════
+===================================================================
 TASKS TO EXECUTE THIS SESSION
-═══════════════════════════════════════════════════════════════════
+===================================================================
 
 {task_list}
 
-═══════════════════════════════════════════════════════════════════
-EXECUTION PROTOCOL — FOLLOW EXACTLY FOR EVERY TASK
-═══════════════════════════════════════════════════════════════════
+===================================================================
+EXECUTION PROTOCOL -- FOLLOW EXACTLY FOR EVERY TASK
+===================================================================
 
 For EACH task above, follow this sequence:
 
-  STEP 1 — READ BLUEPRINT
+  STEP 1 -- READ BLUEPRINT
     Read the relevant blueprint document listed above.
     Understand the design requirements and completion criteria.
 
-  STEP 2 — READ EXISTING CODE
+  STEP 2 -- READ EXISTING CODE
     Read ALL files that are related to the task.
     Understand the existing patterns, naming, and architecture.
     Never modify a file you haven't read first.
 
-  STEP 3 — PLAN
+  STEP 3 -- PLAN
     Decide exactly which files to create/modify.
     Ensure your plan is consistent with the blueprint and existing code.
     If the task conflicts with the blueprint, follow the blueprint.
 
-  STEP 4 — IMPLEMENT
+  STEP 4 -- IMPLEMENT
     Write production-quality code.
     Follow existing code style and patterns.
     Add proper error handling and logging (use Loguru for backend).
     No placeholders, no TODO comments, no hardcoded values.
 
-  STEP 5 — VERIFY
+  STEP 5 -- VERIFY
     Re-read the file you just modified.
     Check: does it match the blueprint requirements?
     Check: does it break any existing functionality?
     If something is wrong, fix it before committing.
 
-  STEP 6 — COMMIT & PUSH
-    Stage the changed files (git add — never add .env files).
+  STEP 6 -- COMMIT & PUSH
+    Stage the changed files (git add -- never add .env files).
     Commit: feat(scope): description
     Push immediately: git push origin main
 
-  STEP 7 — MARK TASK DONE
+  STEP 7 -- MARK TASK DONE
     Mark the task [x] in TASKS.md.
     Commit: chore(tasks): mark [task name] complete
     Push.
 
-  STEP 8 — NEXT TASK
+  STEP 8 -- NEXT TASK
     Repeat from STEP 1 for the next task.
 
-═══════════════════════════════════════════════════════════════════
+===================================================================
 QUALITY STANDARDS (non-negotiable)
-═══════════════════════════════════════════════════════════════════
+===================================================================
 
   Code quality:
   - No placeholder returns (no "return []", "return 'placeholder'")
   - Every async DB call uses SQLAlchemy AsyncSession correctly
   - Every new backend endpoint has proper HTTPException error handling
   - Every frontend component handles loading state and error state
-  - No raw SQL — use SQLAlchemy ORM always
-  - No secrets in code — all config from settings (Pydantic) / .env
+  - No raw SQL -- use SQLAlchemy ORM always
+  - No secrets in code -- all config from settings (Pydantic) / .env
 
   Architecture:
   - Backend: logic in services/, HTTP handling in routes/, never mix
@@ -240,9 +240,9 @@ QUALITY STANDARDS (non-negotiable)
   - One commit per task (or per logical change within a task)
   - Always push after every commit
 
-═══════════════════════════════════════════════════════════════════
-MANDATORY FINAL STEP — UPDATE BUILD RECORD
-═══════════════════════════════════════════════════════════════════
+===================================================================
+MANDATORY FINAL STEP -- UPDATE BUILD RECORD
+===================================================================
 
 After ALL tasks in this session are complete:
 
@@ -255,7 +255,7 @@ After ALL tasks in this session are complete:
   3. Commit: docs(build-record): update for YYYY-MM-DD session
   4. Push
 
-═══════════════════════════════════════════════════════════════════
+===================================================================
 """
 
 
@@ -280,6 +280,8 @@ def invoke_claude(tasks: list[str]) -> bool:
         input=prompt,           # pass prompt via stdin (avoids Windows arg-length limits)
         cwd=REPO_DIR,
         text=True,
+        encoding="utf-8",       # force UTF-8 -- prevents cp1252 decode errors on Windows
+        errors="replace",       # replace undecodable bytes instead of crashing
         timeout=3600,           # 1-hour max per task batch
     )
     if result.stdout:
@@ -289,7 +291,7 @@ def invoke_claude(tasks: list[str]) -> bool:
     return result.returncode == 0
 
 
-# ─── Lock file (prevent concurrent runs) ─────────────────────────────────────
+# --- Lock file (prevent concurrent runs) -------------------------------------
 
 LOCK_FILE = REPO_DIR / ".watcher.lock"
 
@@ -308,7 +310,7 @@ def release_lock():
         LOCK_FILE.unlink()
 
 
-# ─── Main loop ────────────────────────────────────────────────────────────────
+# --- Main loop ----------------------------------------------------------------
 
 def main():
     log("=" * 60)
@@ -328,7 +330,7 @@ def main():
             remote_hash, remote_content = fetch_remote_tasks()
 
             if last_hash is None:
-                # First run — just capture baseline, don't run pending tasks
+                # First run -- just capture baseline, don't run pending tasks
                 # (they may have been pending for a while; wait for NEW changes)
                 last_hash = remote_hash
                 tasks = extract_pending_tasks(remote_content)
@@ -336,7 +338,7 @@ def main():
                 log(f"Edit TASKS.md on GitHub to trigger Claude.")
 
             elif remote_hash != last_hash:
-                log("TASKS.md changed on GitHub — pulling latest...")
+                log("TASKS.md changed on GitHub -- pulling latest...")
                 pull_latest()
                 tasks = extract_pending_tasks(remote_content)
 
