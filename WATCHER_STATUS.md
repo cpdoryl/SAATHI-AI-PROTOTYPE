@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:35:44
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when 
+**Updated**: 2026-03-08 11:35:53
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payme
 
 ## Progress
 
-- Tasks completed : 6 / 71
-- Last task       : `════════════════════════════════════════════════::Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py`
+- Tasks completed : 7 / 71
+- Last task       : `════════════════════════════════════════════════::Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py`
+**Task**: `[════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:24:40] [WARN] Claude did not update TASKS.md -- force-marking.
-[2026-03-08 11:24:42] [WARN] Force-marked task done in TASKS.md: Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}
-[2026-03-08 11:24:42] [INFO] [2/71] DONE: [HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
-[2026-03-08 11:24:45] [INFO] [3/71] START: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
 [2026-03-08 11:24:45] [INFO] Invoking Claude: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
 [2026-03-08 11:26:37] [WARN] Claude did not update TASKS.md -- force-marking.
 [2026-03-08 11:26:40] [WARN] Force-marked task done in TASKS.md: Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:33:18] [INFO] [7/71] START: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
 [2026-03-08 11:33:18] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
 [2026-03-08 11:35:44] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
+[2026-03-08 11:35:48] [INFO] [7/71] SKIP (failed): [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
+[2026-03-08 11:35:48] [INFO] [8/71] START: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 11:35:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 11:35:53] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 ```
