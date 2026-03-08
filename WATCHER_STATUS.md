@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:35:53
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payme
+**Updated**: 2026-03-08 11:35:59
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current
 
 ## Progress
 
-- Tasks completed : 7 / 71
-- Last task       : `════════════════════════════════════════════════::Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
+- Tasks completed : 8 / 71
+- Last task       : `════════════════════════════════════════════════::Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
+**Task**: `[════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:24:45] [INFO] Invoking Claude: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
-[2026-03-08 11:26:37] [WARN] Claude did not update TASKS.md -- force-marking.
-[2026-03-08 11:26:40] [WARN] Force-marked task done in TASKS.md: Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by
-[2026-03-08 11:26:40] [INFO] [3/71] DONE: [HOW] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
 [2026-03-08 11:26:42] [INFO] [4/71] START: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
 [2026-03-08 11:26:42] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
 [2026-03-08 11:28:38] [INFO] [4/71] DONE: [════════════════════════════════════════════════] Complete GET /api/v1/chat/session/{id} — query TherapySession + ChatMessage rows from DB, return real data instead of []. File: therapeutic-copilot/server/routes/chat_routes.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:35:48] [INFO] [8/71] START: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 11:35:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 11:35:53] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 11:35:56] [INFO] [8/71] SKIP (failed): [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 11:35:56] [INFO] [9/71] START: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 11:35:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 11:35:59] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 ```
