@@ -1559,6 +1559,43 @@ A two-clinician integration test verifies that room scoping works correctly — 
 
 ---
 
+## Session: 2026-03-08 — Demo Database Seeder (P1-BE)
+
+**Task**: Create `therapeutic-copilot/server/scripts/setup_db.py` — idempotent demo seed script.
+
+**Files Changed**:
+- `therapeutic-copilot/server/scripts/__init__.py` — new (empty package marker)
+- `therapeutic-copilot/server/scripts/setup_db.py` — new (256 lines)
+
+**What Was Seeded**:
+
+| Entity | Details |
+|--------|---------|
+| Tenant | Demo Clinic, domain=demo.saathiai.com, widget_token=demo-token-123, plan=professional |
+| Clinician | admin@demo.com / Demo@1234 (bcrypt hashed), Dr. Demo Admin |
+| Patient 1 | Arjun Mehta — LEAD stage, dropout_risk=0.15 |
+| Patient 2 | Priya Sharma — ACTIVE stage, dropout_risk=0.08, language=hi |
+| Patient 3 | Rahul Verma — DROPOUT stage, dropout_risk=0.82 |
+| TherapySession | For Priya Sharma, Stage 1, COMPLETED, 5 chat messages, ai_insights JSON |
+| Assessment | PHQ-9 for Priya Sharma, score=7.0, severity=Mild |
+
+**Design Decisions**:
+
+1. **Idempotent by PK**: Each seeder function calls `session.get(Model, FIXED_ID)` before inserting. Re-running the script is safe — existing rows are skipped.
+2. **Fixed deterministic IDs**: All seed IDs are human-readable strings (e.g., `demo-tenant-001`) so the script can be re-run without creating duplicate records and so tests can reference predictable PKs.
+3. **`sys.path` manipulation**: Script inserts `server/` onto `sys.path` so it can import `database` and `models` without installing the package — standard pattern for standalone seed scripts.
+4. **`Base.metadata.create_all` in script**: Only used here in the seeder for local dev convenience (SQLite). Production uses Alembic. A comment in the code makes this explicit.
+5. **bcrypt via passlib**: Password hashing uses the same `CryptContext` as the auth service, ensuring demo credentials work end-to-end with the login endpoint.
+6. **PHQ-9 scoring**: Responses map to standard PHQ-9 item keys, with a total score of 7 placing the patient in the "Mild" severity band (5–9), realistic for a demo active patient.
+
+**Run Command**:
+```bash
+cd therapeutic-copilot/server
+python scripts/setup_db.py
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*

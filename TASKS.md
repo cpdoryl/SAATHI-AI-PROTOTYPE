@@ -69,7 +69,7 @@
 - [x] Write test_auth.py — test login correct password→JWT, wrong password→401, unknown email→401, register→201, refresh→new token. File: therapeutic-copilot/server/tests/test_auth.py
 - [x] Write test_rag.py — test ingest→Pinecone upsert, query→top-k chunks returned, wrong tenant→empty, fallback to default namespace. File: therapeutic-copilot/server/tests/test_rag.py
 - [x] Write test_websocket.py — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens. File: therapeutic-copilot/server/tests/test_websocket.py
-- [ ] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
+- [x] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
 - [ ] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 
 ---
@@ -173,7 +173,7 @@
 - [x] Redis session management
 - [ ] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 - [ ] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
-- [ ] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+- [x] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
 - [ ] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 - [ ] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 
