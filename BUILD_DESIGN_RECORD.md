@@ -1500,6 +1500,65 @@ Write `test_rag.py` — test ingest→Pinecone upsert, query→top-k chunks retu
 
 ---
 
+## Session 6 — 2026-03-08 — P1-BE: test_websocket.py
+
+### Task Completed
+Write `test_websocket.py` — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens.
+
+### Files Changed
+| File | Action | Description |
+|------|--------|-------------|
+| `therapeutic-copilot/tests/test_websocket.py` | Created | 247-line test file, 12 tests |
+
+### Design Decisions
+
+**1. Two-tier test strategy (unit + integration)**
+The WebSocket layer has two distinct concerns:
+- `WebSocketManager` logic (room bookkeeping, broadcast, crisis alert JSON)
+- FastAPI endpoint wiring (`/ws/clinician/{id}`, `/ws/chat/{session_id}`)
+
+Unit tests cover the manager logic in isolation using a `_FakeWebSocket` stub.
+Integration tests use `fastapi.testclient.TestClient` which supports synchronous WebSocket testing via Starlette's in-process ASGI runner.
+
+**2. `_FakeWebSocket` stub instead of `unittest.mock.MagicMock`**
+A `MagicMock` would silently accept any call, masking real bugs.
+A hand-written stub with `async def accept()` and `async def send_text()` provides the exact coroutine surface that `WebSocketManager` calls — nothing more.
+`sent_messages: list[str]` is the assertion surface for broadcast tests.
+
+**3. Unit test isolation via fresh `WebSocketManager` per test**
+The module-level `ws_manager` singleton in `websocket_manager.py` would carry state between tests.
+Each unit test receives a fresh `WebSocketManager()` from the `manager` fixture, preventing test-order coupling.
+
+**4. Integration tests use `scope="module"` TestClient**
+FastAPI startup (database init, APScheduler, Redis) is expensive.
+One `TestClient` instance per module amortises that cost.
+WebSocket integration tests are stateless enough (no DB writes needed) that module scope is safe.
+
+**5. Crisis alert JSON contract tested explicitly**
+`send_crisis_alert()` encodes `{"type": "CRISIS_ALERT", "data": {...}}`.
+A dedicated test decodes the raw string and asserts both the envelope key (`type`) and the payload (`data`) — ensuring the contract is never silently broken by future refactoring.
+
+**6. Room isolation test**
+A two-clinician integration test verifies that room scoping works correctly — messages to `clin-001` are not delivered to `clin-002`. This guards against a future regression where room lookup logic is accidentally widened.
+
+### Test Matrix
+| Test | Category | Scenario |
+|------|----------|----------|
+| `test_connect_registers_websocket_in_room` | Unit | connect() adds ws to room, calls accept() |
+| `test_connect_creates_new_room_for_each_id` | Unit | two IDs → two independent rooms |
+| `test_disconnect_removes_websocket_from_room` | Unit | disconnect() removes ws from room list |
+| `test_disconnect_nonexistent_room_does_not_raise` | Unit | no room registered → silent no-op |
+| `test_broadcast_to_room_delivers_message_to_all_connections` | Unit | two ws in room → both receive message |
+| `test_broadcast_to_empty_room_completes_without_error` | Unit | empty room → no exception |
+| `test_send_crisis_alert_sends_correct_json_structure` | Unit | JSON has type=CRISIS_ALERT and correct data dict |
+| `test_send_crisis_alert_broadcasts_to_multiple_clinicians_in_room` | Unit | two devices → both receive CRISIS_ALERT |
+| `test_send_crisis_alert_to_disconnected_clinician_does_not_raise` | Unit | offline clinician → silent drop |
+| `test_clinician_ws_accepts_connection_and_echoes_message` | Integration | /ws/clinician/{id} echoes ack text |
+| `test_chat_ws_accepts_connection_and_echoes_token` | Integration | /ws/chat/{id} echoes token JSON |
+| `test_two_clinicians_in_different_rooms_do_not_cross_broadcast` | Integration | room isolation — no cross-delivery |
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
