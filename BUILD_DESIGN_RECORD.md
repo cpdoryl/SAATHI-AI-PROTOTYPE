@@ -1711,5 +1711,31 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 
 ---
 
+### 2026-03-08 — LandingPage Completion (How It Works + Pricing + Features + Footer)
+
+**Task**: `[P2-FE] LandingPage completion — add "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links`
+
+**File changed**: `therapeutic-copilot/client/src/components/landing/LandingPage.tsx`
+
+**Design Decisions**:
+
+1. **"How It Works" as a 3-step centered layout with indigo icon bubbles** — Blueprint specifies "3-step diagram". Implemented as a horizontal grid (1-col mobile, 3-col desktop) with large circular icon containers (indigo-600), an overlaid numbered badge (-top-2 -right-2), and a decorative connector line (hidden on mobile) to visually communicate sequential flow. SVG icons are inline (no third-party icon library) to keep bundle size minimal.
+
+2. **Pricing corrected to match spec: Basic ₹2,999 / Pro ₹7,999 / Enterprise Custom** — The existing code had "Professional" at ₹9,999 which was wrong per blueprint. Renamed to "Pro" and corrected price. "Most Popular" pill badge added on the Pro card (positioned absolute -top-4, centered) to draw attention. CTA buttons for Basic/Pro navigate to `/register`; Enterprise shows "Contact Sales" (no navigation, pending sales flow).
+
+3. **Features section added (6 cards, 3-col grid)** — Blueprint marks Features as "✓ EXISTS" but the actual code had no features section. Added 6 benefit cards with inline SVG icons, indigo icon background, and hover shadow transition. Content covers the 6 key product pillars: 24/7 support, crisis detection, assessments, dropout prediction, payments, compliance.
+
+4. **Footer: 4-column link grid + bottom bar** — Blueprint requires "Footer with links". Implemented a dark (gray-900) footer with: brand column (logo + tagline + company name), 4 link category columns (Product, Company, Legal, Support), and a bottom bar with dynamic copyright year and quick-access links.
+
+5. **Sticky navbar with backdrop-blur** — Added `sticky top-0 z-50 backdrop-blur-sm bg-white/90`. Anchor links updated: `#features`, `#how-it-works`, `#pricing` match new section IDs.
+
+6. **All CTAs use `/register` (not `/signup`)** — Blueprint specifies "Make all CTAs link to `/register`". The old code had `/signup`; corrected throughout.
+
+**Algorithm / Pattern**:
+- Data-driven rendering: `FEATURES`, `HOW_IT_WORKS_STEPS`, `PRICING_PLANS`, and `FOOTER_LINKS` are module-level constants — components are pure render functions mapping over these arrays. Separates content from structure.
+- Pricing `highlight` boolean controls border color and button style without branching JSX structure.
+
+---
+
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
