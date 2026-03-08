@@ -1,7 +1,7 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:40:49
-**Status**:  ALL TASKS COMPLETE
+**Updated**: 2026-03-08 15:41:22
+**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, e
 
 ## Progress
 
@@ -10,16 +10,16 @@
 
 ## Details
 
-Every task in TASKS.md has been implemented and pushed to GitHub.
+Claude Code returned a non-zero exit code for this task.
 
-To continue: add new tasks to TASKS.md on GitHub. The watcher will detect them and resume within 5 minutes.
+**Task**: `[P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5`
+
+The watcher will move on to the next task.
+Please review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-08 15:40:21] [INFO] Invoking Claude: [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
-[2026-03-08 15:40:21] [WARN] Lock held by PID 37292. Skipping.
-[2026-03-08 15:40:21] [WARN] Lock still held. Skipping task this cycle.
 [2026-03-08 15:40:21] [INFO] [4/20] START: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 15:40:21] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:40:21] [WARN] Could not acquire lock -- waiting 60s...
@@ -37,4 +37,7 @@ To continue: add new tasks to TASKS.md on GitHub. The watcher will detect them a
 [2026-03-08 15:40:42] [INFO] Invoking Claude: [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
 [2026-03-08 15:40:46] [ERROR] Claude FAILED for: [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
 [2026-03-08 15:40:49] [INFO] [61/61] SKIP (task error): [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
+[2026-03-08 15:40:52] [INFO] All tasks complete!
+[2026-03-08 15:41:21] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
+[2026-03-08 15:41:22] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 ```
