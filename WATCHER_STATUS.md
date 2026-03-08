@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:40:24
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Implement document chunking in rag_service.py — a
+**Updated**: 2026-03-08 11:40:35
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — 
 
 ## Progress
 
-- Tasks completed : 42 / 71
-- Last task       : `════════════════════════════════════════════════::Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py`
+- Tasks completed : 43 / 71
+- Last task       : `════════════════════════════════════════════════::Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py`
+**Task**: `[════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:39:51] [INFO] [38/71] SKIP (failed): [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:39:51] [INFO] [39/71] START: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:39:51] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 11:39:55] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:57] [INFO] [39/71] SKIP (failed): [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:57] [INFO] [40/71] START: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:57] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:40:20] [INFO] [43/71] START: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 11:40:20] [INFO] Invoking Claude: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 [2026-03-08 11:40:24] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
+[2026-03-08 11:40:32] [INFO] [43/71] SKIP (failed): [════════════════════════════════════════════════] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
+[2026-03-08 11:40:32] [INFO] [44/71] START: [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
+[2026-03-08 11:40:32] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
+[2026-03-08 11:40:35] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
 ```
