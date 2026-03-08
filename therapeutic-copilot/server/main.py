@@ -63,6 +63,11 @@ app.add_middleware(
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
+# ─── Rate limiting (Redis sliding window) ─────────────────────────────────────
+from middleware.rate_limit_middleware import rate_limit_middleware  # noqa: E402
+from starlette.middleware.base import BaseHTTPMiddleware           # noqa: E402
+app.add_middleware(BaseHTTPMiddleware, dispatch=rate_limit_middleware)
+
 # ─── Routers ──────────────────────────────────────────────────────────────────
 app.include_router(auth_router,        prefix="/api/v1/auth",        tags=["Auth"])
 app.include_router(chat_router,        prefix="/api/v1/chat",        tags=["Chat"])
