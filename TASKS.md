@@ -15,7 +15,7 @@
 
 **Examples:**
 ```
-- [ ] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
+- [x] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
 - [ ] Fix: GET /api/v1/chat/session/{id} returns empty [] — query ChatMessage table by session_id ordered by created_at. File: therapeutic-copilot/server/routes/chat_routes.py
 ```
 
