@@ -2,9 +2,12 @@
 Chat routes — handles the full 3-stage therapeutic conversation flow.
 Delegates AI logic to TherapeuticAIService.
 """
-from fastapi import APIRouter, Depends, BackgroundTasks
+from fastapi import APIRouter, Depends, BackgroundTasks, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
+from loguru import logger
 from database import get_db
+from models import TherapySession, ChatMessage
 from services.therapeutic_ai_service import TherapeuticAIService
 
 router = APIRouter()
@@ -57,7 +60,22 @@ async def send_message(
 @router.get("/session/{session_id}")
 async def get_session(session_id: str, db: AsyncSession = Depends(get_db)):
     """Retrieve full session details including messages, step, crisis score."""
-    return {"session_id": session_id, "messages": [], "current_step": 0}
+    session_result = await db.execute(
+        select(TherapySession).where(TherapySession.id == session_id)
+    )
+    session = session_result.scalar_one_or_none()
+    if session is None:
+        logger.warning(f"Session not found: {session_id}")
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    msgs_result = await db.execute(
+        select(ChatMessage)
+        .where(ChatMessage.session_id == session_id)
+        .order_by(ChatMessage.created_at)
+    )
+    messages = msgs_result.scalars().all()
+    logger.info(f"Session {session_id} retrieved: {len(messages)} messages")
+    return {"session": session, "messages": messages}
 
 
 @router.post("/session/{session_id}/end")
