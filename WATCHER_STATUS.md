@@ -1,45 +1,54 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:36:56
-**Status**:  TASK FAILED -- [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic
+**Updated**: 2026-03-08 15:37:03
+**Status**:  WATCHER CRASH -- UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
 
 ## Progress
 
-- Tasks completed : 35 / 52
-- Last task       : `P3-WI::Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+- Tasks completed : 36 / 52
+- Last task       : `P2-FE::LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx`
 
 ## Details
 
-Claude Code returned a non-zero exit code.
+An unhandled exception crashed the watcher:
 
-**Likely cause**: implementation error in the task itself.
+```
+Traceback (most recent call last):
+  File "<string>", line 724, in main
+  File "<string>", line 617, in run_task_queue
+  File "<string>", line 58, in log
+  File "C:\Users\B P Verma\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
 
-**Task**: `[P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+```
 
-The watcher has skipped this task and moved to the next one.
-Review `watcher.log` and fix manually if needed.
+Please check `watcher.log` for details.
+
+Restart `start_watcher.bat` -- the watcher will resume from the last completed task.
 
 ## Recent Log
 
 ```
-[2026-03-08 15:36:18] [INFO] [25/61] SKIP (task error): [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
-[2026-03-08 15:36:18] [INFO] [26/61] START: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 15:36:18] [INFO] Invoking Claude: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 15:36:23] [ERROR] Claude FAILED for: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 15:36:30] [INFO] [26/61] SKIP (task error): [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-[2026-03-08 15:36:30] [INFO] [27/61] START: [P3-WI] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:30] [INFO] Invoking Claude: [P3-WI] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:34] [ERROR] Claude FAILED for: [P3-WI] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:36] [INFO] [27/61] SKIP (task error): [P3-WI] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:36] [INFO] [28/61] START: [P3-WI] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:36] [INFO] Invoking Claude: [P3-WI] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:41] [ERROR] Claude FAILED for: [P3-WI] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:44] [INFO] [28/61] SKIP (task error): [P3-WI] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:44] [INFO] [29/61] START: [P3-WI] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:44] [INFO] Invoking Claude: [P3-WI] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:36:48] [ERROR] Claude FAILED for: [P3-WI] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:36:53] [INFO] [29/61] SKIP (task error): [P3-WI] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:36:53] [INFO] [30/61] START: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:36:53] [INFO] Invoking Claude: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:36:56] [ERROR] Claude FAILED for: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:01] [INFO] [30/61] SKIP (task error): [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:01] [INFO] [31/61] START: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:01] [INFO] Invoking Claude: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:03] [WARN] Lock held by PID 37292. Skipping.
+[2026-03-08 15:37:03] [WARN] Lock still held. Skipping task this cycle.
+[2026-03-08 15:37:03] [ERROR] Watcher loop error: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
+[2026-03-08 15:37:03] [ERROR] Traceback (most recent call last):
+  File "<string>", line 724, in main
+  File "<string>", line 617, in run_task_queue
+  File "<string>", line 58, in log
+  File "C:\Users\B P Verma\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
+
 ```
