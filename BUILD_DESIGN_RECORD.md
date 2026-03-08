@@ -1676,3 +1676,40 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
+
+---
+
+## Session: 2026-03-08 | Task: Patient risk score badge in Dashboard — show dropout_risk_score as colored badge
+
+**Date**: 2026-03-08
+**Task**: [P2-FE] Patient risk score badge in ClinicianDashboard
+**Files Changed**:
+- `therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx` (modified)
+- `therapeutic-copilot/client/src/__tests__/clinician-dashboard.test.tsx` (created)
+
+**Design Decisions**:
+
+1. **`RiskBadge` as a separate named function component** — isolates the threshold logic and makes it independently testable. Three explicit return branches (one per color) are clearer than a computed class string with nested ternaries.
+
+2. **Thresholds implemented as `score > 0.7` (red), `score >= 0.3` (yellow), default green** — directly mirrors the blueprint spec (red >0.7, yellow 0.3-0.7, green <0.3). Boundary value 0.7 is red; 0.3 is yellow (inclusive lower bound).
+
+3. **Badge placed inline next to patient name** — blueprint specifies "next to each patient name". Wrapped name + badge in a `flex items-center gap-2 min-w-0` div; stage badge remains right-aligned via `justify-between` on the outer row. Added `flex-shrink-0` to stage badge to prevent it being squeezed by long names.
+
+4. **Plain-text "Risk Score:" line removed** — the colored badge communicates both value and severity at a glance; the redundant text line added visual clutter without additional information.
+
+5. **`title` attribute on badge** — provides exact percentage on hover (`Dropout risk: 85%`) for accessibility and detail without cluttering the card UI.
+
+**Algorithm / Pattern**:
+- `RiskBadge`: receives `score: number` → computes `pct = (score * 100).toFixed(0)` → returns appropriate Tailwind color class span
+- Threshold guard: `score > 0.7` → red, `score >= 0.3` → yellow, else → green
+
+**Test Strategy**:
+- `clinician-dashboard.test.tsx` created from scratch (file did not exist)
+- WebSocket stubbed globally with `vi.stubGlobal('WebSocket', ...)`
+- Tests: loading state, empty state, patient name renders, red badge (score=0.85), yellow badge (score=0.5), green badge (score=0.1)
+- Badge color verified by checking `className` contains the expected Tailwind color tokens
+
+---
+
+*Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
+*Company: RYL NEUROACADEMY PRIVATE LIMITED*
