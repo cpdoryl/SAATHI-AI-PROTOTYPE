@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 13:58:29
-**Status**:  TASK FAILED -- [P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchan
+**Updated**: 2026-03-08 13:58:33
+**Status**:  TASK FAILED -- [P1-BE] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + creat
 
 ## Progress
 
-- Tasks completed : 10 / 61
-- Last task       : `P1-BE::Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py`
+- Tasks completed : 11 / 61
+- Last task       : `P1-BE::Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py`
+**Task**: `[P1-BE] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 13:57:59] [INFO] Task queue: 61 task(s) to execute (skipped 6 already completed).
-[2026-03-08 13:58:04] [INFO] [1/61] START: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
-[2026-03-08 13:58:04] [INFO] Invoking Claude: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
-[2026-03-08 13:58:05] [ERROR] Claude FAILED for: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 13:58:11] [INFO] [1/61] SKIP (failed): [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 13:58:11] [INFO] [2/61] START: [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 13:58:11] [INFO] Invoking Claude: [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 13:58:28] [INFO] [5/61] START: [P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
 [2026-03-08 13:58:28] [INFO] Invoking Claude: [P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
 [2026-03-08 13:58:29] [ERROR] Claude FAILED for: [P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
+[2026-03-08 13:58:32] [INFO] [5/61] SKIP (failed): [P1-BE] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
+[2026-03-08 13:58:32] [INFO] [6/61] START: [P1-BE] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
+[2026-03-08 13:58:32] [INFO] Invoking Claude: [P1-BE] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
+[2026-03-08 13:58:33] [ERROR] Claude FAILED for: [P1-BE] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
 ```
