@@ -69,6 +69,9 @@ export const createAppointment = (data: object) =>
 export const listAppointments = () =>
   api.get('/appointments')
 
+export const cancelAppointment = (id: string) =>
+  api.put(`/appointments/${id}/cancel`)
+
 // ─── Payments ────────────────────────────────────────────────────────────────
 
 export const createPaymentOrder = (data: object) =>

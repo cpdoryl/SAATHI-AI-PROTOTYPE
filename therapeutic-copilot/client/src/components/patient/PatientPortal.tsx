@@ -4,11 +4,13 @@
  */
 import React, { useState } from 'react'
 import { format } from 'date-fns'
-import { getAssessmentQuestions, submitAssessment } from '@/lib/api'
+import { getAssessmentQuestions, submitAssessment, createAppointment } from '@/lib/api'
 import { usePatientSessions } from '@/hooks/usePatientSessions'
 import { useSessionMessages } from '@/hooks/useSessionMessages'
 import { useAssessmentHistory } from '@/hooks/useAssessmentHistory'
-import { TherapySession, ChatMessage, AssessmentResult } from '@/types'
+import { useAppointments } from '@/hooks/useAppointments'
+import { PaymentFlow } from '@/components/payment/PaymentFlow'
+import { TherapySession, ChatMessage, AssessmentResult, Appointment } from '@/types'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -323,6 +325,412 @@ function AssessmentHistorySection({ patientId }: { patientId: string }): React.R
   )
 }
 
+// ─── AppointmentsTab ──────────────────────────────────────────────────────────
+
+type BookingStep = 'idle' | 'form' | 'payment' | 'success'
+
+interface BookingForm {
+  clinicianId: string
+  scheduledAt: string   // datetime-local value, e.g. "2026-03-15T10:00"
+  durationMinutes: number
+  amountInr: number
+}
+
+const DEFAULT_BOOKING: BookingForm = {
+  clinicianId: '',
+  scheduledAt: '',
+  durationMinutes: 60,
+  amountInr: 1500,
+}
+
+function appointmentStatusBadge(status: string): React.ReactElement {
+  const map: Record<string, string> = {
+    scheduled:  'bg-blue-50 text-blue-700',
+    confirmed:  'bg-indigo-50 text-indigo-700',
+    completed:  'bg-green-50 text-green-700',
+    cancelled:  'bg-gray-100 text-gray-500 line-through',
+  }
+  return (
+    <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium capitalize ${map[status] ?? 'bg-gray-50 text-gray-500'}`}>
+      {status}
+    </span>
+  )
+}
+
+function paymentStatusBadge(ps: string): React.ReactElement {
+  const map: Record<string, string> = {
+    pending:  'bg-amber-50 text-amber-700',
+    paid:     'bg-green-100 text-green-700',
+    failed:   'bg-red-50 text-red-600',
+    refunded: 'bg-gray-100 text-gray-500',
+  }
+  return (
+    <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium capitalize ${map[ps] ?? 'bg-gray-50 text-gray-500'}`}>
+      ₹ {ps}
+    </span>
+  )
+}
+
+function AppointmentsTab({ patientId }: { patientId: string }): React.ReactElement {
+  const { appointments, loading, error, refetch, cancel } = useAppointments()
+  const [step, setStep] = useState<BookingStep>('idle')
+  const [form, setForm] = useState<BookingForm>(DEFAULT_BOOKING)
+  const [formError, setFormError] = useState<string | null>(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [bookedAppointment, setBookedAppointment] = useState<{
+    id: string
+    scheduledAt: string
+    clinicianId: string
+  } | null>(null)
+  const [cancellingId, setCancellingId] = useState<string | null>(null)
+  const [cancelError, setCancelError] = useState<string | null>(null)
+
+  // ── Booking form submit ────────────────────────────────────────────────────
+
+  const handleBookSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormError(null)
+
+    if (!form.clinicianId.trim()) {
+      setFormError('Clinician ID is required.')
+      return
+    }
+    if (!form.scheduledAt) {
+      setFormError('Please pick a date and time.')
+      return
+    }
+    if (form.amountInr <= 0) {
+      setFormError('Session fee must be greater than ₹0.')
+      return
+    }
+
+    setSubmitting(true)
+    try {
+      const scheduledAtISO = new Date(form.scheduledAt).toISOString()
+      const res = await createAppointment({
+        patient_id:       patientId,
+        clinician_id:     form.clinicianId.trim(),
+        scheduled_at:     scheduledAtISO,
+        duration_minutes: form.durationMinutes,
+        amount_inr:       form.amountInr,
+      })
+      const data = res.data
+      setBookedAppointment({
+        id:           data.appointment_id ?? data.id,
+        scheduledAt:  data.scheduled_at ?? scheduledAtISO,
+        clinicianId:  data.clinician_id ?? form.clinicianId.trim(),
+      })
+      setStep('payment')
+    } catch (err: unknown) {
+      const axiosErr = err as { response?: { data?: { detail?: string } } }
+      setFormError(axiosErr.response?.data?.detail ?? 'Failed to create appointment. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const handlePaymentSuccess = (_paymentId: string) => {
+    setStep('success')
+    refetch()
+  }
+
+  const handlePaymentFailure = (errorMsg: string) => {
+    setFormError(errorMsg)
+    setStep('form')
+  }
+
+  const handleCancel = async (id: string) => {
+    setCancellingId(id)
+    setCancelError(null)
+    try {
+      await cancel(id)
+    } catch (err: unknown) {
+      const axiosErr = err as { response?: { data?: { detail?: string } } }
+      setCancelError(axiosErr.response?.data?.detail ?? 'Failed to cancel appointment.')
+    } finally {
+      setCancellingId(null)
+    }
+  }
+
+  const resetBooking = () => {
+    setStep('idle')
+    setForm(DEFAULT_BOOKING)
+    setFormError(null)
+    setBookedAppointment(null)
+  }
+
+  // ── Render: Payment step ───────────────────────────────────────────────────
+
+  if (step === 'payment' && bookedAppointment) {
+    return (
+      <div>
+        <button
+          onClick={() => setStep('form')}
+          className="text-sm text-indigo-600 hover:underline mb-4 block"
+        >
+          &larr; Back to booking
+        </button>
+        <PaymentFlow
+          appointmentId={bookedAppointment.id}
+          amountInr={form.amountInr}
+          clinicianName={bookedAppointment.clinicianId}
+          scheduledAt={bookedAppointment.scheduledAt}
+          onSuccess={handlePaymentSuccess}
+          onFailure={handlePaymentFailure}
+        />
+      </div>
+    )
+  }
+
+  // ── Render: Success step ───────────────────────────────────────────────────
+
+  if (step === 'success') {
+    return (
+      <div className="flex flex-col items-center justify-center py-16 text-center">
+        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+          <svg className="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 className="text-lg font-semibold text-gray-800">Appointment Booked!</h2>
+        <p className="text-gray-500 text-sm mt-1 mb-6">
+          Your session has been confirmed and payment received.
+        </p>
+        <button
+          onClick={resetBooking}
+          className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
+        >
+          View Appointments
+        </button>
+      </div>
+    )
+  }
+
+  // ── Render: Booking form modal ─────────────────────────────────────────────
+
+  if (step === 'form') {
+    return (
+      <div>
+        <div className="flex items-center gap-3 mb-6">
+          <button
+            onClick={resetBooking}
+            className="text-sm text-indigo-600 hover:underline"
+          >
+            &larr; Cancel
+          </button>
+          <h2 className="text-lg font-semibold text-gray-700">Book New Appointment</h2>
+        </div>
+
+        <form onSubmit={handleBookSubmit} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 max-w-md space-y-5">
+          {/* Clinician ID */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Clinician ID
+            </label>
+            <input
+              type="text"
+              value={form.clinicianId}
+              onChange={(e) => setForm((f) => ({ ...f, clinicianId: e.target.value }))}
+              placeholder="Enter your clinician's ID"
+              className={`w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 ${
+                formError && !form.clinicianId ? 'border-red-400' : 'border-gray-200'
+              }`}
+            />
+            <p className="text-xs text-gray-400 mt-1">Provided by your clinician when they registered.</p>
+          </div>
+
+          {/* Date & Time */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Date &amp; Time
+            </label>
+            <input
+              type="datetime-local"
+              value={form.scheduledAt}
+              min={new Date().toISOString().slice(0, 16)}
+              onChange={(e) => setForm((f) => ({ ...f, scheduledAt: e.target.value }))}
+              className={`w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 ${
+                formError && !form.scheduledAt ? 'border-red-400' : 'border-gray-200'
+              }`}
+            />
+          </div>
+
+          {/* Duration */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Duration
+            </label>
+            <select
+              value={form.durationMinutes}
+              onChange={(e) => setForm((f) => ({ ...f, durationMinutes: Number(e.target.value) }))}
+              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            >
+              <option value={30}>30 minutes</option>
+              <option value={45}>45 minutes</option>
+              <option value={60}>60 minutes</option>
+              <option value={90}>90 minutes</option>
+            </select>
+          </div>
+
+          {/* Session fee */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Session Fee (₹)
+            </label>
+            <input
+              type="number"
+              min={1}
+              value={form.amountInr}
+              onChange={(e) => setForm((f) => ({ ...f, amountInr: Number(e.target.value) }))}
+              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+          </div>
+
+          {/* Inline error */}
+          {formError && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              {formError}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full bg-indigo-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+          >
+            {submitting ? 'Creating appointment…' : 'Continue to Payment →'}
+          </button>
+        </form>
+      </div>
+    )
+  }
+
+  // ── Render: List view (default) ────────────────────────────────────────────
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-semibold text-gray-700">Your Appointments</h2>
+        <button
+          onClick={() => setStep('form')}
+          className="inline-flex items-center gap-1.5 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+          Book Appointment
+        </button>
+      </div>
+
+      {cancelError && (
+        <div className="mb-4 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
+          {cancelError}
+        </div>
+      )}
+
+      {loading && (
+        <div className="space-y-3 animate-pulse">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="h-20 bg-white rounded-lg border border-gray-100" />
+          ))}
+        </div>
+      )}
+
+      {!loading && error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-sm text-red-700 mb-2">{error}</p>
+          <button onClick={refetch} className="text-sm text-red-600 underline hover:no-underline">
+            Retry
+          </button>
+        </div>
+      )}
+
+      {!loading && !error && appointments.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-16 text-center">
+          <div className="w-16 h-16 rounded-full bg-indigo-50 flex items-center justify-center mb-4">
+            <svg className="w-8 h-8 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+          <p className="text-gray-500 font-medium">No appointments yet</p>
+          <p className="text-gray-400 text-sm mt-1 mb-4">
+            Book your first session with your clinician.
+          </p>
+          <button
+            onClick={() => setStep('form')}
+            className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
+          >
+            Book Appointment
+          </button>
+        </div>
+      )}
+
+      {!loading && !error && appointments.length > 0 && (
+        <div className="space-y-3">
+          {appointments.map((appt: Appointment) => (
+            <AppointmentCard
+              key={appt.id}
+              appointment={appt}
+              onCancel={handleCancel}
+              cancelling={cancellingId === appt.id}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── AppointmentCard ───────────────────────────────────────────────────────────
+
+interface AppointmentCardProps {
+  appointment: Appointment
+  onCancel: (id: string) => void
+  cancelling: boolean
+}
+
+function AppointmentCard({ appointment, onCancel, cancelling }: AppointmentCardProps): React.ReactElement {
+  const scheduledLabel = appointment.scheduledAt
+    ? format(new Date(appointment.scheduledAt), 'dd MMM yyyy, h:mm a')
+    : '—'
+  const isCancellable = appointment.status === 'scheduled' || appointment.status === 'confirmed'
+
+  return (
+    <div className="bg-white rounded-lg border border-gray-100 shadow-sm px-4 py-4">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="space-y-1">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-medium text-gray-800">{scheduledLabel}</span>
+            {appointmentStatusBadge(appointment.status)}
+            {paymentStatusBadge(appointment.paymentStatus)}
+          </div>
+          <p className="text-xs text-gray-400">
+            Duration: {appointment.durationMinutes} min &middot; Clinician: {appointment.clinicianId || '—'}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-sm font-bold text-indigo-600">₹{appointment.amountInr}</span>
+          {isCancellable && (
+            <button
+              onClick={() => onCancel(appointment.id)}
+              disabled={cancelling}
+              className="text-xs text-red-500 border border-red-200 rounded px-2 py-1 hover:bg-red-50 disabled:opacity-50 transition-colors focus:outline-none focus:ring-1 focus:ring-red-300"
+            >
+              {cancelling ? 'Cancelling…' : 'Cancel'}
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── PatientPortal ────────────────────────────────────────────────────────────
 
 export function PatientPortal() {
@@ -485,10 +893,7 @@ export function PatientPortal() {
         )}
 
         {activeTab === 'appointments' && (
-          <div>
-            <h2 className="text-lg font-semibold text-gray-700 mb-4">Appointments</h2>
-            <p className="text-gray-400 text-sm">Your upcoming appointments will appear here.</p>
-          </div>
+          <AppointmentsTab patientId={patientId} />
         )}
       </main>
     </div>

@@ -14,12 +14,16 @@ vi.mock('@/lib/api', () => ({
   getAssessmentQuestions: vi.fn(),
   submitAssessment: vi.fn(),
   getAssessmentHistory: vi.fn(),
+  listAppointments: vi.fn(),
+  cancelAppointment: vi.fn(),
+  createAppointment: vi.fn(),
 }))
 
 import * as api from '@/lib/api'
 import { usePatientSessions } from '@/hooks/usePatientSessions'
 import { useSessionMessages } from '@/hooks/useSessionMessages'
 import { useAssessmentHistory } from '@/hooks/useAssessmentHistory'
+import { useAppointments } from '@/hooks/useAppointments'
 import { PatientPortal } from '@/components/patient/PatientPortal'
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
@@ -332,5 +336,167 @@ describe('PatientPortal sessions tab', () => {
       expect(screen.getByText('Server error')).toBeTruthy()
       expect(screen.getByText('Retry')).toBeTruthy()
     })
+  })
+})
+
+// ─── useAppointments ──────────────────────────────────────────────────────────
+
+const mockAppointment = {
+  appointment_id: 'apt-001',
+  patient_id: 'pat-001',
+  clinician_id: 'cln-001',
+  scheduled_at: '2026-03-20T11:00:00Z',
+  duration_minutes: 60,
+  status: 'scheduled',
+  amount_inr: 1500,
+  payment_status: 'pending',
+}
+
+describe('useAppointments', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('returns appointments on success', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [mockAppointment] },
+    } as never)
+
+    render(<HookWrapper hook={() => useAppointments()} />)
+
+    await waitFor(() => {
+      const result = getHookResult<ReturnType<typeof useAppointments>>()
+      expect(result.loading).toBe(false)
+      expect(result.appointments).toHaveLength(1)
+      expect(result.appointments[0].id).toBe('apt-001')
+      expect(result.appointments[0].amountInr).toBe(1500)
+    })
+  })
+
+  it('sets error state when API call fails', async () => {
+    vi.mocked(api.listAppointments).mockRejectedValueOnce({
+      response: { data: { detail: 'Unauthorized' } },
+    })
+
+    render(<HookWrapper hook={() => useAppointments()} />)
+
+    await waitFor(() => {
+      const result = getHookResult<ReturnType<typeof useAppointments>>()
+      expect(result.loading).toBe(false)
+      expect(result.error).toBe('Unauthorized')
+    })
+  })
+
+  it('optimistically cancels an appointment', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [mockAppointment] },
+    } as never)
+    vi.mocked(api.cancelAppointment).mockResolvedValueOnce({ data: {} } as never)
+
+    render(<HookWrapper hook={() => useAppointments()} />)
+
+    await waitFor(() => {
+      const result = getHookResult<ReturnType<typeof useAppointments>>()
+      expect(result.appointments[0].status).toBe('scheduled')
+    })
+
+    await (getHookResult<ReturnType<typeof useAppointments>>()).cancel('apt-001')
+
+    await waitFor(() => {
+      const result = getHookResult<ReturnType<typeof useAppointments>>()
+      expect(result.appointments[0].status).toBe('cancelled')
+    })
+  })
+})
+
+// ─── PatientPortal — appointments tab ─────────────────────────────────────────
+
+describe('PatientPortal appointments tab', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    localStorage.setItem('patient_id', 'pat-001')
+    vi.mocked(api.listPatientSessions).mockResolvedValue({ data: { sessions: [] } } as never)
+  })
+
+  it('renders appointment list on load', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [mockAppointment] },
+    } as never)
+
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Book Appointment')).toBeTruthy()
+      expect(screen.getByText('₹1500')).toBeTruthy()
+      expect(screen.getByText('scheduled')).toBeTruthy()
+    })
+  })
+
+  it('shows empty state with book button when no appointments', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [] },
+    } as never)
+
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+
+    await waitFor(() => {
+      expect(screen.getByText('No appointments yet')).toBeTruthy()
+    })
+  })
+
+  it('shows loading skeletons while fetching', () => {
+    vi.mocked(api.listAppointments).mockReturnValueOnce(new Promise(() => {}))
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+    const skeletons = document.querySelectorAll('.animate-pulse')
+    expect(skeletons.length).toBeGreaterThan(0)
+  })
+
+  it('shows error state with retry on API failure', async () => {
+    vi.mocked(api.listAppointments).mockRejectedValueOnce({
+      response: { data: { detail: 'Appointment fetch failed' } },
+    })
+
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Appointment fetch failed')).toBeTruthy()
+      expect(screen.getByText('Retry')).toBeTruthy()
+    })
+  })
+
+  it('opens booking form when Book Appointment is clicked', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [] },
+    } as never)
+
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+
+    await waitFor(() => screen.getByText('No appointments yet'))
+
+    // Click the inline "Book Appointment" button inside the empty state
+    const bookBtns = screen.getAllByText('Book Appointment')
+    fireEvent.click(bookBtns[bookBtns.length - 1])
+
+    expect(screen.getByText('Book New Appointment')).toBeTruthy()
+    expect(screen.getByPlaceholderText("Enter your clinician's ID")).toBeTruthy()
+  })
+
+  it('shows inline validation error when form submitted with empty fields', async () => {
+    vi.mocked(api.listAppointments).mockResolvedValueOnce({
+      data: { appointments: [] },
+    } as never)
+
+    render(<PatientPortal />)
+    fireEvent.click(screen.getByText('appointments'))
+    await waitFor(() => screen.getByText('No appointments yet'))
+
+    const bookBtns = screen.getAllByText('Book Appointment')
+    fireEvent.click(bookBtns[bookBtns.length - 1])
+
+    fireEvent.click(screen.getByText('Continue to Payment →'))
+    expect(screen.getByText('Clinician ID is required.')).toBeTruthy()
   })
 })
