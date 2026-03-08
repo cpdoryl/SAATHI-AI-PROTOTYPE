@@ -174,3 +174,16 @@ class Appointment(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     patient = relationship("Patient", back_populates="appointments")
+
+
+# ─── Audit Log ────────────────────────────────────────────────────────────────
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    actor_id = Column(String)                                  # clinician_id or 'system'
+    action = Column(String(100))                               # 'login'|'view_patient'|'export_data'
+    resource = Column(String(100))                             # 'patient:uuid'|'session:uuid'
+    ip_address = Column(String(45))
+    created_at = Column(DateTime, default=datetime.utcnow)
