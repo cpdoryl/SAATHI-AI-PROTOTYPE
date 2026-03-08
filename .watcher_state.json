@@ -39,7 +39,8 @@
     "P2-FE::Add Razorpay SDK script to index.html — add <script src=\"https://checkout.razorpay.com/v1/checkout.js\"> before closing </body>. File: therapeutic-copilot/client/index.html",
     "P2-FE::AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx",
     "P2-FE::Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.",
-    "P2-FE::TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts"
+    "P2-FE::TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts",
+    "P3-WI::Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
