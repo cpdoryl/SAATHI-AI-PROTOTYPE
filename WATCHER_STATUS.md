@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:42:04
-**Status**:  TASK FAILED -- [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load co
+**Updated**: 2026-03-08 15:42:07
+**Status**:  TASK FAILED -- [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat wid
 
 ## Progress
 
 - Tasks completed : 67 / 48
-- Last task       : `P7-TEST::Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
+- Last task       : `P7-TEST::Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
+**Task**: `[P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:41:44] [INFO] [8/20] SKIP (failed): [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
-[2026-03-08 15:41:44] [INFO] [9/20] START: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
-[2026-03-08 15:41:44] [INFO] Invoking Claude: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
-[2026-03-08 15:41:45] [ERROR] Claude FAILED for: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:41:48] [INFO] [9/20] SKIP (failed): [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:41:48] [INFO] [10/20] START: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 15:41:48] [INFO] Invoking Claude: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 15:42:03] [INFO] [13/20] START: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
 [2026-03-08 15:42:03] [INFO] Invoking Claude: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
 [2026-03-08 15:42:04] [ERROR] Claude FAILED for: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 15:42:06] [INFO] [13/20] SKIP (failed): [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 15:42:06] [INFO] [14/20] START: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 15:42:06] [INFO] Invoking Claude: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 15:42:07] [ERROR] Claude FAILED for: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 ```
