@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:37:53
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1
+**Updated**: 2026-03-08 11:38:02
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with
 
 ## Progress
 
-- Tasks completed : 23 / 71
-- Last task       : `════════════════════════════════════════════════::PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+- Tasks completed : 24 / 71
+- Last task       : `════════════════════════════════════════════════::ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+**Task**: `[════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:37:18] [INFO] [19/71] SKIP (failed): [════════════════════════════════════════════════] Complete ChatWidget — implement full chat UI: WebSocket connect to /ws/chat/{session_id}, send message, receive and stream tokens into assistant message bubble, typing indicator (animated dots), auto-scroll. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx and hooks/useChat.ts
-[2026-03-08 11:37:18] [INFO] [20/71] START: [════════════════════════════════════════════════] Complete useChat hook — must export: messages[], sendMessage(), isStreaming, crisisDetected, crisisResources[], endSession(). File: therapeutic-copilot/client/src/hooks/useChat.ts
-[2026-03-08 11:37:18] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete useChat hook — must export: messages[], sendMessage(), isStreaming, crisisDetected, crisisResources[], endSession(). File: therapeutic-copilot/client/src/hooks/useChat.ts
-[2026-03-08 11:37:21] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete useChat hook — must export: messages[], sendMessage(), isStreaming, crisisDetected, crisisResources[], endSession(). File: therapeutic-copilot/client/src/hooks/useChat.ts
 [2026-03-08 11:37:28] [INFO] [20/71] SKIP (failed): [════════════════════════════════════════════════] Complete useChat hook — must export: messages[], sendMessage(), isStreaming, crisisDetected, crisisResources[], endSession(). File: therapeutic-copilot/client/src/hooks/useChat.ts
 [2026-03-08 11:37:28] [INFO] [21/71] START: [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
 [2026-03-08 11:37:28] [INFO] Invoking Claude: [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:37:49] [INFO] [24/71] START: [════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 [2026-03-08 11:37:49] [INFO] Invoking Claude: [════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 [2026-03-08 11:37:53] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:59] [INFO] [24/71] SKIP (failed): [════════════════════════════════════════════════] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:59] [INFO] [25/71] START: [════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
+[2026-03-08 11:37:59] [INFO] Invoking Claude: [════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
+[2026-03-08 11:38:02] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 ```
