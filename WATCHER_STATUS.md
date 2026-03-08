@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:43:00
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect,
+**Updated**: 2026-03-08 11:43:06
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write test_database.py — verify all tables exist,
 
 ## Progress
 
-- Tasks completed : 62 / 71
-- Last task       : `════════════════════════════════════════════════::Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py`
+- Tasks completed : 63 / 71
+- Last task       : `════════════════════════════════════════════════::Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py`
+**Task**: `[════════════════════════════════════════════════] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:42:28] [INFO] [58/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
-[2026-03-08 11:42:28] [INFO] [59/71] START: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
-[2026-03-08 11:42:28] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
-[2026-03-08 11:42:32] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 11:42:36] [INFO] [59/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 11:42:36] [INFO] [60/71] START: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 11:42:36] [INFO] Invoking Claude: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:56] [INFO] [63/71] START: [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 11:42:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 11:43:00] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
+[2026-03-08 11:43:02] [INFO] [63/71] SKIP (failed): [════════════════════════════════════════════════] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
+[2026-03-08 11:43:02] [INFO] [64/71] START: [════════════════════════════════════════════════] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 11:43:02] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 11:43:06] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
 ```
