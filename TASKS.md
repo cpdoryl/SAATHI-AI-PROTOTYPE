@@ -10,7 +10,7 @@
 ## HOW TO WRITE A GOOD TASK
 
 ```
-- [ ] Task title — context: what file, what problem, what expected result
+- [x] Task title — context: what file, what problem, what expected result
 ```
 
 **Examples:**
