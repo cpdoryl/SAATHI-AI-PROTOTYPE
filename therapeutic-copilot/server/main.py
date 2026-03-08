@@ -9,7 +9,7 @@ from contextlib import asynccontextmanager
 from loguru import logger
 
 from config import settings
-from database import async_engine, Base
+from database import async_engine, Base, AsyncSessionLocal
 
 # ─── Route imports ────────────────────────────────────────────────────────────
 from routes.auth_routes import router as auth_router
@@ -30,6 +30,18 @@ from api.appointments import router as appointments_router
 from api.patients import router as patients_router
 
 
+async def _dropout_scan_job():
+    """APScheduler job: daily dropout re-engagement scan."""
+    from services.dropout_service import DropoutService
+    async with AsyncSessionLocal() as db:
+        try:
+            service = DropoutService()
+            flagged = await service.scan_inactive_patients(db)
+            logger.info(f"[cron] Dropout scan: {len(flagged)} patients flagged for re-engagement")
+        except Exception as exc:
+            logger.error(f"[cron] Dropout scan failed: {exc}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
@@ -38,7 +50,30 @@ async def lifespan(app: FastAPI):
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     logger.info("Database tables initialised.")
+
+    # ─── APScheduler: daily dropout re-engagement cron ────────────────────────
+    try:
+        from apscheduler.schedulers.asyncio import AsyncIOScheduler
+        from apscheduler.triggers.cron import CronTrigger
+        scheduler = AsyncIOScheduler()
+        scheduler.add_job(
+            _dropout_scan_job,
+            trigger=CronTrigger(hour=9, minute=0),  # 09:00 UTC daily
+            id="dropout_scan",
+            name="Daily dropout re-engagement scan",
+            replace_existing=True,
+        )
+        scheduler.start()
+        app.state.scheduler = scheduler
+        logger.info("APScheduler started: dropout scan at 09:00 UTC daily")
+    except ImportError:
+        logger.warning("APScheduler not installed — dropout cron job disabled")
+
     yield
+
+    # ─── Shutdown ────────────────────────────────────────────────────────────
+    if hasattr(app.state, "scheduler"):
+        app.state.scheduler.shutdown(wait=False)
     logger.info("Shutting down Saathi AI backend.")
     await async_engine.dispose()
 
