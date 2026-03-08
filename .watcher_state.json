@@ -32,7 +32,8 @@
     "P2-FE::ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx",
     "P2-FE::ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx",
     "P2-FE::Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx",
-    "P2-FE::Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx"
+    "P2-FE::Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx",
+    "P2-FE::LandingPage completion — add: \"How It Works\" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
