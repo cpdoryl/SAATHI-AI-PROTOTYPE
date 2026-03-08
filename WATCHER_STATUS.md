@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:39:06
-**Status**:  TASK FAILED -- [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (the
+**Updated**: 2026-03-08 15:39:13
+**Status**:  TASK FAILED -- [P6-DB] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-
 
 ## Progress
 
-- Tasks completed : 52 / 48
-- Last task       : `P6-DB::Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
+- Tasks completed : 53 / 48
+- Last task       : `P6-DB::Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
+**Task**: `[P6-DB] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:38:34] [INFO] [42/61] SKIP (task error): [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
-[2026-03-08 15:38:34] [INFO] [43/61] START: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 15:38:34] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 15:38:38] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 15:38:41] [INFO] [43/61] SKIP (task error): [P5-ML] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 15:38:41] [INFO] [44/61] START: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 15:38:41] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:39:02] [INFO] [47/61] START: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 15:39:02] [INFO] Invoking Claude: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 15:39:06] [ERROR] Claude FAILED for: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 15:39:10] [INFO] [47/61] SKIP (task error): [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 15:39:10] [INFO] [48/61] START: [P6-DB] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 15:39:10] [INFO] Invoking Claude: [P6-DB] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 15:39:13] [ERROR] Claude FAILED for: [P6-DB] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
 ```
