@@ -1,28 +1,24 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 19:59:27
-**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/lang
+**Updated**: 2026-03-08 20:10:25
+**Status**:  RUNNING -- task 54/33
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
 
-- Tasks completed : 52 / 33
-- Last task       : `P5-ML::Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total`
+- Tasks completed : 53 / 33
+- Last task       : `P5-ML::Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 ## Details
 
-Claude returned exit code 1.
-
-Task skipped. Review `watcher.log` to fix manually.
+**Task**: `[P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 ## Recent Log
 
 ```
-[2026-03-08 19:59:20] [INFO] ============================================================
-[2026-03-08 19:59:20] [INFO] SAATHI AI Remote Task Runner started
-[2026-03-08 19:59:20] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
-[2026-03-08 19:59:20] [INFO] ============================================================
-[2026-03-08 19:59:21] [INFO] [53/33] Executing: [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
-[2026-03-08 19:59:25] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
-[2026-03-08 19:59:27] [ERROR] Claude FAILED (exit 1): [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
+[2026-03-08 20:10:25] [INFO] ============================================================
+[2026-03-08 20:10:25] [INFO] SAATHI AI Remote Task Runner started
+[2026-03-08 20:10:25] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
+[2026-03-08 20:10:25] [INFO] ============================================================
+[2026-03-08 20:10:25] [INFO] [54/33] Executing: [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 ```
