@@ -1,28 +1,24 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:41:51
-**Status**:  TASK FAILED -- [P2-FE] PatientPortal assessment history — call GET /api/v1/assessments/{id}/his
+**Updated**: 2026-03-08 15:51:50
+**Status**:  RUNNING -- task 3/48
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
 
-- Tasks completed : 1 / 48
-- Last task       : `P2-FE::PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
+- Tasks completed : 2 / 48
+- Last task       : `P2-FE::PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 ## Details
 
-Claude returned exit code 1.
-
-Task skipped. Review `watcher.log` to fix manually.
+**Task**: `[P2-FE] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 ## Recent Log
 
 ```
-[2026-03-08 15:41:47] [INFO] ============================================================
-[2026-03-08 15:41:47] [INFO] SAATHI AI Remote Task Runner started
-[2026-03-08 15:41:47] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
-[2026-03-08 15:41:47] [INFO] ============================================================
-[2026-03-08 15:41:48] [INFO] [2/48] Executing: [P2-FE] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
-[2026-03-08 15:41:49] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
-[2026-03-08 15:41:51] [ERROR] Claude FAILED (exit 1): [P2-FE] PatientPortal assessment history — call GET /api/v1/assessments/{id}/history, render past scores as cards with type/score/severity/date. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 15:51:50] [INFO] ============================================================
+[2026-03-08 15:51:50] [INFO] SAATHI AI Remote Task Runner started
+[2026-03-08 15:51:50] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
+[2026-03-08 15:51:50] [INFO] ============================================================
+[2026-03-08 15:51:50] [INFO] [3/48] Executing: [P2-FE] PatientPortal appointments tab — call GET /api/v1/appointments, render appointment list. Add "Book Appointment" button that opens clinician selector + date picker + triggers PaymentFlow. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 ```
