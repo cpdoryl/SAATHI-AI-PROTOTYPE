@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:39:49
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/
+**Updated**: 2026-03-08 11:39:55
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat pan
 
 ## Progress
 
-- Tasks completed : 37 / 71
-- Last task       : `════════════════════════════════════════════════::Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+- Tasks completed : 38 / 71
+- Last task       : `════════════════════════════════════════════════::Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+**Task**: `[════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:39:15] [INFO] [33/71] SKIP (failed): [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
-[2026-03-08 11:39:15] [INFO] [34/71] START: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
-[2026-03-08 11:39:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
-[2026-03-08 11:39:20] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 [2026-03-08 11:39:25] [INFO] [34/71] SKIP (failed): [════════════════════════════════════════════════] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 [2026-03-08 11:39:25] [INFO] [35/71] START: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 [2026-03-08 11:39:25] [INFO] Invoking Claude: [════════════════════════════════════════════════] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:45] [INFO] [38/71] START: [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:45] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 11:39:49] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:51] [INFO] [38/71] SKIP (failed): [════════════════════════════════════════════════] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:51] [INFO] [39/71] START: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:51] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:55] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 ```
