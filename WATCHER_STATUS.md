@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:35:23
-**Status**:  TASK FAILED -- [P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer s
+**Updated**: 2026-03-08 15:35:28
+**Status**:  TASK FAILED -- [P2-FE] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo,
 
 ## Progress
 
-- Tasks completed : 23 / 52
-- Last task       : `P2-FE::Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx`
+- Tasks completed : 24 / 52
+- Last task       : `P2-FE::LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx`
+**Task**: `[P2-FE] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:34:55] [INFO] [15/61] START: [P2-FE] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 15:34:55] [INFO] Invoking Claude: [P2-FE] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 15:34:58] [ERROR] Claude FAILED for: [P2-FE] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 15:35:01] [INFO] [15/61] SKIP (task error): [P2-FE] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 15:35:01] [INFO] [16/61] START: [P2-FE] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 15:35:01] [INFO] Invoking Claude: [P2-FE] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 15:35:03] [WARN] Lock held by PID 37292. Skipping.
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:35:18] [INFO] [18/61] START: [P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 15:35:18] [INFO] Invoking Claude: [P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 15:35:23] [ERROR] Claude FAILED for: [P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
+[2026-03-08 15:35:25] [INFO] [18/61] SKIP (task error): [P2-FE] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
+[2026-03-08 15:35:25] [INFO] [19/61] START: [P2-FE] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
+[2026-03-08 15:35:25] [INFO] Invoking Claude: [P2-FE] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
+[2026-03-08 15:35:28] [ERROR] Claude FAILED for: [P2-FE] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
 ```
