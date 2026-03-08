@@ -780,17 +780,42 @@ function EmptyState({ message }: { message: string }) {
   )
 }
 
+function RiskBadge({ score }: { score: number }) {
+  const pct = (score * 100).toFixed(0)
+  if (score > 0.7) {
+    return (
+      <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-red-100 text-red-700" title={`Dropout risk: ${pct}%`}>
+        {pct}% risk
+      </span>
+    )
+  }
+  if (score >= 0.3) {
+    return (
+      <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-yellow-100 text-yellow-700" title={`Dropout risk: ${pct}%`}>
+        {pct}% risk
+      </span>
+    )
+  }
+  return (
+    <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-green-100 text-green-700" title={`Dropout risk: ${pct}%`}>
+      {pct}% risk
+    </span>
+  )
+}
+
 function PatientCard({ patient }: { patient: Patient }) {
   const stageColors = { lead: 'bg-yellow-100 text-yellow-800', active: 'bg-green-100 text-green-800', dropout: 'bg-red-100 text-red-800', archived: 'bg-gray-100 text-gray-600' }
   return (
     <div className="bg-white rounded-lg shadow-sm p-4 border border-gray-100">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="font-medium text-gray-900">{patient.fullName || 'Anonymous'}</h3>
-        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${stageColors[patient.stage]}`}>
+        <div className="flex items-center gap-2 min-w-0">
+          <h3 className="font-medium text-gray-900 truncate">{patient.fullName || 'Anonymous'}</h3>
+          <RiskBadge score={patient.dropoutRiskScore} />
+        </div>
+        <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${stageColors[patient.stage]}`}>
           {patient.stage}
         </span>
       </div>
-      <p className="text-xs text-gray-500">Risk Score: {(patient.dropoutRiskScore * 100).toFixed(0)}%</p>
       <p className="text-xs text-gray-500">Last Active: {new Date(patient.lastActive).toLocaleDateString()}</p>
     </div>
   )
