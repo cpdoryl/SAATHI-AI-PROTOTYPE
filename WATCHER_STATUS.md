@@ -1,33 +1,22 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:38:03
-**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.
+**Updated**: 2026-03-08 15:38:11
+**Status**:  RUNNING -- 20 task(s) in queue
 
 ## Progress
 
-- Tasks completed : 44 / 52
-- Last task       : `P5-ML::Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score`
+- Tasks completed : 45 / 48
+- Last task       : `P5-ML::Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens`
 
 ## Details
 
-Claude Code returned a non-zero exit code.
+Watcher executing tasks in TASKS.md order.
 
-**Likely cause**: implementation error in the task itself.
-
-**Task**: `[P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score`
-
-The watcher has skipped this task and moved to the next one.
-Review `watcher.log` and fix manually if needed.
+**First task**: `[P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens`
 
 ## Recent Log
 
 ```
-[2026-03-08 15:37:32] [INFO] [34/61] SKIP (task error): [P4-RAG] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
-[2026-03-08 15:37:32] [INFO] [35/61] START: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-[2026-03-08 15:37:32] [INFO] Invoking Claude: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-[2026-03-08 15:37:36] [ERROR] Claude FAILED for: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-[2026-03-08 15:37:39] [INFO] [35/61] SKIP (task error): [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-[2026-03-08 15:37:39] [INFO] [36/61] START: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 [2026-03-08 15:37:39] [INFO] Invoking Claude: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 [2026-03-08 15:37:43] [ERROR] Claude FAILED for: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 [2026-03-08 15:37:47] [INFO] [36/61] SKIP (task error): [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
@@ -42,4 +31,10 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:37:59] [INFO] [39/61] START: [P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
 [2026-03-08 15:37:59] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
 [2026-03-08 15:38:03] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
+[2026-03-08 15:38:07] [INFO] [39/61] SKIP (task error): [P5-ML] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
+[2026-03-08 15:38:07] [INFO] [40/61] START: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
+[2026-03-08 15:38:07] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
+[2026-03-08 15:38:10] [INFO] TASKS.md changed on GitHub -- rescanning tasks...
+[2026-03-08 15:38:11] [INFO] Task queue: 20 task(s) to execute (skipped 45 already completed).
+[2026-03-08 15:38:11] [WARN] Resuming interrupted task: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 ```
