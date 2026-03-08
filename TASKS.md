@@ -47,7 +47,6 @@ Mark done with `[x]` after Claude confirms completion.
 
 ## P2 — Production Readiness
 let us start with the below task 
-
 - [ ] Redis sliding-window rate limiting in `rate_limit_middleware.py`
 - [ ] Alembic first migration: `alembic revision --autogenerate -m "initial"`
 - [ ] Redis session state management (replace in-memory dict)
