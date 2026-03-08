@@ -1,0 +1,118 @@
+name: SAATHI AI — Agent Task Runner
+
+# ──────────────────────────────────────────────────────────────────
+# Triggers:
+#   schedule    → every 5 min (main polling loop — one task per tick)
+#   push        → when TASKS.md changes on main (immediate pickup)
+#   workflow_dispatch → manual run from GitHub UI
+# ──────────────────────────────────────────────────────────────────
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+  push:
+    branches: [main]
+    paths:
+      - "TASKS.md"           # only trigger when tasks are added/changed
+  workflow_dispatch:         # manual trigger with optional input
+    inputs:
+      reason:
+        description: "Reason for manual run (optional)"
+        required: false
+        default: "Manual trigger"
+
+# Prevent concurrent runs — one task agent at a time.
+# new trigger waits for the current run to finish (no cancel).
+concurrency:
+  group: saathi-agent-task-runner
+  cancel-in-progress: false
+
+jobs:
+  run-one-task:
+    name: Execute next pending task
+    runs-on: ubuntu-latest
+    timeout-minutes: 40         # hard ceiling: 30-min task + 10-min overhead
+
+    permissions:
+      contents: write           # needed to git push results back
+
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Use PAT so git push inside the runner can trigger further workflows.
+          # Falls back to GITHUB_TOKEN (push won't re-trigger push workflows).
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # ── 2. Python ──────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. Node (Claude CLI is an npm package) ─────────────────────
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # ── 4. Install Claude CLI ──────────────────────────────────────
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+        env:
+          # Suppress telemetry / update-check noise
+          NO_UPDATE_NOTIFIER: "1"
+
+      # ── 5. Python deps (minimal — only what remote_task_runner needs) ──
+      - name: Install Python deps
+        run: |
+          pip install --quiet --upgrade pip
+          # remote_task_runner.py uses only stdlib — nothing extra required.
+          # Install project backend deps only if needed for validation steps.
+          if [ -f therapeutic-copilot/server/requirements.txt ]; then
+            pip install --quiet -r therapeutic-copilot/server/requirements.txt \
+              --extra-index-url https://pypi.org/simple/ \
+              2>/dev/null || true
+          fi
+
+      # ── 6. Git identity (required for commits inside the workflow) ──
+      - name: Configure git identity
+        run: |
+          git config user.name  "SAATHI Agent [CI]"
+          git config user.email "agent@rylneuroacademy.com"
+
+      # ── 7. Run ONE task ────────────────────────────────────────────
+      - name: Run next pending task
+        id: run_task
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Pass PAT to git so pushes succeed even on protected branches
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          python remote_task_runner.py
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      # ── 8. Annotate workflow with result ──────────────────────────
+      - name: Report result
+        if: always()
+        run: |
+          CODE="${{ steps.run_task.outputs.exit_code }}"
+          case "$CODE" in
+            0) echo "✅ Task completed (or no tasks pending)." ;;
+            1) echo "❌ Task failed or timed out — skipped, state saved." ;;
+            2) echo "⏸  API rate limit hit — will auto-retry at next schedule tick." ;;
+            3) echo "🚨 Fatal runner error — check logs." ;;
+            *) echo "❓ Unknown exit code: $CODE" ;;
+          esac
+
+      # ── 9. Upload log as artifact (always, so failures are debuggable) ──
+      - name: Upload watcher log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watcher-log-${{ github.run_id }}
+          path: watcher.log
+          retention-days: 7
+          if-no-files-found: ignore
