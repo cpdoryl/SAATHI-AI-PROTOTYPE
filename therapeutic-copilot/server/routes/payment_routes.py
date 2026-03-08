@@ -31,9 +31,9 @@ async def verify_payment(payload: dict, db: AsyncSession = Depends(get_db)):
 
 
 @router.post("/webhook")
-async def handle_webhook(request: Request):
+async def handle_webhook(request: Request, db: AsyncSession = Depends(get_db)):
     """Handle Razorpay server-to-server webhook events."""
     body = await request.body()
     service = PaymentService()
-    await service.handle_webhook(body=body, headers=dict(request.headers))
+    await service.handle_webhook(body=body, headers=dict(request.headers), db=db)
     return {"status": "ok"}
