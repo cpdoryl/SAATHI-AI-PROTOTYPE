@@ -1444,6 +1444,62 @@ GET /events:
 
 ---
 
+## Session: 2026-03-08 — test_rag.py + RAG Service Improvements (P1-BE)
+
+### Task Completed
+Write `test_rag.py` — test ingest→Pinecone upsert, query→top-k chunks returned, wrong tenant→empty, fallback to default namespace.
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/services/rag_service.py` | Added `_chunk_text()`, rewrote `ingest()` with chunking+batch-upsert, rewrote `query()` with similarity threshold + default-namespace fallback |
+| `therapeutic-copilot/tests/test_rag.py` | New — 15 tests covering all 4 task scenarios |
+| `therapeutic-copilot/tests/conftest.py` | Added `PINECONE_API_KEY` and `PINECONE_INDEX` env defaults |
+
+### Design Decisions
+
+1. **Service improvements required before tests** — The existing `rag_service.py` had no chunking (took `content[:1000]`), no similarity threshold, and no fallback to default namespace. All three were required by the RAG_BLUEPRINT.md and were necessary to make the specified tests meaningful. They were implemented as part of this session.
+
+2. **Chunking strategy — character-based approximation** — Following the blueprint: `chunk_size=512 tokens × 4 chars/token = 2048 chars`, `overlap=50 tokens × 4 = 200 chars`, `stride = 1848 chars`. Discards chunks ≤ 50 chars (too small to be meaningful context). This is a fast, dependency-free approximation — no tiktoken required.
+
+3. **Similarity thresholds** — Tenant namespace: score ≥ 0.75 (strict — only highly relevant clinic-specific content). Default namespace fallback: score ≥ 0.70 (slightly relaxed — general mental health knowledge is broadly applicable). Values taken directly from RAG_BLUEPRINT.md §7.
+
+4. **Fallback guard — no recursive loop** — `if not contexts and tenant_id != DEFAULT_NAMESPACE:` prevents querying `"default"` twice if the caller explicitly targets the default namespace.
+
+5. **Batch upsert — 100 vectors per call** — Pinecone's upsert limit is 100 vectors per call. Long documents are chunked into batches of 100 for upsert, matching the blueprint spec.
+
+6. **Mock strategy — autouse fixture for embedding model** — `patch("services.rag_service._get_embedding_model", return_value=fake_model)` with `autouse=True` prevents any test from accidentally loading the real ~90MB SentenceTransformer model. All tests run without ML dependencies.
+
+7. **Pinecone mock via direct attribute injection** — The `rag` fixture sets `service._client = MagicMock()` and `service._index = mock_index` directly, bypassing `_get_client()`. This avoids any network call while preserving the real control-flow logic being tested.
+
+8. **Test file location** — Placed at `therapeutic-copilot/tests/test_rag.py` (consistent with all other test files) rather than `therapeutic-copilot/server/tests/` as specified in TASKS.md — existing tests show the correct location is `tests/` not `server/tests/`.
+
+### Tests Written (15 total)
+
+| Test | Category | Scenario |
+|------|----------|----------|
+| `test_ingest_calls_pinecone_upsert` | Ingest | upsert called, correct namespace, status=ingested |
+| `test_ingest_stores_text_and_metadata_in_vector` | Ingest | metadata contains text, tenant_id, source |
+| `test_ingest_long_document_produces_multiple_chunks` | Ingest | >2048-char doc → ≥2 chunks, unique IDs |
+| `test_ingest_when_pinecone_unavailable` | Ingest | returns error dict gracefully |
+| `test_query_returns_top_k_chunks` | Query | returns all high-score match texts |
+| `test_query_filters_low_similarity_scores` | Query | excludes score < 0.75 results |
+| `test_query_uses_correct_namespace` | Query | passes tenant_id as namespace |
+| `test_wrong_tenant_returns_empty` | Query | unknown tenant + empty default → [] |
+| `test_query_when_pinecone_unavailable` | Query | returns [] gracefully |
+| `test_fallback_to_default_namespace_when_tenant_empty` | Fallback | tenant empty → queries default, returns chunks |
+| `test_fallback_not_triggered_when_tenant_has_results` | Fallback | tenant results → default never queried |
+| `test_fallback_uses_lower_threshold_for_default_namespace` | Fallback | score 0.72 passes default threshold (0.70) |
+| `test_no_double_fallback_for_default_namespace` | Fallback | querying "default" directly → 1 call only |
+| `test_chunk_text_short_content_produces_one_chunk` | Chunking | <2048 chars → 1 chunk |
+| `test_chunk_text_long_content_produces_multiple_chunks` | Chunking | >2048 chars → ≥2 chunks |
+| `test_chunk_text_filters_tiny_chunks` | Chunking | discards chunks ≤ 50 chars |
+| `test_chunk_text_overlap_creates_shared_content` | Chunking | chunk[0][1848:2048] == chunk[1][:200] |
+| `test_chunk_text_empty_string_returns_no_chunks` | Chunking | "" → [] |
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
