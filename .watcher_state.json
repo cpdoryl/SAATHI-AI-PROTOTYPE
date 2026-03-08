@@ -65,7 +65,8 @@
     "P7-TEST::Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md",
     "P7-TEST::Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md",
     "P8-OPS::Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod",
-    "P8-OPS::Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml"
+    "P8-OPS::Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml",
+    "P8-OPS::Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
