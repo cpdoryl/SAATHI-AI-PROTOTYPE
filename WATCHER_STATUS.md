@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:40:03
-**Status**:  TASK FAILED -- [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat wid
+**Updated**: 2026-03-08 15:40:11
+**Status**:  TASK FAILED -- [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to
 
 ## Progress
 
-- Tasks completed : 60 / 48
-- Last task       : `P7-TEST::Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
+- Tasks completed : 61 / 48
+- Last task       : `P7-TEST::Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/`
+**Task**: `[P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:39:33] [INFO] [50/61] SKIP (task error): [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
-[2026-03-08 15:39:33] [INFO] [51/61] START: [P7-TEST] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
-[2026-03-08 15:39:33] [INFO] Invoking Claude: [P7-TEST] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
-[2026-03-08 15:39:36] [ERROR] Claude FAILED for: [P7-TEST] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 [2026-03-08 15:39:40] [INFO] [51/61] SKIP (task error): [P7-TEST] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 [2026-03-08 15:39:40] [INFO] [52/61] START: [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:39:40] [INFO] Invoking Claude: [P7-TEST] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:39:59] [INFO] [55/61] START: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 [2026-03-08 15:39:59] [INFO] Invoking Claude: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 [2026-03-08 15:40:03] [ERROR] Claude FAILED for: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 15:40:07] [INFO] [55/61] SKIP (task error): [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
+[2026-03-08 15:40:07] [INFO] [56/61] START: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 15:40:07] [INFO] Invoking Claude: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
+[2026-03-08 15:40:11] [ERROR] Claude FAILED for: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 ```
