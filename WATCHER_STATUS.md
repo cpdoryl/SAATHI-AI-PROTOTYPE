@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:42:11
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), 
+**Updated**: 2026-03-08 11:42:19
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic m
 
 ## Progress
 
-- Tasks completed : 55 / 71
-- Last task       : `════════════════════════════════════════════════::Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py`
+- Tasks completed : 56 / 71
+- Last task       : `════════════════════════════════════════════════::Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py`
+**Task**: `[════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:41:33] [INFO] [51/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
-[2026-03-08 11:41:33] [INFO] [52/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
-[2026-03-08 11:41:33] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
-[2026-03-08 11:41:36] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 [2026-03-08 11:41:40] [INFO] [52/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 [2026-03-08 11:41:40] [INFO] [53/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 11:41:40] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:07] [INFO] [56/71] START: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:42:07] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:42:11] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
+[2026-03-08 11:42:15] [INFO] [56/71] SKIP (failed): [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
+[2026-03-08 11:42:15] [INFO] [57/71] START: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 11:42:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 11:42:19] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 ```
