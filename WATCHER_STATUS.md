@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:37:04
-**Status**:  TASK FAILED -- [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message his
+**Updated**: 2026-03-08 15:37:12
+**Status**:  TASK FAILED -- [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. 
 
 ## Progress
 
-- Tasks completed : 36 / 52
-- Last task       : `P2-FE::LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx`
+- Tasks completed : 37 / 52
+- Last task       : `P3-WI::Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+**Task**: `[P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,14 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:36:53] [INFO] [29/61] SKIP (task error): [P3-WI] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:53] [INFO] [30/61] START: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:53] [INFO] Invoking Claude: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:36:56] [ERROR] Claude FAILED for: [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:37:01] [INFO] [30/61] SKIP (task error): [P3-WI] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:37:01] [INFO] [31/61] START: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:37:01] [INFO] Invoking Claude: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-[2026-03-08 15:37:03] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:37:03] [WARN] Lock still held. Skipping task this cycle.
 [2026-03-08 15:37:03] [ERROR] Watcher loop error: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
 [2026-03-08 15:37:03] [ERROR] Traceback (most recent call last):
@@ -42,4 +34,12 @@ Review `watcher.log` and fix manually if needed.
 UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 134: character maps to <undefined>
 
 [2026-03-08 15:37:04] [ERROR] Claude FAILED for: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:08] [INFO] Recovering -- waiting 60s before retry...
+[2026-03-08 15:37:08] [WARN] Push failed: To https://github.com/cpdoryl/SAATHI-AI-PROTOTYPE.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 2b29a5638d31877223bcee4f356a33d04a262d97 but expected 1852d016e3dc6d228169ac914a049db6e7ca39ad)
+error: failed to push some refs to 'https://github.com/cpdoryl/SAATHI-AI-PROTOTYPE.git'
+[2026-03-08 15:37:08] [INFO] [31/61] SKIP (task error): [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 15:37:08] [INFO] [32/61] START: [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
+[2026-03-08 15:37:08] [INFO] Invoking Claude: [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
+[2026-03-08 15:37:12] [ERROR] Claude FAILED for: [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
 ```
