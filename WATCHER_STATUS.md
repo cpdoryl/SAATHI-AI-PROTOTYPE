@@ -1,25 +1,25 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 13:57:59
-**Status**:  RUNNING -- 61 task(s) in queue
+**Updated**: 2026-03-08 13:58:05
+**Status**:  TASK FAILED -- [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_sta
 
 ## Progress
 
 - Tasks completed : 6 / 61
-- Last task       : `None`
+- Last task       : `P1-BE::Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
 
 ## Details
 
-Watcher executing tasks in TASKS.md order.
+Claude Code returned a non-zero exit code for this task.
 
-**First task**: `[P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
+**Task**: `[P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py`
+
+The watcher will move on to the next task.
+Please review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-08 12:29:21] [INFO] No changes on GitHub. Next check in 5 min.
-[2026-03-08 12:34:25] [INFO] No changes on GitHub. Next check in 5 min.
-[2026-03-08 12:39:26] [INFO] No changes on GitHub. Next check in 5 min.
 [2026-03-08 12:44:28] [INFO] No changes on GitHub. Next check in 5 min.
 [2026-03-08 12:49:29] [INFO] No changes on GitHub. Next check in 5 min.
 [2026-03-08 12:54:30] [INFO] No changes on GitHub. Next check in 5 min.
@@ -37,4 +37,7 @@ Watcher executing tasks in TASKS.md order.
 [2026-03-08 13:57:55] [INFO] Press Ctrl+C to stop cleanly.
 [2026-03-08 13:57:58] [INFO] Starting up -- scanning all pending tasks from TASKS.md...
 [2026-03-08 13:57:59] [INFO] Task queue: 61 task(s) to execute (skipped 6 already completed).
+[2026-03-08 13:58:04] [INFO] [1/61] START: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 13:58:04] [INFO] Invoking Claude: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
+[2026-03-08 13:58:05] [ERROR] Claude FAILED for: [P1-BE] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 ```
