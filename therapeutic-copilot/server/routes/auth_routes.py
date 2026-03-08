@@ -79,7 +79,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSessi
     }
 
 
-@router.post("/register")
+@router.post("/register", status_code=201)
 async def register(payload: dict, db: AsyncSession = Depends(get_db)):
     """Register a new clinician account under a tenant."""
     tenant_result = await db.execute(
