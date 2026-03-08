@@ -2,6 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from loguru import logger
 from database import get_db
 from models import Patient, TherapySession
 
@@ -53,14 +54,21 @@ async def get_patient(patient_id: str, db: AsyncSession = Depends(get_db)):
 
 @router.get("/{patient_id}/sessions")
 async def list_patient_sessions(patient_id: str, db: AsyncSession = Depends(get_db)):
-    """Return all therapy sessions for a patient."""
+    """Return all therapy sessions for a patient, ordered by started_at desc."""
+    patient_result = await db.execute(select(Patient).where(Patient.id == patient_id))
+    if not patient_result.scalar_one_or_none():
+        logger.warning(f"Patient not found: {patient_id}")
+        raise HTTPException(status_code=404, detail="Patient not found")
+
     result = await db.execute(
         select(TherapySession)
         .where(TherapySession.patient_id == patient_id)
         .order_by(TherapySession.started_at.desc())
     )
     sessions = result.scalars().all()
+    logger.info(f"Patient {patient_id} sessions fetched: {len(sessions)} records")
     return {
+        "patient_id": patient_id,
         "sessions": [
             {
                 "id": s.id,
@@ -72,5 +80,5 @@ async def list_patient_sessions(patient_id: str, db: AsyncSession = Depends(get_
                 "endedAt": s.ended_at.isoformat() if s.ended_at else None,
             }
             for s in sessions
-        ]
+        ],
     }
