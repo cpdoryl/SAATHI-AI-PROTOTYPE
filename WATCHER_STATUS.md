@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:36:05
-**Status**:  TASK FAILED -- [P2-FE] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-das
+**Updated**: 2026-03-08 15:36:12
+**Status**:  TASK FAILED -- [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response
 
 ## Progress
 
-- Tasks completed : 29 / 52
-- Last task       : `P2-FE::Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx`
+- Tasks completed : 30 / 52
+- Last task       : `P2-FE::TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P2-FE] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.`
+**Task**: `[P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:35:39] [INFO] [21/61] START: [P2-FE] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
-[2026-03-08 15:35:39] [INFO] Invoking Claude: [P2-FE] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
-[2026-03-08 15:35:42] [ERROR] Claude FAILED for: [P2-FE] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
-[2026-03-08 15:35:47] [INFO] [21/61] SKIP (task error): [P2-FE] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 [2026-03-08 15:35:47] [INFO] [22/61] START: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 [2026-03-08 15:35:47] [INFO] Invoking Claude: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 [2026-03-08 15:35:51] [ERROR] Claude FAILED for: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:36:03] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:36:03] [WARN] Could not acquire lock -- waiting 60s...
 [2026-03-08 15:36:05] [ERROR] Claude FAILED for: [P2-FE] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 15:36:08] [INFO] [24/61] SKIP (task error): [P2-FE] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+[2026-03-08 15:36:08] [INFO] [25/61] START: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 15:36:08] [INFO] Invoking Claude: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 15:36:12] [ERROR] Claude FAILED for: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 ```
