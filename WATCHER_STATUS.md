@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:38:23
-**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalan
+**Updated**: 2026-03-08 15:38:32
+**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic
 
 ## Progress
 
-- Tasks completed : 46 / 48
-- Last task       : `P5-ML::Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total`
+- Tasks completed : 47 / 48
+- Last task       : `P5-ML::Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total`
+**Task**: `[P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:38:07] [INFO] [40/61] START: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
-[2026-03-08 15:38:07] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
-[2026-03-08 15:38:10] [INFO] TASKS.md changed on GitHub -- rescanning tasks...
-[2026-03-08 15:38:11] [INFO] Task queue: 20 task(s) to execute (skipped 45 already completed).
 [2026-03-08 15:38:11] [WARN] Resuming interrupted task: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 [2026-03-08 15:38:12] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 [2026-03-08 15:38:14] [INFO] [1/20] START: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
@@ -42,4 +38,8 @@ error: failed to push some refs to 'https://github.com/cpdoryl/SAATHI-AI-PROTOTY
 [2026-03-08 15:38:21] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:38:21] [WARN] Could not acquire lock -- waiting 60s...
 [2026-03-08 15:38:23] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
+[2026-03-08 15:38:28] [INFO] [41/61] SKIP (task error): [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
+[2026-03-08 15:38:28] [INFO] [42/61] START: [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
+[2026-03-08 15:38:28] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
+[2026-03-08 15:38:32] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 ```
