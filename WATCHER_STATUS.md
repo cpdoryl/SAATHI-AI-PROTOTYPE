@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:36:20
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /
+**Updated**: 2026-03-08 11:36:30
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete appointments API — implement CREATE (POS
 
 ## Progress
 
-- Tasks completed : 11 / 71
-- Last task       : `════════════════════════════════════════════════::Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py`
+- Tasks completed : 12 / 71
+- Last task       : `════════════════════════════════════════════════::Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py`
+**Task**: `[════════════════════════════════════════════════] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:35:48] [INFO] [7/71] SKIP (failed): [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
-[2026-03-08 11:35:48] [INFO] [8/71] START: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
-[2026-03-08 11:35:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
-[2026-03-08 11:35:53] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 11:35:56] [INFO] [8/71] SKIP (failed): [════════════════════════════════════════════════] Complete Razorpay webhook handlers — handle payment.captured (update Appointment.payment_status="paid"), payment.failed, refund.created. File: therapeutic-copilot/server/services/payment_service.py
 [2026-03-08 11:35:56] [INFO] [9/71] START: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 11:35:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:36:16] [INFO] [12/71] START: [════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
 [2026-03-08 11:36:16] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
 [2026-03-08 11:36:20] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
+[2026-03-08 11:36:26] [INFO] [12/71] SKIP (failed): [════════════════════════════════════════════════] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
+[2026-03-08 11:36:26] [INFO] [13/71] START: [════════════════════════════════════════════════] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
+[2026-03-08 11:36:26] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
+[2026-03-08 11:36:30] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
 ```
