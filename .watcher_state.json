@@ -46,7 +46,8 @@
     "P3-WI::Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx",
     "P3-WI::Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx",
     "P3-WI::Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx",
-    "P3-WI::Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src=\"./dist/saathi-widget.js\" data-token=\"demo-token-123\"></script>, verify widget appears."
+    "P3-WI::Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src=\"./dist/saathi-widget.js\" data-token=\"demo-token-123\"></script>, verify widget appears.",
+    "P4-RAG::Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace=\"default\". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
