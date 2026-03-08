@@ -1213,6 +1213,54 @@ GET /api/v1/patients/{patient_id}/sessions
 
 ---
 
+## Session: 2026-03-08 — LoRA Adapter Hot-Swap API
+
+### Task Completed
+TASK-BE-07: Complete LoRA adapter hot-swap API call in `lora_model_service.py`
+
+### Files Changed
+- `therapeutic-copilot/server/services/lora_model_service.py`
+
+### What Was Done
+Replaced the `# TODO: Call llama.cpp API to hot-swap LoRA adapter` stub in
+`LoRAModelService.switch_adapter()` with a real async HTTP call using `httpx`.
+
+Changes:
+- Imported `httpx` and `settings` (from `config`)
+- Built the target URL: `{settings.LLAMA_CPP_SERVER_URL.rstrip('/')}/lora`
+- POSTed a JSON array `[{"path": config["path"], "scale": 1.0}]` — the format
+  expected by the llama.cpp server `/lora` endpoint
+- On HTTP 4xx/5xx (`HTTPStatusError`): logs the status code + response body,
+  returns `False` (graceful fallback — existing adapter stays loaded)
+- On network error (`RequestError`): logs the exception, returns `False`
+- On success: logs confirmation, updates `self._current_stage`, returns `True`
+- Uses `httpx.AsyncClient(timeout=10.0)` with context manager for clean resource handling
+
+### Design Decisions
+1. **llama.cpp `/lora` payload format**: The server expects a JSON array of adapter
+   objects `[{"path": "...", "scale": 1.0}]`. Scale 1.0 = full adapter strength, consistent
+   with standard LoRA inference.
+2. **Graceful fallback on failure**: Both error branches return `False` without raising.
+   The calling service (`therapeutic_ai_service.py`) should log/warn but continue using
+   the currently loaded adapter rather than crashing the chat pipeline.
+3. **`self._current_stage` only updated on success**: Prevents stale stage tracking if the
+   swap silently failed.
+4. **10-second timeout**: Balances responsiveness with the reality that llama.cpp may need
+   a moment to unload + reload the adapter GGUF from disk.
+
+### Algorithm
+```
+switch_adapter(stage):
+  1. If stage == self._current_stage → return True (no-op)
+  2. Resolve adapter config from LORA_ADAPTERS[stage]
+  3. POST {LLAMA_CPP_SERVER_URL}/lora  body=[{"path": adapter_path, "scale": 1.0}]
+  4a. HTTPStatusError → log error, return False
+  4b. RequestError   → log error, return False
+  5. Log success, set self._current_stage = stage, return True
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
