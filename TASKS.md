@@ -66,7 +66,7 @@
 - [x] Complete LoRA adapter hot-swap API call in lora_model_service.py — POST to {LLAMA_CPP_SERVER_URL}/lora with adapter path on stage change. File: therapeutic-copilot/server/services/lora_model_service.py
 - [x] Complete Google Calendar routes — implement GET /auth-url, GET /callback (OAuth token exchange + store in clinicians.google_calendar_token), POST /events (create Google Calendar event). Files: therapeutic-copilot/server/routes/calendar_routes.py, therapeutic-copilot/server/services/calendar_service.py
 - [x] Complete appointments API — implement CREATE (POST /api/v1/appointments): save to DB + create Razorpay order + create Google Calendar event. Implement list (GET) with real DB query. File: therapeutic-copilot/server/api/appointments.py
-- [ ] Write test_auth.py — test login correct password→JWT, wrong password→401, unknown email→401, register→201, refresh→new token. File: therapeutic-copilot/server/tests/test_auth.py
+- [x] Write test_auth.py — test login correct password→JWT, wrong password→401, unknown email→401, register→201, refresh→new token. File: therapeutic-copilot/server/tests/test_auth.py
 - [ ] Write test_rag.py — test ingest→Pinecone upsert, query→top-k chunks returned, wrong tenant→empty, fallback to default namespace. File: therapeutic-copilot/server/tests/test_rag.py
 - [ ] Write test_websocket.py — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens. File: therapeutic-copilot/server/tests/test_websocket.py
 - [ ] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
@@ -188,7 +188,7 @@
 - [x] test_smoke_p0.py (10/10 PASS)
 - [x] test_crisis_detection.py (8 tests)
 - [x] test_razorpay_sandbox.py (4/4 PASS)
-- [ ] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
+- [x] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 - [ ] Write test_rag.py — ingest, query, threshold filter, namespace fallback. File: therapeutic-copilot/server/tests/test_rag.py
 - [ ] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 - [ ] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
