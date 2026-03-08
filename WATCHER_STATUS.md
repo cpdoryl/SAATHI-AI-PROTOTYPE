@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:42:25
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creat
+**Updated**: 2026-03-08 11:42:32
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test da
 
 ## Progress
 
-- Tasks completed : 57 / 71
-- Last task       : `════════════════════════════════════════════════::Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
+- Tasks completed : 58 / 71
+- Last task       : `════════════════════════════════════════════════::Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
+**Task**: `[════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:41:47] [INFO] [53/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 11:41:47] [INFO] [54/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 11:41:47] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
-[2026-03-08 11:41:50] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 11:41:56] [INFO] [54/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 11:41:56] [INFO] [55/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 [2026-03-08 11:41:56] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:22] [INFO] [58/71] START: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
 [2026-03-08 11:42:22] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
 [2026-03-08 11:42:25] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 11:42:28] [INFO] [58/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 11:42:28] [INFO] [59/71] START: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 11:42:28] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
+[2026-03-08 11:42:32] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 ```
