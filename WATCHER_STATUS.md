@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:38:52
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPa
+**Updated**: 2026-03-08 11:39:05
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <scri
 
 ## Progress
 
-- Tasks completed : 30 / 71
-- Last task       : `════════════════════════════════════════════════::Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts`
+- Tasks completed : 31 / 71
+- Last task       : `════════════════════════════════════════════════::Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts`
+**Task**: `[════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:38:12] [INFO] [26/71] SKIP (failed): [════════════════════════════════════════════════] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:12] [INFO] [27/71] START: [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:12] [INFO] Invoking Claude: [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:16] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:21] [INFO] [27/71] SKIP (failed): [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:21] [INFO] [28/71] START: [════════════════════════════════════════════════] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:21] [INFO] Invoking Claude: [════════════════════════════════════════════════] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:38:48] [INFO] [31/71] START: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 [2026-03-08 11:38:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 [2026-03-08 11:38:52] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
+[2026-03-08 11:39:00] [INFO] [31/71] SKIP (failed): [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
+[2026-03-08 11:39:00] [INFO] [32/71] START: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
+[2026-03-08 11:39:00] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
+[2026-03-08 11:39:05] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 ```
