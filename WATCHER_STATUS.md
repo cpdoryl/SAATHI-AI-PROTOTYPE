@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:37:31
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidg
+**Updated**: 2026-03-08 11:37:40
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api
 
 ## Progress
 
-- Tasks completed : 20 / 71
-- Last task       : `════════════════════════════════════════════════::Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx`
+- Tasks completed : 21 / 71
+- Last task       : `════════════════════════════════════════════════::PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx`
+**Task**: `[════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:36:54] [INFO] [16/71] SKIP (failed): [════════════════════════════════════════════════] Write test_websocket.py — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens. File: therapeutic-copilot/server/tests/test_websocket.py
-[2026-03-08 11:36:54] [INFO] [17/71] START: [════════════════════════════════════════════════] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
-[2026-03-08 11:36:54] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
-[2026-03-08 11:36:58] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
 [2026-03-08 11:37:00] [INFO] [17/71] SKIP (failed): [════════════════════════════════════════════════] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
 [2026-03-08 11:37:00] [INFO] [18/71] START: [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:37:00] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:37:28] [INFO] [21/71] START: [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
 [2026-03-08 11:37:28] [INFO] Invoking Claude: [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
 [2026-03-08 11:37:31] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
+[2026-03-08 11:37:36] [INFO] [21/71] SKIP (failed): [════════════════════════════════════════════════] Crisis banner component — red overlay in ChatWidget showing helpline numbers when crisis detected via WebSocket. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
+[2026-03-08 11:37:36] [INFO] [22/71] START: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:36] [INFO] Invoking Claude: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
+[2026-03-08 11:37:40] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] PatientPortal session history tab — call GET /api/v1/patients/{id}/sessions, render session cards with: date, stage badge, crisis_score, expandable message preview. File: therapeutic-copilot/client/src/components/patient/PatientPortal.tsx
 ```
