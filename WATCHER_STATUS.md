@@ -1,7 +1,7 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 18:33:23
-**Status**:  RUNNING -- task 46/33
+**Updated**: 2026-03-08 18:33:29
+**Status**:  TASK FAILED -- [P3-WI] Widget session persistence — store session_id in sessionStorage so re-op
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
@@ -11,7 +11,9 @@
 
 ## Details
 
-**Task**: `[P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
+Claude returned exit code 1.
+
+Task skipped. Review `watcher.log` to fix manually.
 
 ## Recent Log
 
@@ -21,4 +23,6 @@
 [2026-03-08 18:33:23] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
 [2026-03-08 18:33:23] [INFO] ============================================================
 [2026-03-08 18:33:23] [INFO] [46/33] Executing: [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 18:33:27] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
+[2026-03-08 18:33:29] [ERROR] Claude FAILED (exit 1): [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 ```
