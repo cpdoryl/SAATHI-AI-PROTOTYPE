@@ -70,7 +70,7 @@
 - [x] Write test_rag.py — test ingest→Pinecone upsert, query→top-k chunks returned, wrong tenant→empty, fallback to default namespace. File: therapeutic-copilot/server/tests/test_rag.py
 - [x] Write test_websocket.py — test clinician connects to room, crisis alert broadcasts, chat session WS streams tokens. File: therapeutic-copilot/server/tests/test_websocket.py
 - [x] Create scripts/setup_db.py — seed demo data: 1 tenant (Demo Clinic, widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234), 3 patients (LEAD/ACTIVE/DROPOUT), 1 session with 5 messages, 1 PHQ-9 assessment. File: therapeutic-copilot/server/scripts/setup_db.py
-- [ ] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
+- [x] Add audit_logs model to models.py — fields: id, actor_id, action, resource, ip_address, created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 
 ---
 
