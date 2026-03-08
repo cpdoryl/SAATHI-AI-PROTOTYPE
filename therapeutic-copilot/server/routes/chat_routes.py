@@ -82,8 +82,18 @@ async def get_session(session_id: str, db: AsyncSession = Depends(get_db)):
 async def end_session(session_id: str, db: AsyncSession = Depends(get_db)):
     """
     End a therapy session:
-    - Generate AI session summary
-    - Update clinician dashboard
-    - Trigger follow-up scheduling
+    - Fetch last 10 messages from DB
+    - Call LLM to generate clinical summary + structured insights
+    - Persist to TherapySession.session_summary and ai_insights
+    - Update status to COMPLETED and set ended_at
+    - Delete Redis session cache key
     """
-    return {"message": "Session ended", "summary": "placeholder"}
+    service = TherapeuticAIService(db)
+    try:
+        result = await service.end_session(session_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        logger.error(f"Unexpected error ending session {session_id}: {exc}")
+        raise HTTPException(status_code=500, detail="Failed to end session")
+    return result

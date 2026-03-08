@@ -2,6 +2,9 @@
 SAATHI AI — Core AI Orchestrator Service
 Coordinates: Stage routing → Crisis scan → RAG retrieval → LLM inference → Response
 """
+import json
+import re
+from datetime import datetime
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from services.chatbot_service import ChatbotService
@@ -161,6 +164,108 @@ class TherapeuticAIService:
             "crisis_score": crisis_result["severity"],
             "stage": stage,
             "current_step": session.current_step if session else 0,
+        }
+
+    async def end_session(self, session_id: str) -> dict:
+        """
+        End a therapy session with AI-generated clinical summary.
+
+        Steps:
+        1. Load TherapySession from DB (404 if not found)
+        2. Return cached summary if session already COMPLETED
+        3. Fetch last 10 messages in chronological order
+        4. Build structured summarisation prompt
+        5. Call LLM — request JSON {summary, insights}
+        6. Parse response; fall back gracefully on JSON parse error
+        7. Persist session_summary, ai_insights, status=COMPLETED, ended_at
+        8. Delete Redis session cache key
+        """
+        session_result = await self.db.execute(
+            select(TherapySession).where(TherapySession.id == session_id)
+        )
+        session = session_result.scalar_one_or_none()
+        if session is None:
+            raise ValueError(f"Session not found: {session_id}")
+
+        # Idempotent: return persisted summary if session already completed
+        if session.status == SessionStatus.COMPLETED and session.session_summary:
+            logger.info(f"Session {session_id} already completed — returning cached summary")
+            return {
+                "summary": session.session_summary,
+                "insights": session.ai_insights or {},
+            }
+
+        # Fetch last 10 messages — DESC limit then reverse for chronological order
+        msgs_result = await self.db.execute(
+            select(ChatMessage)
+            .where(ChatMessage.session_id == session_id)
+            .order_by(ChatMessage.created_at.desc())
+            .limit(10)
+        )
+        messages = list(reversed(msgs_result.scalars().all()))
+
+        transcript = "\n".join(
+            f"{msg.role.upper()}: {msg.content}" for msg in messages
+        )
+
+        summary_prompt = (
+            "You are a clinical documentation assistant for a mental health platform. "
+            "Analyse the following therapy session transcript and produce a structured summary.\n\n"
+            f"SESSION TRANSCRIPT (last {len(messages)} messages):\n"
+            f"{transcript}\n\n"
+            "Respond with a JSON object containing exactly two keys:\n"
+            '  "summary": A 2-4 sentence clinical narrative of the session themes and patient emotional state.\n'
+            '  "insights": An object with keys:\n'
+            '      "primary_concerns" (list of strings),\n'
+            '      "therapeutic_techniques_used" (list of strings),\n'
+            '      "patient_engagement" (exactly one of: "high", "medium", or "low"),\n'
+            '      "recommended_followup" (string — concrete next step for clinician).\n\n'
+            "Respond ONLY with the JSON object. No markdown, no code fences, no extra text."
+        )
+
+        raw_response = ""
+        try:
+            raw_response = await self.llm.generate(
+                prompt=summary_prompt,
+                stage=session.stage or 1,
+                max_tokens=1024,
+            )
+            logger.debug(f"LLM summary raw response for session {session_id}: {raw_response[:200]}")
+        except Exception as exc:
+            logger.error(f"LLM summary generation failed for session {session_id}: {exc}")
+
+        # Parse JSON — strip optional markdown code fences before parsing
+        summary_text = raw_response.strip()
+        ai_insights: dict = {}
+        try:
+            json_str = summary_text
+            # Strip ```json ... ``` or ``` ... ``` wrappers if present
+            fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", json_str, re.DOTALL)
+            if fence_match:
+                json_str = fence_match.group(1)
+            parsed = json.loads(json_str)
+            summary_text = parsed.get("summary", summary_text)
+            ai_insights = parsed.get("insights", {})
+        except (json.JSONDecodeError, AttributeError):
+            logger.warning(
+                f"Could not parse structured JSON from LLM for session {session_id}; "
+                "storing raw response as summary"
+            )
+
+        # Persist summary, insights, and terminal status to DB
+        session.session_summary = summary_text
+        session.ai_insights = ai_insights
+        session.status = SessionStatus.COMPLETED
+        session.ended_at = datetime.utcnow()
+        await self.db.commit()
+        logger.info(f"Session {session_id} marked COMPLETED with summary persisted")
+
+        # Remove Redis cache entry — session is no longer active
+        await redis_session_store.delete_session(session_id)
+
+        return {
+            "summary": summary_text,
+            "insights": ai_insights,
         }
 
     async def _detect_patient_stage(self, patient_id: str) -> int:
