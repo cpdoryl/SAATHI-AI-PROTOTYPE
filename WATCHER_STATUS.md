@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:42:39
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade he
+**Updated**: 2026-03-08 11:42:47
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong pass
 
 ## Progress
 
-- Tasks completed : 59 / 71
-- Last task       : `════════════════════════════════════════════════::Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
+- Tasks completed : 60 / 71
+- Last task       : `════════════════════════════════════════════════::Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md`
+**Task**: `[════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:42:07] [INFO] [55/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 11:42:07] [INFO] [56/71] START: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 11:42:07] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
-[2026-03-08 11:42:11] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:42:15] [INFO] [56/71] SKIP (failed): [════════════════════════════════════════════════] Add audit_logs ORM model — fields: id (UUID PK), actor_id, action VARCHAR(100), resource VARCHAR(100), ip_address VARCHAR(45), created_at. Create Alembic migration. File: therapeutic-copilot/server/models.py
 [2026-03-08 11:42:15] [INFO] [57/71] START: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 11:42:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:36] [INFO] [60/71] START: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 11:42:36] [INFO] Invoking Claude: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 11:42:39] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 11:42:44] [INFO] [60/71] SKIP (failed): [════════════════════════════════════════════════] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
+[2026-03-08 11:42:44] [INFO] [61/71] START: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
+[2026-03-08 11:42:44] [INFO] Invoking Claude: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
+[2026-03-08 11:42:47] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Write test_auth.py — login happy path, wrong password, unknown email, token refresh, /me endpoint. File: therapeutic-copilot/server/tests/test_auth.py
 ```
