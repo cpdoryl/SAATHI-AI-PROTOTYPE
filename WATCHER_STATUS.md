@@ -1,25 +1,25 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:33:15
-**Status**:  IN PROGRESS -- 6 done, 65 remaining
+**Updated**: 2026-03-08 11:35:44
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when 
 
 ## Progress
 
 - Tasks completed : 6 / 71
-- Last task       : `None`
+- Last task       : `════════════════════════════════════════════════::Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py`
 
 ## Details
 
-**Just completed**: `[════════════════════════════════════════════════] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py`
+Claude Code returned a non-zero exit code for this task.
 
-**Up next**: `[════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py`
+**Task**: `[════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py`
+
+The watcher will move on to the next task.
+Please review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-08 11:19:13] [INFO] [1/71] DONE: [HOW] Task title — context: what file, what problem, what expected result
-[2026-03-08 11:19:17] [INFO] [2/71] START: [HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
-[2026-03-08 11:19:17] [INFO] Invoking Claude: [HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
 [2026-03-08 11:24:40] [WARN] Claude did not update TASKS.md -- force-marking.
 [2026-03-08 11:24:42] [WARN] Force-marked task done in TASKS.md: Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}
 [2026-03-08 11:24:42] [INFO] [2/71] DONE: [HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx
@@ -37,4 +37,7 @@
 [2026-03-08 11:31:29] [INFO] [6/71] START: [════════════════════════════════════════════════] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
 [2026-03-08 11:31:29] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
 [2026-03-08 11:33:15] [INFO] [6/71] DONE: [════════════════════════════════════════════════] Complete GET /api/v1/assessments/{patient_id}/history — query Assessment table by patient_id ordered by administered_at desc, return real list. File: therapeutic-copilot/server/routes/assessment_routes.py
+[2026-03-08 11:33:18] [INFO] [7/71] START: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
+[2026-03-08 11:33:18] [INFO] Invoking Claude: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
+[2026-03-08 11:35:44] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician using SENDGRID_API_KEY + SENDGRID_FROM_EMAIL. File: therapeutic-copilot/server/services/crisis_detection_service.py
 ```
