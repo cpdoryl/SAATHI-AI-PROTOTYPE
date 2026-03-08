@@ -1,25 +1,22 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:43:58
+**Updated**: 2026-03-08 11:49:06
 **Status**:  ALL TASKS COMPLETE
 
 ## Progress
 
-- Tasks completed : 71 / 71
+- Tasks completed : 71 / 61
 - Last task       : `None`
 
 ## Details
 
 Every task in TASKS.md has been implemented and pushed to GitHub.
 
-To continue: add new tasks to TASKS.md on GitHub. The watcher will detect them and resume within 5 minutes.
+To continue: add new tasks to TASKS.md on GitHub. The watcher will detect them within 5 minutes.
 
 ## Recent Log
 
 ```
-[2026-03-08 11:43:21] [INFO] [67/71] START: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
-[2026-03-08 11:43:21] [INFO] Invoking Claude: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
-[2026-03-08 11:43:25] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 [2026-03-08 11:43:29] [INFO] [67/71] SKIP (failed): [════════════════════════════════════════════════] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 [2026-03-08 11:43:29] [INFO] [68/71] START: [════════════════════════════════════════════════] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
 [2026-03-08 11:43:29] [INFO] Invoking Claude: [════════════════════════════════════════════════] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
@@ -37,4 +34,7 @@ To continue: add new tasks to TASKS.md on GitHub. The watcher will detect them a
 [2026-03-08 11:43:49] [INFO] Invoking Claude: [════════════════════════════════════════════════] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
 [2026-03-08 11:43:53] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
 [2026-03-08 11:43:58] [INFO] [71/71] SKIP (failed): [════════════════════════════════════════════════] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
+[2026-03-08 11:44:02] [INFO] All tasks complete!
+[2026-03-08 11:49:03] [INFO] TASKS.md changed on GitHub -- rescanning tasks...
+[2026-03-08 11:49:06] [INFO] No pending tasks found. All done!
 ```
