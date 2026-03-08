@@ -1,6 +1,6 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:38:12
+**Updated**: 2026-03-08 15:38:15
 **Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect 
 
 ## Progress
@@ -10,21 +10,16 @@
 
 ## Details
 
-Claude Code returned a non-zero exit code.
-
-**Likely cause**: implementation error in the task itself.
+Claude Code returned a non-zero exit code for this task.
 
 **Task**: `[P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens`
 
-The watcher has skipped this task and moved to the next one.
-Review `watcher.log` and fix manually if needed.
+The watcher will move on to the next task.
+Please review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-08 15:37:43] [ERROR] Claude FAILED for: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
-[2026-03-08 15:37:47] [INFO] [36/61] SKIP (task error): [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
-[2026-03-08 15:37:47] [INFO] [37/61] START: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:37:47] [INFO] Invoking Claude: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:37:51] [ERROR] Claude FAILED for: [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 [2026-03-08 15:37:53] [INFO] [37/61] SKIP (task error): [P4-RAG] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
@@ -42,4 +37,7 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:38:11] [INFO] Task queue: 20 task(s) to execute (skipped 45 already completed).
 [2026-03-08 15:38:11] [WARN] Resuming interrupted task: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 [2026-03-08 15:38:12] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
+[2026-03-08 15:38:14] [INFO] [1/20] START: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
+[2026-03-08 15:38:14] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
+[2026-03-08 15:38:15] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 ```
