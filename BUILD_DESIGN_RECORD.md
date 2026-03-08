@@ -1090,6 +1090,53 @@ Four sequential, individually fault-tolerant steps:
 
 ---
 
+## SESSION 11 — 2026-03-08 — RAZORPAY WEBHOOK HANDLERS
+
+### Task Completed
+Complete `PaymentService.handle_webhook()` to process three Razorpay events:
+`payment.captured`, `payment.failed`, `refund.created` — each updating
+`Appointment.payment_status` via AsyncSession.
+
+### Files Changed
+| File | Change |
+|------|--------|
+| `therapeutic-copilot/server/services/payment_service.py` | Full webhook implementation — HMAC verification, event routing, DB update helper |
+| `therapeutic-copilot/server/routes/payment_routes.py` | Pass `db: AsyncSession` dependency into `handle_webhook()` |
+| `therapeutic-copilot/server/config.py` | Added `RAZORPAY_WEBHOOK_SECRET` setting |
+
+### Algorithm
+
+1. **Signature verification** (`_verify_webhook_signature`): HMAC-SHA256 of raw
+   request body using `RAZORPAY_WEBHOOK_SECRET`. If secret is not set (dev mode),
+   verification is skipped with a `logger.warning`. In production, the secret is
+   configured in Razorpay Dashboard → Webhooks.
+
+2. **payment.captured / payment.failed**: Extract `payload.payment.entity.order_id`
+   from the event JSON. Call `_update_appointment_payment_status(db, order_id, status)`.
+
+3. **refund.created**: Extract `payload.refund.entity.payment_id`. Since `Appointment`
+   has `razorpay_order_id` but not `razorpay_payment_id`, we call
+   `razorpay_client.payment.fetch(payment_id)` to resolve the `order_id`, then
+   update the Appointment.
+
+4. **`_update_appointment_payment_status`**: Single-responsibility helper that
+   queries `Appointment` by `razorpay_order_id`, updates `payment_status`, commits.
+   Logs a warning if the appointment is not found (idempotent — no error raised so
+   Razorpay does not retry unnecessarily).
+
+### Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| Separate `_verify_webhook_signature` method | Testable in isolation; dev vs prod behaviour controlled by env var |
+| Dev-mode skip with warning not error | Allows local testing without webhook secret; explicit log prevents silent security gap |
+| `_update_appointment_payment_status` helper | Avoids duplicating select+commit logic across three event branches |
+| Razorpay API call for refund order_id | Appointment model stores `razorpay_order_id` (not payment_id); API fetch is the correct resolution strategy |
+| Exception catch around API fetch | Razorpay API may timeout; catching prevents webhook 500 response which would cause Razorpay to retry indefinitely |
+| `logger.warning` on missing appointment | Idempotent behaviour — webhook may arrive before appointment row exists in race condition; warn and continue |
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
