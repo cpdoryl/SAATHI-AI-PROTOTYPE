@@ -1,28 +1,24 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 20:51:19
-**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter in
+**Updated**: 2026-03-08 21:00:45
+**Status**:  RUNNING -- task 58/33
 **Runner**:  GitHub Actions (remote)
 
 ## Progress
 
-- Tasks completed : 56 / 33
-- Last task       : `P5-ML::Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion`
+- Tasks completed : 57 / 33
+- Last task       : `P6-DB::Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
 
 ## Details
 
-Claude returned exit code 1.
-
-Task skipped. Review `watcher.log` to fix manually.
+**Task**: `[P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
 
 ## Recent Log
 
 ```
-[2026-03-08 20:51:16] [INFO] ============================================================
-[2026-03-08 20:51:16] [INFO] SAATHI AI Remote Task Runner started
-[2026-03-08 20:51:16] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
-[2026-03-08 20:51:16] [INFO] ============================================================
-[2026-03-08 20:51:16] [INFO] [57/33] Executing: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
-[2026-03-08 20:51:18] [INFO] Invoking Claude CLI (max-turns=30, timeout=1800s)
-[2026-03-08 20:51:19] [ERROR] Claude FAILED (exit 1): [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
+[2026-03-08 21:00:45] [INFO] ============================================================
+[2026-03-08 21:00:45] [INFO] SAATHI AI Remote Task Runner started
+[2026-03-08 21:00:45] [INFO] Repo: /home/runner/work/SAATHI-AI-PROTOTYPE/SAATHI-AI-PROTOTYPE  Branch: main
+[2026-03-08 21:00:45] [INFO] ============================================================
+[2026-03-08 21:00:45] [INFO] [58/33] Executing: [P6-DB] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 ```
