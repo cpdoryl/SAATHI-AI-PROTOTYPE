@@ -59,10 +59,11 @@ Mark done with `[x]` after Claude confirms completion.
 ## STANDING INSTRUCTIONS FOR CLAUDE
 
 - Always commit with message format: `feat(scope): description`
-- Push to `main` after each completed P0 task
+- Push to `main` after each completed task
 - Update `DEVELOPER_GUIDE.md` after significant architectural changes
 - Run `git status` before each commit to avoid committing `.env` files
 - If blocked on a task, add a `BLOCKED:` note below the task item
+- **MANDATORY after every session**: Update `BUILD_DESIGN_RECORD.md` with a new dated session block — file changed, problem solved, code pattern, design decision. Commit as: `docs(build-record): update for YYYY-MM-DD session`
 
 ---
 

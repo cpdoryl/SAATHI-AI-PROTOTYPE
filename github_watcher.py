@@ -120,11 +120,18 @@ Rules (follow exactly):
 6. If a task is unclear or blocked, add a BLOCKED: note below it in TASKS.md and commit that
 7. Update DEVELOPER_GUIDE.md if you make significant architectural changes
 8. Do NOT break existing functionality — read related code before touching it
+9. MANDATORY — After completing ALL tasks in this batch, update BUILD_DESIGN_RECORD.md:
+   - Add a new session block under the correct date with timestamp
+   - For each task completed: describe what file was changed, what problem it solved,
+     what code pattern or algorithm was used, and what design decision was made
+   - Update the SUMMARY table at the bottom (task count, commit count, files changed)
+   - Commit with message: docs(build-record): update BUILD_DESIGN_RECORD.md for [date] session
 
 Reference docs:
 - Architecture: DEVELOPER_GUIDE.md
 - Plain-English guide: CODEBASE_EXPLAINED.md
 - All pending tasks: TASKS.md
+- Build & design record: BUILD_DESIGN_RECORD.md  ← update this after every session
 """
 
 
