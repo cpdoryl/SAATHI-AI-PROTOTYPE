@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:39:35
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/
+**Updated**: 2026-03-08 11:39:42
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button 
 
 ## Progress
 
-- Tasks completed : 35 / 71
-- Last task       : `════════════════════════════════════════════════::Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts`
+- Tasks completed : 36 / 71
+- Last task       : `════════════════════════════════════════════════::Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts`
+**Task**: `[════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:39:00] [INFO] [31/71] SKIP (failed): [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
-[2026-03-08 11:39:00] [INFO] [32/71] START: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-[2026-03-08 11:39:00] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-[2026-03-08 11:39:05] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 [2026-03-08 11:39:08] [INFO] [32/71] SKIP (failed): [════════════════════════════════════════════════] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 [2026-03-08 11:39:08] [INFO] [33/71] START: [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
 [2026-03-08 11:39:08] [INFO] Invoking Claude: [════════════════════════════════════════════════] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:39:31] [INFO] [36/71] START: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 [2026-03-08 11:39:31] [INFO] Invoking Claude: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 [2026-03-08 11:39:35] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
+[2026-03-08 11:39:38] [INFO] [36/71] SKIP (failed): [════════════════════════════════════════════════] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
+[2026-03-08 11:39:38] [INFO] [37/71] START: [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:38] [INFO] Invoking Claude: [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+[2026-03-08 11:39:42] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 ```
