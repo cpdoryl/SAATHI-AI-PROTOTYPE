@@ -1358,6 +1358,54 @@ GET /events:
 
 ---
 
+## Session 8 — 2026-03-08 — Complete Appointments API
+
+**Task**: Implement full appointments CRUD in `therapeutic-copilot/server/api/appointments.py`.
+
+**Files changed**:
+- `therapeutic-copilot/server/api/appointments.py` — replaced 25-line stub with 245-line production implementation
+
+**Endpoints implemented**:
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | /api/v1/appointments/ | Create appointment + Razorpay order + Calendar event |
+| GET | /api/v1/appointments/ | List clinician's appointments from DB |
+| PUT | /api/v1/appointments/{id}/cancel | Cancel + delete calendar event |
+
+**Design decisions**:
+
+1. **JWT auth on all endpoints** — uses same `HTTPBearer` + `decode_token` pattern as `calendar_routes.py`. Clinician identity derived from JWT `sub` claim, not from request body, to prevent IDOR.
+
+2. **Tenant boundary check on patient** — POST verifies `patient.tenant_id == clinician.tenant_id` before booking (403 otherwise). Prevents cross-tenant data leakage.
+
+3. **DB flush before external calls** — `await db.flush()` after inserting the Appointment row generates the UUID primary key without committing, so Razorpay `receipt` and Calendar event description carry the real `appointment_id`.
+
+4. **Razorpay failure is fatal** — If Razorpay order creation fails the endpoint returns 502 (appointment not committed). No orphaned DB records without a payment order.
+
+5. **Calendar failure is non-fatal** — If `CalendarService.create_appointment_event` raises (token expired, network error), the failure is logged as WARNING and the appointment is still committed without a `google_event_id`. Clinician can re-create calendar event separately. This prevents appointment booking from being blocked by optional calendar integration.
+
+6. **IST timezone normalization** — naive `scheduled_at` datetimes from the client are assumed IST (UTC+5:30) and localized before passing to calendar service, matching the pattern in `calendar_routes.py`.
+
+7. **GET list with filters** — `?status=` (maps to `payment_status` column) and `?patient_id=` query params for flexible filtering. Ordered `scheduled_at DESC` with `limit`/`offset` pagination.
+
+8. **Cancel endpoint** — 409 if already cancelled, non-fatal calendar event deletion (warns on failure), explicit note that Razorpay refund is a separate operation via `/api/v1/payments/refund`.
+
+**Algorithm — POST /appointments flow**:
+```
+1. decode JWT → clinician_id → SELECT Clinician
+2. SELECT Patient WHERE id=patient_id AND tenant_id=clinician.tenant_id
+3. Localise scheduled_at to IST if naive; compute end_dt
+4. INSERT Appointment (status=SCHEDULED, payment_status=pending); flush → get UUID
+5. PaymentService.create_order(amount_inr, appointment.id) → razorpay order_id → store
+6. If clinician.google_calendar_token:
+     CalendarService.create_appointment_event(...) → event_id, meet_link → store
+   Else: skip (non-blocking)
+7. await db.commit(); return full appointment + razorpay_order payload
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
