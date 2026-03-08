@@ -1,27 +1,22 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:18:37
-**Status**:  RUNNING -- 71 task(s) in queue
+**Updated**: 2026-03-08 11:19:13
+**Status**:  IN PROGRESS -- 1 done, 70 remaining
 
 ## Progress
 
-- Tasks completed : 0 / 71
+- Tasks completed : 1 / 71
 - Last task       : `None`
 
 ## Details
 
-Watcher executing tasks in TASKS.md order.
+**Just completed**: `[HOW] Task title — context: what file, what problem, what expected result`
 
-**First task**: `[HOW] Task title — context: what file, what problem, what expected result`
+**Up next**: `[HOW] Complete ChatWidget WebSocket token streaming — connect to /ws/chat/{session_id}, receive tokens, append to message bubble in real time. File: therapeutic-copilot/client/src/components/chatbot/ChatWidget.tsx`
 
 ## Recent Log
 
 ```
-[2026-03-08 10:47:17] [INFO] Watching... (press Ctrl+C to stop)
-[2026-03-08 10:47:18] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
-[2026-03-08 10:52:19] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
-[2026-03-08 10:57:20] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
-[2026-03-08 11:02:23] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
 [2026-03-08 11:07:25] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
 [2026-03-08 11:12:26] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
 [2026-03-08 11:17:27] [ERROR] ERROR: 'NoneType' object has no attribute 'encode'
@@ -37,4 +32,9 @@ Watcher executing tasks in TASKS.md order.
 [2026-03-08 11:18:34] [INFO] Press Ctrl+C to stop cleanly.
 [2026-03-08 11:18:35] [INFO] Starting up -- scanning all pending tasks from TASKS.md...
 [2026-03-08 11:18:37] [INFO] Task queue: 71 task(s) to execute (skipped 0 already completed).
+[2026-03-08 11:18:40] [INFO] [1/71] START: [HOW] Task title — context: what file, what problem, what expected result
+[2026-03-08 11:18:40] [INFO] Invoking Claude: [HOW] Task title — context: what file, what problem, what expected result
+[2026-03-08 11:19:08] [WARN] Claude did not update TASKS.md -- force-marking.
+[2026-03-08 11:19:13] [WARN] Force-marked task done in TASKS.md: Task title — context: what file, what problem, what expected result
+[2026-03-08 11:19:13] [INFO] [1/71] DONE: [HOW] Task title — context: what file, what problem, what expected result
 ```
