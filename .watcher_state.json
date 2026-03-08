@@ -35,7 +35,8 @@
     "P2-FE::Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx",
     "P2-FE::LandingPage completion — add: \"How It Works\" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx",
     "P2-FE::Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages",
-    "P2-FE::Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts"
+    "P2-FE::Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts",
+    "P2-FE::Add Razorpay SDK script to index.html — add <script src=\"https://checkout.razorpay.com/v1/checkout.js\"> before closing </body>. File: therapeutic-copilot/client/index.html"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
