@@ -63,7 +63,8 @@
     "P7-TEST::Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py",
     "P7-TEST::Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/",
     "P7-TEST::Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md",
-    "P7-TEST::Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md"
+    "P7-TEST::Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md",
+    "P8-OPS::Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod"
   ],
   "current_task": null,
   "session_started": "2026-03-08T11:18:37.106746",
