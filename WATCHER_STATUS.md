@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:42:33
-**Status**:  TASK FAILED -- [P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .en
+**Updated**: 2026-03-08 15:42:37
+**Status**:  TASK FAILED -- [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/au
 
 ## Progress
 
 - Tasks completed : 67 / 48
-- Last task       : `P8-OPS::Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml`
+- Last task       : `P8-OPS::Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml`
+**Task**: `[P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:42:12] [INFO] [14/20] SKIP (failed): [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
-[2026-03-08 15:42:12] [INFO] [15/20] START: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
-[2026-03-08 15:42:12] [INFO] Invoking Claude: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
-[2026-03-08 15:42:13] [ERROR] Claude FAILED for: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 15:42:16] [INFO] [15/20] SKIP (failed): [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 15:42:16] [INFO] [16/20] START: [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
 [2026-03-08 15:42:16] [INFO] Invoking Claude: [P7-TEST] Load test — use locust or k6: simulate 50 concurrent chat sessions, measure: response time p95 < 3s, error rate < 1%. Write results to LOAD_TEST_RESULTS.md
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 15:42:32] [INFO] [19/20] START: [P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml
 [2026-03-08 15:42:32] [INFO] Invoking Claude: [P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml
 [2026-03-08 15:42:33] [ERROR] Claude FAILED for: [P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml
+[2026-03-08 15:42:35] [INFO] [19/20] SKIP (failed): [P8-OPS] Create GitHub Actions CI pipeline — on push to main: run pytest, run npm test, check no .env files committed. File: .github/workflows/ci.yml
+[2026-03-08 15:42:35] [INFO] [20/20] START: [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
+[2026-03-08 15:42:35] [INFO] Invoking Claude: [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
+[2026-03-08 15:42:37] [ERROR] Claude FAILED for: [P8-OPS] Startup smoke test script — bash script that starts server, hits /health, /docs, /api/v1/auth/login with demo creds, verifies 200 responses. File: scripts/smoke_test.sh
 ```
