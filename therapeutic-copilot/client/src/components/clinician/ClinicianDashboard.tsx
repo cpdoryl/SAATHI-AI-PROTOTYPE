@@ -1,14 +1,14 @@
 /**
  * SAATHI AI — Clinician Dashboard
- * Main hub for: patient overview, crisis alerts, session monitoring, analytics.
+ * Main hub for: patient overview, crisis alerts, session monitoring, analytics, appointments.
  */
 import React, { useState, useEffect } from 'react'
 import {
   BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts'
-import { Patient, CrisisAlert } from '@/types'
-import { listPatients, getAnalyticsSummary } from '@/lib/api'
+import { Patient, CrisisAlert, Appointment } from '@/types'
+import { listPatients, getAnalyticsSummary, listAppointments, createAppointment, cancelAppointment } from '@/lib/api'
 
 // ─── Analytics data shapes ────────────────────────────────────────────────────
 
@@ -40,7 +40,7 @@ const STAGE_COLORS: Record<string, string> = {
 export function ClinicianDashboard() {
   const [patients, setPatients] = useState<Patient[]>([])
   const [crisisAlerts, setCrisisAlerts] = useState<CrisisAlert[]>([])
-  const [activeTab, setActiveTab] = useState<'patients' | 'alerts' | 'analytics'>('patients')
+  const [activeTab, setActiveTab] = useState<'patients' | 'alerts' | 'analytics' | 'appointments'>('patients')
   const [loadingPatients, setLoadingPatients] = useState(true)
 
   // Load patients from API on mount
@@ -79,7 +79,7 @@ export function ClinicianDashboard() {
 
       {/* Tabs */}
       <div className="px-6 py-4 border-b bg-white">
-        {(['patients', 'alerts', 'analytics'] as const).map((tab) => (
+        {(['patients', 'alerts', 'analytics', 'appointments'] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -132,6 +132,7 @@ export function ClinicianDashboard() {
         )}
 
         {activeTab === 'analytics' && <AnalyticsTab />}
+        {activeTab === 'appointments' && <AppointmentsTab />}
       </main>
     </div>
   )
@@ -317,6 +318,438 @@ function AnalyticsTab() {
           )}
         </ChartCard>
       </div>
+    </div>
+  )
+}
+
+// ─── Appointments Tab ─────────────────────────────────────────────────────────
+
+interface AppointmentFormData {
+  patientId: string
+  scheduledAt: string
+  durationMinutes: number
+  amountInr: number
+}
+
+/** Returns start-of-week (Monday) for the week containing `date`. */
+function getWeekStart(date: Date): Date {
+  const d = new Date(date)
+  const day = d.getDay() // 0=Sun
+  const diff = day === 0 ? -6 : 1 - day // shift to Monday
+  d.setDate(d.getDate() + diff)
+  d.setHours(0, 0, 0, 0)
+  return d
+}
+
+/** Returns array of 7 Date objects starting from Monday of `weekStart`. */
+function getWeekDays(weekStart: Date): Date[] {
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(weekStart)
+    d.setDate(d.getDate() + i)
+    return d
+  })
+}
+
+function AppointmentsTab() {
+  const [appointments, setAppointments] = useState<Appointment[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [weekStart, setWeekStart] = useState<Date>(() => getWeekStart(new Date()))
+  const [showForm, setShowForm] = useState(false)
+  const [formData, setFormData] = useState<AppointmentFormData>({
+    patientId: '',
+    scheduledAt: '',
+    durationMinutes: 60,
+    amountInr: 1500,
+  })
+  const [formError, setFormError] = useState<string | null>(null)
+  const [formSubmitting, setFormSubmitting] = useState(false)
+  const [cancellingId, setCancellingId] = useState<string | null>(null)
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
+
+  const weekDays = getWeekDays(weekStart)
+
+  const fetchAppointments = () => {
+    setLoading(true)
+    setError(null)
+    listAppointments()
+      .then((res) => setAppointments(res.data.appointments ?? res.data ?? []))
+      .catch(() => setError('Failed to load appointments. Please try again.'))
+      .finally(() => setLoading(false))
+  }
+
+  useEffect(() => {
+    fetchAppointments()
+  }, [])
+
+  // Auto-dismiss toast after 4 s
+  useEffect(() => {
+    if (!toast) return
+    const t = setTimeout(() => setToast(null), 4000)
+    return () => clearTimeout(t)
+  }, [toast])
+
+  // ── Calendar helpers ────────────────────────────────────────────────────────
+
+  const appointmentsOnDay = (day: Date): Appointment[] =>
+    appointments.filter((a) => {
+      const d = new Date(a.scheduledAt)
+      return (
+        d.getFullYear() === day.getFullYear() &&
+        d.getMonth() === day.getMonth() &&
+        d.getDate() === day.getDate()
+      )
+    })
+
+  const prevWeek = () =>
+    setWeekStart((ws) => { const d = new Date(ws); d.setDate(d.getDate() - 7); return d })
+
+  const nextWeek = () =>
+    setWeekStart((ws) => { const d = new Date(ws); d.setDate(d.getDate() + 7); return d })
+
+  const goToday = () => setWeekStart(getWeekStart(new Date()))
+
+  // ── Form handlers ───────────────────────────────────────────────────────────
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === 'durationMinutes' || name === 'amountInr' ? Number(value) : value,
+    }))
+  }
+
+  const handleCreateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormError(null)
+    if (!formData.patientId.trim()) { setFormError('Patient ID is required.'); return }
+    if (!formData.scheduledAt) { setFormError('Scheduled date/time is required.'); return }
+    if (formData.durationMinutes < 15) { setFormError('Minimum duration is 15 minutes.'); return }
+    if (formData.amountInr < 0) { setFormError('Amount cannot be negative.'); return }
+
+    const clinicianId = localStorage.getItem('clinician_id') ?? ''
+    setFormSubmitting(true)
+    try {
+      await createAppointment({
+        patient_id: formData.patientId.trim(),
+        clinician_id: clinicianId,
+        scheduled_at: formData.scheduledAt,
+        duration_minutes: formData.durationMinutes,
+        amount_inr: formData.amountInr,
+      })
+      setToast({ message: 'Appointment created successfully.', type: 'success' })
+      setShowForm(false)
+      setFormData({ patientId: '', scheduledAt: '', durationMinutes: 60, amountInr: 1500 })
+      fetchAppointments()
+    } catch {
+      setFormError('Failed to create appointment. Please try again.')
+    } finally {
+      setFormSubmitting(false)
+    }
+  }
+
+  const handleCancel = async (id: string) => {
+    if (!window.confirm('Cancel this appointment?')) return
+    setCancellingId(id)
+    try {
+      await cancelAppointment(id)
+      setAppointments((prev) =>
+        prev.map((a) => (a.id === id ? { ...a, status: 'cancelled' } : a))
+      )
+      setToast({ message: 'Appointment cancelled.', type: 'success' })
+    } catch {
+      setToast({ message: 'Failed to cancel appointment.', type: 'error' })
+    } finally {
+      setCancellingId(null)
+    }
+  }
+
+  // ── Render ──────────────────────────────────────────────────────────────────
+
+  const statusColors: Record<string, string> = {
+    scheduled: 'bg-indigo-100 text-indigo-800',
+    confirmed: 'bg-green-100 text-green-800',
+    completed: 'bg-gray-100 text-gray-600',
+    cancelled: 'bg-red-100 text-red-700',
+  }
+
+  const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return (
+    <div className="space-y-6">
+      {/* Toast */}
+      {toast && (
+        <div
+          className={`fixed top-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg text-sm font-medium text-white transition-all ${
+            toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'
+          }`}
+        >
+          {toast.message}
+        </div>
+      )}
+
+      {/* Header row */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-gray-700">Appointments</h2>
+        <button
+          onClick={() => setShowForm((v) => !v)}
+          className="bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+        >
+          {showForm ? 'Cancel' : '+ New Appointment'}
+        </button>
+      </div>
+
+      {/* Create appointment form */}
+      {showForm && (
+        <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="text-sm font-semibold text-gray-700 mb-4">Create Appointment</h3>
+          <form onSubmit={handleCreateSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Patient ID</label>
+              <input
+                name="patientId"
+                value={formData.patientId}
+                onChange={handleFormChange}
+                placeholder="Enter patient UUID"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Date &amp; Time</label>
+              <input
+                type="datetime-local"
+                name="scheduledAt"
+                value={formData.scheduledAt}
+                onChange={handleFormChange}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Duration (minutes)</label>
+              <input
+                type="number"
+                name="durationMinutes"
+                value={formData.durationMinutes}
+                onChange={handleFormChange}
+                min={15}
+                step={15}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Amount (₹)</label>
+              <input
+                type="number"
+                name="amountInr"
+                value={formData.amountInr}
+                onChange={handleFormChange}
+                min={0}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            {formError && (
+              <p className="col-span-full text-red-600 text-xs font-medium">{formError}</p>
+            )}
+            <div className="col-span-full flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => { setShowForm(false); setFormError(null) }}
+                className="text-sm text-gray-500 hover:text-gray-700 px-4 py-2"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={formSubmitting}
+                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-sm font-medium px-5 py-2 rounded-lg flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                {formSubmitting && (
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                )}
+                {formSubmitting ? 'Creating…' : 'Create'}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+
+      {/* Weekly calendar */}
+      <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        {/* Calendar navigation */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+          <button
+            onClick={prevWeek}
+            className="text-gray-500 hover:text-gray-800 text-sm px-2 py-1 rounded hover:bg-gray-100 focus:outline-none"
+            aria-label="Previous week"
+          >
+            ‹ Prev
+          </button>
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-semibold text-gray-700">
+              {weekDays[0].toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+              {' – '}
+              {weekDays[6].toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+            </span>
+            <button
+              onClick={goToday}
+              className="text-xs text-indigo-600 hover:text-indigo-800 border border-indigo-200 rounded px-2 py-0.5 hover:bg-indigo-50 focus:outline-none"
+            >
+              Today
+            </button>
+          </div>
+          <button
+            onClick={nextWeek}
+            className="text-gray-500 hover:text-gray-800 text-sm px-2 py-1 rounded hover:bg-gray-100 focus:outline-none"
+            aria-label="Next week"
+          >
+            Next ›
+          </button>
+        </div>
+
+        {/* Calendar grid */}
+        {loading ? (
+          <div className="flex items-center justify-center h-32">
+            <div className="w-6 h-6 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : error ? (
+          <div className="p-6 text-center">
+            <p className="text-red-600 text-sm font-medium mb-2">{error}</p>
+            <button
+              onClick={fetchAppointments}
+              className="text-sm text-indigo-600 underline hover:text-indigo-800"
+            >
+              Retry
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-7 divide-x divide-gray-100">
+            {weekDays.map((day, i) => {
+              const dayAppts = appointmentsOnDay(day)
+              const isToday = day.getTime() === today.getTime()
+              return (
+                <div key={i} className="min-h-[120px] p-2">
+                  <p
+                    className={`text-xs font-semibold mb-1 text-center ${
+                      isToday ? 'text-indigo-600' : 'text-gray-500'
+                    }`}
+                  >
+                    {DAY_LABELS[i]}
+                    <br />
+                    <span
+                      className={`inline-block w-6 h-6 leading-6 rounded-full text-center ${
+                        isToday ? 'bg-indigo-600 text-white' : 'text-gray-700'
+                      }`}
+                    >
+                      {day.getDate()}
+                    </span>
+                  </p>
+                  {dayAppts.length === 0 ? (
+                    <p className="text-gray-300 text-xs text-center mt-2">—</p>
+                  ) : (
+                    <div className="space-y-1">
+                      {dayAppts.map((a) => (
+                        <div
+                          key={a.id}
+                          className={`text-xs rounded px-1.5 py-1 leading-tight ${statusColors[a.status] ?? 'bg-gray-100 text-gray-600'}`}
+                          title={`${a.status} | ${a.durationMinutes} min | ₹${a.amountInr}`}
+                        >
+                          {new Date(a.scheduledAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Appointment list */}
+      {!loading && !error && (
+        <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+          <div className="px-5 py-3 border-b border-gray-100">
+            <h3 className="text-sm font-semibold text-gray-700">All Appointments</h3>
+          </div>
+          {appointments.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-12 text-gray-400">
+              <svg className="w-12 h-12 mb-3 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-sm">No appointments yet. Create one above.</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-gray-50">
+              {appointments.map((a) => (
+                <AppointmentRow
+                  key={a.id}
+                  appointment={a}
+                  onCancel={handleCancel}
+                  cancellingId={cancellingId}
+                  statusColors={statusColors}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function AppointmentRow({
+  appointment: a,
+  onCancel,
+  cancellingId,
+  statusColors,
+}: {
+  appointment: Appointment
+  onCancel: (id: string) => void
+  cancellingId: string | null
+  statusColors: Record<string, string>
+}) {
+  const canCancel = a.status === 'scheduled' || a.status === 'confirmed'
+  return (
+    <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition-colors">
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusColors[a.status] ?? 'bg-gray-100 text-gray-600'}`}
+          >
+            {a.status}
+          </span>
+          <span className="text-sm font-medium text-gray-800">
+            {new Date(a.scheduledAt).toLocaleString('en-IN', {
+              day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
+            })}
+          </span>
+        </div>
+        <div className="flex items-center gap-4 text-xs text-gray-500">
+          <span>Patient: <span className="font-mono">{a.patientId}</span></span>
+          <span>{a.durationMinutes} min</span>
+          <span>₹{a.amountInr.toLocaleString('en-IN')}</span>
+          <span className={a.paymentStatus === 'paid' ? 'text-green-600 font-medium' : 'text-yellow-600'}>
+            {a.paymentStatus}
+          </span>
+        </div>
+      </div>
+      {canCancel && (
+        <button
+          onClick={() => onCancel(a.id)}
+          disabled={cancellingId === a.id}
+          className="ml-4 text-xs text-red-600 hover:text-red-800 border border-red-200 hover:border-red-400 rounded px-3 py-1 disabled:opacity-50 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400"
+        >
+          {cancellingId === a.id ? (
+            <span className="flex items-center gap-1">
+              <span className="w-3 h-3 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />
+              Cancelling…
+            </span>
+          ) : 'Cancel'}
+        </button>
+      )}
     </div>
   )
 }
