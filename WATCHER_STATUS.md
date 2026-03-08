@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:42:19
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic m
+**Updated**: 2026-03-08 11:42:25
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creat
 
 ## Progress
 
-- Tasks completed : 56 / 71
-- Last task       : `════════════════════════════════════════════════::Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
+- Tasks completed : 57 / 71
+- Last task       : `════════════════════════════════════════════════::Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/`
+**Task**: `[════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:41:40] [INFO] [52/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
-[2026-03-08 11:41:40] [INFO] [53/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 11:41:40] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-[2026-03-08 11:41:44] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 11:41:47] [INFO] [53/71] SKIP (failed): [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
 [2026-03-08 11:41:47] [INFO] [54/71] START: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-08 11:41:47] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:42:15] [INFO] [57/71] START: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 11:42:15] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
 [2026-03-08 11:42:19] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 11:42:22] [INFO] [57/71] SKIP (failed): [════════════════════════════════════════════════] Add indexes to hot query paths — add to Alembic migration: (patients: tenant_id+stage), (therapy_sessions: patient_id+status), (chat_messages: session_id+created_at), (assessments: patient_id+assessment_type). File: therapeutic-copilot/server/alembic/versions/
+[2026-03-08 11:42:22] [INFO] [58/71] START: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 11:42:22] [INFO] Invoking Claude: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
+[2026-03-08 11:42:25] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Create scripts/setup_db.py seeding script — creates: 1 demo tenant (widget_token=demo-token-123), 1 clinician (admin@demo.com / Demo@1234 bcrypt), 3 patients, 1 session with messages, 1 PHQ-9. File: therapeutic-copilot/server/scripts/setup_db.py
 ```
