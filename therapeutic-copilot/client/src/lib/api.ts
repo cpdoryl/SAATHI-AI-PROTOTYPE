@@ -58,6 +58,9 @@ export const getAssessmentQuestions = (type: string) =>
 export const submitAssessment = (patientId: string, data: object) =>
   api.post(`/assessments/${patientId}/submit`, data)
 
+export const getAssessmentHistory = (patientId: string) =>
+  api.get(`/assessments/${patientId}/history`)
+
 // ─── Appointments ─────────────────────────────────────────────────────────────
 
 export const createAppointment = (data: object) =>

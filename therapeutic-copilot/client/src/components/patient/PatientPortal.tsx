@@ -7,12 +7,13 @@ import { format } from 'date-fns'
 import { getAssessmentQuestions, submitAssessment } from '@/lib/api'
 import { usePatientSessions } from '@/hooks/usePatientSessions'
 import { useSessionMessages } from '@/hooks/useSessionMessages'
-import { TherapySession, ChatMessage } from '@/types'
+import { useAssessmentHistory } from '@/hooks/useAssessmentHistory'
+import { TherapySession, ChatMessage, AssessmentResult } from '@/types'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Question = { id: number; text: string; scale: number[]; labels: string[] }
-type AssessmentResult = {
+type AssessmentSubmitResult = {
   assessment_type: string
   total_score: number
   severity: string
@@ -222,6 +223,106 @@ function SessionsTab({ patientId }: { patientId: string }): React.ReactElement {
   )
 }
 
+// ─── AssessmentHistorySection ─────────────────────────────────────────────────
+
+function severityClass(severity: string): string {
+  const s = severity.toLowerCase()
+  if (s.includes('severe') || s.includes('high') || s.includes('extreme')) return 'bg-red-100 text-red-700'
+  if (s.includes('moderate')) return 'bg-amber-100 text-amber-700'
+  if (s.includes('mild') || s.includes('low')) return 'bg-yellow-50 text-yellow-700'
+  return 'bg-green-100 text-green-700'
+}
+
+function AssessmentCard({ record }: { record: AssessmentResult }): React.ReactElement {
+  const administeredAt = record.administeredAt
+    ? format(new Date(record.administeredAt), 'dd MMM yyyy, h:mm a')
+    : '—'
+
+  return (
+    <div className="bg-white rounded-lg border border-gray-100 shadow-sm px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div className="flex items-center gap-3">
+        <span className="font-bold text-indigo-600 text-sm w-16 shrink-0">{record.assessmentType}</span>
+        <div>
+          <p className="text-xs text-gray-400">{administeredAt}</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-semibold text-gray-800">Score: {record.score}</span>
+        <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${severityClass(record.severity)}`}>
+          {record.severity}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+function AssessmentHistorySection({ patientId }: { patientId: string }): React.ReactElement {
+  const { history, loading, error, refetch } = useAssessmentHistory(patientId)
+
+  if (loading) {
+    return (
+      <div className="mt-8">
+        <h3 className="text-sm font-semibold text-gray-600 mb-3">Past Assessments</h3>
+        <div className="space-y-2 animate-pulse">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="h-12 bg-white rounded-lg border border-gray-100" />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="mt-8">
+        <h3 className="text-sm font-semibold text-gray-600 mb-3">Past Assessments</h3>
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-sm text-red-700 mb-2">{error}</p>
+          <button
+            onClick={refetch}
+            className="text-sm text-red-600 underline hover:no-underline"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (history.length === 0) {
+    return (
+      <div className="mt-8">
+        <h3 className="text-sm font-semibold text-gray-600 mb-3">Past Assessments</h3>
+        <div className="flex flex-col items-center justify-center py-10 text-center bg-white rounded-lg border border-gray-100">
+          <div className="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center mb-3">
+            <svg className="w-6 h-6 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+          </div>
+          <p className="text-gray-500 text-sm font-medium">No past assessments</p>
+          <p className="text-gray-400 text-xs mt-1">Take an assessment above to track your progress.</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="mt-8">
+      <h3 className="text-sm font-semibold text-gray-600 mb-3">Past Assessments ({history.length})</h3>
+      <div className="space-y-2">
+        {history.map((record) => (
+          <AssessmentCard key={record.id} record={record} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ─── PatientPortal ────────────────────────────────────────────────────────────
 
 export function PatientPortal() {
@@ -229,7 +330,7 @@ export function PatientPortal() {
   const [activeAssessment, setActiveAssessment] = useState<string | null>(null)
   const [questions, setQuestions] = useState<Question[]>([])
   const [responses, setResponses] = useState<Record<number, number>>({})
-  const [result, setResult] = useState<AssessmentResult | null>(null)
+  const [result, setResult] = useState<AssessmentSubmitResult | null>(null)
   const [loadingQuestions, setLoadingQuestions] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
@@ -311,6 +412,7 @@ export function PatientPortal() {
                 </button>
               ))}
             </div>
+            <AssessmentHistorySection patientId={patientId} />
           </div>
         )}
 
