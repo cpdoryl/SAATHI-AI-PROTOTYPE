@@ -1032,6 +1032,64 @@ GET /api/v1/assessments/{patient_id}/history
 
 ---
 
+---
+
+## SESSION 10 — 2026-03-08 — CRISIS ESCALATION SENDGRID EMAIL
+
+### Task Completed
+Complete crisis escalation SendGrid email — when severity >= 7, send email to clinician.
+
+### File Changed
+- `therapeutic-copilot/server/services/crisis_detection_service.py`
+
+### Problem Solved
+`escalate()` was a stub returning hardcoded data with a `# TODO` comment. No DB write, no
+WebSocket alert, no email was actually being sent.
+
+### Implementation Pattern
+
+Four sequential, individually fault-tolerant steps:
+
+1. **DB persistence** — fetch `TherapySession` by `session_id`, update
+   `status = CRISIS_ESCALATED` and `crisis_score = severity_score`, then `await db.commit()`.
+
+2. **Clinician resolution** — query `Patient` by `patient_id` to get `clinician_id`, then
+   query `Clinician` to get `email` and `full_name`. Both queries wrapped in try/except so a
+   missing patient never blocks email sending.
+
+3. **WebSocket alert** — call `ws_manager.send_crisis_alert(clinician_id, alert_data)` which
+   broadcasts `{"type": "CRISIS_ALERT", ...}` to the `clinician:{id}` room. Silently continues
+   if no clinician is connected.
+
+4. **SendGrid email** (only when `severity >= 7.0`) — construct an HTML alert email using
+   `sendgrid.helpers.mail.Mail`, send via `SendGridAPIClient(settings.SENDGRID_API_KEY)`.
+   From-address is `settings.EMAIL_FROM`. Status codes 200/202 are treated as success.
+
+### Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| Each step in its own try/except | Partial failure (e.g. DB timeout) must never prevent the email from going out |
+| SendGrid SDK not httpx | `sendgrid==6.11.0` already in requirements.txt; SDK handles auth + retry internally |
+| `settings.EMAIL_FROM` not hardcoded | Follows existing config.py pattern; env-configurable per deployment |
+| `email_sent` flag in response | Caller (route) can log or alert ops if email delivery fails |
+| Severity threshold 7.0 matches scan() | Consistent with `escalate: severity >= 7.0` in the scan response |
+
+### Response Shape (after this change)
+```json
+{
+  "escalated": true,
+  "session_id": "...",
+  "patient_id": "...",
+  "severity": 9.0,
+  "clinician_notified": true,
+  "email_sent": true,
+  "resources": {"iCall": "+91-9152987821", ...}
+}
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
