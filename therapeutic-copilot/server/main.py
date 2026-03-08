@@ -28,6 +28,7 @@ from api.users import router as users_router
 from api.leads import router as leads_router
 from api.appointments import router as appointments_router
 from api.patients import router as patients_router
+from api.analytics import router as analytics_router
 
 
 async def _dropout_scan_job():
@@ -118,6 +119,7 @@ app.include_router(leads_router,       prefix="/api/v1/leads",       tags=["Lead
 app.include_router(appointments_router, prefix="/api/v1/appointments", tags=["Appointments"])
 app.include_router(patients_router,    prefix="/api/v1/patients",    tags=["Patients"])
 app.include_router(calendar_router,    prefix="/api/v1/calendar",    tags=["Calendar"])
+app.include_router(analytics_router,   prefix="/api/v1/analytics",   tags=["Analytics"])
 
 
 @app.get("/", tags=["Health"])

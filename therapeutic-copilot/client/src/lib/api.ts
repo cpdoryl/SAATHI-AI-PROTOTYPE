@@ -99,4 +99,9 @@ export const listLeads = () =>
 export const convertLead = (leadId: string) =>
   api.put(`/leads/${leadId}/convert`)
 
+// ─── Analytics ───────────────────────────────────────────────────────────────
+
+export const getAnalyticsSummary = () =>
+  api.get('/analytics/summary')
+
 export default api
