@@ -1182,6 +1182,37 @@ POST /api/v1/auth/logout
 
 ---
 
+## Session 6 — 2026-03-08 — Patient Sessions List Endpoint
+
+### Task Completed
+`GET /api/v1/patients/{id}/sessions` — list TherapySession rows for patient, ordered by `started_at desc`.
+
+### Files Changed
+- `therapeutic-copilot/server/api/patients.py`
+
+### What Was Done
+The endpoint skeleton already existed but was incomplete:
+- Missing patient existence guard (would silently return empty list for unknown IDs)
+- Missing Loguru logging
+- Missing `patient_id` in the response body
+
+### Design Decisions
+1. **404 before session query**: First query the `patients` table for the given `patient_id`. If not found, log a warning and raise `HTTPException(404)`. This prevents callers from inferring patient existence by absence of sessions.
+2. **Separate DB calls**: Two `await db.execute(...)` calls — one for patient lookup, one for sessions. No JOIN needed since we only need session fields in the response.
+3. **`patient_id` in response**: Added to response body so clients don't need to echo back the path param.
+4. **Loguru info log**: Logs fetched count for observability.
+
+### Algorithm
+```
+GET /api/v1/patients/{patient_id}/sessions
+  1. SELECT Patient WHERE id = patient_id
+  2. If None → 404 "Patient not found"
+  3. SELECT TherapySession WHERE patient_id = patient_id ORDER BY started_at DESC
+  4. Return {patient_id, sessions: [...]}
+```
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
