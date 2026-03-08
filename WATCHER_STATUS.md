@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:40:25
-**Status**:  TASK FAILED -- [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime sta
+**Updated**: 2026-03-08 15:40:33
+**Status**:  TASK FAILED -- [P8-OPS] Create .env.example with all required variables — document every env var with description a
 
 ## Progress
 
-- Tasks completed : 63 / 48
-- Last task       : `P5-ML::Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5`
+- Tasks completed : 64 / 48
+- Last task       : `P8-OPS::Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod`
+**Task**: `[P8-OPS] Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:39:59] [INFO] [55/61] START: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
-[2026-03-08 15:39:59] [INFO] Invoking Claude: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
-[2026-03-08 15:40:03] [ERROR] Claude FAILED for: [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
-[2026-03-08 15:40:07] [INFO] [55/61] SKIP (task error): [P7-TEST] Write Vitest frontend tests — auth form, dashboard patient list, assessment flow, chat widget. File: therapeutic-copilot/client/src/__tests__/
 [2026-03-08 15:40:07] [INFO] [56/61] START: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 15:40:07] [INFO] Invoking Claude: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
 [2026-03-08 15:40:11] [ERROR] Claude FAILED for: [P7-TEST] Run full backend test suite and report — run pytest tests/ -v --tb=short, write results to TEST_RESULTS.md
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:40:21] [WARN] Lock held by PID 37292. Skipping.
 [2026-03-08 15:40:21] [WARN] Could not acquire lock -- waiting 60s...
 [2026-03-08 15:40:25] [ERROR] Claude FAILED for: [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
+[2026-03-08 15:40:29] [INFO] [58/61] SKIP (task error): [P8-OPS] Production Dockerfile — multi-stage build: (1) builder stage installs deps, (2) runtime stage copies only needed files. Add non-root user. File: therapeutic-copilot/server/Dockerfile.prod
+[2026-03-08 15:40:29] [INFO] [59/61] START: [P8-OPS] Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example
+[2026-03-08 15:40:29] [INFO] Invoking Claude: [P8-OPS] Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example
+[2026-03-08 15:40:33] [ERROR] Claude FAILED for: [P8-OPS] Create .env.example with all required variables — document every env var with description and example value. File: therapeutic-copilot/.env.example
 ```
