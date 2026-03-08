@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 11:38:45
-**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Login/Register form improvements — add inline val
+**Updated**: 2026-03-08 11:38:52
+**Status**:  TASK FAILED -- [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPa
 
 ## Progress
 
-- Tasks completed : 29 / 71
-- Last task       : `════════════════════════════════════════════════::Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages`
+- Tasks completed : 30 / 71
+- Last task       : `════════════════════════════════════════════════::Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages`
+**Task**: `[════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 11:38:05] [INFO] [25/71] SKIP (failed): [════════════════════════════════════════════════] ClinicianDashboard Analytics tab — implement with Recharts: (1) weekly sessions BarChart, (2) crisis rate AreaChart, (3) patient stage PieChart (LEAD/ACTIVE/DROPOUT), (4) assessment score distribution. Wire to real API. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:05] [INFO] [26/71] START: [════════════════════════════════════════════════] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:05] [INFO] Invoking Claude: [════════════════════════════════════════════════] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
-[2026-03-08 11:38:08] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:12] [INFO] [26/71] SKIP (failed): [════════════════════════════════════════════════] ClinicianDashboard Appointments tab — list appointments with GET /api/v1/appointments, show clinician's calendar, add Create Appointment form. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:12] [INFO] [27/71] START: [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 [2026-03-08 11:38:12] [INFO] Invoking Claude: [════════════════════════════════════════════════] Patient risk score badge in Dashboard — show dropout_risk_score as colored badge: red(>0.7), yellow(0.3-0.7), green(<0.3) next to each patient name. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 11:38:40] [INFO] [30/71] START: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
 [2026-03-08 11:38:40] [INFO] Invoking Claude: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
 [2026-03-08 11:38:45] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
+[2026-03-08 11:38:48] [INFO] [30/71] SKIP (failed): [════════════════════════════════════════════════] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
+[2026-03-08 11:38:48] [INFO] [31/71] START: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
+[2026-03-08 11:38:48] [INFO] Invoking Claude: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
+[2026-03-08 11:38:52] [ERROR] Claude FAILED for: [════════════════════════════════════════════════] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 ```
