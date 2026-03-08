@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:39:51
-**Status**:  TASK FAILED -- [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. Fil
+**Updated**: 2026-03-08 15:39:57
+**Status**:  TASK FAILED -- [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load co
 
 ## Progress
 
-- Tasks completed : 58 / 48
-- Last task       : `P7-TEST::Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py`
+- Tasks completed : 59 / 48
+- Last task       : `P7-TEST::Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py`
+**Task**: `[P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:39:21] [INFO] [3/20] START: [P5-ML] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
-[2026-03-08 15:39:21] [WARN] Lock held by PID 37292. Skipping.
-[2026-03-08 15:39:21] [WARN] Could not acquire lock -- waiting 60s...
-[2026-03-08 15:39:22] [ERROR] Claude FAILED for: [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:39:26] [INFO] [49/61] SKIP (task error): [P6-DB] Create scripts/seed_test_data.py — larger test dataset for load testing: 10 tenants, 50 clinicians, 200 patients, 500 sessions. File: therapeutic-copilot/server/scripts/seed_test_data.py
 [2026-03-08 15:39:26] [INFO] [50/61] START: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
 [2026-03-08 15:39:26] [INFO] Invoking Claude: [P6-DB] Verify Alembic migration — run alembic upgrade head on fresh SQLite, confirm all tables + indexes created. Write result to DB_MIGRATION_RESULTS.md
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:39:47] [INFO] [53/61] START: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 15:39:47] [INFO] Invoking Claude: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
 [2026-03-08 15:39:51] [ERROR] Claude FAILED for: [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
+[2026-03-08 15:39:54] [INFO] [53/61] SKIP (task error): [P7-TEST] Write test_websocket.py — clinician room connect, crisis broadcast, chat token stream. File: therapeutic-copilot/server/tests/test_websocket.py
+[2026-03-08 15:39:54] [INFO] [54/61] START: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 15:39:54] [INFO] Invoking Claude: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
+[2026-03-08 15:39:57] [ERROR] Claude FAILED for: [P7-TEST] Write test_database.py — verify all tables exist, seed script works, relationships load correctly. File: therapeutic-copilot/server/tests/test_database.py
 ```
