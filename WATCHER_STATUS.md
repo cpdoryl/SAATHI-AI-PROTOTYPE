@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:36:12
-**Status**:  TASK FAILED -- [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response
+**Updated**: 2026-03-08 15:36:23
+**Status**:  TASK FAILED -- [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}
 
 ## Progress
 
-- Tasks completed : 30 / 52
-- Last task       : `P2-FE::TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
+- Tasks completed : 31 / 52
+- Last task       : `P3-WI::Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts`
+**Task**: `[P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:35:47] [INFO] [22/61] START: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-[2026-03-08 15:35:47] [INFO] Invoking Claude: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-[2026-03-08 15:35:51] [ERROR] Claude FAILED for: [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-[2026-03-08 15:35:54] [INFO] [22/61] SKIP (task error): [P2-FE] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
 [2026-03-08 15:35:54] [INFO] [23/61] START: [P2-FE] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
 [2026-03-08 15:35:54] [INFO] Invoking Claude: [P2-FE] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
 [2026-03-08 15:35:58] [ERROR] Claude FAILED for: [P2-FE] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
@@ -42,4 +38,8 @@ Review `watcher.log` and fix manually if needed.
 [2026-03-08 15:36:08] [INFO] [25/61] START: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 [2026-03-08 15:36:08] [INFO] Invoking Claude: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 [2026-03-08 15:36:12] [ERROR] Claude FAILED for: [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 15:36:18] [INFO] [25/61] SKIP (task error): [P2-FE] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
+[2026-03-08 15:36:18] [INFO] [26/61] START: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
+[2026-03-08 15:36:18] [INFO] Invoking Claude: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
+[2026-03-08 15:36:23] [ERROR] Claude FAILED for: [P3-WI] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
 ```
