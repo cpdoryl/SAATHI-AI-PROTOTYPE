@@ -1406,6 +1406,44 @@ GET /events:
 
 ---
 
+## SESSION 6 — 2026-03-08 — AUTH TEST SUITE
+
+**Timestamp**: 2026-03-08
+**Trigger**: GitHub TASKS.md — P1-BE auth test task
+**Commits**: 2 commits pushed
+
+### Task: Write test_auth.py
+
+**File created**: `therapeutic-copilot/tests/test_auth.py`
+**File modified**: `therapeutic-copilot/server/routes/auth_routes.py` (status_code=201 on register)
+
+#### Tests Written (8 total)
+
+| Test | Endpoint | Scenario | Expected |
+|------|----------|----------|----------|
+| `test_login_correct_password` | POST /auth/login | Correct bcrypt password | 200 + JWT with decoded claim assertions |
+| `test_login_wrong_password` | POST /auth/login | Wrong password | 401, no access_token |
+| `test_login_unknown_email` | POST /auth/login | Unregistered email | 401, no access_token |
+| `test_register_new_clinician` | POST /auth/register | Valid tenant + unique email | 201 + clinician_id |
+| `test_register_duplicate_email_returns_409` | POST /auth/register | Duplicate email | 409 Conflict |
+| `test_register_unknown_tenant_returns_404` | POST /auth/register | Nonexistent tenant_id | 404 Not Found |
+| `test_refresh_token_returns_new_jwt` | POST /auth/refresh | Valid existing JWT | 200 + new JWT, same sub claim |
+| `test_refresh_token_invalid_returns_401` | POST /auth/refresh | Garbage token string | 401 |
+
+#### Design Decisions
+
+1. **Follows existing test_smoke_p0.py pattern exactly** — module-scoped `setup_db` fixture with `autouse=True`, `aiosqlite` in-file test DB, `app.dependency_overrides[get_db]` injection, `ASGITransport` + `AsyncClient` for HTTP calls. No custom conftest additions needed.
+
+2. **register status_code=201 fix** — The register route lacked `status_code=201`. REST convention: POST that creates a resource returns 201. Added `status_code=201` to `@router.post("/register")`. All existing smoke tests unaffected (they don't call `/register`).
+
+3. **JWT claim assertions in login test** — Beyond checking status 200, the test calls `decode_token()` on the returned JWT and asserts `sub == clinician_id` and `email == clinician_email`. This verifies the token payload is correct, not just that a token was issued.
+
+4. **Refresh uses query param** — The `/refresh` endpoint signature is `async def refresh_token(token: str, ...)` — FastAPI maps this as a query parameter. Tests call `params={"token": original_token}`.
+
+5. **Isolated test DB** — Uses `sqlite+aiosqlite:///./test_auth.db` (file-based, not in-memory) matching the smoke test pattern. Cleaned up in teardown via `metadata.drop_all` + `os.remove`.
+
+---
+
 *Document generated: 2026-03-08*
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
