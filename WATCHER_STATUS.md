@@ -1,12 +1,12 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 15:37:36
-**Status**:  TASK FAILED -- [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/d
+**Updated**: 2026-03-08 15:37:43
+**Status**:  TASK FAILED -- [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into
 
 ## Progress
 
-- Tasks completed : 40 / 52
-- Last task       : `P4-RAG::Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py`
+- Tasks completed : 41 / 52
+- Last task       : `P4-RAG::Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 ## Details
 
@@ -14,7 +14,7 @@ Claude Code returned a non-zero exit code.
 
 **Likely cause**: implementation error in the task itself.
 
-**Task**: `[P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py`
+**Task**: `[P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py`
 
 The watcher has skipped this task and moved to the next one.
 Review `watcher.log` and fix manually if needed.
@@ -22,10 +22,6 @@ Review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 15:37:08] [INFO] Recovering -- waiting 60s before retry...
-[2026-03-08 15:37:08] [WARN] Push failed: To https://github.com/cpdoryl/SAATHI-AI-PROTOTYPE.git
- ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 2b29a5638d31877223bcee4f356a33d04a262d97 but expected 1852d016e3dc6d228169ac914a049db6e7ca39ad)
-error: failed to push some refs to 'https://github.com/cpdoryl/SAATHI-AI-PROTOTYPE.git'
 [2026-03-08 15:37:08] [INFO] [31/61] SKIP (task error): [P3-WI] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
 [2026-03-08 15:37:08] [INFO] [32/61] START: [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
 [2026-03-08 15:37:08] [INFO] Invoking Claude: [P3-WI] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
@@ -42,4 +38,8 @@ error: failed to push some refs to 'https://github.com/cpdoryl/SAATHI-AI-PROTOTY
 [2026-03-08 15:37:32] [INFO] [35/61] START: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
 [2026-03-08 15:37:32] [INFO] Invoking Claude: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
 [2026-03-08 15:37:36] [ERROR] Claude FAILED for: [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+[2026-03-08 15:37:39] [INFO] [35/61] SKIP (task error): [P4-RAG] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+[2026-03-08 15:37:39] [INFO] [36/61] START: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
+[2026-03-08 15:37:39] [INFO] Invoking Claude: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
+[2026-03-08 15:37:43] [ERROR] Claude FAILED for: [P4-RAG] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 ```
