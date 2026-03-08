@@ -1,18 +1,18 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-08 13:58:12
-**Status**:  TASK FAILED -- [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/
+**Updated**: 2026-03-08 13:58:20
+**Status**:  TASK FAILED -- [P1-BE] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, orde
 
 ## Progress
 
-- Tasks completed : 7 / 61
-- Last task       : `P1-BE::Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
+- Tasks completed : 8 / 61
+- Last task       : `P1-BE::Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py`
 
 ## Details
 
 Claude Code returned a non-zero exit code for this task.
 
-**Task**: `[P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py`
+**Task**: `[P1-BE] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py`
 
 The watcher will move on to the next task.
 Please review `watcher.log` and fix manually if needed.
@@ -20,10 +20,6 @@ Please review `watcher.log` and fix manually if needed.
 ## Recent Log
 
 ```
-[2026-03-08 13:04:34] [INFO] No changes on GitHub. Next check in 5 min.
-[2026-03-08 13:57:55] [INFO] ============================================================
-[2026-03-08 13:57:55] [INFO] SAATHI AI GitHub Watcher v2 started
-[2026-03-08 13:57:55] [INFO] Repo  : c:\saath ai prototype
 [2026-03-08 13:57:55] [INFO] Branch: main
 [2026-03-08 13:57:55] [INFO] Poll  : every 5 min for new tasks
 [2026-03-08 13:57:55] [INFO] Log   : c:\saath ai prototype\watcher.log
@@ -40,4 +36,8 @@ Please review `watcher.log` and fix manually if needed.
 [2026-03-08 13:58:11] [INFO] [2/61] START: [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 13:58:11] [INFO] Invoking Claude: [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
 [2026-03-08 13:58:12] [ERROR] Claude FAILED for: [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 13:58:18] [INFO] [2/61] SKIP (failed): [P1-BE] Add GET /api/v1/auth/me endpoint — return current clinician profile from JWT. Add POST /api/v1/auth/logout — blacklist token in Redis. File: therapeutic-copilot/server/routes/auth_routes.py
+[2026-03-08 13:58:18] [INFO] [3/61] START: [P1-BE] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
+[2026-03-08 13:58:18] [INFO] Invoking Claude: [P1-BE] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
+[2026-03-08 13:58:20] [ERROR] Claude FAILED for: [P1-BE] Add GET /api/v1/patients/{id}/sessions endpoint — list TherapySession rows for patient, ordered by started_at desc. File: therapeutic-copilot/server/api/patients.py
 ```
