@@ -1,26 +1,27 @@
 # WATCHER STATUS
 
-**Updated**: 2026-03-09 07:50:05
-**Status**:  IN PROGRESS -- 58 done, 11 remaining
+**Updated**: 2026-03-09 07:51:27
+**Status**:  TASK FAILED -- [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B 
 
 ## Progress
 
 - Tasks completed : 58 / 12
-- Last task       : `None`
+- Last task       : `P5-ML::Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion`
 
 ## Details
 
-**Just completed**: `[P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training`
+Claude Code returned a non-zero exit code.
 
-**Up next**: `[P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion`
+**Likely cause**: implementation error in the task itself.
+
+**Task**: `[P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion`
+
+The watcher has skipped this task and moved to the next one.
+Review `watcher.log` and fix manually if needed.
 
 ## Recent Log
 
 ```
-[2026-03-09 07:22:25] [WARN] Resuming interrupted task: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
-[2026-03-09 07:22:32] [INFO] [1/16] START: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
-[2026-03-09 07:22:32] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
-[2026-03-09 07:29:45] [INFO] [1/16] DONE: [P5-ML] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 [2026-03-09 07:29:47] [INFO] Cooldown 60s before next task (token budget recovery)...
 [2026-03-09 07:30:47] [INFO] [2/16] START: [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
 [2026-03-09 07:30:47] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
@@ -37,4 +38,8 @@
 [2026-03-09 07:45:55] [INFO] [5/16] START: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-09 07:45:55] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 [2026-03-09 07:50:05] [INFO] [5/16] DONE: [P5-ML] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
+[2026-03-09 07:50:09] [INFO] Cooldown 60s before next task (token budget recovery)...
+[2026-03-09 07:51:09] [INFO] [6/16] START: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
+[2026-03-09 07:51:09] [INFO] Invoking Claude: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
+[2026-03-09 07:51:27] [ERROR] Claude FAILED for: [P5-ML] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 ```
