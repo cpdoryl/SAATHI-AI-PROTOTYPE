@@ -1868,3 +1868,38 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 - Total complexity: O(N × T × K) where N = records, T = turns per record, K = vocabulary size (~80 phrases). For 3,000 records × 20 turns × 80 phrases ≈ 5M string containment checks — completes in under 1 second.
 
 **Test Coverage**: 25 tests in `test_evaluate_data.py` covering `_count_hits`, `_score_therapeutic_alignment`, `_score_empathy`, `_score_safety`, `_score_bracket`, `evaluate_conversation`, `evaluate_dataset`, and the `main()` CLI entry point.
+
+---
+
+## Session 6 — 2026-03-09 — P5 ML Pipeline: evaluate_model.py
+
+**Date**: 2026-03-09
+**Task**: Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
+**Files Changed**:
+- `ml_pipeline/scripts/evaluate_model.py` — created (841 lines)
+- `TASKS.md` — task marked complete
+
+### Design Decisions
+
+1. **Two inference backends — HuggingFace transformers and llama-cpp-python GGUF** — The production stack uses GGUF models via llama.cpp, but training uses HuggingFace format. The evaluator supports both so teams can measure quality before and after GGUF conversion without changing tooling. Backends share the same generation loop and metric computation code; only the model-loading and `generate()` method differ.
+
+2. **Perplexity available for HF backend only** — llama-cpp-python does not expose per-token log probabilities in a form suitable for cross-entropy computation. Rather than estimating or approximating perplexity for GGUF, the script reports `null` and logs a clear warning. This avoids misleading numbers; BLEU-4 and ROUGE-L remain available for both backends.
+
+3. **Generation-based BLEU-4 and ROUGE-L** — For each test record the last assistant turn is held out as the reference; the model is fed the preceding context and asked to generate a response. The generated text (hypothesis) is compared to the reference. This mirrors real-world usage — generating a response given a conversation — rather than simply scoring the model's loss on teacher-forced tokens. It is a harder and more informative evaluation.
+
+4. **Greedy decoding for reproducibility** — `do_sample=False` (HF) and `temperature=0.0` (GGUF) ensure that repeated evaluations produce identical outputs, making results directly comparable across runs and model versions.
+
+5. **Graceful library fallbacks** — All heavy imports (transformers, torch, sacrebleu, rouge-score, llama-cpp-python) are deferred and wrapped in helper functions that raise `ImportError` with clear install instructions. The main pipeline catches these and records them in `errors[]` rather than crashing, so partial results are still reported when only some libraries are present.
+
+6. **Blueprint target checks embedded in the report** — `EvalTargetCheck` dataclasses capture metric name, value, target string, and a `passed` boolean. The JSON report and terminal summary both surface these clearly. `--fail-on-miss` exits with code 1 when any target is missed, enabling CI gating after each training run.
+
+7. **Geometric mean perplexity (log-space averaging)** — Perplexity is computed per record as `exp(loss)` and then averaged in log space (`mean(loss)` then `exp()`). This is the standard approach: it prevents long conversations (which individually have higher loss) from dominating the aggregate, and it is equivalent to corpus-level perplexity.
+
+8. **`--max-samples` for fast dev iteration** — Evaluating a full 600-sample test set can take hours on CPU. `--max-samples` (default 500) caps evaluation early, useful for rapid iteration. CI jobs can raise this to the full test set size before release.
+
+**Algorithm / Pattern**:
+- Perplexity: tokenise full conversation → forward pass with `labels=input_ids` → read `outputs.loss` (mean cross-entropy) → `exp(mean_loss_across_records)`.
+- BLEU-4: `sacrebleu.corpus_bleu(hypotheses, [references])` — corpus-level, not sentence-level, for statistical robustness.
+- ROUGE-L: `rouge_scorer.RougeScorer(["rougeL"])` per pair → mean F1 across all pairs.
+- Latency: `time.perf_counter()` wall-clock around the full generation loop divided by number of samples.
+- Same structural pattern as all other pipeline scripts: `load_*()` → pure pipeline function → `EvalReport` dataclass → `summary()` / `to_dict()` → CLI via `_build_parser()` + `main(argv)`.
