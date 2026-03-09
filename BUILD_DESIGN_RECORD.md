@@ -1771,3 +1771,36 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
+
+---
+
+## Task: Create ml_pipeline/scripts/check_balance.py
+**Date**: 2026-03-09
+**Task ID**: P5-ML
+
+**Files Changed**:
+- `ml_pipeline/scripts/check_balance.py` — new file (main balance checker, ~290 lines)
+- `ml_pipeline/tests/test_check_balance.py` — new file (51 pytest tests, all pass)
+
+**Design Decisions**:
+
+1. **Three independent classification dimensions** — Topic, length bucket, and language are each classified independently. Each dimension gets its own `DimensionReport` with counts and imbalanced-category list. This makes it easy to extend with a new dimension without touching the others.
+
+2. **Keyword-based topic classifier with ordered priority** — Topics evaluated in a fixed order (depression → anxiety → OCD → PTSD → relationship → other); first match wins. Prevents double-counting when multiple keywords appear. "other" is the guaranteed fallback. Case-insensitive matching via `.lower()` before checking.
+
+3. **Hinglish detection via token frequency ratio** — Tokenise on whitespace; count tokens that appear in a curated 70-word frozenset of common transliterated Hindi words. If the ratio ≥ 5% of total tokens, the conversation is "hinglish". Non-ASCII characters (Devanagari script) classify as "mixed". Pure ASCII below threshold is "english". Threshold of 5% deliberately low to avoid false negatives on code-switched text that uses mostly English sentence structure.
+
+4. **Length buckets match blueprint specification exactly** — short (3-8 messages), medium (9-15), long (16+). These align with Stage 1 and Stage 2 expected conversation lengths, making the balance report directly actionable for data curation.
+
+5. **Per-dimension imbalance threshold** — The 10% threshold is applied within each dimension independently. A dataset can be balanced in topic but imbalanced in language. This granularity allows targeted data augmentation.
+
+6. **Exit code 2 for imbalance (not 1)** — Exit 1 reserved for errors (file not found, invalid threshold, empty dataset). Exit 2 signals "ran successfully but found imbalance" — lets CI pipelines distinguish tool errors from data quality warnings.
+
+7. **JSON report via `--report` flag** — `BalanceReport.to_dict()` serialises all counts and flagged categories. Downstream scripts (e.g., data augmentation tools) can consume this JSON programmatically rather than parsing human-readable text.
+
+**Algorithm / Pattern**:
+- Single-pass streaming over JSONL — reads one line at a time, incrementing counters. O(N) time, O(1) memory beyond the counters themselves.
+- `DimensionReport` dataclass encapsulates counts + imbalance list + `analyse()` + `format()`. `BalanceReport` composes three `DimensionReport` instances.
+- `check_balance()` is a pure function (Path → BalanceReport) with no side effects; the CLI `main()` handles I/O and logging separately. Same separation as `clean_data.py`.
+
+**Test Coverage**: 51 tests across unit (topic detection, length buckets, language detection, full_text, DimensionReport, BalanceReport) and integration (check_balance function + CLI main). All 51 pass.
