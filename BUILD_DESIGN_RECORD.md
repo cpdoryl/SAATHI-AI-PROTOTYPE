@@ -1804,3 +1804,35 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 - `check_balance()` is a pure function (Path → BalanceReport) with no side effects; the CLI `main()` handles I/O and logging separately. Same separation as `clean_data.py`.
 
 **Test Coverage**: 51 tests across unit (topic detection, length buckets, language detection, full_text, DimensionReport, BalanceReport) and integration (check_balance function + CLI main). All 51 pass.
+
+---
+
+## Task: Create ml_pipeline/scripts/split_data.py
+**Date**: 2026-03-09
+**Task ID**: P5-ML
+
+**Files Changed**:
+- `ml_pipeline/scripts/split_data.py` — new file (~260 lines); stratified 60/20/20 train/val/test splitter
+
+**Design Decisions**:
+
+1. **Per-topic stratification** — Records are grouped into strata by topic (using the same `_TOPIC_KEYWORDS` classifier as `check_balance.py` for pipeline consistency). Each stratum is split independently, guaranteeing that every topic is proportionally represented in train, val, and test. Without stratification, random splits of small datasets can accidentally exclude rare topics from val/test entirely.
+
+2. **Per-topic seeded RNG** — Each stratum is shuffled with `random.Random(seed ^ hash(topic))`. This makes every stratum's shuffle independently reproducible without coupling the ordering of different topics. Re-running with the same `--seed` always produces identical output files.
+
+3. **Remainder-to-test allocation** — `n_train = round(n * train_frac)`, `n_val = round(n * val_frac)`, `test = everything else`. Using `round()` rather than `floor()` minimises rounding loss; assigning the remainder to test means no records are silently dropped due to integer division.
+
+4. **Small-stratum guard (< 3 records)** — Strata with fewer than 3 records cannot produce non-empty train/val/test splits. All records are sent to train with a warning. This prevents empty-file writes and lets the pipeline continue rather than hard-failing on rare topics during early data collection.
+
+5. **Final inter-topic shuffle** — After concatenating all strata splits, each output list is shuffled once more (with the top-level RNG). This interleaves topics so the model sees varied examples in sequence during training rather than all depression examples followed by all anxiety examples, which can cause gradient bias at epoch boundaries.
+
+6. **`--output-dir` defaulting to input file's parent** — Keeps output files next to the input by default (no surprise file creation elsewhere), but lets CI pipelines direct outputs to a dedicated directory with one flag.
+
+7. **`SplitStats.to_dict()` + `--report` flag** — Machine-readable JSON output of per-topic counts and split sizes, following the same pattern as `check_balance.py`. Downstream scripts and CI dashboards can consume this without parsing terminal output.
+
+**Algorithm / Pattern**:
+- Load all records into memory (O(N) space) — necessary because stratified splitting requires knowing the full stratum before splitting. For very large datasets (>500k), this should be replaced with a two-pass approach, but training datasets of this scale (hundreds to low thousands) fit comfortably in RAM.
+- `_split_stratum()` is a pure function (list, fracs, rng → three lists); `split_dataset()` handles I/O, logging, and orchestration. Same service/handler separation as the rest of the pipeline.
+- No external dependencies beyond stdlib + loguru — runs anywhere `clean_data.py` runs.
+
+**Test Coverage**: Not yet written (evaluate_data.py task includes test scaffold for the full scripts suite).
