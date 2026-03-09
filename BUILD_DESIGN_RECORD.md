@@ -1836,3 +1836,35 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 - No external dependencies beyond stdlib + loguru — runs anywhere `clean_data.py` runs.
 
 **Test Coverage**: Not yet written (evaluate_data.py task includes test scaffold for the full scripts suite).
+
+---
+
+### Task: Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
+**Date**: 2026-03-09
+**Files changed**:
+- `ml_pipeline/scripts/evaluate_data.py` (new — 340 lines)
+- `ml_pipeline/tests/test_evaluate_data.py` (new — 300 lines)
+
+**Design Decisions**:
+
+1. **Rule-based heuristic scoring (no ML dependency)** — The evaluator runs at dataset-preparation time, before any model is trained. Requiring an LLM or classifier for scoring would create a circular dependency (need a model to score data to train a model). A vocabulary-driven approach with phrase-hit counting is lightweight, deterministic, fast, and requires zero GPU/API access.
+
+2. **Three independent sub-scores averaged into a composite** — Separating Therapeutic Alignment, Empathy, and Safety scores allows a reviewer to understand *why* a sample was flagged (low empathy vs. safety risk vs. poor CBT technique) rather than just receiving a single opaque number. The composite is the mean of the three.
+
+3. **Positive / negative phrase hits with normalised scoring** — Each dimension has a list of positive signal phrases and negative signal phrases. Raw score = `(pos_hits * weight - neg_hits * weight) / normaliser`, clamped to `[0.0, 1.0]`. Normalisers are derived from vocabulary size so scores stay proportional regardless of vocabulary growth.
+
+4. **Safety dimension includes crisis-signal detection** — When a user message contains crisis signals (e.g., "want to die", "self harm"), the assistant response is checked for appropriate safe-messaging phrases (helpline numbers, "your safety", "seek help"). Missing a safe response when crisis is present deducts 0.4 from the safety score, ensuring crisis neglect is always flagged.
+
+5. **Annotated output JSONL with `_eval` field** — Each record in the output file gains an `_eval` dict containing all four scores, a `flagged` boolean, and per-turn breakdowns. This makes the evaluation transparent and allows downstream tooling to filter or sort without re-running the scorer.
+
+6. **`--flagged-only` and `--fail-on-flagged` CLI flags** — `--flagged-only` writes only low-quality samples to the output, useful for targeted manual review. `--fail-on-flagged` exits with code 1 if any flagged samples exist, enabling CI gating to prevent low-quality data reaching the training pipeline.
+
+7. **Same structural patterns as clean_data.py / split_data.py** — dataclass for stats, Loguru for logging, argparse CLI, `main(argv)` entry point for testability, `evaluate_dataset()` as the pure pipeline function. Consistent patterns reduce cognitive load when maintaining the pipeline.
+
+**Algorithm / Pattern**:
+- Per assistant turn: compute three sub-scores via `_count_hits()` against phrase lists → normalise → clamp.
+- Per conversation: average each dimension across all assistant turns → average the three dimension means → compare to threshold.
+- Crisis detection: O(k) scan of user text for crisis signals before scoring each assistant turn, where k = number of crisis keywords (14).
+- Total complexity: O(N × T × K) where N = records, T = turns per record, K = vocabulary size (~80 phrases). For 3,000 records × 20 turns × 80 phrases ≈ 5M string containment checks — completes in under 1 second.
+
+**Test Coverage**: 25 tests in `test_evaluate_data.py` covering `_count_hits`, `_score_therapeutic_alignment`, `_score_empathy`, `_score_safety`, `_score_bracket`, `evaluate_conversation`, `evaluate_dataset`, and the `main()` CLI entry point.
