@@ -155,7 +155,7 @@
 - [x] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
 - [x] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
 - [x] Create ml_pipeline/scripts/evaluate_data.py — score each sample for therapeutic alignment, empathy, and safety; flag score < 0.5
-- [ ] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
+- [x] Create ml_pipeline/scripts/evaluate_model.py — compute perplexity, BLEU-4, ROUGE-L on test set after training
 - [ ] Create ml_pipeline/scripts/merge_lora.py — merge trained LoRA adapter into base Qwen 2.5-7B model for GGUF conversion
 - [ ] BLOCKED: Stage 1 training data (634 conversations) — WAITING FOR USER TO PROVIDE: ml_pipeline/data/stage1_leads.jsonl
 - [ ] BLOCKED: Stage 2 training data (3,017 conversations) — WAITING FOR USER TO PROVIDE: ml_pipeline/data/stage2_therapy.jsonl
