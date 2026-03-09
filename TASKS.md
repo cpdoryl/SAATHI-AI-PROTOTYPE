@@ -97,10 +97,10 @@
 - [x] Patient detail drawer — clicking a patient in ClinicianDashboard opens a slide-over drawer showing: patient info, session count, last PHQ-9 score, risk score, recent sessions list. File: therapeutic-copilot/client/src/components/clinician/ClinicianDashboard.tsx
 - [x] LandingPage completion — add: "How It Works" 3-step section, Pricing cards (Basic ₹2,999/mo, Pro ₹7,999/mo, Enterprise custom), Footer with links. File: therapeutic-copilot/client/src/components/landing/LandingPage.tsx
 - [x] Login/Register form improvements — add inline validation (red border + error text), show/hide password toggle, loading spinner on submit. File: therapeutic-copilot/client/src/contexts/AuthContext.tsx and auth pages
-- [ ] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
+- [x] Add GET /auth/me and logout to api.ts — add getPatientSessions(), getAssessmentHistory(), getAppointments(), createAppointment(), cancelAppointment(), getAnalyticsSummary(), ingestDocument(). File: therapeutic-copilot/client/src/lib/api.ts
 - [x] Add Razorpay SDK script to index.html — add <script src="https://checkout.razorpay.com/v1/checkout.js"> before closing </body>. File: therapeutic-copilot/client/index.html
-- [ ] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
-- [ ] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
+- [x] AdminPanel — implement tenant CRUD table (list tenants from GET /api/v1/tenants), document upload form (POST /api/v1/rag/ingest), widget embed code generator. File: therapeutic-copilot/client/src/components/admin/AdminPanel.tsx
+- [x] Write Vitest tests — create client/src/__tests__/: auth.test.tsx (login form), clinician-dashboard.test.tsx (patient list renders), patient-portal.test.tsx (assessment submit), chat-widget.test.tsx (WS mock → stream). Use MSW for API mocking.
 - [x] TypeScript types completion — ensure all interfaces in types/index.ts match backend response schemas: Patient, TherapySession, ChatMessage, Assessment, Appointment, CrisisAlert, Tenant. File: therapeutic-copilot/client/src/types/index.ts
 
 ---
@@ -113,13 +113,13 @@
 ### P3-WI — Widget
 
 - [x] Shadow DOM encapsulation + Custom Element registration
-- [ ] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
-- [ ] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-- [ ] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-- [ ] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-- [ ] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-- [ ] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
-- [ ] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
+- [x] Widget token validation on mount — call GET /api/v1/widget/validate-token?token={data-token}, hide widget if invalid, show bubble if valid. File: therapeutic-copilot/widget/src/widget.ts
+- [x] Full ChatBubble UI — floating 60px circle button (bottom-right), click expands 320×480 chat panel with header/message area/input bar. Style with Tailwind inside shadow DOM. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+- [x] Widget WebSocket chat — on first open: POST /api/v1/chat/session, open WebSocket /ws/chat/{session_id}, display greeting, send/receive messages with token streaming. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+- [x] Widget crisis banner — red banner inside chat panel when crisis detected, show helpline numbers. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+- [x] Widget mobile responsive — full-screen chat panel on screen width < 480px. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+- [x] Widget session persistence — store session_id in sessionStorage so re-open shows message history. File: therapeutic-copilot/widget/src/components/ChatBubble.tsx
+- [x] Widget build test — run npm run build, verify single saathi-widget.js produced under 500KB. Create test HTML: <script src="./dist/saathi-widget.js" data-token="demo-token-123"></script>, verify widget appears.
 
 ---
 
@@ -135,8 +135,8 @@
 - [x] Basic query and ingest routes
 - [x] Implement document chunking in rag_service.py — add _chunk_text(text, chunk_size=512, overlap=50) method, update ingest() to chunk full content and upsert all chunks as separate vectors with metadata {source, chunk_index, total_chunks}. File: therapeutic-copilot/server/services/rag_service.py
 - [x] Add similarity threshold + fallback to query() — filter results with score < 0.75, fallback to "default" namespace if tenant namespace returns empty. File: therapeutic-copilot/server/services/rag_service.py
-- [ ] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
-- [ ] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
+- [x] Create scripts/ingest_default_kb.py — script to bulk-ingest all files from knowledge_base/default/ folder into Pinecone namespace="default". Support .txt and .pdf files. File: therapeutic-copilot/server/scripts/ingest_default_kb.py
+- [x] Create scripts/ingest_clinic_docs.py — script to bulk-ingest clinic-specific documents into tenant namespace. File: therapeutic-copilot/server/scripts/ingest_clinic_docs.py
 - [x] Write test_rag.py — tests: ingest document → verify Pinecone upsert called, query → returns top-k, threshold filtering, fallback to default. File: therapeutic-copilot/server/tests/test_rag.py
 - [ ] BLOCKED: Create knowledge_base/default/ content files — WAITING FOR USER TO PROVIDE: cbt_techniques_guide.txt, crisis_resources_india.txt, safe_messaging_guidelines.txt, psychoeducation_depression.txt, psychoeducation_anxiety.txt, psychoeducation_ocd.txt
 
@@ -149,8 +149,8 @@
 
 ### P5-ML — Machine Learning Pipeline
 
-- [ ] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
-- [ ] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
+- [x] Replace train_lora.py pseudocode with real implementation — implement full QLoRA training using transformers + PEFT + TRL + bitsandbytes as specified in ML_BLUEPRINT.md. File: ml_pipeline/train_lora.py
+- [x] Create ml_pipeline/requirements-ml.txt — list: transformers==4.44.0, peft==0.12.0, trl==0.9.4, bitsandbytes==0.43.0, datasets==2.21.0, accelerate==0.33.0, torch==2.3.1, sentencepiece, wandb, sacrebleu, rouge-score
 - [ ] Create ml_pipeline/scripts/clean_data.py — validate JSONL format, remove duplicates, detect PII (phone/email/Aadhaar regex), filter conversations < 3 turns, filter > 2048 tokens
 - [ ] Create ml_pipeline/scripts/check_balance.py — count by topic/length/language, report imbalances, flag categories < 10% of total
 - [ ] Create ml_pipeline/scripts/split_data.py — stratified 60/20/20 train/val/test split by topic, output separate .jsonl files
