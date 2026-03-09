@@ -1737,5 +1737,37 @@ The migration (revision `7c4e9f2a1b8d`, revises `306130c9b35a`) follows the exis
 
 ---
 
+## Session — 2026-03-09 — P5-ML: Data Cleaning Pipeline
+
+**Date**: 2026-03-09
+**Task**: Create `ml_pipeline/scripts/clean_data.py` — JSONL validation, deduplication, PII detection, turn/token filtering
+
+**Files Changed**:
+- `ml_pipeline/scripts/clean_data.py` — new file (main pipeline, 270 lines)
+- `ml_pipeline/tests/test_clean_data.py` — new file (39 pytest tests, all pass)
+
+**Design Decisions**:
+
+1. **Filter ordering matters** — Filters applied in this order: format → dedup → min-turns → PII → max-tokens. Format and dedup are cheap O(1) checks done first to avoid spending tokenizer compute on invalid/duplicate records.
+
+2. **SHA-256 deduplication on first user message** — Exact match on the first user message (lowercased, stripped) hashed to SHA-256. Catches identical opening messages regardless of whitespace variants without loading all messages into memory.
+
+3. **PII detection: three pattern classes** — Indian mobile (10-digit starting 6-9, with optional +91/91/0 prefix), email (RFC-loose regex), Aadhaar (12-digit or space-grouped XXXX XXXX XXXX). Aadhaar matches are redacted in report (last 4 digits shown). Exit code 1 when any PII found — enables CI to gate unsafe datasets.
+
+4. **Tokenizer with graceful fallback** — Attempts to load `Qwen/Qwen2.5-7B-Instruct` tokenizer via `transformers.AutoTokenizer`. Falls back to `len(text) // 4` character-based approximation if transformers not installed. Script works in environments without the full ML stack while remaining accurate when it is present.
+
+5. **CLI exit codes for CI integration** — Returns exit 1 on (a) PII found, (b) zero records survived. Allows use as a gate in training pipelines (`python clean_data.py ... && python train_lora.py`).
+
+6. **`--pii-report` flag** — Optionally writes a JSON file listing every PII finding (type, masked match, source line). Enables human review without exposing raw PII in logs.
+
+**Algorithm / Pattern**:
+- Single-pass streaming over input JSONL — reads one line at a time, never loads full file into memory. Suitable for datasets of any size.
+- `CleaningStats` dataclass accumulates all filter counts and renders a human-readable summary table via `.summary()`.
+- `_build_token_counter()` factory pattern returns a closure — callers use a uniform `count_tokens(text) -> int` interface regardless of tokenizer backend.
+
+**Test Coverage**: 39 tests across unit (format validation, turn counting, PII regex) and integration (full `clean_dataset()` pipeline with tmp_path, CLI `main()`). All 39 pass.
+
+---
+
 *Build agent: Claude Sonnet 4.6 (claude-sonnet-4-6)*
 *Company: RYL NEUROACADEMY PRIVATE LIMITED*
