@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-03-10T21:03:41.383524",
+  "source": "phase_3_lower_risk_1500.csv",
+  "random_seed": 42,
+  "splits": {
+    "train": {
+      "file": "train.csv",
+      "records": 1050,
+      "distribution": {
+        "safe": {
+          "count": 350,
+          "pct": 33.3
+        },
+        "passive_ideation": {
+          "count": 245,
+          "pct": 23.3
+        },
+        "mild_distress": {
+          "count": 210,
+          "pct": 20.0
+        },
+        "moderate_concern": {
+          "count": 175,
+          "pct": 16.7
+        },
+        "elevated_monitoring": {
+          "count": 52,
+          "pct": 5.0
+        },
+        "pre_crisis_intervention": {
+          "count": 18,
+          "pct": 1.7
+        }
+      }
+    },
+    "val": {
+      "file": "val.csv",
+      "records": 225,
+      "distribution": {
+        "safe": {
+          "count": 75,
+          "pct": 33.3
+        },
+        "passive_ideation": {
+          "count": 52,
+          "pct": 23.1
+        },
+        "mild_distress": {
+          "count": 45,
+          "pct": 20.0
+        },
+        "moderate_concern": {
+          "count": 38,
+          "pct": 16.9
+        },
+        "elevated_monitoring": {
+          "count": 11,
+          "pct": 4.9
+        },
+        "pre_crisis_intervention": {
+          "count": 4,
+          "pct": 1.8
+        }
+      }
+    },
+    "test": {
+      "file": "test.csv",
+      "records": 225,
+      "distribution": {
+        "safe": {
+          "count": 75,
+          "pct": 33.3
+        },
+        "passive_ideation": {
+          "count": 53,
+          "pct": 23.6
+        },
+        "mild_distress": {
+          "count": 45,
+          "pct": 20.0
+        },
+        "moderate_concern": {
+          "count": 37,
+          "pct": 16.4
+        },
+        "elevated_monitoring": {
+          "count": 12,
+          "pct": 5.3
+        },
+        "pre_crisis_intervention": {
+          "count": 3,
+          "pct": 1.3
+        }
+      }
+    }
+  }
+}

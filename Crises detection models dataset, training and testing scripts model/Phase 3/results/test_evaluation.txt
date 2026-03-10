@@ -1,0 +1,25 @@
+PHASE 3 CRISIS DETECTION MODEL -- TEST EVALUATION SUMMARY
+=========================================================
+
+Model     : distilbert-base-uncased fine-tuned (6-class)
+Phase     : Phase 3 -- Lower-Risk Crisis Spectrum
+Test set  : 225 samples
+Trained   : 2026-03-10 21:24
+Duration  : 0.3 hours
+
+RESULTS
+-------
+Accuracy        : 0.9867 (98.7%)
+Weighted F1     : 0.9867
+Macro F1        : 0.9893
+HR Recall       : 1.0000 (classes 4+5)
+HR False Neg.   : 0
+
+SAFETY GATE STATUS
+------------------
+HR Recall >= 0.98 : PASS
+Weighted F1 >= 0.75 : PASS
+Zero FN (HR)        : PASS
+APPROVED            : YES
+
+Model saved: models/best_model/

@@ -1,0 +1,102 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "accuracy": 0.219,
+      "weighted_f1": 0.2574,
+      "macro_f1": 0.2086,
+      "high_risk_recall": 0.7714,
+      "false_negatives_high_risk": 16,
+      "loss": 1.7551
+    },
+    "val": {
+      "accuracy": 0.7511,
+      "weighted_f1": 0.7359,
+      "macro_f1": 0.5756,
+      "high_risk_recall": 0.9333,
+      "false_negatives_high_risk": 1,
+      "loss": 1.575
+    },
+    "epoch_seconds": 168.7
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "accuracy": 0.8124,
+      "weighted_f1": 0.8149,
+      "macro_f1": 0.7087,
+      "high_risk_recall": 0.9143,
+      "false_negatives_high_risk": 6,
+      "loss": 1.092
+    },
+    "val": {
+      "accuracy": 0.9911,
+      "weighted_f1": 0.9909,
+      "macro_f1": 0.9655,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.4502
+    },
+    "epoch_seconds": 167.2
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "accuracy": 0.9914,
+      "weighted_f1": 0.9916,
+      "macro_f1": 0.9746,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.2143
+    },
+    "val": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.0405
+    },
+    "epoch_seconds": 355.6
+  },
+  {
+    "epoch": 4,
+    "train": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.0216
+    },
+    "val": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.0093
+    },
+    "epoch_seconds": 255.8
+  },
+  {
+    "epoch": 5,
+    "train": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.0081
+    },
+    "val": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "high_risk_recall": 1.0,
+      "false_negatives_high_risk": 0,
+      "loss": 0.0047
+    },
+    "epoch_seconds": 152.4
+  }
+]

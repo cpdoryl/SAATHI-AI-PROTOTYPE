@@ -1,0 +1,143 @@
+{
+  "model": "distilbert-base-uncased",
+  "phase": "Phase 3 -- Lower-Risk 6-Class",
+  "trained_at": "2026-03-10T21:24:33.209185",
+  "training_seconds": 1109,
+  "best_val_hr_recall": 1.0,
+  "test_metrics": {
+    "accuracy": 0.9867,
+    "weighted_f1": 0.9867,
+    "macro_f1": 0.9893,
+    "high_risk_recall": 1.0,
+    "false_negatives_high_risk": 0,
+    "per_class": {
+      "safe": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 75.0
+      },
+      "passive_ideation": {
+        "precision": 0.9807692307692307,
+        "recall": 0.9622641509433962,
+        "f1-score": 0.9714285714285714,
+        "support": 53.0
+      },
+      "mild_distress": {
+        "precision": 0.9574468085106383,
+        "recall": 1.0,
+        "f1-score": 0.9782608695652174,
+        "support": 45.0
+      },
+      "moderate_concern": {
+        "precision": 1.0,
+        "recall": 0.972972972972973,
+        "f1-score": 0.9863013698630136,
+        "support": 37.0
+      },
+      "elevated_monitoring": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 12.0
+      },
+      "pre_crisis_intervention": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "accuracy": 0.9866666666666667,
+      "macro avg": {
+        "precision": 0.9897026732133115,
+        "recall": 0.9892061873193949,
+        "f1-score": 0.9893318018094671,
+        "support": 225.0
+      },
+      "weighted avg": {
+        "precision": 0.9869594471722131,
+        "recall": 0.9866666666666667,
+        "f1-score": 0.9866693515603581,
+        "support": 225.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        75,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        51,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        45,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        36,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        12,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ]
+    ],
+    "loss": 0.4553
+  },
+  "safety_requirements": {
+    "high_risk_recall_pass": true,
+    "weighted_f1_pass": true,
+    "zero_fn_pass": true,
+    "overall_approved": true
+  },
+  "config": {
+    "num_labels": 6,
+    "max_length": 128,
+    "batch_size": 16,
+    "num_epochs": 25,
+    "learning_rate": 3e-05,
+    "class_weights": [
+      0.5,
+      0.699999988079071,
+      0.8500000238418579,
+      1.0,
+      3.5,
+      12.0
+    ],
+    "safety_threshold": 0.15,
+    "high_risk_classes": [
+      4,
+      5
+    ],
+    "random_seed": 42
+  }
+}
