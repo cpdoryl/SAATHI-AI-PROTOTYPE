@@ -8,17 +8,19 @@ name: SAATHI AI — Agent Task Runner
 # ──────────────────────────────────────────────────────────────────
 on:
   schedule:
-    - cron: "*/5 * * * *"   # every 5 minutes
-  push:
-    branches: [main]
-    paths:
-      - "TASKS.md"           # only trigger when tasks are added/changed
+    - cron: "*/5 * * * *"   # every 5 minutes — one task per tick, natural token gap
   workflow_dispatch:         # manual trigger with optional input
     inputs:
       reason:
         description: "Reason for manual run (optional)"
         required: false
         default: "Manual trigger"
+
+  # NOTE: push trigger on TASKS.md has been intentionally REMOVED.
+  # When it was active, Claude marking [x] in TASKS.md triggered an immediate
+  # new run, causing all tasks to execute back-to-back and exhausting the
+  # hourly Claude API token budget. The 5-min schedule is sufficient for
+  # picking up new tasks added on GitHub.
 
 # Prevent concurrent runs — one task agent at a time.
 # new trigger waits for the current run to finish (no cancel).

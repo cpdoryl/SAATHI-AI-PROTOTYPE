@@ -49,9 +49,12 @@ LOG_FILE      = REPO_DIR / "watcher.log"
 STATE_FILE    = REPO_DIR / ".watcher_state.json"
 STATUS_MD     = REPO_DIR / "WATCHER_STATUS.md"
 LOCK_FILE     = REPO_DIR / ".watcher.lock"
-POLL_INTERVAL      = 300   # seconds between polls for new tasks
-INTER_TASK_DELAY   = 60    # seconds to wait between tasks (lets hourly token bucket refill)
+POLL_INTERVAL      = 300   # seconds between polls / between tasks (token budget recovery)
 MAX_TURNS_PER_TASK = 30    # cap Claude conversation turns per task (saves tokens)
+# ONE TASK PER POLL CYCLE: the watcher executes exactly one pending task per
+# poll cycle, then sleeps for POLL_INTERVAL before checking again.
+# This gives the Claude API hourly token bucket time to partially refill
+# between tasks, preventing token exhaustion across many consecutive tasks.
 BRANCH        = "main"
 CLAUDE_CMD    = r"C:\Users\B P Verma\AppData\Roaming\npm\claude.cmd"
 
@@ -763,115 +766,97 @@ def run_task_queue(remote_content: str = ""):
         push=True,
     )
 
+    # ONE TASK PER POLL CYCLE: pick only the first pending task, execute it,
+    # then return. The outer main() loop will sleep POLL_INTERVAL (5 min)
+    # before the next check, giving the Claude API token bucket time to refill.
     total = len(remaining)
-    idx = 0
-    while idx < len(remaining):
-        task = remaining[idx]
+    task  = remaining[0]
+    done_count_before = len(completed_keys)
 
-        # Mark as "currently running" in state (for crash recovery)
-        state = load_state()
-        state["current_task"] = task["key"]
-        save_state(state)
+    # Mark as "currently running" in state (for crash recovery)
+    state = load_state()
+    state["current_task"] = task["key"]
+    save_state(state)
 
-        log(f"[{idx+1}/{total}] START: {task['display']}")
+    log(f"[{done_count_before + 1}/{state['tasks_total']}] START: {task['display']}")
 
+    if not acquire_lock():
+        log("Could not acquire lock -- waiting 60s...", "WARN")
+        time.sleep(60)
         if not acquire_lock():
-            log("Could not acquire lock -- waiting 60s...", "WARN")
-            time.sleep(60)
-            if not acquire_lock():
-                log("Lock still held. Skipping task this cycle.", "WARN")
-                idx += 1
-                continue
+            log("Lock still held. Skipping this cycle.", "WARN")
+            return
 
-        success = False
-        rate_limited = False
-        try:
-            success = invoke_claude(task)
-        except RateLimitHit as rl:
-            rate_limited = True
-            secs = _parse_reset_seconds(rl.reset_str)
-            mins = secs // 60
-            reset_msg = f"Sleeping {mins} min until limit resets, then retrying."
-            log(f"API rate limit hit. {reset_msg}", "WARN")
-            write_status(
-                "PAUSED -- API RATE LIMIT HIT",
-                f"Claude Code has hit its hourly API usage limit.\n\n"
-                f"**Next task** (will retry): `{task['display']}`\n\n"
-                f"**Action**: Watcher is sleeping for **{mins} minutes** and will "
-                f"automatically resume when the limit resets.\n\n"
-                f"No action needed from you.",
-                push=True,
-            )
+    success      = False
+    rate_limited = False
+    try:
+        success = invoke_claude(task)
+    except RateLimitHit as rl:
+        rate_limited = True
+        secs = _parse_reset_seconds(rl.reset_str)
+        mins = secs // 60
+        log(f"API rate limit hit. Sleeping {mins} min until limit resets...", "WARN")
+        write_status(
+            "PAUSED -- API RATE LIMIT HIT",
+            f"Claude Code has hit its hourly API usage limit.\n\n"
+            f"**Next task** (will retry): `{task['display']}`\n\n"
+            f"**Action**: Watcher sleeping **{mins} minutes** then auto-resuming.\n\n"
+            f"No action needed from you.",
+            push=True,
+        )
+        release_lock()
+        time.sleep(secs)
+        log("Waking up after rate-limit sleep. Will retry on next poll cycle.")
+        return  # outer loop will re-detect same task next cycle
+    finally:
+        if not rate_limited:
             release_lock()
-            time.sleep(secs)
-            log("Waking up after rate-limit sleep. Retrying task...")
-            continue   # retry same task (idx not incremented)
-        finally:
-            if not rate_limited:
-                release_lock()
 
-        if not success:
-            log(f"Claude FAILED for: {task['display']}", "ERROR")
-            write_status(
-                f"TASK FAILED -- {task['display'][:100]}",
-                f"Claude Code returned a non-zero exit code.\n\n"
-                f"**Likely cause**: implementation error in the task itself.\n\n"
-                f"**Task**: `{task['display']}`\n\n"
-                f"The watcher has skipped this task and moved to the next one.\n"
-                f"Review `watcher.log` and fix manually if needed.",
-                push=True,
-            )
-            # Count as done so we don't re-run forever
-            state = load_state()
-            if task["key"] not in state["completed_tasks"]:
-                state["completed_tasks"].append(task["key"])
-            state["current_task"] = None
-            save_state(state)
-            log(f"[{idx+1}/{total}] SKIP (task error): {task['display']}")
-            idx += 1
-            continue
-
-        # Verify and ensure TASKS.md is updated
-        if not task_is_marked_done(task):
-            log("Claude did not update TASKS.md -- force-marking.", "WARN")
-            force_mark_task_done(task)
-
-        # Record completion in state
+    if not success:
+        log(f"Claude FAILED for: {task['display']}", "ERROR")
+        write_status(
+            f"TASK FAILED -- {task['display'][:100]}",
+            f"Claude Code returned a non-zero exit code.\n\n"
+            f"**Likely cause**: implementation error in the task itself.\n\n"
+            f"**Task**: `{task['display']}`\n\n"
+            f"The watcher has skipped this task and will try the next one in "
+            f"{POLL_INTERVAL // 60} minutes.\n"
+            f"Review `watcher.log` and fix manually if needed.",
+            push=True,
+        )
         state = load_state()
         if task["key"] not in state["completed_tasks"]:
             state["completed_tasks"].append(task["key"])
         state["current_task"] = None
         save_state(state)
+        log(f"SKIP (task error): {task['display']}")
+        return
 
-        done_count = len(state["completed_tasks"])
-        left_count = total - (idx + 1)
-        next_label = remaining[idx+1]["display"] if idx + 1 < total else "ALL DONE"
+    # Verify and ensure TASKS.md is updated
+    if not task_is_marked_done(task):
+        log("Claude did not update TASKS.md -- force-marking.", "WARN")
+        force_mark_task_done(task)
 
-        log(f"[{idx+1}/{total}] DONE: {task['display']}")
+    # Record completion in state
+    state = load_state()
+    if task["key"] not in state["completed_tasks"]:
+        state["completed_tasks"].append(task["key"])
+    state["current_task"] = None
+    save_state(state)
 
-        write_status(
-            f"IN PROGRESS -- {done_count} done, {left_count} remaining",
-            f"**Just completed**: `{task['display']}`\n\n"
-            f"**Up next**: `{next_label}`",
-            push=True,
-        )
-        idx += 1
+    done_count = len(state["completed_tasks"])
+    left_count = total - 1
+    next_label = remaining[1]["display"] if len(remaining) > 1 else "ALL DONE"
 
-        # Inter-task cooldown: pause between tasks so the hourly token bucket
-        # partially refills before the next Claude invocation.
-        if idx < len(remaining):
-            log(f"Cooldown {INTER_TASK_DELAY}s before next task (token budget recovery)...")
-            time.sleep(INTER_TASK_DELAY)
+    log(f"DONE: {task['display']}")
 
-    # All tasks finished
     write_status(
-        "ALL TASKS COMPLETE",
-        "Every task in TASKS.md has been implemented and pushed to GitHub.\n\n"
-        "To continue: add new tasks to TASKS.md on GitHub. "
-        "The watcher will detect them and resume within 5 minutes.",
+        f"IN PROGRESS -- {done_count} done, {left_count} remaining",
+        f"**Just completed**: `{task['display']}`\n\n"
+        f"**Up next**: `{next_label}`\n\n"
+        f"Next task will start in ~{POLL_INTERVAL // 60} minutes (token budget recovery).",
         push=True,
     )
-    log("All tasks complete!")
 
 # ---------------------------------------------------------------------------
 # Main entry point
