@@ -52,6 +52,24 @@ async def lifespan(app: FastAPI):
         await conn.run_sync(Base.metadata.create_all)
     logger.info("Database tables initialised.")
 
+    # ─── ML Crisis Model: warm up on startup (loads weights into memory) ─────────
+    try:
+        import asyncio as _asyncio
+        from services.ml_crisis_service import get_ml_crisis_service
+        # Load model in thread pool (CPU-bound, avoids blocking the event loop)
+        svc = await _asyncio.get_event_loop().run_in_executor(
+            None, get_ml_crisis_service
+        )
+        if svc.is_ready:
+            logger.info("ML crisis model loaded and ready (DistilBERT 6-class).")
+        else:
+            logger.warning(
+                "ML crisis model NOT loaded — keyword-only fallback is active. "
+                "Run: python scripts/setup_crisis_model.py to install weights."
+            )
+    except Exception as _exc:
+        logger.warning(f"ML crisis model warm-up failed: {_exc}. Keyword fallback active.")
+
     # ─── APScheduler: daily dropout re-engagement cron ────────────────────────
     try:
         from apscheduler.schedulers.asyncio import AsyncIOScheduler

@@ -23,6 +23,11 @@ aiohttp==3.9.5
 together==1.2.1               # Together AI (cloud Qwen inference for dev)
 openai==1.30.5                # Compatible client for Together AI API
 
+# ML Crisis Detection (DistilBERT — Phase 1+2 combined model)
+torch>=2.1.0                  # PyTorch CPU inference (no GPU required in prod)
+transformers>=4.36.0          # HuggingFace Transformers (DistilBERT tokenizer + model)
+tokenizers>=0.15.0            # Fast Rust tokenizer (required by transformers)
+
 # RAG / Embeddings
 pinecone-client==3.2.2
 sentence-transformers==3.0.1
