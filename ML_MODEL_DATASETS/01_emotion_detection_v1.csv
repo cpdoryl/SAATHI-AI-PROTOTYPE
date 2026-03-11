@@ -1,0 +1,113 @@
+text,primary_emotion,secondary_emotion,intensity
+"I can't stop worrying about my performance review next week. I keep imagining the worst outcomes.",anxiety,fear,high
+"My heart races every time my phone rings. I'm terrified it's bad news.",anxiety,fear,high
+"I lie awake at night running through everything that could go wrong with the project.",anxiety,none,medium
+"I've been avoiding social gatherings lately. The thought of small talk makes me feel sick.",anxiety,shame,medium
+"Every morning I wake up with a knot in my stomach. I don't even know why.",anxiety,none,medium
+"I'm constantly checking my email even on weekends. I can't switch off.",anxiety,none,medium
+"My hands shake during presentations even though I've done hundreds of them.",anxiety,shame,medium
+"I worry about my parents' health constantly. The uncertainty is unbearable.",anxiety,fear,high
+"I overthink every message I send. What if I said something wrong?",anxiety,none,low
+"The thought of failing the UPSC again keeps me up at night. I'm terrified.",anxiety,fear,high
+"I've been having headaches from tension. My shoulders are permanently knotted.",anxiety,none,medium
+"I feel anxious even on my days off. Like something is always about to go wrong.",anxiety,none,medium
+"I'm scared of losing my job if I take a mental health day.",anxiety,fear,high
+"My mind never quiets. There's always a background hum of worry.",anxiety,none,medium
+"I panic in traffic jams. The feeling of being trapped is overwhelming.",anxiety,fear,medium
+"The financial pressure of my EMI payments keeps me in a constant state of dread.",anxiety,fear,high
+"I've started avoiding my manager in the corridor because I'm anxious about feedback.",anxiety,shame,low
+"I get butterflies just thinking about the team meeting where I have to present.",anxiety,none,low
+"I can't relax on vacation. I keep thinking about what's happening at work.",anxiety,none,medium
+"I've been checking the locks multiple times before I sleep. I know it's irrational.",anxiety,none,medium
+"Since my father passed, I cry at random moments throughout the day. Even at work.",sadness,none,high
+"I feel like a hollow version of myself. Nothing brings me joy anymore.",sadness,hopelessness,high
+"I miss my friends from college. We've all grown apart and I feel so lonely.",sadness,none,medium
+"I moved to Bangalore for the job but I miss my family terribly. It hurts.",sadness,none,medium
+"Everything reminds me of my ex. I keep replaying our memories.",sadness,none,medium
+"My dog died last month. I still reach for him when I come home.",sadness,none,high
+"I've been crying in the shower every morning. I don't want my family to see me upset.",sadness,shame,medium
+"I feel like my best years are behind me and I didn't make the most of them.",sadness,none,medium
+"I've lost interest in cooking, which I used to love. Nothing excites me anymore.",sadness,none,medium
+"The loneliness of living alone in a new city is hitting me harder than I expected.",sadness,none,medium
+"Sometimes I just sit and stare at nothing. I don't even feel sad. Just empty.",sadness,hopelessness,high
+"My mother is getting older and watching her slow down breaks my heart.",sadness,none,medium
+"I grieve the relationship I had with my father before his dementia progressed.",sadness,none,high
+"I see my colleagues getting promoted and I feel left behind. It's a kind of grief.",sadness,none,medium
+"My best friend moved abroad. The friendship is the same but the distance hurts.",sadness,none,low
+"I keep getting passed over for promotions despite working harder than anyone.",sadness,none,medium
+"My teammates got increments but my rating was average. I felt humiliated and sad.",sadness,shame,medium
+"I worked on this project for 8 months and management cancelled it without explanation. I feel crushed.",sadness,anger,high
+"I feel invisible at work. My contributions are never acknowledged.",sadness,anger,medium
+"My husband and I had a big fight and said things we can't take back. I'm heartbroken.",sadness,none,high
+"My manager humiliated me in front of the entire team. I wanted to disappear.",anger,shame,high
+"I've been overlooked for a promotion that was given to someone less qualified. I'm furious.",anger,none,high
+"My company changed our leave policy without any consultation. I'm seething.",anger,none,medium
+"My in-laws make decisions about my home without asking me. I'm so angry.",anger,none,high
+"My colleague takes credit for my ideas in meetings. I'm done being patient.",anger,none,high
+"I worked 80-hour weeks and got a 3% raise while the CEO got a bonus. Rage.",anger,none,high
+"I told my manager about a personal crisis and he told me to 'stay professional'. Unbelievable.",anger,none,high
+"My father keeps telling me engineering was the wrong choice. I've heard it my whole life.",anger,none,medium
+"My partner dismisses my feelings every time I try to talk. I feel invisible.",anger,sadness,medium
+"I was blamed for a team failure that was clearly not my fault. I'm livid.",anger,none,high
+"I'm scared I'll never be financially stable. The uncertainty is terrifying.",fear,anxiety,high
+"I'm afraid of disappointing my parents. They sacrificed everything for my education.",fear,guilt,high
+"I'm terrified of what a cancer diagnosis might mean for my future.",fear,none,high
+"I'm scared my mental health issues will affect my career if people find out.",fear,shame,high
+"My startup is failing and I'm afraid of having to go back home and face my family.",fear,shame,high
+"I'm scared to speak up about the injustice in my team in case I get fired.",fear,none,medium
+"I'm terrified of being alone. My last relationship ended and I don't know who I am.",fear,none,high
+"I'm afraid I'm becoming my father — distant and cold. I don't want that.",fear,none,medium
+"I'm scared of dying young like my brother did. The fear is constant.",fear,none,high
+"I'm terrified of commitment. Every time a relationship gets serious I pull away.",fear,none,medium
+"I feel like there's no way out of my current situation. Nothing I try works.",hopelessness,sadness,high
+"I've been trying for a year to get a better job. Nothing is working. I'm giving up.",hopelessness,none,high
+"My depression treatment doesn't seem to be working. I'm starting to think nothing will.",hopelessness,sadness,high
+"I can't see a future where things are better. The hopelessness is suffocating.",hopelessness,none,high
+"I've tried everything my therapist suggested. Nothing sticks. I feel defeated.",hopelessness,none,medium
+"I feel stuck in a life that isn't mine. I don't know how to change it.",hopelessness,none,medium
+"Sometimes I wonder what the point of all this effort is. Nothing changes.",hopelessness,none,medium
+"I've been depressed for so long I've forgotten what normal feels like.",hopelessness,sadness,high
+"I can't imagine ever being happy. That sounds dramatic but it's how I feel.",hopelessness,none,high
+"I keep trying to be a better person and failing. I'm exhausted by my own expectations.",hopelessness,none,medium
+"I failed my UPSC exam three times. I feel like I'm not meant to succeed.",hopelessness,sadness,high
+"My business failed after 4 years. I don't know if I have the strength to start again.",hopelessness,none,high
+"I let my parents down by dropping out of CA. I carry that guilt every day.",guilt,none,high
+"I wasn't there when my mother had her heart attack. I was traveling for work.",guilt,none,high
+"I said terrible things to my partner during a fight. I can't forgive myself.",guilt,sadness,high
+"I chose career over family for years. Now my children are grown and don't need me.",guilt,sadness,high
+"I haven't called my parents in weeks. I know they're waiting. I feel awful.",guilt,none,medium
+"I took credit for a junior's work once. It still haunts me.",guilt,shame,medium
+"I've been lying to my family about how I'm really doing. I feel dishonest.",guilt,none,medium
+"I make mistakes at work and punish myself mentally for days after.",guilt,none,medium
+"I feel guilty for taking a day off when the team is under pressure.",guilt,anxiety,low
+"I should have spoken up when I saw the harassment. I didn't. I hate myself for that.",guilt,shame,high
+"I feel so embarrassed about my weight. I hate seeing myself in photos.",shame,none,high
+"I failed publicly. My startup failed and everyone in my network knows.",shame,sadness,high
+"I was made to feel stupid in front of the team. I still cringe when I think about it.",shame,anger,medium
+"I can't let anyone know I'm struggling. In my family it's seen as weakness.",shame,none,high
+"I come from a small town. I feel like I don't belong in these corporate spaces.",shame,anxiety,medium
+"I cried in front of my manager. I can't stop thinking about how unprofessional that was.",shame,none,medium
+"My teeth are bad and I can't afford to fix them. I hate smiling.",shame,none,medium
+"I dropped out of IIT. In my community that's a mark I'll never escape.",shame,sadness,high
+"I struggle with reading fast in a meeting. I feel exposed whenever I have to read aloud.",shame,anxiety,medium
+"I feel inferior to my peers who went to top colleges and have fancy jobs.",shame,none,medium
+"I'm feeling better after our last session. The breathing technique really helped.",neutral,none,low
+"I just wanted to check in today. Nothing major going on.",neutral,none,low
+"Can you tell me more about how CBT therapy works?",neutral,none,low
+"I finished the journaling exercise you suggested. It was useful.",neutral,none,low
+"I'm looking to book a therapy session this week.",neutral,none,low
+"I feel okay today. Not great, not bad.",neutral,none,low
+"I've been trying the mindfulness exercises and they seem to help.",neutral,none,low
+"What does the PHQ-9 score of 12 mean exactly?",neutral,none,low
+"I'm new to therapy. What should I expect from the first session?",neutral,none,low
+"My week was pretty average. Work was fine, nothing eventful.",neutral,none,low
+"I slept well last night for the first time in months.",neutral,none,low
+"I'm grateful for this app. It's been a good resource.",neutral,none,low
+"I had a good week overall. Exercised three times, ate well.",neutral,none,low
+"Nothing in particular to discuss today. Just checking in.",neutral,none,low
+"I completed the homework from last week. I found it helpful.",neutral,none,low
+"Things have been manageable. Not perfect but okay.",neutral,none,low
+"I feel a lot calmer after talking through the situation with you.",neutral,none,low
+"I took a day off this week and it really helped my mood.",neutral,none,low
+"I spoke to my partner about how I was feeling and it went well.",neutral,none,low
+"I've been exercising more and it's making a difference to my energy levels.",neutral,none,low

@@ -1,0 +1,1501 @@
+id,utterance,primary_intent,secondary_intent,confidence,source,annotator_id,created_at
+intent_000001,I need to schedule a session to discuss my anxiety.,book_appointment,,0.96,synthetic,ann_005,2025-02-10T05:23:18Z
+intent_000002,"I want to start regular sessions, how do I book?",book_appointment,,0.92,synthetic,ann_003,2025-01-25T14:53:11Z
+intent_000003,What is interpersonal therapy?,information_request,seek_support,0.95,synthetic,ann_005,2024-07-10T03:02:16Z
+intent_000004,How do I schedule time with a counselor?,book_appointment,,0.9,synthetic,ann_005,2024-08-27T15:24:43Z
+intent_000005,I'm scared of myself right now.,crisis_emergency,,0.93,synthetic,ann_001,2025-01-20T00:42:56Z
+intent_000006,I want to take the PHQ-9 test.,assessment_request,seek_support,0.95,synthetic,ann_002,2024-07-22T12:57:55Z
+intent_000007,What are the signs of burnout?,information_request,seek_support,0.95,synthetic,ann_001,2024-08-19T20:08:25Z
+intent_000008,I've planned how I would end my life.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-10-18T12:27:39Z
+intent_000009,I'd like to set up a consultation call first.,book_appointment,,0.9,synthetic,ann_004,2024-10-23T22:27:38Z
+intent_000010,I can't stop thinking about killing myself.,crisis_emergency,seek_support,0.95,synthetic,ann_005,2024-06-16T15:54:03Z
+intent_000011,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.95,synthetic,ann_001,2024-10-24T02:07:06Z
+intent_000012,I can't take this anymore and I'm thinking of a way out.,crisis_emergency,,0.9,synthetic,ann_002,2024-08-26T16:14:07Z
+intent_000013,I feel like I have no energy for anything.,seek_support,,0.88,synthetic,ann_004,2024-12-09T23:55:45Z
+intent_000014,Can I book an appointment with a therapist?,book_appointment,,0.92,synthetic,ann_001,2024-09-10T06:35:27Z
+intent_000015,I can't find the settings to change my preferences.,feedback_complaint,,0.95,synthetic,ann_002,2024-11-15T00:29:23Z
+intent_000016,I'm having a mental health crisis.,crisis_emergency,,0.9,synthetic,ann_003,2024-07-01T16:32:03Z
+intent_000017,How does this platform work?,information_request,,0.97,synthetic,ann_003,2025-02-20T07:42:17Z
+intent_000018,What is the cycle of trauma?,information_request,,0.92,synthetic,ann_004,2024-08-05T11:50:03Z
+intent_000019,I've been struggling with my mental health for a while now.,seek_support,book_appointment,0.88,synthetic,ann_002,2025-03-20T23:51:07Z
+intent_000020,I need support to get through this difficult time.,seek_support,general_chat,0.9,synthetic,ann_001,2024-07-20T05:28:30Z
+intent_000021,I want to take the mood questionnaire.,assessment_request,information_request,0.93,synthetic,ann_004,2024-12-07T07:24:33Z
+intent_000022,What is bipolar disorder?,information_request,seek_support,0.95,synthetic,ann_003,2024-10-16T07:12:44Z
+intent_000023,I need help getting through a very difficult period in my life.,seek_support,,0.97,synthetic,ann_002,2025-01-30T23:41:48Z
+intent_000024,The therapist cancelled without notice.,feedback_complaint,,0.9,synthetic,ann_004,2024-12-28T13:59:05Z
+intent_000025,I feel like disappearing forever.,crisis_emergency,,0.99,synthetic,ann_003,2024-09-24T21:59:50Z
+intent_000026,I've been having thoughts of suicide.,crisis_emergency,seek_support,0.97,synthetic,ann_003,2024-09-14T08:18:26Z
+intent_000027,How do antidepressants work?,information_request,,0.88,synthetic,ann_005,2024-06-03T06:58:55Z
+intent_000028,I feel completely alone even when I'm around people.,seek_support,book_appointment,0.88,synthetic,ann_002,2024-06-08T21:57:19Z
+intent_000029,I feel like I can't go on.,crisis_emergency,seek_support,0.97,synthetic,ann_005,2024-12-31T11:13:37Z
+intent_000030,I feel like nobody understands what I'm going through.,seek_support,book_appointment,0.92,synthetic,ann_001,2025-03-18T21:24:43Z
+intent_000031,Main jeena nahi chahta.,crisis_emergency,,0.93,synthetic,ann_004,2024-08-17T11:04:53Z
+intent_000032,I feel like death is the only way out.,crisis_emergency,,0.93,synthetic,ann_004,2024-08-02T11:44:18Z
+intent_000033,"I need to see a therapist urgently, how do I book?",book_appointment,,0.96,synthetic,ann_002,2024-10-11T02:49:28Z
+intent_000034,I want to give feedback about my recent session.,feedback_complaint,,0.9,synthetic,ann_003,2024-12-31T15:07:46Z
+intent_000035,I'm at the edge and I don't know what will happen.,crisis_emergency,,0.9,synthetic,ann_004,2025-01-11T11:52:03Z
+intent_000036,Can I set up my first therapy session?,book_appointment,,0.98,synthetic,ann_004,2024-09-30T20:23:10Z
+intent_000037,What are the symptoms of depression?,information_request,,0.92,synthetic,ann_005,2024-09-09T20:35:11Z
+intent_000038,What does a first therapy session look like?,information_request,,0.97,synthetic,ann_004,2024-12-05T01:28:29Z
+intent_000039,I want to set up a video session.,book_appointment,,0.94,synthetic,ann_004,2024-07-27T16:12:40Z
+intent_000040,Your AI responses are generic and unhelpful.,feedback_complaint,,0.95,synthetic,ann_003,2025-01-22T04:38:35Z
+intent_000041,I feel like my privacy is not being respected.,feedback_complaint,,0.9,synthetic,ann_001,2024-07-08T09:10:25Z
+intent_000042,I'd like to check my anxiety levels.,assessment_request,,0.95,synthetic,ann_002,2024-12-17T17:10:00Z
+intent_000043,The video call quality was terrible.,feedback_complaint,,0.93,synthetic,ann_004,2025-03-20T08:58:45Z
+intent_000044,I want a refund for my last session.,feedback_complaint,,0.93,synthetic,ann_002,2024-06-09T07:01:22Z
+intent_000045,I need help coping with a difficult life event.,seek_support,,0.9,synthetic,ann_004,2024-11-10T17:33:41Z
+intent_000046,I feel like I'm at my breaking point.,seek_support,,0.9,synthetic,ann_002,2025-02-22T17:38:09Z
+intent_000047,I've been having trouble getting out of bed in the mornings.,seek_support,book_appointment,0.92,synthetic,ann_004,2024-06-29T18:29:45Z
+intent_000048,I want to give feedback about my recent session.,feedback_complaint,,0.93,synthetic,ann_001,2025-01-23T02:19:04Z
+intent_000049,Can I do the stress test?,assessment_request,,0.97,synthetic,ann_005,2025-03-24T13:10:13Z
+intent_000050,The app doesn't work on my phone.,feedback_complaint,,0.9,synthetic,ann_001,2025-01-08T13:19:32Z
+intent_000051,I think the AI responses need a lot of improvement.,feedback_complaint,,0.93,synthetic,ann_003,2024-11-01T01:45:03Z
+intent_000052,I'm just getting started.,general_chat,,0.92,synthetic,ann_003,2024-09-23T10:02:17Z
+intent_000053,Kya main yahan koi assessment le sakta hun?,assessment_request,,0.95,synthetic,ann_005,2024-11-17T09:03:12Z
+intent_000054,Can I complete the intake assessment?,assessment_request,information_request,0.97,synthetic,ann_005,2024-08-26T06:31:50Z
+intent_000055,I want to start therapy and need to book my first session.,book_appointment,seek_support,0.9,synthetic,ann_002,2025-02-11T09:17:29Z
+intent_000056,I feel like I'm falling apart.,seek_support,,0.92,synthetic,ann_003,2024-08-11T14:23:38Z
+intent_000057,I want to book a session and need to know the available times.,book_appointment,,0.9,synthetic,ann_002,2024-12-26T15:36:43Z
+intent_000058,I've been feeling really fragile emotionally.,seek_support,,0.88,synthetic,ann_004,2024-12-05T15:49:32Z
+intent_000059,I need help working through some really painful feelings.,seek_support,,0.95,synthetic,ann_005,2024-09-21T02:02:44Z
+intent_000060,Can we just chat for a bit?,general_chat,,0.95,synthetic,ann_002,2024-07-07T02:02:29Z
+intent_000061,I can't seem to get out of this dark place.,seek_support,book_appointment,0.9,synthetic,ann_004,2024-09-30T08:55:50Z
+intent_000062,I feel completely trapped and want to die.,crisis_emergency,,0.9,synthetic,ann_001,2024-06-26T00:55:22Z
+intent_000063,What would you recommend I try first?,general_chat,,0.85,synthetic,ann_005,2025-03-27T13:26:28Z
+intent_000064,I'd like to track my mental health with assessments.,assessment_request,seek_support,0.93,synthetic,ann_005,2024-07-20T02:49:06Z
+intent_000065,Ye app sahi se kaam nahi kar raha.,feedback_complaint,,0.95,synthetic,ann_004,2025-01-29T00:28:43Z
+intent_000066,Is it possible to book a session today?,book_appointment,,0.94,synthetic,ann_001,2025-01-09T17:11:28Z
+intent_000067,I've been having thoughts of suicide.,crisis_emergency,,0.93,synthetic,ann_003,2024-08-01T02:14:07Z
+intent_000068,I want to disappear from this world.,crisis_emergency,seek_support,0.97,synthetic,ann_001,2024-09-23T09:23:59Z
+intent_000069,I've tried contacting support but got no reply.,feedback_complaint,,0.88,synthetic,ann_001,2024-12-24T06:33:34Z
+intent_000070,Can I start the mental health evaluation?,assessment_request,,0.97,synthetic,ann_001,2024-07-17T07:11:27Z
+intent_000071,I'm thinking about jumping off a bridge.,crisis_emergency,seek_support,0.9,synthetic,ann_002,2024-07-21T18:21:15Z
+intent_000072,"I need to see a therapist urgently, how do I book?",book_appointment,,0.98,synthetic,ann_001,2024-06-18T14:15:28Z
+intent_000073,Can I take a formal mental health assessment?,assessment_request,,0.88,synthetic,ann_005,2024-11-01T04:17:40Z
+intent_000074,I'd like to take the PTSD screening.,assessment_request,,0.88,synthetic,ann_004,2024-07-13T20:13:16Z
+intent_000075,I need to schedule therapy as soon as possible.,book_appointment,,0.92,synthetic,ann_004,2025-01-08T06:49:23Z
+intent_000076,I've been really reactive lately and it's affecting my relationships.,seek_support,,0.95,synthetic,ann_005,2024-06-24T09:23:13Z
+intent_000077,I'd like to arrange regular therapy appointments.,book_appointment,seek_support,0.92,synthetic,ann_004,2024-08-08T06:28:10Z
+intent_000078,I feel like the pain will only stop if I'm dead.,crisis_emergency,,0.9,synthetic,ann_001,2024-06-05T18:31:59Z
+intent_000079,Is this thing working?,general_chat,,0.88,synthetic,ann_002,2025-02-13T07:59:37Z
+intent_000080,I need immediate help -- I'm not safe.,crisis_emergency,,0.9,synthetic,ann_002,2025-01-20T22:40:09Z
+intent_000081,I have a plan to kill myself.,crisis_emergency,,0.9,synthetic,ann_003,2025-03-21T22:19:55Z
+intent_000082,Can I book a session in the evening?,book_appointment,seek_support,0.98,synthetic,ann_002,2025-01-16T20:03:16Z
+intent_000083,I've been struggling with suicidal thoughts for weeks.,crisis_emergency,seek_support,0.99,synthetic,ann_004,2024-08-01T00:18:48Z
+intent_000084,I want to arrange a session with a counselor.,book_appointment,seek_support,0.96,synthetic,ann_001,2024-08-11T18:17:08Z
+intent_000085,Just wanted to say hi.,general_chat,,0.88,synthetic,ann_003,2024-08-17T21:18:46Z
+intent_000086,I feel disconnected from myself.,seek_support,book_appointment,0.95,synthetic,ann_002,2024-07-18T03:08:38Z
+intent_000087,What does a first therapy session look like?,information_request,,0.95,synthetic,ann_001,2024-06-16T11:56:19Z
+intent_000088,Can you help me process what I'm feeling?,seek_support,,0.97,synthetic,ann_002,2024-11-15T00:32:32Z
+intent_000089,I want to set up a video session.,book_appointment,,0.9,synthetic,ann_003,2024-10-21T17:45:26Z
+intent_000090,I feel really scared and alone.,seek_support,,0.88,synthetic,ann_005,2025-01-22T19:57:24Z
+intent_000091,What are your capabilities?,general_chat,,0.9,synthetic,ann_002,2025-02-27T20:59:14Z
+intent_000092,I feel completely worthless and like dying.,crisis_emergency,,0.9,synthetic,ann_004,2025-03-05T01:05:47Z
+intent_000093,My relationships are falling apart and I don't know how to cope.,seek_support,,0.85,synthetic,ann_003,2025-01-10T14:48:52Z
+intent_000094,Can anxiety be cured?,information_request,,0.95,synthetic,ann_001,2024-10-26T23:50:20Z
+intent_000095,I feel like I want to end my suffering permanently.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-11-30T21:31:13Z
+intent_000096,I've been thinking about this for a long time and I'm ready.,crisis_emergency,,0.99,synthetic,ann_005,2024-06-19T20:51:47Z
+intent_000097,Can I start the mental health evaluation?,assessment_request,seek_support,0.9,synthetic,ann_002,2025-02-25T14:49:31Z
+intent_000098,Can you give me a questionnaire about my depression?,assessment_request,,0.9,synthetic,ann_001,2024-09-09T08:25:59Z
+intent_000099,Sirf explore kar raha hun.,general_chat,,0.95,synthetic,ann_001,2024-07-08T19:30:04Z
+intent_000100,I want a refund for my last session.,feedback_complaint,,0.85,synthetic,ann_003,2024-11-08T19:08:02Z
+intent_000101,I've been feeling anxious and sad all the time.,seek_support,,0.9,synthetic,ann_005,2024-08-25T23:17:30Z
+intent_000102,I feel like nobody understands what I'm going through.,seek_support,,0.88,synthetic,ann_001,2024-07-20T00:11:27Z
+intent_000103,What are the stages of grief?,information_request,,0.95,synthetic,ann_004,2024-11-01T10:43:20Z
+intent_000104,I feel like I'm always on edge.,seek_support,,0.97,synthetic,ann_003,2024-06-27T18:43:24Z
+intent_000105,Can you give me the PHQ-9 now?,assessment_request,information_request,0.93,synthetic,ann_002,2024-09-09T23:26:42Z
+intent_000106,I can't log into my account.,feedback_complaint,,0.88,synthetic,ann_003,2024-12-13T02:43:20Z
+intent_000107,Yaar bahut bura lag raha hai aaj.,seek_support,general_chat,0.97,synthetic,ann_003,2025-03-25T09:54:03Z
+intent_000108,Can I take a stress evaluation test?,assessment_request,,0.9,synthetic,ann_005,2024-08-02T10:40:13Z
+intent_000109,I'm at a crisis point right now.,crisis_emergency,seek_support,0.97,synthetic,ann_001,2024-07-21T06:09:03Z
+intent_000110,I want to check if I have anxiety.,assessment_request,,0.88,synthetic,ann_005,2025-02-05T01:28:01Z
+intent_000111,How does cognitive behavioral therapy work?,information_request,,0.88,synthetic,ann_003,2025-02-09T00:40:58Z
+intent_000112,What's the weather like where you are? Just kidding.,general_chat,,0.92,synthetic,ann_001,2024-11-24T22:21:08Z
+intent_000113,I'm concerned about how my data is being used.,feedback_complaint,,0.88,synthetic,ann_002,2024-12-30T05:02:34Z
+intent_000114,I'd like to arrange a therapy session.,book_appointment,seek_support,0.9,synthetic,ann_005,2024-08-30T04:26:56Z
+intent_000115,Is there an appointment available this week?,book_appointment,seek_support,0.92,synthetic,ann_003,2024-12-01T23:36:55Z
+intent_000116,I've been feeling really low lately and don't know what to do.,seek_support,,0.97,synthetic,ann_001,2024-09-20T16:54:01Z
+intent_000117,I'm not satisfied with my recent session.,feedback_complaint,,0.88,synthetic,ann_002,2024-06-20T14:52:43Z
+intent_000118,I want to take a mental health assessment.,assessment_request,information_request,0.88,synthetic,ann_001,2025-03-14T12:46:44Z
+intent_000119,I feel like there's a heavy fog over everything.,seek_support,general_chat,0.95,synthetic,ann_003,2024-06-07T03:05:25Z
+intent_000120,I feel broken and don't know how to fix myself.,seek_support,,0.9,synthetic,ann_004,2024-09-06T23:20:27Z
+intent_000121,I've been billed incorrectly.,feedback_complaint,general_chat,0.85,synthetic,ann_001,2024-11-26T18:57:27Z
+intent_000122,I'm struggling with loneliness more than ever.,seek_support,,0.97,synthetic,ann_004,2024-09-14T17:31:06Z
+intent_000123,I feel like the pain will only stop if I'm dead.,crisis_emergency,seek_support,0.97,synthetic,ann_002,2024-08-04T22:05:19Z
+intent_000124,Depression ka assessment karna hai.,assessment_request,,0.9,synthetic,ann_003,2025-01-28T13:09:01Z
+intent_000125,I need help with the anxiety that's been consuming my life.,seek_support,book_appointment,0.92,synthetic,ann_001,2025-03-23T07:09:33Z
+intent_000126,"I want to see someone about my mental health, how do I book?",book_appointment,,0.92,synthetic,ann_001,2024-07-02T20:38:58Z
+intent_000127,I need help dealing with my emotions.,seek_support,,0.85,synthetic,ann_005,2024-10-20T16:45:11Z
+intent_000128,I want to book a session for Thursday.,book_appointment,,0.98,synthetic,ann_003,2024-06-07T15:46:50Z
+intent_000129,The waiting time is too long.,feedback_complaint,general_chat,0.9,synthetic,ann_002,2024-08-23T10:17:37Z
+intent_000130,"I'm doing okay today, just wanted to say hello.",general_chat,,0.92,synthetic,ann_003,2024-07-05T16:13:08Z
+intent_000131,I want to book a morning appointment.,book_appointment,,0.92,synthetic,ann_003,2025-02-11T19:11:01Z
+intent_000132,Tell me about yourself.,general_chat,,0.85,synthetic,ann_001,2024-08-24T12:17:19Z
+intent_000133,Is there an appointment available this week?,book_appointment,,0.92,synthetic,ann_005,2025-02-04T11:18:41Z
+intent_000134,I don't see any future for myself.,crisis_emergency,,0.9,synthetic,ann_001,2024-08-29T21:28:50Z
+intent_000135,I've been cutting myself to cope.,crisis_emergency,,0.99,synthetic,ann_004,2024-08-17T13:06:14Z
+intent_000136,I want to take the PHQ-9 test.,assessment_request,seek_support,0.9,synthetic,ann_002,2024-09-26T18:19:08Z
+intent_000137,The app doesn't work on my phone.,feedback_complaint,,0.93,synthetic,ann_004,2024-06-01T01:49:24Z
+intent_000138,I want a refund for my last session.,feedback_complaint,,0.88,synthetic,ann_001,2024-10-13T16:13:22Z
+intent_000139,Can I complete the intake assessment?,assessment_request,,0.95,synthetic,ann_005,2024-09-17T07:26:56Z
+intent_000140,I want to kill myself.,crisis_emergency,,0.95,synthetic,ann_003,2024-11-23T20:00:32Z
+intent_000141,The app doesn't work on my phone.,feedback_complaint,,0.95,synthetic,ann_005,2024-12-26T05:22:03Z
+intent_000142,I want to kill myself.,crisis_emergency,,0.93,synthetic,ann_002,2024-06-14T17:36:44Z
+intent_000143,I want to schedule my next appointment.,book_appointment,,0.98,synthetic,ann_003,2024-07-24T07:28:36Z
+intent_000144,I need to book an emergency session.,book_appointment,,0.92,synthetic,ann_004,2024-07-18T13:59:13Z
+intent_000145,Can I see if there are any openings today?,book_appointment,,0.92,synthetic,ann_001,2024-07-08T09:42:37Z
+intent_000146,This platform doesn't feel safe to use.,feedback_complaint,,0.85,synthetic,ann_001,2024-09-05T01:51:42Z
+intent_000147,Can you give me an overview of what's available?,general_chat,,0.92,synthetic,ann_001,2024-07-11T00:59:16Z
+intent_000148,I want a refund for my last session.,feedback_complaint,,0.85,synthetic,ann_001,2025-03-09T15:05:32Z
+intent_000149,I've been feeling anxious and sad all the time.,seek_support,,0.97,synthetic,ann_001,2025-03-07T12:35:45Z
+intent_000150,I'm at the edge and I don't know what will happen.,crisis_emergency,,0.99,synthetic,ann_002,2024-07-07T18:54:12Z
+intent_000151,I've been feeling anxious and sad all the time.,seek_support,,0.9,synthetic,ann_003,2025-01-29T01:11:55Z
+intent_000152,I don't want to live anymore.,crisis_emergency,,0.97,synthetic,ann_004,2025-01-09T03:38:34Z
+intent_000153,I want to hurt myself.,crisis_emergency,,0.9,synthetic,ann_004,2025-02-09T20:19:17Z
+intent_000154,I've been thinking about driving into traffic.,crisis_emergency,,0.99,synthetic,ann_002,2024-06-12T09:07:40Z
+intent_000155,How do I get started with booking a therapist?,book_appointment,,0.92,synthetic,ann_001,2024-10-07T10:11:57Z
+intent_000156,What do you like to talk about?,general_chat,seek_support,0.85,synthetic,ann_004,2024-06-21T21:27:04Z
+intent_000157,I need help getting through a very difficult period in my life.,seek_support,,0.95,synthetic,ann_002,2024-07-31T02:11:23Z
+intent_000158,I feel like I can't go on.,crisis_emergency,,0.97,synthetic,ann_005,2024-07-10T05:41:17Z
+intent_000159,What is DBT therapy?,information_request,,0.97,synthetic,ann_005,2024-07-06T04:01:28Z
+intent_000160,I feel completely hopeless and suicidal.,crisis_emergency,,0.9,synthetic,ann_004,2024-06-21T20:18:19Z
+intent_000161,What is the connection between exercise and mental health?,information_request,assessment_request,0.95,synthetic,ann_002,2025-02-23T02:27:02Z
+intent_000162,Can I take a test to see how I'm doing mentally?,assessment_request,,0.9,synthetic,ann_002,2025-03-03T00:04:27Z
+intent_000163,I feel overwhelmed by my responsibilities and I'm burning out.,seek_support,book_appointment,0.88,synthetic,ann_003,2024-08-28T08:17:48Z
+intent_000164,Main thak gaya hun sab kuch se.,seek_support,,0.97,synthetic,ann_001,2024-07-29T22:11:53Z
+intent_000165,I need help dealing with my emotions.,seek_support,general_chat,0.88,synthetic,ann_005,2025-02-11T06:53:45Z
+intent_000166,Mujhe mental health evaluation chahiye.,assessment_request,,0.97,synthetic,ann_003,2025-03-25T16:01:31Z
+intent_000167,I feel like I need professional support but I'm not sure where to start.,seek_support,,0.95,synthetic,ann_005,2024-12-30T23:03:08Z
+intent_000168,I feel like I have no energy for anything.,seek_support,,0.88,synthetic,ann_002,2024-09-29T16:24:04Z
+intent_000169,This app is not working properly.,feedback_complaint,,0.93,synthetic,ann_001,2025-03-25T14:16:44Z
+intent_000170,What is the cycle of trauma?,information_request,seek_support,0.88,synthetic,ann_001,2024-06-02T22:52:53Z
+intent_000171,I feel like I'm about to do something drastic.,crisis_emergency,,0.93,synthetic,ann_003,2024-10-22T01:17:19Z
+intent_000172,Anxiety aur depression mein kya fark hai?,information_request,seek_support,0.95,synthetic,ann_001,2025-02-27T04:06:39Z
+intent_000173,Apni condition check karni hai test se.,assessment_request,,0.93,synthetic,ann_004,2025-02-03T02:15:11Z
+intent_000174,What's new?,general_chat,,0.9,synthetic,ann_001,2024-09-09T06:57:29Z
+intent_000175,I need emotional support more than anything right now.,seek_support,,0.97,synthetic,ann_005,2024-10-07T11:11:54Z
+intent_000176,Can I take a mood assessment today?,assessment_request,seek_support,0.95,synthetic,ann_004,2025-03-27T18:01:25Z
+intent_000177,I feel like things will never get better.,seek_support,book_appointment,0.88,synthetic,ann_003,2024-07-12T23:33:12Z
+intent_000178,GAD-7 questionnaire dena hai.,assessment_request,,0.97,synthetic,ann_004,2025-01-06T15:32:14Z
+intent_000179,Just passing time and thought I'd chat.,general_chat,,0.9,synthetic,ann_003,2024-11-24T00:54:15Z
+intent_000180,What is dissociation?,information_request,,0.97,synthetic,ann_005,2024-11-21T00:53:28Z
+intent_000181,I've been having trouble concentrating because of how I feel.,seek_support,general_chat,0.97,synthetic,ann_002,2025-01-09T01:32:25Z
+intent_000182,How does breathing affect anxiety?,information_request,seek_support,0.95,synthetic,ann_002,2024-06-25T09:54:30Z
+intent_000183,I have access to something I could hurt myself with.,crisis_emergency,,0.99,synthetic,ann_005,2024-07-28T06:18:42Z
+intent_000184,Everything feels too heavy right now.,seek_support,,0.92,synthetic,ann_005,2025-01-22T02:59:12Z
+intent_000185,I want to set up a consultation.,book_appointment,,0.96,synthetic,ann_002,2025-03-23T09:54:41Z
+intent_000186,Sirf explore kar raha hun.,general_chat,,0.9,synthetic,ann_001,2025-01-11T07:14:52Z
+intent_000187,I feel like I'm just going through the motions every day.,seek_support,,0.92,synthetic,ann_002,2024-06-30T12:20:18Z
+intent_000188,I'd like to get on the schedule this week.,book_appointment,,0.98,synthetic,ann_002,2025-03-20T03:31:11Z
+intent_000189,How does breathing affect anxiety?,information_request,assessment_request,0.97,synthetic,ann_005,2025-03-20T04:43:09Z
+intent_000190,What is bipolar disorder?,information_request,,0.92,synthetic,ann_002,2024-06-03T02:58:44Z
+intent_000191,How does sleep affect mental health?,information_request,,0.9,synthetic,ann_004,2024-11-12T15:26:02Z
+intent_000192,I'm scared I will hurt myself tonight.,crisis_emergency,seek_support,0.93,synthetic,ann_002,2024-06-17T13:46:05Z
+intent_000193,The interface is very unintuitive.,feedback_complaint,,0.9,synthetic,ann_003,2024-12-08T06:30:18Z
+intent_000194,I've been feeling really hopeless about the future.,seek_support,,0.85,synthetic,ann_003,2024-12-24T21:32:44Z
+intent_000195,I've been having a lot of self-doubt.,seek_support,general_chat,0.97,synthetic,ann_004,2024-12-07T17:52:32Z
+intent_000196,I'd like to book a session for this afternoon if possible.,book_appointment,seek_support,0.9,synthetic,ann_004,2024-07-23T00:21:50Z
+intent_000197,I'd like to get an appointment booked.,book_appointment,,0.98,synthetic,ann_004,2025-01-27T01:11:17Z
+intent_000198,Can I schedule a session for next Monday?,book_appointment,,0.9,synthetic,ann_003,2024-09-23T13:49:31Z
+intent_000199,Is there an appointment available this week?,book_appointment,seek_support,0.92,synthetic,ann_005,2024-09-21T08:07:50Z
+intent_000200,I'd like to check my anxiety levels.,assessment_request,information_request,0.95,synthetic,ann_001,2024-07-18T10:53:38Z
+intent_000201,What are the benefits of therapy?,information_request,assessment_request,0.9,synthetic,ann_003,2024-12-06T16:33:17Z
+intent_000202,How does cognitive behavioral therapy work?,information_request,seek_support,0.97,synthetic,ann_005,2024-06-01T11:11:12Z
+intent_000203,Can I start the mental health evaluation?,assessment_request,,0.95,synthetic,ann_005,2024-09-10T14:53:49Z
+intent_000204,This app is not working properly.,feedback_complaint,general_chat,0.95,synthetic,ann_002,2025-01-08T09:02:34Z
+intent_000205,I want to take a mental wellness quiz.,assessment_request,information_request,0.97,synthetic,ann_001,2024-11-10T05:54:57Z
+intent_000206,I just need someone to listen to me.,seek_support,,0.85,synthetic,ann_001,2025-01-31T16:13:59Z
+intent_000207,I want to book a session with Dr. Sharma.,book_appointment,,0.92,synthetic,ann_004,2024-10-02T03:02:02Z
+intent_000208,I want to take the DASS-21.,assessment_request,seek_support,0.97,synthetic,ann_004,2025-02-12T08:22:42Z
+intent_000209,I want to give feedback about my recent session.,feedback_complaint,,0.85,synthetic,ann_001,2025-03-15T05:24:01Z
+intent_000210,I feel like my mind is working against me.,seek_support,general_chat,0.92,synthetic,ann_002,2025-01-28T15:51:18Z
+intent_000211,I feel really vulnerable and could use some guidance.,seek_support,,0.85,synthetic,ann_004,2024-09-15T14:20:33Z
+intent_000212,I want to cancel and rebook my session.,book_appointment,,0.92,synthetic,ann_005,2024-12-18T04:51:42Z
+intent_000213,What is the difference between group therapy and individual therapy?,information_request,seek_support,0.92,synthetic,ann_003,2024-10-05T06:03:39Z
+intent_000214,This is a terrible experience.,feedback_complaint,,0.88,synthetic,ann_004,2024-09-30T07:37:06Z
+intent_000215,Can I book a session for Monday morning?,book_appointment,,0.94,synthetic,ann_004,2025-03-09T00:02:55Z
+intent_000216,I feel like I'm at my breaking point.,seek_support,,0.88,synthetic,ann_003,2024-12-05T03:08:50Z
+intent_000217,I feel like everything is falling apart around me.,seek_support,,0.85,synthetic,ann_002,2024-11-01T12:07:18Z
+intent_000218,I'd like to set up a consultation call first.,book_appointment,,0.9,synthetic,ann_003,2024-10-25T11:27:37Z
+intent_000219,What is the DSM-5?,information_request,,0.88,synthetic,ann_004,2025-03-17T04:06:42Z
+intent_000220,Can we do an evaluation of my mental health today?,assessment_request,,0.88,synthetic,ann_002,2024-09-05T03:55:44Z
+intent_000221,Bas hello kehna tha.,general_chat,,0.88,synthetic,ann_002,2025-02-20T16:11:48Z
+intent_000222,I'm just browsing.,general_chat,,0.92,synthetic,ann_005,2024-06-02T10:31:17Z
+intent_000223,I want to set up a consultation.,book_appointment,seek_support,0.94,synthetic,ann_003,2025-02-17T16:19:50Z
+intent_000224,I'm thinking of ending things tonight.,crisis_emergency,seek_support,0.9,synthetic,ann_004,2024-09-15T05:27:52Z
+intent_000225,I'm thinking about ending my life.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2024-09-23T02:15:57Z
+intent_000226,What is GAD-7?,information_request,seek_support,0.97,synthetic,ann_002,2025-03-22T01:40:19Z
+intent_000227,Can we do an assessment of my depression?,assessment_request,,0.88,synthetic,ann_002,2024-08-01T21:19:43Z
+intent_000228,I've been having violent thoughts about myself.,crisis_emergency,,0.9,synthetic,ann_002,2024-07-18T04:01:35Z
+intent_000229,I want to report an issue with the platform.,feedback_complaint,,0.85,synthetic,ann_003,2025-02-25T10:38:24Z
+intent_000230,I feel deeply unhappy and I don't know why.,seek_support,,0.88,synthetic,ann_003,2024-06-06T11:52:20Z
+intent_000231,I want to stop existing.,crisis_emergency,,0.95,synthetic,ann_003,2024-07-23T23:49:18Z
+intent_000232,I need help with my emotional wellbeing.,seek_support,book_appointment,0.9,synthetic,ann_003,2025-02-05T03:02:35Z
+intent_000233,What kind of support do you offer?,general_chat,,0.85,synthetic,ann_004,2024-09-16T08:04:53Z
+intent_000234,I've been thinking about harming myself.,crisis_emergency,,0.93,synthetic,ann_004,2024-09-28T03:47:59Z
+intent_000235,Can I complete the GAD-7 questionnaire?,assessment_request,,0.95,synthetic,ann_005,2024-07-05T00:28:42Z
+intent_000236,Mujhe refund chahiye.,feedback_complaint,,0.85,synthetic,ann_001,2024-07-21T09:35:01Z
+intent_000237,I've been stockpiling medication to end it.,crisis_emergency,seek_support,0.93,synthetic,ann_003,2024-09-17T16:26:00Z
+intent_000238,"I don't have a specific question, just exploring.",general_chat,,0.88,synthetic,ann_001,2025-02-25T22:20:46Z
+intent_000239,I need to schedule a session to discuss my anxiety.,book_appointment,,0.98,synthetic,ann_003,2024-07-01T07:58:12Z
+intent_000240,How do I book a session on this platform?,book_appointment,,0.96,synthetic,ann_001,2025-01-05T11:06:37Z
+intent_000241,I've already taken some pills.,crisis_emergency,,0.95,synthetic,ann_003,2024-06-08T20:35:03Z
+intent_000242,I've been carrying a lot of emotional weight.,seek_support,,0.85,synthetic,ann_004,2024-09-16T03:24:05Z
+intent_000243,Can I do a baseline mental health check?,assessment_request,,0.93,synthetic,ann_004,2024-11-19T20:55:20Z
+intent_000244,I'd like to schedule a phone consultation first.,book_appointment,,0.96,synthetic,ann_002,2024-08-18T11:24:37Z
+intent_000245,I feel like I'm at my breaking point.,seek_support,,0.92,synthetic,ann_002,2024-12-10T08:47:51Z
+intent_000246,I need help managing my emotions better.,seek_support,general_chat,0.92,synthetic,ann_002,2024-09-14T23:56:29Z
+intent_000247,Can you help me process what I'm feeling?,seek_support,,0.85,synthetic,ann_001,2024-10-04T23:23:27Z
+intent_000248,"I'm not sure why I'm here, just exploring.",general_chat,,0.9,synthetic,ann_005,2025-02-19T21:56:53Z
+intent_000249,I'm in crisis and I don't know what to do.,crisis_emergency,,0.93,synthetic,ann_001,2025-02-18T19:44:59Z
+intent_000250,I don't want to be here anymore.,crisis_emergency,,0.99,synthetic,ann_004,2024-06-05T19:14:20Z
+intent_000251,I need to talk about some things that have been bothering me deeply.,seek_support,general_chat,0.85,synthetic,ann_001,2024-09-27T04:53:00Z
+intent_000252,I'm not ready to talk about anything deep yet.,general_chat,,0.9,synthetic,ann_002,2024-07-14T14:04:16Z
+intent_000253,I've already taken some pills.,crisis_emergency,seek_support,0.93,synthetic,ann_001,2024-07-04T06:51:00Z
+intent_000254,What is hypervigilance?,information_request,assessment_request,0.88,synthetic,ann_002,2024-09-06T19:57:09Z
+intent_000255,I'm bored and wanted to talk.,general_chat,,0.92,synthetic,ann_002,2025-01-25T10:34:50Z
+intent_000256,How does this all work?,general_chat,,0.9,synthetic,ann_002,2025-03-04T20:41:50Z
+intent_000257,I need someone to talk to about what I've been going through.,seek_support,book_appointment,0.88,synthetic,ann_001,2024-11-27T05:00:21Z
+intent_000258,What is the difference between a psychologist and a psychiatrist?,information_request,assessment_request,0.95,synthetic,ann_002,2024-12-25T04:16:47Z
+intent_000259,I've been having panic attacks and don't know how to cope.,seek_support,,0.85,synthetic,ann_002,2025-03-20T21:12:04Z
+intent_000260,I can't take this anymore and I'm thinking of a way out.,crisis_emergency,,0.9,synthetic,ann_003,2025-01-25T12:09:03Z
+intent_000261,I need help understanding why I feel this way.,seek_support,,0.88,synthetic,ann_004,2025-01-12T05:50:59Z
+intent_000262,Just passing time and thought I'd chat.,general_chat,seek_support,0.85,synthetic,ann_003,2025-01-25T04:01:27Z
+intent_000263,Mindfulness ke baare mein batao.,information_request,,0.95,synthetic,ann_005,2025-01-09T00:02:54Z
+intent_000264,I'm in a very dark place and I'm not safe.,crisis_emergency,seek_support,0.93,synthetic,ann_004,2024-11-28T23:56:54Z
+intent_000265,I've been self-harming and I need help.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2024-12-09T03:53:08Z
+intent_000266,I'm scared I will hurt myself tonight.,crisis_emergency,,0.97,synthetic,ann_003,2024-09-13T15:10:34Z
+intent_000267,Can I take a mood assessment today?,assessment_request,information_request,0.97,synthetic,ann_004,2024-08-22T16:51:50Z
+intent_000268,I need to book a therapy appointment.,book_appointment,,0.96,synthetic,ann_005,2025-01-24T11:23:18Z
+intent_000269,I'm struggling with loneliness more than ever.,seek_support,,0.85,synthetic,ann_002,2025-03-15T18:19:55Z
+intent_000270,I want to set up a meeting with a counselor.,book_appointment,,0.98,synthetic,ann_005,2024-07-29T04:43:31Z
+intent_000271,"Hey, what can you help me with?",general_chat,,0.88,synthetic,ann_004,2025-02-10T22:02:28Z
+intent_000272,Can I book therapy for this week?,book_appointment,,0.96,synthetic,ann_002,2025-01-01T09:45:07Z
+intent_000273,I'd like to organize a regular slot each week.,book_appointment,,0.9,synthetic,ann_005,2025-03-09T09:37:08Z
+intent_000274,I want to stop existing.,crisis_emergency,,0.95,synthetic,ann_001,2025-02-05T06:37:41Z
+intent_000275,I wish there were more therapist options available.,feedback_complaint,general_chat,0.95,synthetic,ann_004,2024-12-18T10:38:57Z
+intent_000276,What causes panic attacks?,information_request,,0.88,synthetic,ann_005,2025-01-02T13:37:30Z
+intent_000277,I've been thinking about driving into traffic.,crisis_emergency,,0.93,synthetic,ann_003,2025-01-06T03:09:33Z
+intent_000278,How long does therapy usually take?,information_request,,0.97,synthetic,ann_001,2024-07-15T13:17:09Z
+intent_000279,Good morning!,general_chat,,0.85,synthetic,ann_001,2024-07-04T13:10:45Z
+intent_000280,I feel completely worthless and like dying.,crisis_emergency,seek_support,0.9,synthetic,ann_001,2024-11-09T20:37:47Z
+intent_000281,I've been in a very dark headspace lately.,seek_support,book_appointment,0.95,synthetic,ann_001,2024-11-15T18:47:56Z
+intent_000282,"Nothing serious today, just wanted to connect.",general_chat,seek_support,0.92,synthetic,ann_001,2024-07-26T20:59:23Z
+intent_000283,What is emotional regulation?,information_request,,0.97,synthetic,ann_005,2024-07-04T01:26:23Z
+intent_000284,I don't see any reason to live.,crisis_emergency,,0.99,synthetic,ann_001,2024-11-16T22:20:03Z
+intent_000285,I feel like ending everything.,crisis_emergency,,0.97,synthetic,ann_002,2025-01-27T02:27:22Z
+intent_000286,Can we do the GAD-7 today?,assessment_request,seek_support,0.93,synthetic,ann_005,2024-09-25T11:21:16Z
+intent_000287,What is PTSD?,information_request,assessment_request,0.9,synthetic,ann_005,2024-12-07T04:56:37Z
+intent_000288,What do you like to talk about?,general_chat,,0.92,synthetic,ann_002,2024-08-21T21:19:38Z
+intent_000289,The therapist cancelled without notice.,feedback_complaint,general_chat,0.93,synthetic,ann_001,2024-09-06T02:56:09Z
+intent_000290,The platform is hard to navigate.,feedback_complaint,,0.95,synthetic,ann_003,2024-06-21T14:47:25Z
+intent_000291,The therapist cancelled without notice.,feedback_complaint,,0.93,synthetic,ann_001,2025-03-08T15:33:22Z
+intent_000292,I feel like things will never get better.,seek_support,,0.92,synthetic,ann_004,2024-10-11T09:22:51Z
+intent_000293,What causes panic attacks?,information_request,seek_support,0.95,synthetic,ann_002,2024-08-31T05:03:59Z
+intent_000294,Anxiety aur depression mein kya fark hai?,information_request,seek_support,0.88,synthetic,ann_002,2024-09-09T07:09:15Z
+intent_000295,What are the signs of burnout?,information_request,seek_support,0.97,synthetic,ann_002,2025-02-17T18:21:45Z
+intent_000296,PHQ-9 test lena hai mujhe.,assessment_request,seek_support,0.88,synthetic,ann_004,2025-02-19T08:25:10Z
+intent_000297,I'm scared of my own thoughts lately.,seek_support,book_appointment,0.88,synthetic,ann_005,2025-01-15T00:22:56Z
+intent_000298,I'd like to take the PTSD screening.,assessment_request,,0.9,synthetic,ann_001,2024-06-01T22:48:16Z
+intent_000299,I want to take a mental wellness quiz.,assessment_request,,0.97,synthetic,ann_002,2024-08-17T09:12:54Z
+intent_000300,I want to delete my account.,feedback_complaint,,0.9,synthetic,ann_004,2025-03-17T13:35:10Z
+intent_000301,I need to talk about some things that have been bothering me deeply.,seek_support,book_appointment,0.92,synthetic,ann_001,2024-11-30T19:08:56Z
+intent_000302,Can I get an appointment today?,book_appointment,seek_support,0.96,synthetic,ann_005,2024-11-22T21:36:25Z
+intent_000303,Let's do the PHQ-9 assessment.,assessment_request,,0.93,synthetic,ann_004,2025-02-25T14:49:59Z
+intent_000304,I want to set up a meeting with a counselor.,book_appointment,seek_support,0.92,synthetic,ann_002,2024-08-31T22:32:28Z
+intent_000305,What qualifications do your therapists have?,information_request,assessment_request,0.92,synthetic,ann_002,2024-08-26T00:46:09Z
+intent_000306,I just want someone to understand me.,seek_support,book_appointment,0.88,synthetic,ann_003,2024-08-28T08:19:32Z
+intent_000307,I want to make a formal complaint.,feedback_complaint,,0.93,synthetic,ann_005,2025-02-19T07:22:13Z
+intent_000308,I want to set up a consultation.,book_appointment,,0.98,synthetic,ann_002,2025-03-10T16:07:46Z
+intent_000309,I've been matched with the wrong type of therapist.,feedback_complaint,general_chat,0.88,synthetic,ann_001,2024-10-18T12:33:30Z
+intent_000310,I'm thinking of ending things tonight.,crisis_emergency,seek_support,0.97,synthetic,ann_002,2024-12-12T08:47:14Z
+intent_000311,What are the pricing plans?,information_request,seek_support,0.92,synthetic,ann_005,2024-06-20T18:00:25Z
+intent_000312,Can I see if there are any openings today?,book_appointment,,0.98,synthetic,ann_001,2024-07-19T16:07:48Z
+intent_000313,Your AI responses are generic and unhelpful.,feedback_complaint,general_chat,0.9,synthetic,ann_001,2024-12-06T11:20:37Z
+intent_000314,I was curious about this app.,general_chat,seek_support,0.85,synthetic,ann_001,2024-06-05T15:29:18Z
+intent_000315,Khud ko hurt karna chahta hun.,crisis_emergency,seek_support,0.93,synthetic,ann_004,2024-06-08T10:15:19Z
+intent_000316,Tell me something interesting.,general_chat,seek_support,0.9,synthetic,ann_003,2024-12-24T17:10:12Z
+intent_000317,I'd like to evaluate my anxiety symptoms.,assessment_request,,0.97,synthetic,ann_001,2024-12-20T19:54:19Z
+intent_000318,Can I get an appointment today?,book_appointment,,0.9,synthetic,ann_001,2024-11-08T12:14:52Z
+intent_000319,I've been isolating myself and I know it's not healthy.,seek_support,,0.92,synthetic,ann_001,2024-07-07T03:19:12Z
+intent_000320,I'm not getting the support I expected.,feedback_complaint,,0.93,synthetic,ann_001,2024-09-04T10:17:30Z
+intent_000321,I feel like things will never get better.,seek_support,general_chat,0.97,synthetic,ann_005,2024-06-09T07:03:57Z
+intent_000322,I want to cancel and rebook my session.,book_appointment,,0.98,synthetic,ann_001,2024-06-12T00:27:36Z
+intent_000323,Can I schedule a session for sometime next week?,book_appointment,,0.92,synthetic,ann_002,2024-10-06T03:55:22Z
+intent_000324,Can I evaluate my burnout levels?,assessment_request,seek_support,0.9,synthetic,ann_003,2024-11-27T01:14:28Z
+intent_000325,I'm scared of my own thoughts lately.,seek_support,,0.95,synthetic,ann_003,2025-02-04T03:20:25Z
+intent_000326,"Nothing serious today, just wanted to connect.",general_chat,,0.85,synthetic,ann_005,2024-12-05T00:12:43Z
+intent_000327,I'd like to organize a regular slot each week.,book_appointment,,0.92,synthetic,ann_001,2024-07-23T17:04:49Z
+intent_000328,What is EMDR therapy?,information_request,assessment_request,0.97,synthetic,ann_003,2024-10-25T03:38:18Z
+intent_000329,I'm struggling with my anxiety more than ever.,seek_support,general_chat,0.92,synthetic,ann_002,2024-06-30T01:26:59Z
+intent_000330,I've hurt myself badly.,crisis_emergency,,0.99,synthetic,ann_002,2025-01-31T23:03:25Z
+intent_000331,I've been under so much stress and I'm breaking down.,seek_support,,0.88,synthetic,ann_004,2024-11-24T04:15:58Z
+intent_000332,I've been feeling really low lately and don't know what to do.,seek_support,,0.95,synthetic,ann_002,2024-10-20T10:47:24Z
+intent_000333,Can we just chat for a bit?,general_chat,,0.95,synthetic,ann_001,2024-06-01T07:51:36Z
+intent_000334,I feel disconnected from myself.,seek_support,,0.88,synthetic,ann_004,2025-02-15T06:16:31Z
+intent_000335,I'm just getting started.,general_chat,,0.95,synthetic,ann_005,2025-01-31T11:05:31Z
+intent_000336,"I want to start regular sessions, how do I book?",book_appointment,seek_support,0.96,synthetic,ann_005,2024-09-21T11:56:07Z
+intent_000337,I'm having a mental health crisis.,crisis_emergency,,0.93,synthetic,ann_003,2025-01-05T23:03:34Z
+intent_000338,What is hypervigilance?,information_request,,0.97,synthetic,ann_005,2024-06-04T18:37:36Z
+intent_000339,I've been crying myself to sleep and need support.,seek_support,book_appointment,0.88,synthetic,ann_004,2025-01-09T02:42:21Z
+intent_000340,Stress test lena hai mujhe aaj.,assessment_request,information_request,0.88,synthetic,ann_005,2024-10-05T15:37:45Z
+intent_000341,What is the Socratic method in therapy?,information_request,assessment_request,0.97,synthetic,ann_002,2024-09-09T10:46:25Z
+intent_000342,Can we talk about something light today?,general_chat,seek_support,0.95,synthetic,ann_002,2025-01-19T18:40:22Z
+intent_000343,What is acceptance and commitment therapy?,information_request,seek_support,0.97,synthetic,ann_003,2024-10-29T17:17:23Z
+intent_000344,I feel like I'm just going through the motions every day.,seek_support,general_chat,0.88,synthetic,ann_004,2024-10-14T19:03:09Z
+intent_000345,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.95,synthetic,ann_005,2024-12-18T20:51:58Z
+intent_000346,I need to talk about my pain.,seek_support,book_appointment,0.88,synthetic,ann_001,2024-10-18T03:03:36Z
+intent_000347,What is psychotherapy?,information_request,assessment_request,0.88,synthetic,ann_005,2024-09-19T11:40:27Z
+intent_000348,I've been crying myself to sleep and need support.,seek_support,book_appointment,0.88,synthetic,ann_003,2024-11-07T21:26:41Z
+intent_000349,I need to schedule a follow-up appointment.,book_appointment,seek_support,0.9,synthetic,ann_005,2024-09-11T18:46:18Z
+intent_000350,I feel like nobody understands what I'm going through.,seek_support,,0.85,synthetic,ann_003,2024-08-27T01:54:07Z
+intent_000351,What is the difference between stress and anxiety?,information_request,,0.92,synthetic,ann_003,2024-10-18T22:18:02Z
+intent_000352,What is PTSD?,information_request,seek_support,0.92,synthetic,ann_004,2025-02-20T16:55:22Z
+intent_000353,Can I book a therapy session online?,book_appointment,,0.9,synthetic,ann_005,2024-08-01T08:07:03Z
+intent_000354,I've been feeling very stressed and anxious for weeks.,seek_support,general_chat,0.85,synthetic,ann_004,2024-07-06T14:27:29Z
+intent_000355,How does trauma affect the brain?,information_request,seek_support,0.92,synthetic,ann_005,2025-03-06T13:44:44Z
+intent_000356,How does trauma affect the brain?,information_request,,0.97,synthetic,ann_001,2025-03-24T19:16:20Z
+intent_000357,Stress test lena hai mujhe aaj.,assessment_request,,0.9,synthetic,ann_001,2024-07-24T04:27:40Z
+intent_000358,I want to set up a consultation.,book_appointment,,0.98,synthetic,ann_005,2024-07-12T05:42:21Z
+intent_000359,How do I schedule time with a counselor?,book_appointment,seek_support,0.94,synthetic,ann_004,2024-08-31T11:13:01Z
+intent_000360,"I want to see someone about my mental health, how do I book?",book_appointment,,0.96,synthetic,ann_004,2025-02-08T15:27:36Z
+intent_000361,Can we do an assessment of my depression?,assessment_request,,0.95,synthetic,ann_005,2024-10-21T23:22:04Z
+intent_000362,I don't think I can keep myself safe.,crisis_emergency,,0.9,synthetic,ann_001,2024-09-17T15:42:04Z
+intent_000363,I've been thinking about ways to end my life for weeks.,crisis_emergency,,0.99,synthetic,ann_002,2025-02-19T23:22:42Z
+intent_000364,I've been self-harming and I need help.,crisis_emergency,seek_support,0.9,synthetic,ann_004,2024-10-08T04:19:52Z
+intent_000365,I'm having thoughts of self-harm right now.,crisis_emergency,seek_support,0.93,synthetic,ann_005,2025-03-24T21:30:17Z
+intent_000366,What is the connection between exercise and mental health?,information_request,,0.97,synthetic,ann_004,2025-01-06T07:06:29Z
+intent_000367,Can you tell me how to book a session on here?,book_appointment,seek_support,0.98,synthetic,ann_005,2025-03-13T12:40:24Z
+intent_000368,I have a plan to kill myself.,crisis_emergency,,0.9,synthetic,ann_004,2024-11-24T18:45:02Z
+intent_000369,Can I take a mood assessment today?,assessment_request,,0.93,synthetic,ann_004,2024-09-21T13:23:06Z
+intent_000370,I feel like there is no point to anything.,seek_support,general_chat,0.92,synthetic,ann_001,2025-01-27T14:35:43Z
+intent_000371,I have overdosed before and I'm thinking of doing it again.,crisis_emergency,seek_support,0.97,synthetic,ann_005,2024-09-24T20:52:37Z
+intent_000372,Can I schedule a session for sometime next week?,book_appointment,,0.96,synthetic,ann_005,2024-10-06T08:29:52Z
+intent_000373,I'd like to book a session for this afternoon if possible.,book_appointment,,0.92,synthetic,ann_001,2025-01-09T08:44:30Z
+intent_000374,"Main bahut bura feeling kar raha hun, kuch kar lunga.",crisis_emergency,,0.97,synthetic,ann_003,2024-08-24T17:51:20Z
+intent_000375,Your responses are completely unhelpful.,feedback_complaint,general_chat,0.9,synthetic,ann_002,2025-03-15T09:25:15Z
+intent_000376,Apni condition check karni hai test se.,assessment_request,,0.93,synthetic,ann_004,2024-11-08T00:04:01Z
+intent_000377,I don't think I can keep myself safe.,crisis_emergency,,0.9,synthetic,ann_005,2025-01-08T20:09:20Z
+intent_000378,I'd like to assess my current state of mind.,assessment_request,information_request,0.9,synthetic,ann_003,2024-06-12T08:42:53Z
+intent_000379,I need help working through some really painful feelings.,seek_support,,0.92,synthetic,ann_004,2024-06-22T01:13:07Z
+intent_000380,I feel completely overwhelmed by everything.,seek_support,,0.88,synthetic,ann_002,2025-02-10T18:54:13Z
+intent_000381,I need support to get through this difficult time.,seek_support,,0.92,synthetic,ann_004,2024-09-15T02:05:58Z
+intent_000382,The waiting time is too long.,feedback_complaint,,0.85,synthetic,ann_003,2024-12-27T16:30:35Z
+intent_000383,I've been thinking about driving into traffic.,crisis_emergency,,0.99,synthetic,ann_002,2024-07-29T11:22:49Z
+intent_000384,The chatbot doesn't understand me at all.,feedback_complaint,general_chat,0.88,synthetic,ann_005,2024-11-25T20:44:28Z
+intent_000385,I feel like there's no way out except death.,crisis_emergency,,0.99,synthetic,ann_003,2025-02-12T13:13:07Z
+intent_000386,I was curious about this app.,general_chat,,0.92,synthetic,ann_004,2024-09-10T23:50:37Z
+intent_000387,I feel like I'm talking to a wall.,feedback_complaint,general_chat,0.9,synthetic,ann_002,2025-03-22T06:35:26Z
+intent_000388,I want to take a mental wellness quiz.,assessment_request,,0.93,synthetic,ann_003,2024-11-07T23:27:43Z
+intent_000389,Can I take a questionnaire about my mental health?,assessment_request,information_request,0.95,synthetic,ann_003,2024-09-20T11:26:58Z
+intent_000390,What are the early warning signs of a mental health problem?,information_request,,0.9,synthetic,ann_001,2025-01-19T19:53:02Z
+intent_000391,The therapist I was matched with wasn't right for me.,feedback_complaint,,0.85,synthetic,ann_004,2025-02-04T03:08:07Z
+intent_000392,I've been feeling really stuck in life.,seek_support,,0.88,synthetic,ann_002,2024-11-27T02:13:43Z
+intent_000393,The notifications are very annoying.,feedback_complaint,,0.93,synthetic,ann_003,2024-08-11T10:47:06Z
+intent_000394,I feel like I'm always on edge.,seek_support,,0.85,synthetic,ann_002,2024-06-02T00:56:22Z
+intent_000395,"Hello, how are you today?",general_chat,seek_support,0.95,synthetic,ann_004,2025-03-01T17:58:53Z
+intent_000396,I feel like I'm at my breaking point.,seek_support,,0.95,synthetic,ann_004,2024-11-18T00:12:30Z
+intent_000397,I can't access my previous sessions.,feedback_complaint,,0.95,synthetic,ann_002,2025-01-18T14:29:04Z
+intent_000398,"I want to start regular sessions, how do I book?",book_appointment,seek_support,0.98,synthetic,ann_001,2024-06-29T20:48:34Z
+intent_000399,Kuch naya hai kya?,general_chat,,0.95,synthetic,ann_002,2025-02-13T06:49:53Z
+intent_000400,I'm struggling to find any joy in things I used to love.,seek_support,general_chat,0.92,synthetic,ann_002,2025-03-12T23:28:04Z
+intent_000401,"Hello, how are you today?",general_chat,,0.85,synthetic,ann_005,2024-12-06T23:43:23Z
+intent_000402,"Hi, I'm new here.",general_chat,seek_support,0.9,synthetic,ann_004,2024-11-27T03:05:02Z
+intent_000403,I feel like the pain will only stop if I'm dead.,crisis_emergency,,0.93,synthetic,ann_002,2024-12-26T07:31:07Z
+intent_000404,"Main therapist se milna chahta hun, booking kaise hogi?",book_appointment,seek_support,0.92,synthetic,ann_001,2024-11-04T05:23:05Z
+intent_000405,I've been struggling a lot and I'm reaching out for help.,seek_support,general_chat,0.88,synthetic,ann_002,2024-11-08T02:51:44Z
+intent_000406,What is self-harm and why do people do it?,information_request,seek_support,0.95,synthetic,ann_005,2024-09-07T12:01:42Z
+intent_000407,Can I take the standard mental health screening?,assessment_request,seek_support,0.9,synthetic,ann_004,2025-01-21T19:07:50Z
+intent_000408,I'm ready to schedule my first appointment.,book_appointment,,0.94,synthetic,ann_001,2024-11-01T18:30:34Z
+intent_000409,I feel deeply unhappy and I don't know why.,seek_support,general_chat,0.97,synthetic,ann_004,2025-01-03T10:31:48Z
+intent_000410,I've been feeling angry and sad at the same time.,seek_support,,0.95,synthetic,ann_005,2025-02-18T03:14:20Z
+intent_000411,I'm having thoughts of self-harm right now.,crisis_emergency,,0.93,synthetic,ann_001,2024-08-03T15:01:50Z
+intent_000412,Can you give me the PHQ-9 now?,assessment_request,,0.88,synthetic,ann_004,2024-12-10T08:23:28Z
+intent_000413,What is the DSM-5?,information_request,assessment_request,0.95,synthetic,ann_001,2025-02-24T04:19:44Z
+intent_000414,The therapist cancelled without notice.,feedback_complaint,,0.88,synthetic,ann_005,2025-03-06T18:48:07Z
+intent_000415,Tell me about yourself.,general_chat,,0.92,synthetic,ann_004,2024-08-29T23:32:47Z
+intent_000416,I was referred here by a friend.,general_chat,,0.9,synthetic,ann_004,2025-02-06T11:44:03Z
+intent_000417,Can I set up my first therapy session?,book_appointment,,0.9,synthetic,ann_001,2024-09-24T21:13:01Z
+intent_000418,Therapy kaise kaam karti hai?,information_request,,0.95,synthetic,ann_005,2024-12-31T15:51:52Z
+intent_000419,I'd like to take the PTSD screening.,assessment_request,,0.9,synthetic,ann_005,2025-03-16T12:13:05Z
+intent_000420,I want to book an initial consultation.,book_appointment,seek_support,0.94,synthetic,ann_002,2025-02-02T15:09:39Z
+intent_000421,I'm not happy with the service.,feedback_complaint,general_chat,0.88,synthetic,ann_002,2025-01-12T15:35:55Z
+intent_000422,I've been dealing with a lot of emotional turmoil.,seek_support,,0.97,synthetic,ann_005,2024-11-10T18:32:40Z
+intent_000423,I've been thinking about harming myself.,crisis_emergency,,0.93,synthetic,ann_005,2025-02-03T21:30:49Z
+intent_000424,I'd like to do a wellbeing assessment.,assessment_request,,0.93,synthetic,ann_005,2025-01-17T13:13:07Z
+intent_000425,Can you assess my current mental health?,assessment_request,information_request,0.95,synthetic,ann_003,2025-03-01T16:34:05Z
+intent_000426,I've been having a really tough week emotionally.,seek_support,book_appointment,0.9,synthetic,ann_004,2024-10-06T03:08:52Z
+intent_000427,I've been having urges to hurt myself that I can't control.,crisis_emergency,,0.9,synthetic,ann_003,2024-06-11T15:51:25Z
+intent_000428,"I'm interested in starting therapy, can I book a session?",book_appointment,,0.96,synthetic,ann_004,2024-06-29T17:24:18Z
+intent_000429,Your AI responses are generic and unhelpful.,feedback_complaint,,0.88,synthetic,ann_004,2024-09-02T08:19:30Z
+intent_000430,Can I complete the intake assessment?,assessment_request,seek_support,0.95,synthetic,ann_005,2024-11-01T03:19:48Z
+intent_000431,I'd like to get on the schedule this week.,book_appointment,,0.98,synthetic,ann_005,2024-08-15T22:38:29Z
+intent_000432,Can we do an evaluation of my mental health today?,assessment_request,information_request,0.93,synthetic,ann_003,2024-09-12T19:57:20Z
+intent_000433,I'm thinking about ending my life.,crisis_emergency,,0.99,synthetic,ann_005,2024-07-30T07:05:05Z
+intent_000434,This app is not working properly.,feedback_complaint,,0.93,synthetic,ann_002,2024-07-05T02:18:31Z
+intent_000435,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,seek_support,0.93,synthetic,ann_002,2025-02-19T04:34:39Z
+intent_000436,Can I take a test to see how I'm doing mentally?,assessment_request,,0.9,synthetic,ann_004,2025-03-10T23:05:44Z
+intent_000437,I feel like nobody understands what I'm going through.,seek_support,book_appointment,0.85,synthetic,ann_003,2024-08-09T08:22:21Z
+intent_000438,What is the PHQ-9 test?,information_request,seek_support,0.88,synthetic,ann_002,2024-12-15T10:06:18Z
+intent_000439,Mujhe ek session schedule karna hai.,book_appointment,,0.94,synthetic,ann_005,2024-09-19T07:31:19Z
+intent_000440,I'd like to schedule a therapy session.,book_appointment,seek_support,0.92,synthetic,ann_002,2024-06-27T03:11:48Z
+intent_000441,"I don't have a specific question, just exploring.",general_chat,seek_support,0.95,synthetic,ann_001,2024-10-12T03:34:29Z
+intent_000442,I feel like there is no hope and I want to die.,crisis_emergency,,0.99,synthetic,ann_005,2024-12-05T11:25:58Z
+intent_000443,I feel like there's no way out except death.,crisis_emergency,,0.99,synthetic,ann_004,2024-08-08T23:11:59Z
+intent_000444,I can't stop thinking about killing myself.,crisis_emergency,,0.97,synthetic,ann_005,2024-10-05T15:43:19Z
+intent_000445,I need help with my emotional wellbeing.,seek_support,general_chat,0.9,synthetic,ann_003,2025-03-08T05:45:42Z
+intent_000446,What medications are used for depression?,information_request,assessment_request,0.97,synthetic,ann_004,2024-08-29T02:58:00Z
+intent_000447,I feel like disappearing forever.,crisis_emergency,seek_support,0.9,synthetic,ann_002,2024-08-06T08:16:17Z
+intent_000448,I've been struggling a lot and I'm reaching out for help.,seek_support,general_chat,0.88,synthetic,ann_001,2024-06-18T22:44:35Z
+intent_000449,I've been dealing with grief and it's really hard.,seek_support,,0.85,synthetic,ann_004,2025-02-23T10:56:38Z
+intent_000450,I can't take this anymore and I'm thinking of a way out.,crisis_emergency,,0.97,synthetic,ann_001,2024-12-26T03:10:43Z
+intent_000451,I don't see any future for myself.,crisis_emergency,seek_support,0.99,synthetic,ann_003,2025-03-14T15:38:17Z
+intent_000452,I'm not okay and I need help.,seek_support,,0.85,synthetic,ann_001,2025-02-10T06:22:01Z
+intent_000453,How do I book a session on this platform?,book_appointment,,0.96,synthetic,ann_005,2024-12-23T19:52:54Z
+intent_000454,I think I need some support right now.,seek_support,,0.88,synthetic,ann_004,2024-10-10T15:04:17Z
+intent_000455,I feel like my mind is working against me.,seek_support,,0.97,synthetic,ann_001,2024-12-08T09:38:12Z
+intent_000456,I feel like death is the only way out.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2024-11-11T00:58:02Z
+intent_000457,What are the early warning signs of a mental health problem?,information_request,assessment_request,0.92,synthetic,ann_001,2024-08-24T02:47:49Z
+intent_000458,I've hurt myself badly.,crisis_emergency,,0.97,synthetic,ann_005,2025-01-18T14:34:13Z
+intent_000459,I want to make an appointment for this Thursday.,book_appointment,,0.96,synthetic,ann_003,2024-07-27T21:15:23Z
+intent_000460,I think I need some support right now.,seek_support,general_chat,0.95,synthetic,ann_004,2024-11-22T23:05:56Z
+intent_000461,How does this platform work?,information_request,assessment_request,0.97,synthetic,ann_004,2024-12-03T18:15:58Z
+intent_000462,Things have been really difficult at home and I'm not handling it well.,seek_support,,0.92,synthetic,ann_002,2024-12-16T12:29:13Z
+intent_000463,What are the early warning signs of a mental health problem?,information_request,seek_support,0.97,synthetic,ann_002,2025-01-29T00:45:15Z
+intent_000464,Can I set up my first therapy session?,book_appointment,,0.98,synthetic,ann_001,2024-10-18T15:03:27Z
+intent_000465,"Hi, I wanted to check out this platform.",general_chat,,0.85,synthetic,ann_003,2025-03-14T08:52:49Z
+intent_000466,I want to delete my account.,feedback_complaint,,0.93,synthetic,ann_005,2024-07-30T20:36:35Z
+intent_000467,I want to make a formal complaint.,feedback_complaint,general_chat,0.9,synthetic,ann_005,2025-03-16T17:42:43Z
+intent_000468,What is PTSD?,information_request,seek_support,0.97,synthetic,ann_004,2024-10-16T01:14:52Z
+intent_000469,Can I see if there are any openings today?,book_appointment,,0.96,synthetic,ann_001,2025-01-05T09:49:01Z
+intent_000470,I've been having trouble getting out of bed in the mornings.,seek_support,,0.88,synthetic,ann_002,2024-07-22T07:49:06Z
+intent_000471,I've been neglecting myself and I need help getting back on track.,seek_support,,0.97,synthetic,ann_001,2025-01-06T00:34:38Z
+intent_000472,I want to delete my account.,feedback_complaint,,0.88,synthetic,ann_003,2024-10-12T19:12:17Z
+intent_000473,I'd like to schedule a phone consultation first.,book_appointment,,0.96,synthetic,ann_005,2024-12-02T20:41:20Z
+intent_000474,I've been having a really tough week emotionally.,seek_support,,0.97,synthetic,ann_003,2024-11-25T10:01:06Z
+intent_000475,Can I do a depression assessment?,assessment_request,seek_support,0.88,synthetic,ann_004,2025-03-12T20:29:40Z
+intent_000476,I feel broken and don't know how to fix myself.,seek_support,,0.9,synthetic,ann_001,2025-03-19T17:06:53Z
+intent_000477,What are the types of anxiety disorders?,information_request,,0.92,synthetic,ann_005,2025-02-12T02:15:39Z
+intent_000478,I've been very overwhelmed and need guidance.,seek_support,book_appointment,0.92,synthetic,ann_005,2024-08-13T19:39:45Z
+intent_000479,I was referred here by a friend.,general_chat,,0.85,synthetic,ann_001,2025-02-14T02:34:31Z
+intent_000480,I want to disappear from this world.,crisis_emergency,seek_support,0.95,synthetic,ann_002,2024-07-06T10:09:57Z
+intent_000481,Good morning!,general_chat,,0.95,synthetic,ann_003,2024-10-06T03:00:39Z
+intent_000482,Mujhe mental health evaluation chahiye.,assessment_request,information_request,0.88,synthetic,ann_005,2024-10-09T08:54:04Z
+intent_000483,Can you tell me how to book a session on here?,book_appointment,,0.92,synthetic,ann_003,2025-02-21T15:43:48Z
+intent_000484,I feel like there's no way out except death.,crisis_emergency,,0.97,synthetic,ann_004,2024-06-12T10:47:41Z
+intent_000485,I'm exhausted emotionally and I need support.,seek_support,book_appointment,0.97,synthetic,ann_001,2024-09-28T23:27:47Z
+intent_000486,I'm at a crisis point right now.,crisis_emergency,,0.95,synthetic,ann_004,2025-02-22T17:15:17Z
+intent_000487,I've been having a lot of self-doubt.,seek_support,,0.97,synthetic,ann_002,2024-07-10T13:47:20Z
+intent_000488,I've been fantasizing about dying.,crisis_emergency,,0.93,synthetic,ann_001,2024-09-03T22:42:59Z
+intent_000489,I'd like to arrange regular therapy appointments.,book_appointment,,0.96,synthetic,ann_001,2025-02-20T13:10:10Z
+intent_000490,Mujhe refund chahiye.,feedback_complaint,general_chat,0.9,synthetic,ann_004,2024-08-29T18:38:51Z
+intent_000491,Can we just chat for a bit?,general_chat,seek_support,0.9,synthetic,ann_002,2024-12-06T07:46:05Z
+intent_000492,I just wanted to check in.,general_chat,seek_support,0.9,synthetic,ann_004,2024-06-28T00:47:24Z
+intent_000493,I'm thinking about jumping off a bridge.,crisis_emergency,,0.9,synthetic,ann_002,2025-03-15T16:34:10Z
+intent_000494,What is the connection between exercise and mental health?,information_request,assessment_request,0.92,synthetic,ann_001,2024-09-06T08:34:40Z
+intent_000495,Main thak gaya hun sab kuch se.,seek_support,,0.85,synthetic,ann_002,2024-09-15T03:03:52Z
+intent_000496,I've been really struggling and I just need support.,seek_support,general_chat,0.85,synthetic,ann_004,2024-11-06T07:06:05Z
+intent_000497,Can you give me an overview of what's available?,general_chat,seek_support,0.9,synthetic,ann_001,2024-10-27T15:56:43Z
+intent_000498,How do I get started with booking a therapist?,book_appointment,,0.98,synthetic,ann_004,2024-07-04T06:43:37Z
+intent_000499,I feel really scared and alone.,seek_support,,0.97,synthetic,ann_004,2024-06-28T15:26:36Z
+intent_000500,I'm disappointed with the quality of support.,feedback_complaint,general_chat,0.9,synthetic,ann_005,2025-02-06T08:32:09Z
+intent_000501,I want to see where I'm at with a proper evaluation.,assessment_request,,0.9,synthetic,ann_004,2025-01-08T12:20:03Z
+intent_000502,The app doesn't work on my phone.,feedback_complaint,general_chat,0.93,synthetic,ann_001,2024-08-30T16:16:50Z
+intent_000503,I think the AI responses need a lot of improvement.,feedback_complaint,,0.95,synthetic,ann_001,2024-12-30T21:09:02Z
+intent_000504,I just want someone to understand me.,seek_support,,0.92,synthetic,ann_005,2024-12-16T14:48:30Z
+intent_000505,What are the signs of burnout?,information_request,,0.95,synthetic,ann_002,2025-01-31T22:06:09Z
+intent_000506,I wish there were more therapist options available.,feedback_complaint,general_chat,0.9,synthetic,ann_004,2024-08-07T03:34:04Z
+intent_000507,I need help making sense of everything I'm feeling.,seek_support,book_appointment,0.97,synthetic,ann_004,2025-02-28T06:30:46Z
+intent_000508,I'm scared of my own thoughts lately.,seek_support,,0.88,synthetic,ann_004,2024-06-17T22:49:20Z
+intent_000509,Your AI responses are generic and unhelpful.,feedback_complaint,,0.88,synthetic,ann_005,2025-01-19T23:37:11Z
+intent_000510,Can I book a session for Monday morning?,book_appointment,,0.96,synthetic,ann_002,2025-03-12T13:55:56Z
+intent_000511,I'm bored and wanted to talk.,general_chat,,0.85,synthetic,ann_001,2024-06-29T07:39:32Z
+intent_000512,What is the difference between coaching and therapy?,information_request,assessment_request,0.95,synthetic,ann_003,2025-01-28T01:02:24Z
+intent_000513,I want to make an appointment for this Thursday.,book_appointment,,0.96,synthetic,ann_005,2024-09-03T03:33:29Z
+intent_000514,I've been stockpiling medication to end it.,crisis_emergency,seek_support,0.93,synthetic,ann_004,2024-08-22T02:18:08Z
+intent_000515,Kya main apni anxiety test kar sakta hun?,assessment_request,information_request,0.93,synthetic,ann_002,2024-06-21T12:57:17Z
+intent_000516,I've been fantasizing about dying.,crisis_emergency,,0.97,synthetic,ann_005,2024-08-31T12:20:34Z
+intent_000517,I want to cancel and rebook my session.,book_appointment,,0.96,synthetic,ann_004,2024-07-28T22:48:32Z
+intent_000518,I don't want to live anymore.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-10-07T16:05:58Z
+intent_000519,I feel like disappearing forever.,crisis_emergency,,0.99,synthetic,ann_005,2024-12-20T22:37:51Z
+intent_000520,I'm struggling so much and need someone to talk to.,seek_support,book_appointment,0.85,synthetic,ann_005,2024-08-23T13:11:01Z
+intent_000521,What is the window of tolerance in trauma?,information_request,seek_support,0.97,synthetic,ann_002,2025-02-07T08:53:35Z
+intent_000522,The payment didn't go through but I was charged.,feedback_complaint,,0.9,synthetic,ann_002,2024-07-29T22:01:21Z
+intent_000523,Mujhe nahi lagna apni zindagi mein koi matlab hai.,crisis_emergency,,0.99,synthetic,ann_001,2024-06-03T20:29:03Z
+intent_000524,Good evening! How are you?,general_chat,seek_support,0.9,synthetic,ann_003,2025-01-21T17:47:28Z
+intent_000525,Can you help me schedule a therapy session?,book_appointment,,0.92,synthetic,ann_004,2025-03-04T09:18:42Z
+intent_000526,I want to delete my account.,feedback_complaint,,0.9,synthetic,ann_004,2024-11-09T18:15:49Z
+intent_000527,I want to take a mental health assessment.,assessment_request,seek_support,0.97,synthetic,ann_002,2024-09-20T14:20:52Z
+intent_000528,I'm exhausted from trying to hold everything together.,seek_support,,0.92,synthetic,ann_004,2024-06-03T06:57:19Z
+intent_000529,I'm thinking about jumping off a bridge.,crisis_emergency,,0.9,synthetic,ann_002,2025-01-10T13:50:21Z
+intent_000530,"Main bahut bura feeling kar raha hun, kuch kar lunga.",crisis_emergency,,0.93,synthetic,ann_003,2025-03-05T22:30:48Z
+intent_000531,I don't want to live anymore.,crisis_emergency,,0.93,synthetic,ann_002,2025-02-25T04:52:09Z
+intent_000532,Can I set up my first therapy session?,book_appointment,seek_support,0.9,synthetic,ann_003,2024-11-02T15:07:11Z
+intent_000533,I've been neglecting myself and I need help getting back on track.,seek_support,,0.97,synthetic,ann_003,2024-11-28T14:00:14Z
+intent_000534,I feel like everything is falling apart around me.,seek_support,,0.95,synthetic,ann_005,2025-02-12T07:05:37Z
+intent_000535,What do you like to talk about?,general_chat,,0.95,synthetic,ann_004,2025-01-29T01:05:48Z
+intent_000536,My relationships are falling apart and I don't know how to cope.,seek_support,,0.95,synthetic,ann_005,2024-07-03T23:51:25Z
+intent_000537,What is complex PTSD?,information_request,assessment_request,0.92,synthetic,ann_002,2024-11-06T02:46:11Z
+intent_000538,I feel like my mind is working against me.,seek_support,,0.85,synthetic,ann_003,2024-08-31T01:38:18Z
+intent_000539,I have a plan to kill myself.,crisis_emergency,,0.95,synthetic,ann_002,2024-08-09T00:21:40Z
+intent_000540,What is somatic therapy?,information_request,,0.9,synthetic,ann_005,2024-07-08T09:34:04Z
+intent_000541,Can I do a formal evaluation of my symptoms?,assessment_request,seek_support,0.93,synthetic,ann_002,2025-01-12T21:24:46Z
+intent_000542,Can I book a session for Monday morning?,book_appointment,,0.94,synthetic,ann_003,2024-09-19T20:15:49Z
+intent_000543,I feel like the pain will only stop if I'm dead.,crisis_emergency,,0.97,synthetic,ann_004,2025-03-14T02:50:27Z
+intent_000544,Bahut mushkil ho raha hai sambhalna.,seek_support,,0.9,synthetic,ann_001,2024-12-09T23:16:13Z
+intent_000545,I can't access my previous sessions.,feedback_complaint,general_chat,0.88,synthetic,ann_002,2024-06-13T12:24:04Z
+intent_000546,I need help with my emotional wellbeing.,seek_support,book_appointment,0.92,synthetic,ann_005,2024-06-01T10:43:43Z
+intent_000547,I've heard about this app and wanted to try it.,general_chat,seek_support,0.92,synthetic,ann_004,2024-08-09T12:14:32Z
+intent_000548,What are the pricing plans?,information_request,seek_support,0.95,synthetic,ann_001,2024-08-08T14:05:56Z
+intent_000549,I'd like to make an appointment.,book_appointment,,0.94,synthetic,ann_002,2024-10-22T23:13:13Z
+intent_000550,I need to set up an appointment with someone.,book_appointment,seek_support,0.9,synthetic,ann_001,2024-09-28T17:15:39Z
+intent_000551,I'm scared of myself right now.,crisis_emergency,,0.95,synthetic,ann_005,2024-09-25T14:01:06Z
+intent_000552,Can I complete the GAD-7 questionnaire?,assessment_request,seek_support,0.93,synthetic,ann_005,2025-03-12T15:39:24Z
+intent_000553,Can I schedule a session for next Monday?,book_appointment,,0.9,synthetic,ann_001,2024-12-24T16:34:47Z
+intent_000554,I want to delete my account.,feedback_complaint,,0.95,synthetic,ann_001,2025-01-18T03:57:24Z
+intent_000555,What is the relationship between gut health and mental health?,information_request,,0.97,synthetic,ann_002,2024-08-02T12:12:12Z
+intent_000556,Can I get an appointment for Friday?,book_appointment,seek_support,0.9,synthetic,ann_002,2025-03-23T19:31:30Z
+intent_000557,I think the AI responses need a lot of improvement.,feedback_complaint,,0.85,synthetic,ann_001,2024-10-29T22:26:07Z
+intent_000558,Chatbot bilkul samajh nahi raha meri baat.,feedback_complaint,,0.95,synthetic,ann_004,2025-03-12T22:11:08Z
+intent_000559,Depression ka assessment karna hai.,assessment_request,information_request,0.93,synthetic,ann_003,2025-02-04T18:24:26Z
+intent_000560,I need help with coping strategies.,seek_support,,0.92,synthetic,ann_002,2024-09-15T15:26:01Z
+intent_000561,I want to start with an assessment.,assessment_request,,0.9,synthetic,ann_001,2024-08-24T14:45:12Z
+intent_000562,I need to make an appointment as soon as possible.,book_appointment,,0.98,synthetic,ann_003,2025-03-21T04:47:07Z
+intent_000563,I've been thinking of ways to hurt myself.,crisis_emergency,seek_support,0.97,synthetic,ann_001,2024-11-24T01:43:54Z
+intent_000564,I just wanted to test the app.,general_chat,,0.85,synthetic,ann_003,2025-02-10T02:55:17Z
+intent_000565,I'm exhausted from trying to hold everything together.,seek_support,general_chat,0.9,synthetic,ann_002,2025-02-28T08:23:11Z
+intent_000566,I want to set up a meeting with a counselor.,book_appointment,seek_support,0.9,synthetic,ann_003,2024-12-28T21:24:46Z
+intent_000567,I need help processing some really hard emotions.,seek_support,book_appointment,0.92,synthetic,ann_002,2025-02-25T12:33:34Z
+intent_000568,Ye app sahi se kaam nahi kar raha.,feedback_complaint,general_chat,0.93,synthetic,ann_005,2024-08-16T22:30:19Z
+intent_000569,I don't want to live anymore.,crisis_emergency,,0.97,synthetic,ann_002,2024-10-23T02:09:42Z
+intent_000570,I don't want to wake up tomorrow.,crisis_emergency,,0.93,synthetic,ann_005,2025-02-25T08:27:05Z
+intent_000571,I've been struggling with my mental health for a while now.,seek_support,,0.97,synthetic,ann_002,2025-03-02T08:18:13Z
+intent_000572,I've been struggling with suicidal thoughts for weeks.,crisis_emergency,seek_support,0.97,synthetic,ann_002,2025-03-15T17:51:52Z
+intent_000573,I've been struggling a lot and I'm reaching out for help.,seek_support,,0.9,synthetic,ann_002,2025-01-14T07:40:03Z
+intent_000574,I feel like I'm just going through the motions every day.,seek_support,,0.97,synthetic,ann_004,2024-07-06T10:26:27Z
+intent_000575,What can you do?,general_chat,,0.85,synthetic,ann_001,2024-08-05T02:08:56Z
+intent_000576,The app keeps crashing.,feedback_complaint,general_chat,0.93,synthetic,ann_003,2024-11-01T03:21:04Z
+intent_000577,What is the difference between OCD and anxiety?,information_request,,0.92,synthetic,ann_004,2024-08-09T20:41:20Z
+intent_000578,What is the difference between stress and anxiety?,information_request,,0.9,synthetic,ann_005,2024-08-16T06:52:41Z
+intent_000579,I'm concerned about how my data is being used.,feedback_complaint,general_chat,0.95,synthetic,ann_002,2024-09-26T05:22:05Z
+intent_000580,I need to book a therapy appointment.,book_appointment,,0.94,synthetic,ann_005,2024-08-27T02:05:00Z
+intent_000581,Can I book a therapy session online?,book_appointment,,0.92,synthetic,ann_003,2025-01-03T17:44:40Z
+intent_000582,I want to take the DASS-21.,assessment_request,,0.9,synthetic,ann_004,2024-10-03T08:38:50Z
+intent_000583,What is schema therapy?,information_request,assessment_request,0.92,synthetic,ann_005,2024-08-17T06:25:26Z
+intent_000584,I want to set up a consultation.,book_appointment,,0.98,synthetic,ann_002,2024-12-04T00:41:39Z
+intent_000585,I've been having a really tough week emotionally.,seek_support,,0.95,synthetic,ann_005,2024-11-13T17:30:43Z
+intent_000586,I want to take an assessment for OCD symptoms.,assessment_request,,0.88,synthetic,ann_002,2024-11-12T22:31:48Z
+intent_000587,I don't want to live anymore.,crisis_emergency,,0.99,synthetic,ann_002,2024-11-28T04:06:36Z
+intent_000588,What is DBT therapy?,information_request,seek_support,0.9,synthetic,ann_005,2024-10-17T06:24:56Z
+intent_000589,What is complex PTSD?,information_request,,0.9,synthetic,ann_003,2025-02-19T00:47:29Z
+intent_000590,I can't stop overthinking everything.,seek_support,book_appointment,0.95,synthetic,ann_003,2025-02-26T20:24:04Z
+intent_000591,I need to schedule therapy as soon as possible.,book_appointment,,0.98,synthetic,ann_004,2025-03-22T03:01:06Z
+intent_000592,I've been feeling so much pain and need someone to talk to.,seek_support,,0.95,synthetic,ann_005,2025-01-27T04:04:36Z
+intent_000593,I've been thinking about suicide every day.,crisis_emergency,,0.97,synthetic,ann_002,2024-10-16T10:59:24Z
+intent_000594,What is narrative therapy?,information_request,assessment_request,0.9,synthetic,ann_005,2024-12-25T01:50:18Z
+intent_000595,How does sleep affect mental health?,information_request,,0.88,synthetic,ann_003,2024-12-22T01:02:13Z
+intent_000596,I'm not happy with the service.,feedback_complaint,,0.93,synthetic,ann_001,2024-09-27T08:47:13Z
+intent_000597,What is the difference between sadness and depression?,information_request,,0.92,synthetic,ann_001,2024-12-17T08:10:43Z
+intent_000598,I'd like to organize a regular slot each week.,book_appointment,seek_support,0.96,synthetic,ann_002,2025-02-26T03:42:24Z
+intent_000599,I'd like to track my mental health with assessments.,assessment_request,seek_support,0.93,synthetic,ann_004,2024-07-28T10:57:21Z
+intent_000600,I want a refund for my last session.,feedback_complaint,general_chat,0.85,synthetic,ann_002,2024-07-12T13:49:35Z
+intent_000601,I'd like to organize a regular slot each week.,book_appointment,,0.92,synthetic,ann_004,2024-09-22T03:24:13Z
+intent_000602,Mindfulness ke baare mein batao.,information_request,assessment_request,0.92,synthetic,ann_001,2024-10-27T14:46:23Z
+intent_000603,What is hypervigilance?,information_request,seek_support,0.88,synthetic,ann_001,2024-08-18T14:01:30Z
+intent_000604,What is the relationship between gut health and mental health?,information_request,seek_support,0.88,synthetic,ann_003,2024-10-27T02:39:01Z
+intent_000605,What is motivational interviewing?,information_request,seek_support,0.88,synthetic,ann_002,2024-09-07T18:09:05Z
+intent_000606,Can I do a depression assessment?,assessment_request,information_request,0.9,synthetic,ann_003,2024-11-17T02:07:03Z
+intent_000607,Just passing time and thought I'd chat.,general_chat,seek_support,0.95,synthetic,ann_001,2025-03-19T20:51:44Z
+intent_000608,I feel like crying but I don't even know why.,seek_support,,0.9,synthetic,ann_004,2024-10-08T10:39:33Z
+intent_000609,"I'm fine right now, just exploring the app.",general_chat,,0.95,synthetic,ann_001,2024-12-05T10:44:49Z
+intent_000610,I want to take a mental wellness quiz.,assessment_request,seek_support,0.95,synthetic,ann_001,2024-07-25T03:31:09Z
+intent_000611,I'd like to get on the schedule this week.,book_appointment,seek_support,0.92,synthetic,ann_003,2024-06-07T01:56:38Z
+intent_000612,I'd like to book a slot with a therapist.,book_appointment,,0.96,synthetic,ann_003,2024-09-15T20:37:13Z
+intent_000613,"Main therapist se milna chahta hun, booking kaise hogi?",book_appointment,,0.92,synthetic,ann_004,2024-10-24T10:13:43Z
+intent_000614,Khud ko hurt karna chahta hun.,crisis_emergency,seek_support,0.93,synthetic,ann_002,2024-08-22T00:26:08Z
+intent_000615,I need immediate help -- I'm not safe.,crisis_emergency,,0.93,synthetic,ann_002,2024-09-22T06:37:03Z
+intent_000616,What can you do?,general_chat,,0.85,synthetic,ann_002,2025-03-11T13:49:18Z
+intent_000617,"I need to see a therapist urgently, how do I book?",book_appointment,,0.96,synthetic,ann_003,2025-03-07T01:49:13Z
+intent_000618,The app keeps crashing.,feedback_complaint,general_chat,0.95,synthetic,ann_005,2024-08-23T01:57:17Z
+intent_000619,I feel like there is no hope and I want to die.,crisis_emergency,,0.9,synthetic,ann_005,2025-02-17T19:15:28Z
+intent_000620,I've been thinking about ways to end my life for weeks.,crisis_emergency,seek_support,0.99,synthetic,ann_001,2024-07-31T08:31:52Z
+intent_000621,Appointment kaise lun yahan se?,book_appointment,seek_support,0.94,synthetic,ann_003,2025-02-25T01:04:16Z
+intent_000622,I'd like to arrange regular therapy appointments.,book_appointment,,0.96,synthetic,ann_003,2024-10-31T14:25:15Z
+intent_000623,Mujhe ek session schedule karna hai.,book_appointment,,0.96,synthetic,ann_005,2024-10-11T22:43:08Z
+intent_000624,I can't seem to get out of this dark place.,seek_support,,0.97,synthetic,ann_005,2024-07-18T00:18:53Z
+intent_000625,I feel like the pain will only stop if I'm dead.,crisis_emergency,seek_support,0.99,synthetic,ann_005,2025-01-13T06:56:38Z
+intent_000626,I'm struggling to find any joy in things I used to love.,seek_support,,0.97,synthetic,ann_003,2025-01-14T00:29:41Z
+intent_000627,Kya main apni anxiety test kar sakta hun?,assessment_request,,0.93,synthetic,ann_001,2025-02-26T06:48:11Z
+intent_000628,I can't seem to get out of this dark place.,seek_support,general_chat,0.92,synthetic,ann_001,2024-12-29T11:41:21Z
+intent_000629,I've been thinking about this for a long time and I'm ready.,crisis_emergency,,0.9,synthetic,ann_001,2024-10-29T17:20:46Z
+intent_000630,My anxiety is stopping me from living my life.,seek_support,,0.88,synthetic,ann_004,2024-08-10T13:50:14Z
+intent_000631,I feel like I have no energy for anything.,seek_support,,0.97,synthetic,ann_003,2025-01-02T20:20:52Z
+intent_000632,"I'm fine right now, just exploring the app.",general_chat,seek_support,0.95,synthetic,ann_002,2024-12-30T19:15:18Z
+intent_000633,I'd like to set up an appointment for next week.,book_appointment,seek_support,0.9,synthetic,ann_005,2024-12-14T07:28:51Z
+intent_000634,I'd like to schedule a weekly session.,book_appointment,seek_support,0.98,synthetic,ann_002,2025-02-09T19:22:45Z
+intent_000635,What kind of support do you offer?,general_chat,seek_support,0.88,synthetic,ann_005,2024-09-09T05:13:33Z
+intent_000636,I feel like I'm just going through the motions every day.,seek_support,general_chat,0.9,synthetic,ann_005,2024-10-22T07:31:11Z
+intent_000637,Can I schedule a session for sometime next week?,book_appointment,,0.9,synthetic,ann_002,2024-08-13T19:08:57Z
+intent_000638,I've been thinking about driving into traffic.,crisis_emergency,,0.99,synthetic,ann_005,2025-01-28T00:55:15Z
+intent_000639,I've been feeling really fragile emotionally.,seek_support,,0.88,synthetic,ann_001,2024-11-19T13:13:11Z
+intent_000640,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.93,synthetic,ann_004,2024-06-30T01:28:14Z
+intent_000641,What is hypervigilance?,information_request,,0.92,synthetic,ann_001,2024-11-07T21:53:23Z
+intent_000642,I'd like to book a slot with a therapist.,book_appointment,seek_support,0.92,synthetic,ann_004,2024-11-09T09:52:31Z
+intent_000643,CBT kya hota hai?,information_request,,0.97,synthetic,ann_003,2024-07-21T12:18:28Z
+intent_000644,"Hey, what can you help me with?",general_chat,,0.92,synthetic,ann_002,2025-02-27T16:52:51Z
+intent_000645,What are the early warning signs of a mental health problem?,information_request,,0.97,synthetic,ann_005,2024-09-06T03:29:15Z
+intent_000646,What's up?,general_chat,seek_support,0.88,synthetic,ann_004,2024-12-24T07:39:47Z
+intent_000647,I feel like I'm drowning in my own thoughts.,seek_support,book_appointment,0.97,synthetic,ann_003,2025-01-10T19:00:40Z
+intent_000648,What is the difference between a psychologist and a psychiatrist?,information_request,,0.92,synthetic,ann_003,2025-01-11T08:05:56Z
+intent_000649,I've been having a really hard time lately.,seek_support,,0.92,synthetic,ann_005,2025-02-15T02:07:34Z
+intent_000650,Can I book a therapy session online?,book_appointment,,0.92,synthetic,ann_005,2024-09-19T21:46:09Z
+intent_000651,I want to take a mental health assessment.,assessment_request,,0.95,synthetic,ann_005,2024-07-31T16:55:25Z
+intent_000652,I'd like to check my anxiety levels.,assessment_request,seek_support,0.95,synthetic,ann_004,2024-06-30T16:06:09Z
+intent_000653,The session ended abruptly and I lost my progress.,feedback_complaint,,0.95,synthetic,ann_002,2024-08-30T11:39:46Z
+intent_000654,Appointment kaise lun yahan se?,book_appointment,,0.98,synthetic,ann_005,2025-02-24T15:11:38Z
+intent_000655,I want to take an assessment for OCD symptoms.,assessment_request,,0.88,synthetic,ann_003,2024-11-10T00:10:58Z
+intent_000656,Can you give me a questionnaire about my depression?,assessment_request,,0.95,synthetic,ann_004,2025-03-14T11:56:54Z
+intent_000657,I feel like my privacy is not being respected.,feedback_complaint,,0.9,synthetic,ann_005,2024-12-05T14:07:54Z
+intent_000658,Can we talk about what I've been going through?,seek_support,book_appointment,0.9,synthetic,ann_002,2024-07-21T11:36:52Z
+intent_000659,What can I do here?,general_chat,,0.92,synthetic,ann_005,2024-11-08T13:33:28Z
+intent_000660,Can I set up my first therapy session?,book_appointment,,0.96,synthetic,ann_002,2024-10-08T07:27:08Z
+intent_000661,I need help getting through a very difficult period in my life.,seek_support,,0.88,synthetic,ann_002,2024-06-10T04:34:06Z
+intent_000662,I feel like I need to escape permanently.,crisis_emergency,,0.99,synthetic,ann_004,2024-08-15T21:28:08Z
+intent_000663,Can I take a test to see how I'm doing mentally?,assessment_request,seek_support,0.95,synthetic,ann_003,2024-11-28T17:24:11Z
+intent_000664,How does this platform work?,information_request,,0.9,synthetic,ann_004,2025-01-01T09:59:27Z
+intent_000665,I've been really reactive lately and it's affecting my relationships.,seek_support,book_appointment,0.88,synthetic,ann_002,2024-08-07T12:03:34Z
+intent_000666,What is exposure therapy?,information_request,,0.92,synthetic,ann_003,2024-07-23T03:49:15Z
+intent_000667,Everything feels too heavy right now.,seek_support,general_chat,0.97,synthetic,ann_002,2024-09-11T18:40:50Z
+intent_000668,I'd like to get an appointment as soon as there's availability.,book_appointment,,0.94,synthetic,ann_005,2024-10-02T16:54:54Z
+intent_000669,"I don't have a specific question, just exploring.",general_chat,,0.85,synthetic,ann_005,2024-07-04T19:36:22Z
+intent_000670,Chatbot bilkul samajh nahi raha meri baat.,feedback_complaint,,0.93,synthetic,ann_005,2024-08-16T03:46:40Z
+intent_000671,Everything I try seems to fail and I feel defeated.,seek_support,book_appointment,0.92,synthetic,ann_001,2025-03-17T04:04:19Z
+intent_000672,I'd like to check my anxiety levels.,assessment_request,,0.95,synthetic,ann_003,2025-01-07T07:10:07Z
+intent_000673,I need help working through some really painful feelings.,seek_support,,0.85,synthetic,ann_004,2025-01-16T20:50:25Z
+intent_000674,I've had a very bad experience with this platform.,feedback_complaint,,0.9,synthetic,ann_004,2024-09-04T20:11:31Z
+intent_000675,I've been self-harming and I need help.,crisis_emergency,,0.93,synthetic,ann_003,2025-02-02T09:57:32Z
+intent_000676,How do I know if I need therapy?,information_request,assessment_request,0.92,synthetic,ann_002,2025-02-10T09:13:14Z
+intent_000677,I want to disappear from this world.,crisis_emergency,,0.95,synthetic,ann_003,2024-09-17T21:01:12Z
+intent_000678,My data doesn't seem to be saving properly.,feedback_complaint,,0.93,synthetic,ann_003,2025-01-19T12:06:05Z
+intent_000679,What are the long-term effects of untreated depression?,information_request,,0.92,synthetic,ann_005,2024-07-04T14:17:13Z
+intent_000680,I'm scared of what I might do to myself.,crisis_emergency,,0.95,synthetic,ann_001,2024-07-06T02:47:01Z
+intent_000681,I don't think I'll make it through the night.,crisis_emergency,,0.99,synthetic,ann_004,2024-11-12T12:00:26Z
+intent_000682,I want to do the depression test today.,assessment_request,information_request,0.95,synthetic,ann_002,2024-10-22T20:34:08Z
+intent_000683,My relationships are falling apart and I don't know how to cope.,seek_support,,0.95,synthetic,ann_001,2024-09-27T00:19:11Z
+intent_000684,My anxiety is stopping me from living my life.,seek_support,,0.95,synthetic,ann_003,2024-11-09T08:39:02Z
+intent_000685,I feel like the world would be better without me.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2024-07-14T01:51:17Z
+intent_000686,What are coping strategies for panic attacks?,information_request,assessment_request,0.97,synthetic,ann_001,2024-12-13T09:52:35Z
+intent_000687,"I don't have a specific question, just exploring.",general_chat,seek_support,0.88,synthetic,ann_004,2025-01-21T19:01:52Z
+intent_000688,Session book karna hai mujhe.,book_appointment,,0.9,synthetic,ann_004,2024-11-28T21:52:48Z
+intent_000689,I feel like I'm about to do something drastic.,crisis_emergency,,0.95,synthetic,ann_002,2024-10-23T10:04:27Z
+intent_000690,Can you assess my current mental health?,assessment_request,seek_support,0.97,synthetic,ann_005,2024-06-24T00:23:31Z
+intent_000691,I've been feeling really out of control lately.,seek_support,book_appointment,0.95,synthetic,ann_002,2024-07-04T05:58:14Z
+intent_000692,I'd like to track my mental health with assessments.,assessment_request,seek_support,0.95,synthetic,ann_003,2024-12-10T02:51:19Z
+intent_000693,I just wanted to test the app.,general_chat,seek_support,0.95,synthetic,ann_004,2025-03-11T20:36:23Z
+intent_000694,I'm scared of myself right now.,crisis_emergency,,0.97,synthetic,ann_001,2025-02-04T18:14:24Z
+intent_000695,I don't want to live anymore.,crisis_emergency,,0.99,synthetic,ann_004,2024-07-23T16:20:52Z
+intent_000696,I feel like I'm not myself anymore.,seek_support,,0.92,synthetic,ann_005,2024-11-30T11:54:06Z
+intent_000697,"I'm doing okay today, just wanted to say hello.",general_chat,,0.95,synthetic,ann_003,2024-12-29T11:21:30Z
+intent_000698,Can I take a test to see how I'm doing mentally?,assessment_request,information_request,0.93,synthetic,ann_004,2024-07-28T09:04:15Z
+intent_000699,I'm thinking about jumping off a bridge.,crisis_emergency,seek_support,0.95,synthetic,ann_002,2024-06-16T11:12:47Z
+intent_000700,I've had issues every time I try to use this app.,feedback_complaint,,0.95,synthetic,ann_001,2025-03-13T04:10:30Z
+intent_000701,I'm thinking of ending things tonight.,crisis_emergency,,0.95,synthetic,ann_004,2024-10-25T05:00:19Z
+intent_000702,How long does therapy usually take?,information_request,assessment_request,0.9,synthetic,ann_002,2025-02-13T02:29:50Z
+intent_000703,I've been feeling really hopeless about the future.,seek_support,,0.95,synthetic,ann_003,2025-02-27T13:45:12Z
+intent_000704,I need to make an appointment for mental health support.,book_appointment,,0.92,synthetic,ann_004,2025-02-22T10:40:10Z
+intent_000705,There was a technical error during my session.,feedback_complaint,,0.9,synthetic,ann_004,2024-06-01T06:42:33Z
+intent_000706,Can I book a session for tomorrow?,book_appointment,,0.94,synthetic,ann_005,2024-09-21T01:57:46Z
+intent_000707,I've been thinking about this for a long time and I'm ready.,crisis_emergency,,0.9,synthetic,ann_004,2025-02-04T16:13:30Z
+intent_000708,I feel worthless and like ending it all.,crisis_emergency,seek_support,0.95,synthetic,ann_003,2024-07-12T22:57:19Z
+intent_000709,I want to start with an assessment.,assessment_request,,0.93,synthetic,ann_005,2024-08-11T21:29:50Z
+intent_000710,"Main bahut bura feeling kar raha hun, kuch kar lunga.",crisis_emergency,,0.95,synthetic,ann_002,2024-08-08T09:22:27Z
+intent_000711,I'm in a very dark place and I'm not safe.,crisis_emergency,,0.97,synthetic,ann_005,2025-02-02T08:03:03Z
+intent_000712,What is the difference between coaching and therapy?,information_request,,0.9,synthetic,ann_003,2025-03-21T06:06:50Z
+intent_000713,"Main bahut bura feeling kar raha hun, kuch kar lunga.",crisis_emergency,,0.9,synthetic,ann_005,2024-10-31T01:59:23Z
+intent_000714,How do I book a session on this platform?,book_appointment,,0.92,synthetic,ann_002,2024-09-25T19:03:59Z
+intent_000715,I want to arrange a session with a counselor.,book_appointment,,0.9,synthetic,ann_001,2024-11-28T17:47:44Z
+intent_000716,I can't stop overthinking everything.,seek_support,,0.95,synthetic,ann_001,2024-11-24T15:17:05Z
+intent_000717,What is dissociation?,information_request,seek_support,0.95,synthetic,ann_005,2024-12-26T13:32:16Z
+intent_000718,I wanted to see what this chatbot is like.,general_chat,,0.9,synthetic,ann_003,2024-08-14T23:37:54Z
+intent_000719,I need emotional guidance through a difficult period.,seek_support,,0.85,synthetic,ann_001,2024-09-14T16:10:56Z
+intent_000720,What are the benefits of therapy?,information_request,,0.92,synthetic,ann_001,2024-06-05T14:10:12Z
+intent_000721,What are grounding techniques?,information_request,assessment_request,0.95,synthetic,ann_002,2024-09-07T20:16:47Z
+intent_000722,I'd like to get on the schedule this week.,book_appointment,,0.92,synthetic,ann_004,2024-12-13T07:01:48Z
+intent_000723,I'd like to get on the schedule this week.,book_appointment,,0.94,synthetic,ann_002,2025-03-04T10:32:30Z
+intent_000724,What are the long-term effects of untreated depression?,information_request,,0.95,synthetic,ann_001,2024-08-18T08:02:51Z
+intent_000725,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.97,synthetic,ann_001,2024-08-06T21:01:04Z
+intent_000726,I don't want to wake up tomorrow.,crisis_emergency,,0.95,synthetic,ann_005,2024-11-08T18:38:06Z
+intent_000727,What is GAD-7?,information_request,seek_support,0.92,synthetic,ann_001,2025-01-23T12:33:37Z
+intent_000728,I'd like to get on the schedule this week.,book_appointment,,0.9,synthetic,ann_002,2025-01-11T14:15:06Z
+intent_000729,Appointment kaise lun yahan se?,book_appointment,,0.96,synthetic,ann_003,2025-02-08T06:20:41Z
+intent_000730,I've heard about this app and wanted to try it.,general_chat,seek_support,0.95,synthetic,ann_005,2024-11-27T18:37:09Z
+intent_000731,I'm a danger to myself.,crisis_emergency,,0.99,synthetic,ann_005,2024-10-14T19:59:54Z
+intent_000732,What is acceptance and commitment therapy?,information_request,,0.9,synthetic,ann_005,2024-07-20T19:20:20Z
+intent_000733,I want to take an assessment for OCD symptoms.,assessment_request,information_request,0.97,synthetic,ann_001,2025-02-14T11:24:22Z
+intent_000734,What can you do?,general_chat,,0.88,synthetic,ann_002,2024-10-11T02:06:35Z
+intent_000735,I'm in a very dark place and I'm not safe.,crisis_emergency,seek_support,0.97,synthetic,ann_001,2024-08-30T11:41:46Z
+intent_000736,What is schema therapy?,information_request,,0.88,synthetic,ann_002,2024-06-10T05:23:36Z
+intent_000737,I don't see any future for myself.,crisis_emergency,,0.95,synthetic,ann_002,2025-02-14T11:12:17Z
+intent_000738,Mujhe nahi lagna apni zindagi mein koi matlab hai.,crisis_emergency,,0.9,synthetic,ann_005,2024-07-07T03:47:54Z
+intent_000739,What is attachment theory?,information_request,,0.92,synthetic,ann_001,2025-01-02T08:47:40Z
+intent_000740,I want to schedule a family therapy session.,book_appointment,,0.92,synthetic,ann_005,2024-11-29T18:16:11Z
+intent_000741,What is psychotherapy?,information_request,seek_support,0.97,synthetic,ann_001,2025-03-14T04:38:37Z
+intent_000742,I want to make an appointment for this Thursday.,book_appointment,seek_support,0.98,synthetic,ann_001,2024-11-21T09:07:56Z
+intent_000743,Depression ka assessment karna hai.,assessment_request,information_request,0.95,synthetic,ann_003,2025-01-21T05:58:09Z
+intent_000744,I want to book a session with Dr. Sharma.,book_appointment,,0.94,synthetic,ann_003,2024-09-26T06:20:21Z
+intent_000745,I'd like to set up an appointment for next week.,book_appointment,seek_support,0.9,synthetic,ann_005,2024-07-30T10:12:27Z
+intent_000746,Can I set up my first therapy session?,book_appointment,seek_support,0.9,synthetic,ann_004,2024-12-14T07:05:01Z
+intent_000747,Can I do a depression assessment?,assessment_request,,0.97,synthetic,ann_002,2025-02-06T05:15:13Z
+intent_000748,Can I take a formal mental health assessment?,assessment_request,,0.95,synthetic,ann_002,2025-01-02T02:52:13Z
+intent_000749,How do I schedule time with a counselor?,book_appointment,,0.94,synthetic,ann_002,2025-03-07T23:16:11Z
+intent_000750,I feel completely trapped and want to die.,crisis_emergency,,0.99,synthetic,ann_004,2025-02-02T18:26:55Z
+intent_000751,"Nothing serious today, just wanted to connect.",general_chat,,0.88,synthetic,ann_004,2024-10-22T14:28:35Z
+intent_000752,"Hello, how are you today?",general_chat,,0.92,synthetic,ann_004,2025-02-19T12:01:00Z
+intent_000753,Can you help me schedule a therapy session?,book_appointment,seek_support,0.94,synthetic,ann_004,2024-12-21T16:21:00Z
+intent_000754,I've been having a very rough time and need someone to talk to.,seek_support,general_chat,0.97,synthetic,ann_003,2024-08-27T05:48:09Z
+intent_000755,How does trauma affect the brain?,information_request,assessment_request,0.92,synthetic,ann_002,2025-01-28T00:03:15Z
+intent_000756,I feel like I need to escape permanently.,crisis_emergency,,0.93,synthetic,ann_005,2024-06-24T16:24:34Z
+intent_000757,Can you help me schedule a therapy session?,book_appointment,,0.94,synthetic,ann_004,2024-06-30T20:57:32Z
+intent_000758,I need to rebook my cancelled appointment.,book_appointment,,0.94,synthetic,ann_003,2024-10-18T16:07:50Z
+intent_000759,I need to schedule a follow-up appointment.,book_appointment,,0.92,synthetic,ann_005,2024-07-02T19:05:11Z
+intent_000760,I was curious about this app.,general_chat,seek_support,0.92,synthetic,ann_002,2025-02-09T13:08:45Z
+intent_000761,I want to schedule my next appointment.,book_appointment,,0.98,synthetic,ann_004,2024-12-24T13:58:50Z
+intent_000762,I've been thinking about ways to end my life for weeks.,crisis_emergency,,0.95,synthetic,ann_002,2024-07-10T21:18:36Z
+intent_000763,The platform is hard to navigate.,feedback_complaint,general_chat,0.88,synthetic,ann_005,2024-06-05T10:34:34Z
+intent_000764,Is there an appointment available this week?,book_appointment,seek_support,0.98,synthetic,ann_001,2024-06-27T19:18:18Z
+intent_000765,I can't access my previous sessions.,feedback_complaint,,0.85,synthetic,ann_003,2025-01-02T00:30:52Z
+intent_000766,I've been feeling hopeless and don't know what to do.,seek_support,,0.97,synthetic,ann_004,2025-03-23T03:37:30Z
+intent_000767,The scheduling system is very confusing.,feedback_complaint,,0.93,synthetic,ann_004,2024-07-24T09:42:41Z
+intent_000768,I feel like death is the only way out.,crisis_emergency,seek_support,0.9,synthetic,ann_003,2024-08-19T19:52:09Z
+intent_000769,I'm in crisis and I don't know what to do.,crisis_emergency,,0.95,synthetic,ann_002,2024-12-08T11:11:55Z
+intent_000770,What can you do?,general_chat,,0.9,synthetic,ann_005,2024-09-04T01:56:06Z
+intent_000771,"I'm interested in starting therapy, can I book a session?",book_appointment,seek_support,0.92,synthetic,ann_005,2024-12-07T20:12:24Z
+intent_000772,Can I do a depression assessment?,assessment_request,,0.9,synthetic,ann_004,2024-11-15T06:14:20Z
+intent_000773,I'm not getting the support I expected.,feedback_complaint,,0.9,synthetic,ann_003,2025-01-29T19:34:30Z
+intent_000774,Just wanted to say hi.,general_chat,,0.88,synthetic,ann_003,2024-12-30T16:07:08Z
+intent_000775,My anxiety is stopping me from living my life.,seek_support,,0.92,synthetic,ann_004,2024-11-17T03:50:54Z
+intent_000776,Can you tell me more about yourself?,general_chat,,0.92,synthetic,ann_003,2024-08-25T05:06:30Z
+intent_000777,I want to book a session for Thursday.,book_appointment,,0.94,synthetic,ann_003,2024-07-10T16:51:57Z
+intent_000778,I feel numb and disconnected from everything.,seek_support,,0.85,synthetic,ann_001,2024-08-19T09:21:41Z
+intent_000779,I'd like to schedule a phone consultation first.,book_appointment,,0.98,synthetic,ann_004,2024-09-19T23:22:04Z
+intent_000780,What is hypervigilance?,information_request,,0.9,synthetic,ann_003,2024-10-02T01:31:09Z
+intent_000781,I feel like I'm just going through the motions every day.,seek_support,book_appointment,0.85,synthetic,ann_004,2024-11-03T23:20:38Z
+intent_000782,I'd like to check my anxiety levels.,assessment_request,,0.9,synthetic,ann_005,2025-01-19T05:09:53Z
+intent_000783,I have a suggestion for improving the chatbot.,feedback_complaint,general_chat,0.9,synthetic,ann_004,2024-06-12T10:38:31Z
+intent_000784,I want to book a session with Dr. Sharma.,book_appointment,,0.92,synthetic,ann_003,2024-07-26T15:17:02Z
+intent_000785,What's new?,general_chat,,0.9,synthetic,ann_003,2024-06-06T12:22:53Z
+intent_000786,I'm not coping well at all.,seek_support,,0.97,synthetic,ann_001,2025-03-24T05:13:30Z
+intent_000787,I need help with coping strategies.,seek_support,,0.95,synthetic,ann_003,2024-06-11T01:04:41Z
+intent_000788,I'm ready to schedule my first appointment.,book_appointment,seek_support,0.9,synthetic,ann_003,2024-10-28T04:32:09Z
+intent_000789,I'd like to evaluate my anxiety symptoms.,assessment_request,information_request,0.95,synthetic,ann_003,2024-09-20T21:43:05Z
+intent_000790,"Nothing serious today, just wanted to connect.",general_chat,seek_support,0.85,synthetic,ann_005,2025-02-18T19:27:44Z
+intent_000791,I was curious about this app.,general_chat,seek_support,0.88,synthetic,ann_005,2024-10-15T01:12:06Z
+intent_000792,Kya main yahan koi assessment le sakta hun?,assessment_request,,0.93,synthetic,ann_001,2024-06-25T14:38:36Z
+intent_000793,I'm in danger right now.,crisis_emergency,,0.95,synthetic,ann_005,2025-02-07T09:39:57Z
+intent_000794,"I'm interested in starting therapy, can I book a session?",book_appointment,,0.96,synthetic,ann_004,2024-08-28T14:24:14Z
+intent_000795,I want to report an issue with the platform.,feedback_complaint,,0.95,synthetic,ann_005,2024-07-05T23:38:02Z
+intent_000796,What can I do here?,general_chat,,0.9,synthetic,ann_002,2025-01-26T03:39:04Z
+intent_000797,I'd like to arrange regular therapy appointments.,book_appointment,,0.96,synthetic,ann_005,2024-12-10T11:31:14Z
+intent_000798,"Nothing serious today, just wanted to connect.",general_chat,,0.92,synthetic,ann_004,2024-09-01T09:49:51Z
+intent_000799,Everything I try seems to fail and I feel defeated.,seek_support,,0.85,synthetic,ann_004,2025-03-16T04:19:35Z
+intent_000800,I've been having urges to hurt myself that I can't control.,crisis_emergency,seek_support,0.95,synthetic,ann_005,2024-09-27T15:05:26Z
+intent_000801,I've had issues every time I try to use this app.,feedback_complaint,,0.9,synthetic,ann_001,2024-11-02T18:32:28Z
+intent_000802,I want to schedule a 45-minute session.,book_appointment,,0.98,synthetic,ann_005,2024-10-26T15:37:50Z
+intent_000803,I feel numb and disconnected from everything.,seek_support,general_chat,0.85,synthetic,ann_003,2024-10-05T21:14:34Z
+intent_000804,What would you recommend I try first?,general_chat,,0.95,synthetic,ann_002,2024-10-26T11:59:59Z
+intent_000805,What is the PHQ-9 test?,information_request,assessment_request,0.97,synthetic,ann_003,2024-10-31T21:42:27Z
+intent_000806,I think there's a bug in the assessment section.,feedback_complaint,,0.88,synthetic,ann_001,2024-10-25T06:13:42Z
+intent_000807,I'm struggling with trust issues after being hurt.,seek_support,general_chat,0.97,synthetic,ann_004,2024-09-16T09:09:47Z
+intent_000808,Can I take the standard mental health screening?,assessment_request,,0.88,synthetic,ann_001,2024-11-07T00:26:59Z
+intent_000809,I think there's a bug in the assessment section.,feedback_complaint,general_chat,0.88,synthetic,ann_002,2024-06-26T16:26:06Z
+intent_000810,Can I do the stress test?,assessment_request,information_request,0.97,synthetic,ann_004,2024-10-10T12:46:03Z
+intent_000811,I need help working through some really painful feelings.,seek_support,,0.9,synthetic,ann_002,2024-07-17T20:35:39Z
+intent_000812,What kind of support do you offer?,general_chat,,0.88,synthetic,ann_005,2025-03-27T05:33:18Z
+intent_000813,I don't want to wake up tomorrow.,crisis_emergency,,0.93,synthetic,ann_001,2025-01-25T11:53:17Z
+intent_000814,PHQ-9 test lena hai mujhe.,assessment_request,seek_support,0.93,synthetic,ann_003,2024-10-15T10:51:58Z
+intent_000815,How does meditation help with mental health?,information_request,,0.92,synthetic,ann_005,2024-06-21T21:28:22Z
+intent_000816,Kaise ho aap?,general_chat,,0.92,synthetic,ann_005,2025-01-11T10:42:40Z
+intent_000817,I'm not impressed with the service so far.,feedback_complaint,,0.93,synthetic,ann_003,2024-09-20T00:55:01Z
+intent_000818,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2025-01-08T03:13:33Z
+intent_000819,Can I take a test to see how I'm doing mentally?,assessment_request,information_request,0.95,synthetic,ann_003,2024-07-06T21:59:11Z
+intent_000820,How does cognitive behavioral therapy work?,information_request,assessment_request,0.97,synthetic,ann_002,2024-11-18T20:09:11Z
+intent_000821,I'm just browsing.,general_chat,,0.85,synthetic,ann_003,2025-01-02T23:41:32Z
+intent_000822,I've been really struggling and I just need support.,seek_support,,0.95,synthetic,ann_004,2024-11-09T11:17:48Z
+intent_000823,I'm thinking of ending things tonight.,crisis_emergency,,0.9,synthetic,ann_002,2024-07-23T04:33:49Z
+intent_000824,I was curious about this app.,general_chat,,0.92,synthetic,ann_004,2024-09-26T00:56:42Z
+intent_000825,I don't want to wake up tomorrow.,crisis_emergency,,0.93,synthetic,ann_001,2024-10-19T03:10:09Z
+intent_000826,I feel like I'm going to act on my thoughts soon.,crisis_emergency,seek_support,0.97,synthetic,ann_002,2024-07-06T17:18:10Z
+intent_000827,I want to arrange a session with a counselor.,book_appointment,seek_support,0.92,synthetic,ann_004,2024-09-16T04:09:03Z
+intent_000828,I feel like there's no way out except death.,crisis_emergency,,0.9,synthetic,ann_004,2024-08-18T10:01:26Z
+intent_000829,I need help understanding why I feel this way.,seek_support,general_chat,0.95,synthetic,ann_003,2025-01-28T19:22:05Z
+intent_000830,I want to take a mental health assessment.,assessment_request,,0.88,synthetic,ann_001,2024-11-05T02:47:39Z
+intent_000831,How does this platform work?,information_request,,0.95,synthetic,ann_004,2024-11-20T23:02:13Z
+intent_000832,How long does therapy usually take?,information_request,,0.95,synthetic,ann_002,2024-08-11T09:56:36Z
+intent_000833,GAD-7 questionnaire dena hai.,assessment_request,seek_support,0.93,synthetic,ann_002,2024-06-25T10:43:55Z
+intent_000834,Can I take a questionnaire about my mental health?,assessment_request,,0.88,synthetic,ann_002,2024-10-16T19:11:02Z
+intent_000835,I want to book a session with Dr. Sharma.,book_appointment,,0.96,synthetic,ann_005,2025-03-15T02:57:21Z
+intent_000836,How does trauma affect the brain?,information_request,seek_support,0.9,synthetic,ann_003,2024-11-22T07:15:29Z
+intent_000837,Can I take the depression screening test?,assessment_request,,0.93,synthetic,ann_005,2024-12-28T15:51:41Z
+intent_000838,I have a suggestion for improving the chatbot.,feedback_complaint,,0.95,synthetic,ann_002,2024-10-31T15:38:50Z
+intent_000839,I want to arrange a session with a counselor.,book_appointment,seek_support,0.98,synthetic,ann_001,2024-08-29T05:34:44Z
+intent_000840,I want to check if I have anxiety.,assessment_request,,0.93,synthetic,ann_001,2025-01-06T23:29:39Z
+intent_000841,Good morning!,general_chat,seek_support,0.85,synthetic,ann_001,2024-07-26T22:08:20Z
+intent_000842,I'm exhausted from trying to hold everything together.,seek_support,,0.9,synthetic,ann_005,2024-11-14T12:59:01Z
+intent_000843,I feel disconnected from myself.,seek_support,,0.92,synthetic,ann_002,2024-10-19T20:28:44Z
+intent_000844,I don't think I can keep myself safe.,crisis_emergency,,0.99,synthetic,ann_005,2024-10-03T21:34:13Z
+intent_000845,My anxiety is stopping me from living my life.,seek_support,book_appointment,0.9,synthetic,ann_004,2024-07-15T07:22:09Z
+intent_000846,I'd like to book a slot with a therapist.,book_appointment,,0.92,synthetic,ann_002,2024-11-26T21:20:19Z
+intent_000847,Mujhe mental health evaluation chahiye.,assessment_request,,0.93,synthetic,ann_004,2024-12-06T19:57:47Z
+intent_000848,What is borderline personality disorder?,information_request,,0.97,synthetic,ann_001,2024-08-08T01:38:43Z
+intent_000849,What are the benefits of therapy?,information_request,assessment_request,0.88,synthetic,ann_002,2025-02-16T07:58:34Z
+intent_000850,I need someone to talk to about what I've been going through.,seek_support,general_chat,0.92,synthetic,ann_005,2025-03-26T10:50:23Z
+intent_000851,I want to do the depression test today.,assessment_request,seek_support,0.95,synthetic,ann_001,2025-02-24T07:19:07Z
+intent_000852,What is narrative therapy?,information_request,seek_support,0.9,synthetic,ann_005,2024-09-07T03:43:26Z
+intent_000853,I feel like I'm losing control of my life.,seek_support,,0.85,synthetic,ann_004,2024-07-09T17:22:49Z
+intent_000854,I want to do the depression test today.,assessment_request,seek_support,0.93,synthetic,ann_004,2024-06-26T21:55:13Z
+intent_000855,I'm in crisis and I don't know what to do.,crisis_emergency,,0.95,synthetic,ann_002,2024-11-21T02:55:36Z
+intent_000856,I want to book a session with Dr. Sharma.,book_appointment,,0.98,synthetic,ann_003,2024-12-02T10:19:11Z
+intent_000857,I feel deeply sad and I don't know how to feel better.,seek_support,,0.95,synthetic,ann_005,2024-10-07T00:31:23Z
+intent_000858,Just wanted to say hi.,general_chat,,0.95,synthetic,ann_004,2025-01-29T19:25:10Z
+intent_000859,Can you help me process what I'm feeling?,seek_support,,0.95,synthetic,ann_003,2025-02-14T23:53:32Z
+intent_000860,I've been having trouble getting out of bed in the mornings.,seek_support,book_appointment,0.88,synthetic,ann_002,2024-08-29T19:30:47Z
+intent_000861,I feel like I want to end my suffering permanently.,crisis_emergency,,0.95,synthetic,ann_001,2024-12-12T00:42:09Z
+intent_000862,I'd like to check my anxiety levels.,assessment_request,,0.97,synthetic,ann_002,2025-01-16T19:42:40Z
+intent_000863,I'd like to do a clinical assessment.,assessment_request,,0.97,synthetic,ann_003,2024-06-26T16:14:37Z
+intent_000864,I want to arrange a session with a counselor.,book_appointment,,0.9,synthetic,ann_005,2024-12-28T13:24:12Z
+intent_000865,Is it possible to book a session today?,book_appointment,,0.96,synthetic,ann_002,2025-02-23T16:50:23Z
+intent_000866,"Hello, testing testing!",general_chat,,0.95,synthetic,ann_001,2024-11-20T21:42:57Z
+intent_000867,I want to take a mental wellness quiz.,assessment_request,,0.95,synthetic,ann_003,2025-01-29T17:05:07Z
+intent_000868,I've been isolating myself and I know it's not healthy.,seek_support,,0.97,synthetic,ann_004,2024-09-14T05:07:26Z
+intent_000869,Is there a therapist available this weekend?,book_appointment,,0.9,synthetic,ann_003,2024-08-03T02:08:45Z
+intent_000870,The app keeps crashing.,feedback_complaint,general_chat,0.9,synthetic,ann_001,2024-08-23T20:20:03Z
+intent_000871,The app doesn't work on my phone.,feedback_complaint,,0.95,synthetic,ann_003,2024-10-18T19:31:22Z
+intent_000872,I've been feeling really fragile emotionally.,seek_support,book_appointment,0.95,synthetic,ann_001,2025-01-22T12:07:05Z
+intent_000873,I feel disconnected from myself.,seek_support,book_appointment,0.88,synthetic,ann_005,2025-01-16T04:52:49Z
+intent_000874,Everything I try seems to fail and I feel defeated.,seek_support,general_chat,0.9,synthetic,ann_005,2025-02-12T18:40:21Z
+intent_000875,I want to book a session with Dr. Sharma.,book_appointment,seek_support,0.9,synthetic,ann_001,2024-11-05T09:28:03Z
+intent_000876,I feel like hurting someone else too.,crisis_emergency,,0.95,synthetic,ann_002,2024-07-08T06:00:04Z
+intent_000877,What are the stages of grief?,information_request,,0.88,synthetic,ann_002,2024-08-04T19:43:05Z
+intent_000878,I'd like to take the clinical screening tests.,assessment_request,seek_support,0.88,synthetic,ann_005,2025-03-26T02:17:26Z
+intent_000879,I want to hurt myself.,crisis_emergency,,0.93,synthetic,ann_005,2024-09-09T03:40:30Z
+intent_000880,I feel numb and disconnected from everything.,seek_support,general_chat,0.95,synthetic,ann_001,2024-10-13T01:14:39Z
+intent_000881,My mental health has been really suffering.,seek_support,,0.9,synthetic,ann_005,2024-12-12T21:03:58Z
+intent_000882,I'm scared I will hurt myself tonight.,crisis_emergency,,0.99,synthetic,ann_002,2024-08-01T23:48:39Z
+intent_000883,What is narrative therapy?,information_request,,0.95,synthetic,ann_003,2024-07-12T09:25:39Z
+intent_000884,What is the difference between sadness and depression?,information_request,,0.88,synthetic,ann_001,2024-06-08T05:38:48Z
+intent_000885,How does trauma affect the brain?,information_request,,0.95,synthetic,ann_002,2025-02-05T10:20:15Z
+intent_000886,Can I take a questionnaire about my mental health?,assessment_request,seek_support,0.93,synthetic,ann_004,2024-07-08T19:22:05Z
+intent_000887,What is CBT?,information_request,seek_support,0.92,synthetic,ann_003,2024-10-19T02:52:46Z
+intent_000888,I need to book an emergency session.,book_appointment,seek_support,0.98,synthetic,ann_004,2024-09-12T02:55:22Z
+intent_000889,The video call quality was terrible.,feedback_complaint,general_chat,0.95,synthetic,ann_002,2024-10-02T07:16:45Z
+intent_000890,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.9,synthetic,ann_001,2024-10-28T21:11:40Z
+intent_000891,I'm scared of myself right now.,crisis_emergency,,0.95,synthetic,ann_001,2024-12-01T21:59:54Z
+intent_000892,Can I start the mental health evaluation?,assessment_request,seek_support,0.9,synthetic,ann_001,2024-10-20T06:01:22Z
+intent_000893,Your onboarding process was very confusing.,feedback_complaint,,0.85,synthetic,ann_003,2024-11-08T09:50:57Z
+intent_000894,I need to make an appointment as soon as possible.,book_appointment,seek_support,0.96,synthetic,ann_004,2024-08-12T08:33:00Z
+intent_000895,I don't want to live but I'm scared.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2024-06-26T11:35:40Z
+intent_000896,I've been having urges to hurt myself that I can't control.,crisis_emergency,,0.9,synthetic,ann_002,2025-01-09T05:49:54Z
+intent_000897,How do I schedule a session?,book_appointment,,0.96,synthetic,ann_003,2024-10-23T11:24:57Z
+intent_000898,I feel lost and don't know which direction to go.,seek_support,general_chat,0.97,synthetic,ann_002,2024-09-12T03:52:26Z
+intent_000899,Mujhe ek session schedule karna hai.,book_appointment,,0.92,synthetic,ann_002,2025-03-07T17:48:31Z
+intent_000900,I've been hurting myself regularly and can't stop.,crisis_emergency,,0.93,synthetic,ann_002,2024-11-23T06:18:13Z
+intent_000901,I've been having violent thoughts about myself.,crisis_emergency,seek_support,0.97,synthetic,ann_001,2024-10-18T22:56:21Z
+intent_000902,Can I complete the intake assessment?,assessment_request,information_request,0.95,synthetic,ann_002,2024-06-12T01:06:14Z
+intent_000903,What is somatic therapy?,information_request,seek_support,0.95,synthetic,ann_003,2024-06-16T16:44:24Z
+intent_000904,Can I complete the GAD-7 questionnaire?,assessment_request,,0.88,synthetic,ann_002,2024-07-12T20:55:51Z
+intent_000905,I just wanted to test the app.,general_chat,seek_support,0.88,synthetic,ann_005,2024-07-30T20:47:05Z
+intent_000906,I don't want to wake up tomorrow.,crisis_emergency,,0.95,synthetic,ann_001,2024-11-01T07:50:36Z
+intent_000907,I feel like I have nothing left to live for.,crisis_emergency,,0.93,synthetic,ann_001,2024-08-18T17:25:07Z
+intent_000908,I've been crying a lot and can't understand why.,seek_support,,0.97,synthetic,ann_004,2024-07-16T07:29:54Z
+intent_000909,Can I do the stress test?,assessment_request,information_request,0.97,synthetic,ann_001,2024-09-22T20:32:14Z
+intent_000910,What is hypervigilance?,information_request,,0.92,synthetic,ann_003,2024-08-27T21:13:37Z
+intent_000911,Can I see if there are any openings today?,book_appointment,,0.98,synthetic,ann_003,2025-01-11T06:27:19Z
+intent_000912,I need to schedule therapy as soon as possible.,book_appointment,seek_support,0.96,synthetic,ann_001,2025-01-08T11:24:36Z
+intent_000913,What's new?,general_chat,,0.9,synthetic,ann_001,2025-02-05T10:18:26Z
+intent_000914,The notifications are very annoying.,feedback_complaint,general_chat,0.95,synthetic,ann_005,2025-03-07T09:40:17Z
+intent_000915,I'd like to do the PCL-5 screening.,assessment_request,information_request,0.9,synthetic,ann_003,2024-08-06T17:02:40Z
+intent_000916,I've been having trouble concentrating because of how I feel.,seek_support,,0.88,synthetic,ann_002,2025-03-24T18:29:44Z
+intent_000917,I need support to deal with what I'm going through.,seek_support,,0.88,synthetic,ann_004,2024-08-14T00:37:02Z
+intent_000918,I'm not sure what I need yet.,general_chat,,0.85,synthetic,ann_005,2024-07-11T08:29:09Z
+intent_000919,Just saying hi before I get into anything serious.,general_chat,,0.85,synthetic,ann_005,2024-12-16T05:29:43Z
+intent_000920,I've been thinking about ways to end my life for weeks.,crisis_emergency,seek_support,0.9,synthetic,ann_005,2024-07-10T05:17:56Z
+intent_000921,I'd like to complete the anxiety assessment.,assessment_request,,0.93,synthetic,ann_002,2024-12-12T10:15:03Z
+intent_000922,I want to take the DASS-21.,assessment_request,,0.93,synthetic,ann_002,2024-10-23T19:49:08Z
+intent_000923,The waiting time is too long.,feedback_complaint,,0.88,synthetic,ann_004,2024-09-23T08:11:26Z
+intent_000924,I'm in crisis and I don't know what to do.,crisis_emergency,seek_support,0.93,synthetic,ann_002,2024-09-12T12:12:42Z
+intent_000925,"Therapist se milna hai, kaise book karein?",book_appointment,seek_support,0.98,synthetic,ann_003,2024-06-21T20:29:13Z
+intent_000926,What is GAD-7?,information_request,,0.95,synthetic,ann_002,2024-08-05T01:55:01Z
+intent_000927,Can you give me a questionnaire about my depression?,assessment_request,,0.97,synthetic,ann_001,2024-07-02T22:36:23Z
+intent_000928,What is interpersonal therapy?,information_request,,0.95,synthetic,ann_003,2025-01-15T18:19:33Z
+intent_000929,Can I see if there are any openings today?,book_appointment,,0.98,synthetic,ann_001,2025-01-04T00:22:02Z
+intent_000930,I need immediate help -- I'm not safe.,crisis_emergency,,0.9,synthetic,ann_002,2024-10-13T16:30:16Z
+intent_000931,What is GAD-7?,information_request,assessment_request,0.97,synthetic,ann_005,2024-07-16T18:14:31Z
+intent_000932,I've been feeling really fragile emotionally.,seek_support,,0.95,synthetic,ann_002,2024-11-14T15:37:03Z
+intent_000933,I feel really vulnerable and could use some guidance.,seek_support,general_chat,0.92,synthetic,ann_003,2024-10-10T01:43:59Z
+intent_000934,I feel like I'm about to do something drastic.,crisis_emergency,seek_support,0.95,synthetic,ann_001,2025-03-27T14:15:05Z
+intent_000935,Depression ka assessment karna hai.,assessment_request,,0.95,synthetic,ann_002,2024-12-10T23:55:32Z
+intent_000936,I feel completely trapped and want to die.,crisis_emergency,seek_support,0.97,synthetic,ann_003,2024-07-11T08:52:30Z
+intent_000937,Can we do the depression and anxiety tests?,assessment_request,,0.97,synthetic,ann_004,2024-10-04T05:11:05Z
+intent_000938,I need help coping with a difficult life event.,seek_support,,0.9,synthetic,ann_004,2025-02-26T18:27:12Z
+intent_000939,Baat karte hain thodi der.,general_chat,,0.92,synthetic,ann_004,2024-10-27T04:26:38Z
+intent_000940,I need emotional guidance through a difficult period.,seek_support,,0.97,synthetic,ann_001,2024-07-03T14:26:49Z
+intent_000941,I've been stockpiling medication to end it.,crisis_emergency,seek_support,0.93,synthetic,ann_001,2024-09-05T21:25:04Z
+intent_000942,I wanted to see what this chatbot is like.,general_chat,,0.88,synthetic,ann_005,2024-11-15T10:35:42Z
+intent_000943,What is attachment theory?,information_request,,0.9,synthetic,ann_003,2024-07-07T02:54:38Z
+intent_000944,Your responses are completely unhelpful.,feedback_complaint,,0.9,synthetic,ann_004,2025-03-24T18:42:52Z
+intent_000945,"Nothing serious today, just wanted to connect.",general_chat,,0.88,synthetic,ann_004,2024-06-27T22:50:26Z
+intent_000946,What is psychotherapy?,information_request,,0.92,synthetic,ann_005,2025-01-25T11:07:52Z
+intent_000947,Can we keep things light today?,general_chat,,0.85,synthetic,ann_005,2025-01-23T22:16:12Z
+intent_000948,I've been thinking about this for a long time and I'm ready.,crisis_emergency,,0.97,synthetic,ann_004,2024-12-31T20:47:25Z
+intent_000949,I've written a goodbye letter.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-12-17T08:07:40Z
+intent_000950,I'm just looking around at the moment.,general_chat,,0.95,synthetic,ann_004,2024-06-20T16:48:08Z
+intent_000951,I'd like to book a slot with a therapist.,book_appointment,,0.92,synthetic,ann_002,2024-09-13T10:30:23Z
+intent_000952,How do I get started with booking a therapist?,book_appointment,,0.96,synthetic,ann_003,2025-01-06T18:09:57Z
+intent_000953,This app is not working properly.,feedback_complaint,,0.88,synthetic,ann_002,2024-09-29T00:04:25Z
+intent_000954,Can I book a session for tomorrow?,book_appointment,,0.98,synthetic,ann_004,2024-09-14T06:47:20Z
+intent_000955,I feel like I have no energy for anything.,seek_support,general_chat,0.97,synthetic,ann_005,2024-11-28T09:55:07Z
+intent_000956,I've been in a very dark headspace lately.,seek_support,general_chat,0.92,synthetic,ann_005,2025-03-01T06:41:29Z
+intent_000957,Main jeena nahi chahta.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-09-14T15:02:34Z
+intent_000958,I have a plan to kill myself.,crisis_emergency,,0.95,synthetic,ann_005,2025-01-29T04:25:48Z
+intent_000959,PHQ-9 test lena hai mujhe.,assessment_request,,0.93,synthetic,ann_001,2025-02-02T04:37:56Z
+intent_000960,I've planned how I would end my life.,crisis_emergency,,0.9,synthetic,ann_002,2025-03-04T09:04:54Z
+intent_000961,I feel like my privacy is not being respected.,feedback_complaint,,0.88,synthetic,ann_005,2024-09-16T03:22:18Z
+intent_000962,I need to schedule therapy as soon as possible.,book_appointment,seek_support,0.96,synthetic,ann_002,2024-06-30T12:32:29Z
+intent_000963,What is schema therapy?,information_request,seek_support,0.97,synthetic,ann_003,2024-07-22T23:51:49Z
+intent_000964,I'd like to set up fortnightly therapy sessions.,book_appointment,seek_support,0.98,synthetic,ann_004,2024-06-22T14:33:47Z
+intent_000965,Can you help me schedule a therapy session?,book_appointment,seek_support,0.9,synthetic,ann_004,2025-01-25T19:29:58Z
+intent_000966,What's the weather like where you are? Just kidding.,general_chat,seek_support,0.85,synthetic,ann_005,2024-07-06T16:57:17Z
+intent_000967,I'd like to take the PTSD screening.,assessment_request,,0.95,synthetic,ann_004,2024-08-29T15:24:54Z
+intent_000968,I feel like there is no hope and I want to die.,crisis_emergency,seek_support,0.9,synthetic,ann_001,2024-08-30T08:12:24Z
+intent_000969,I've been feeling angry and sad at the same time.,seek_support,general_chat,0.9,synthetic,ann_001,2025-03-16T12:09:12Z
+intent_000970,I was just thinking and wanted to chat.,general_chat,seek_support,0.85,synthetic,ann_004,2025-02-18T08:04:42Z
+intent_000971,I'd like to get an appointment as soon as there's availability.,book_appointment,,0.96,synthetic,ann_002,2024-07-25T17:04:29Z
+intent_000972,I just need someone to listen to me.,seek_support,book_appointment,0.88,synthetic,ann_004,2024-10-30T06:11:13Z
+intent_000973,I'd like to get an appointment booked.,book_appointment,seek_support,0.94,synthetic,ann_003,2024-11-24T10:50:25Z
+intent_000974,What is complex PTSD?,information_request,seek_support,0.88,synthetic,ann_003,2025-01-27T14:18:20Z
+intent_000975,What is the window of tolerance in trauma?,information_request,assessment_request,0.97,synthetic,ann_004,2025-02-06T08:48:07Z
+intent_000976,The waiting time is too long.,feedback_complaint,general_chat,0.93,synthetic,ann_002,2024-12-13T02:00:16Z
+intent_000977,I want to book an initial consultation.,book_appointment,,0.9,synthetic,ann_005,2024-07-24T11:24:41Z
+intent_000978,I need help making sense of everything I'm feeling.,seek_support,,0.88,synthetic,ann_002,2025-01-28T03:07:30Z
+intent_000979,"I feel like I'm not living, just surviving.",seek_support,,0.95,synthetic,ann_001,2024-11-23T12:59:45Z
+intent_000980,I'm in a very dark place and I'm not safe.,crisis_emergency,,0.95,synthetic,ann_004,2025-02-28T03:14:09Z
+intent_000981,I want to set up a meeting with a counselor.,book_appointment,,0.94,synthetic,ann_001,2024-11-22T16:19:01Z
+intent_000982,Kaise ho aap?,general_chat,,0.92,synthetic,ann_003,2024-11-10T00:55:00Z
+intent_000983,Can we talk about what I've been going through?,seek_support,,0.95,synthetic,ann_002,2024-08-14T12:04:45Z
+intent_000984,I was just thinking and wanted to chat.,general_chat,,0.88,synthetic,ann_003,2024-09-23T09:34:42Z
+intent_000985,I'd like to book a slot with a therapist.,book_appointment,seek_support,0.9,synthetic,ann_002,2024-07-03T02:41:25Z
+intent_000986,I'd like to arrange a therapy session.,book_appointment,,0.96,synthetic,ann_002,2025-03-20T23:40:03Z
+intent_000987,I've been having thoughts that it would be better if I wasn't here.,crisis_emergency,,0.97,synthetic,ann_001,2024-11-01T17:03:20Z
+intent_000988,I feel like I have nothing left to live for.,crisis_emergency,,0.95,synthetic,ann_002,2025-03-08T02:50:48Z
+intent_000989,I'd like to complete a standardized test.,assessment_request,information_request,0.93,synthetic,ann_004,2024-12-13T06:08:32Z
+intent_000990,Can I evaluate my burnout levels?,assessment_request,information_request,0.88,synthetic,ann_005,2024-12-15T01:23:41Z
+intent_000991,The chatbot doesn't understand me at all.,feedback_complaint,,0.95,synthetic,ann_002,2025-03-13T03:51:17Z
+intent_000992,I've been really emotional and I need to talk.,seek_support,general_chat,0.95,synthetic,ann_003,2024-07-04T01:56:36Z
+intent_000993,I'm not okay and I need help.,seek_support,general_chat,0.95,synthetic,ann_005,2024-09-25T21:03:22Z
+intent_000994,I want to start with an assessment.,assessment_request,,0.95,synthetic,ann_002,2024-09-23T00:12:17Z
+intent_000995,Can I book a session for Monday morning?,book_appointment,seek_support,0.98,synthetic,ann_005,2024-12-05T15:47:20Z
+intent_000996,I'm exhausted emotionally and I need support.,seek_support,book_appointment,0.9,synthetic,ann_003,2024-10-04T13:07:48Z
+intent_000997,"Main therapist se milna chahta hun, booking kaise hogi?",book_appointment,,0.94,synthetic,ann_002,2024-08-16T04:38:23Z
+intent_000998,Main jeena nahi chahta.,crisis_emergency,seek_support,0.9,synthetic,ann_001,2024-09-24T19:26:47Z
+intent_000999,I need to make an appointment as soon as possible.,book_appointment,seek_support,0.96,synthetic,ann_002,2025-03-05T01:05:21Z
+intent_001000,I feel like I'm not good enough no matter what I do.,seek_support,,0.9,synthetic,ann_003,2024-09-04T08:10:50Z
+intent_001001,The therapist cancelled without notice.,feedback_complaint,,0.93,synthetic,ann_004,2024-12-22T05:00:37Z
+intent_001002,I'm here for the first time.,general_chat,,0.85,synthetic,ann_004,2024-09-01T06:59:10Z
+intent_001003,I'm not getting the support I expected.,feedback_complaint,,0.9,synthetic,ann_001,2025-01-26T14:14:07Z
+intent_001004,Can you give me the PHQ-9 now?,assessment_request,,0.9,synthetic,ann_005,2024-07-15T02:26:03Z
+intent_001005,Just passing time and thought I'd chat.,general_chat,,0.85,synthetic,ann_002,2024-11-15T15:52:48Z
+intent_001006,Can you explain what mindfulness is?,information_request,assessment_request,0.9,synthetic,ann_005,2024-07-02T20:03:00Z
+intent_001007,I want to complete the full assessment battery.,assessment_request,,0.93,synthetic,ann_001,2024-06-11T22:20:56Z
+intent_001008,Can you assess my current mental health?,assessment_request,,0.88,synthetic,ann_003,2025-01-09T17:36:01Z
+intent_001009,The interface is very unintuitive.,feedback_complaint,,0.9,synthetic,ann_004,2024-06-10T16:11:51Z
+intent_001010,I feel like nobody understands what I'm going through.,seek_support,,0.97,synthetic,ann_001,2024-08-02T10:59:46Z
+intent_001011,I've been thinking that everyone would be better off without me.,crisis_emergency,,0.93,synthetic,ann_001,2025-03-03T08:02:25Z
+intent_001012,I need to rebook my cancelled appointment.,book_appointment,seek_support,0.94,synthetic,ann_004,2024-11-26T06:10:08Z
+intent_001013,I've been having a really hard time lately.,seek_support,,0.97,synthetic,ann_003,2024-07-15T17:27:34Z
+intent_001014,This is a terrible experience.,feedback_complaint,,0.95,synthetic,ann_003,2025-02-17T22:43:34Z
+intent_001015,What causes panic attacks?,information_request,,0.92,synthetic,ann_005,2024-12-29T09:42:37Z
+intent_001016,I've been struggling with my mental health and I need help.,seek_support,general_chat,0.85,synthetic,ann_005,2024-10-27T13:34:16Z
+intent_001017,What kind of support do you offer?,general_chat,,0.88,synthetic,ann_005,2024-07-10T23:23:51Z
+intent_001018,I feel like I have nothing left to live for.,crisis_emergency,,0.9,synthetic,ann_004,2024-07-29T02:46:03Z
+intent_001019,Let's do the PHQ-9 assessment.,assessment_request,seek_support,0.93,synthetic,ann_001,2025-03-21T00:55:05Z
+intent_001020,What are the early warning signs of a mental health problem?,information_request,assessment_request,0.97,synthetic,ann_001,2025-02-28T04:41:38Z
+intent_001021,Let's do the PHQ-9 assessment.,assessment_request,,0.97,synthetic,ann_005,2024-06-07T20:41:59Z
+intent_001022,I want to take the PHQ-9 test.,assessment_request,seek_support,0.9,synthetic,ann_004,2024-07-29T10:44:37Z
+intent_001023,I feel like I'm drowning in my own thoughts.,seek_support,,0.85,synthetic,ann_004,2024-06-01T15:45:49Z
+intent_001024,I've been neglecting myself and I need help getting back on track.,seek_support,,0.85,synthetic,ann_005,2025-02-11T11:25:53Z
+intent_001025,I feel disconnected from myself.,seek_support,,0.92,synthetic,ann_005,2024-12-24T01:08:53Z
+intent_001026,I need someone to talk to about what I've been going through.,seek_support,,0.92,synthetic,ann_001,2025-03-08T13:39:52Z
+intent_001027,I'm not ready to talk about anything deep yet.,general_chat,seek_support,0.88,synthetic,ann_005,2024-06-30T20:24:29Z
+intent_001028,I'm not impressed with the service so far.,feedback_complaint,general_chat,0.95,synthetic,ann_004,2024-12-14T00:04:39Z
+intent_001029,I'm not ready to talk about anything deep yet.,general_chat,,0.9,synthetic,ann_004,2025-01-24T02:08:16Z
+intent_001030,I'm at the edge and I don't know what will happen.,crisis_emergency,seek_support,0.93,synthetic,ann_005,2024-11-16T05:18:36Z
+intent_001031,How do antidepressants work?,information_request,,0.92,synthetic,ann_004,2024-10-20T00:56:29Z
+intent_001032,What is somatic therapy?,information_request,,0.92,synthetic,ann_001,2024-07-04T23:45:14Z
+intent_001033,Can we just chat for a bit?,general_chat,,0.85,synthetic,ann_002,2024-07-06T23:07:58Z
+intent_001034,How does therapy actually help people?,information_request,seek_support,0.97,synthetic,ann_002,2024-07-09T18:51:12Z
+intent_001035,Can I book a session for Monday morning?,book_appointment,,0.94,synthetic,ann_004,2024-10-21T02:47:00Z
+intent_001036,I'm struggling with loneliness more than ever.,seek_support,,0.97,synthetic,ann_002,2025-02-11T20:56:02Z
+intent_001037,I feel like there's a heavy fog over everything.,seek_support,,0.88,synthetic,ann_001,2025-03-25T03:47:01Z
+intent_001038,What kind of support do you offer?,general_chat,,0.85,synthetic,ann_003,2024-12-06T06:17:32Z
+intent_001039,Can we talk about something light today?,general_chat,,0.9,synthetic,ann_001,2024-09-14T10:32:21Z
+intent_001040,I need someone to help me figure out what I'm going through.,seek_support,book_appointment,0.85,synthetic,ann_004,2024-08-24T23:44:50Z
+intent_001041,What is attachment theory?,information_request,assessment_request,0.9,synthetic,ann_004,2024-10-07T05:55:04Z
+intent_001042,"Hello, testing testing!",general_chat,seek_support,0.88,synthetic,ann_001,2024-11-26T09:37:26Z
+intent_001043,"Therapist se milna hai, kaise book karein?",book_appointment,,0.9,synthetic,ann_002,2024-09-27T07:37:06Z
+intent_001044,I've been struggling with my self-worth lately.,seek_support,,0.85,synthetic,ann_005,2024-11-06T10:44:55Z
+intent_001045,How do I get started with booking a therapist?,book_appointment,,0.94,synthetic,ann_005,2024-12-06T00:53:08Z
+intent_001046,"I'm not sure why I'm here, just exploring.",general_chat,,0.9,synthetic,ann_005,2024-09-10T03:30:21Z
+intent_001047,I need to make an appointment for mental health support.,book_appointment,,0.94,synthetic,ann_005,2025-03-08T06:23:58Z
+intent_001048,I'm disappointed with the quality of support.,feedback_complaint,,0.95,synthetic,ann_001,2024-10-01T12:15:45Z
+intent_001049,I want to schedule a family therapy session.,book_appointment,seek_support,0.96,synthetic,ann_004,2024-07-25T01:14:36Z
+intent_001050,How does breathing affect anxiety?,information_request,,0.9,synthetic,ann_003,2025-01-04T03:07:55Z
+intent_001051,What is DBT therapy?,information_request,assessment_request,0.95,synthetic,ann_004,2025-01-25T10:34:26Z
+intent_001052,I'd like to do the PCL-5 screening.,assessment_request,,0.93,synthetic,ann_004,2024-10-23T19:02:17Z
+intent_001053,I want to take a mental wellness quiz.,assessment_request,information_request,0.9,synthetic,ann_003,2024-07-19T16:17:32Z
+intent_001054,What would you recommend I try first?,general_chat,,0.9,synthetic,ann_003,2024-07-25T23:24:18Z
+intent_001055,I've been neglecting myself and I need help getting back on track.,seek_support,,0.88,synthetic,ann_004,2024-12-27T03:56:05Z
+intent_001056,The video call quality was terrible.,feedback_complaint,,0.95,synthetic,ann_001,2024-09-08T05:01:32Z
+intent_001057,Can I start the mental health evaluation?,assessment_request,,0.88,synthetic,ann_003,2024-06-17T19:24:46Z
+intent_001058,Can I get an appointment for Friday?,book_appointment,,0.96,synthetic,ann_002,2024-11-08T09:04:01Z
+intent_001059,Good morning!,general_chat,,0.92,synthetic,ann_005,2025-03-12T23:38:50Z
+intent_001060,Can I evaluate my burnout levels?,assessment_request,seek_support,0.9,synthetic,ann_004,2024-07-04T21:46:35Z
+intent_001061,I feel so alone in all of this.,seek_support,book_appointment,0.97,synthetic,ann_003,2024-12-29T10:47:22Z
+intent_001062,I need to talk about my pain.,seek_support,book_appointment,0.92,synthetic,ann_004,2025-01-31T13:50:19Z
+intent_001063,Can I take a formal mental health assessment?,assessment_request,,0.93,synthetic,ann_004,2024-08-13T07:36:12Z
+intent_001064,I can't sleep because my mind won't stop racing.,seek_support,,0.92,synthetic,ann_003,2024-12-15T04:27:29Z
+intent_001065,"I want to see a therapist, how do I book?",book_appointment,,0.98,synthetic,ann_001,2025-01-18T19:44:24Z
+intent_001066,I feel completely hopeless and suicidal.,crisis_emergency,,0.97,synthetic,ann_005,2024-10-24T05:05:44Z
+intent_001067,Can I take the standard mental health screening?,assessment_request,information_request,0.95,synthetic,ann_001,2025-03-23T16:51:01Z
+intent_001068,What is bipolar disorder?,information_request,seek_support,0.9,synthetic,ann_003,2024-11-08T04:05:19Z
+intent_001069,Baat karte hain thodi der.,general_chat,,0.92,synthetic,ann_001,2024-09-14T21:19:17Z
+intent_001070,I'd like to take the clinical screening tests.,assessment_request,information_request,0.88,synthetic,ann_005,2025-03-20T07:00:22Z
+intent_001071,What is the DSM-5?,information_request,,0.92,synthetic,ann_005,2024-06-05T02:43:17Z
+intent_001072,I want to make a formal complaint.,feedback_complaint,,0.85,synthetic,ann_003,2025-01-18T08:54:43Z
+intent_001073,I'm scared of my own thoughts lately.,seek_support,,0.97,synthetic,ann_003,2024-07-13T01:51:31Z
+intent_001074,There was a technical error during my session.,feedback_complaint,,0.95,synthetic,ann_005,2024-07-05T04:24:43Z
+intent_001075,I've been struggling with my self-worth lately.,seek_support,,0.88,synthetic,ann_004,2024-08-22T09:06:01Z
+intent_001076,I think I need some support right now.,seek_support,book_appointment,0.88,synthetic,ann_003,2024-12-31T07:05:53Z
+intent_001077,I've been feeling really down and unmotivated.,seek_support,,0.88,synthetic,ann_004,2025-02-06T20:15:04Z
+intent_001078,I feel like I need to escape permanently.,crisis_emergency,,0.93,synthetic,ann_004,2024-09-28T17:38:10Z
+intent_001079,What services does Saathi AI offer?,information_request,,0.92,synthetic,ann_002,2024-06-17T15:00:12Z
+intent_001080,This platform is too expensive for what it offers.,feedback_complaint,,0.93,synthetic,ann_002,2025-03-23T22:39:41Z
+intent_001081,Is it possible to book a session today?,book_appointment,,0.94,synthetic,ann_001,2025-02-02T06:27:15Z
+intent_001082,The therapist I was matched with wasn't right for me.,feedback_complaint,general_chat,0.88,synthetic,ann_005,2024-07-28T08:27:00Z
+intent_001083,"Hello, how are you today?",general_chat,seek_support,0.88,synthetic,ann_004,2024-11-25T02:29:42Z
+intent_001084,Can we do the GAD-7 today?,assessment_request,seek_support,0.95,synthetic,ann_001,2024-10-27T23:41:22Z
+intent_001085,I've written a goodbye letter.,crisis_emergency,seek_support,0.97,synthetic,ann_003,2025-02-22T12:38:32Z
+intent_001086,Can anxiety be cured?,information_request,,0.9,synthetic,ann_005,2024-11-15T20:34:14Z
+intent_001087,I'm struggling with my anxiety more than ever.,seek_support,book_appointment,0.97,synthetic,ann_002,2024-12-11T13:11:46Z
+intent_001088,How does therapy actually help people?,information_request,seek_support,0.97,synthetic,ann_004,2025-01-19T18:25:01Z
+intent_001089,Sirf explore kar raha hun.,general_chat,,0.95,synthetic,ann_003,2024-11-28T13:31:14Z
+intent_001090,I feel like I need to escape permanently.,crisis_emergency,,0.9,synthetic,ann_005,2024-07-08T02:50:32Z
+intent_001091,Kya main apni anxiety test kar sakta hun?,assessment_request,,0.9,synthetic,ann_001,2024-07-29T05:44:58Z
+intent_001092,I'm frustrated with the lack of response.,feedback_complaint,,0.95,synthetic,ann_005,2024-09-04T15:10:39Z
+intent_001093,I've had a very bad experience with this platform.,feedback_complaint,,0.85,synthetic,ann_003,2024-08-05T17:34:24Z
+intent_001094,I'm not satisfied with my recent session.,feedback_complaint,general_chat,0.95,synthetic,ann_004,2024-08-13T17:42:41Z
+intent_001095,Can I get an appointment for Friday?,book_appointment,,0.98,synthetic,ann_004,2025-03-26T17:07:59Z
+intent_001096,Can I complete the intake assessment?,assessment_request,information_request,0.88,synthetic,ann_005,2025-03-20T11:12:07Z
+intent_001097,What is the DSM-5?,information_request,,0.97,synthetic,ann_001,2024-12-05T04:17:15Z
+intent_001098,I'm having thoughts of self-harm right now.,crisis_emergency,,0.99,synthetic,ann_004,2024-12-25T23:21:21Z
+intent_001099,This app is not working properly.,feedback_complaint,,0.88,synthetic,ann_002,2024-09-11T21:52:07Z
+intent_001100,I've been feeling so much pain and need someone to talk to.,seek_support,,0.97,synthetic,ann_003,2024-06-05T21:55:35Z
+intent_001101,I can't sleep because my mind won't stop racing.,seek_support,,0.88,synthetic,ann_002,2024-12-24T06:49:44Z
+intent_001102,What is the cycle of trauma?,information_request,seek_support,0.95,synthetic,ann_002,2024-08-09T13:45:14Z
+intent_001103,How do antidepressants work?,information_request,assessment_request,0.95,synthetic,ann_004,2024-12-04T00:48:03Z
+intent_001104,How do I get started with booking a therapist?,book_appointment,,0.92,synthetic,ann_003,2025-03-27T11:51:54Z
+intent_001105,I don't think I'll make it through the night.,crisis_emergency,,0.95,synthetic,ann_002,2024-07-29T05:26:32Z
+intent_001106,I'd like to complete an assessment form.,assessment_request,,0.88,synthetic,ann_003,2024-09-22T06:30:23Z
+intent_001107,Can I take the depression screening test?,assessment_request,seek_support,0.88,synthetic,ann_001,2024-12-06T01:34:57Z
+intent_001108,I'm here for the first time.,general_chat,,0.9,synthetic,ann_003,2024-09-13T23:37:19Z
+intent_001109,I need to schedule a follow-up appointment.,book_appointment,,0.92,synthetic,ann_005,2024-06-18T04:52:30Z
+intent_001110,How does cognitive behavioral therapy work?,information_request,seek_support,0.95,synthetic,ann_003,2024-10-20T18:46:24Z
+intent_001111,I feel worthless and like ending it all.,crisis_emergency,,0.9,synthetic,ann_005,2024-12-13T23:31:32Z
+intent_001112,What is DBT therapy?,information_request,,0.9,synthetic,ann_001,2024-09-19T00:14:12Z
+intent_001113,I wish there were more therapist options available.,feedback_complaint,,0.93,synthetic,ann_003,2025-03-09T07:53:22Z
+intent_001114,Can I complete the intake assessment?,assessment_request,information_request,0.95,synthetic,ann_004,2024-11-19T20:26:22Z
+intent_001115,This platform doesn't feel safe to use.,feedback_complaint,,0.95,synthetic,ann_005,2025-01-08T23:48:30Z
+intent_001116,I'd like to assess my current state of mind.,assessment_request,seek_support,0.9,synthetic,ann_003,2024-09-19T10:37:57Z
+intent_001117,I feel like I'm losing control of my life.,seek_support,book_appointment,0.92,synthetic,ann_003,2025-02-19T03:47:28Z
+intent_001118,I can't stop thinking about killing myself.,crisis_emergency,seek_support,0.9,synthetic,ann_002,2024-10-23T15:38:30Z
+intent_001119,I'm not okay and I need help.,seek_support,book_appointment,0.92,synthetic,ann_003,2025-02-14T09:25:23Z
+intent_001120,I'm thinking about ending my life.,crisis_emergency,,0.9,synthetic,ann_004,2024-12-23T14:39:59Z
+intent_001121,What is the difference between a psychologist and a psychiatrist?,information_request,seek_support,0.9,synthetic,ann_001,2024-12-17T19:52:20Z
+intent_001122,I've had a very bad experience with this platform.,feedback_complaint,,0.93,synthetic,ann_002,2025-01-07T02:02:34Z
+intent_001123,I feel worthless and like ending it all.,crisis_emergency,seek_support,0.9,synthetic,ann_004,2024-11-23T14:49:13Z
+intent_001124,I've been struggling with my mental health for a while now.,seek_support,,0.95,synthetic,ann_001,2025-03-17T14:06:14Z
+intent_001125,Can I schedule a session for sometime next week?,book_appointment,,0.96,synthetic,ann_005,2024-07-21T09:33:19Z
+intent_001126,I don't see any future for myself.,crisis_emergency,seek_support,0.99,synthetic,ann_004,2024-06-04T02:16:41Z
+intent_001127,How does cognitive behavioral therapy work?,information_request,seek_support,0.92,synthetic,ann_005,2024-07-02T23:30:54Z
+intent_001128,Can I start the mental health evaluation?,assessment_request,seek_support,0.88,synthetic,ann_005,2024-08-19T18:28:40Z
+intent_001129,I want to cancel and rebook my session.,book_appointment,,0.96,synthetic,ann_002,2025-02-22T00:34:38Z
+intent_001130,I'd like to get an appointment booked.,book_appointment,,0.92,synthetic,ann_005,2024-11-09T08:02:15Z
+intent_001131,I'd like to do a wellbeing assessment.,assessment_request,seek_support,0.9,synthetic,ann_005,2025-02-06T08:46:43Z
+intent_001132,I want to measure my anxiety levels with a test.,assessment_request,seek_support,0.97,synthetic,ann_003,2024-06-21T00:35:53Z
+intent_001133,I've been billed incorrectly.,feedback_complaint,,0.85,synthetic,ann_005,2024-07-13T10:54:06Z
+intent_001134,I need to book a therapy appointment.,book_appointment,,0.94,synthetic,ann_003,2024-11-02T03:20:34Z
+intent_001135,I'd like to get on the schedule this week.,book_appointment,,0.98,synthetic,ann_003,2024-12-15T00:31:06Z
+intent_001136,Can I schedule a session for sometime next week?,book_appointment,,0.96,synthetic,ann_001,2024-09-22T08:12:52Z
+intent_001137,What is a mental health crisis?,information_request,,0.9,synthetic,ann_005,2024-12-24T00:36:29Z
+intent_001138,I need help understanding why I feel this way.,seek_support,book_appointment,0.9,synthetic,ann_003,2024-10-24T13:46:19Z
+intent_001139,I'm scared of myself right now.,crisis_emergency,,0.97,synthetic,ann_004,2024-06-02T19:31:10Z
+intent_001140,The app doesn't work on my phone.,feedback_complaint,,0.9,synthetic,ann_002,2024-08-12T23:40:05Z
+intent_001141,Yaar bahut bura lag raha hai aaj.,seek_support,book_appointment,0.88,synthetic,ann_004,2024-12-19T13:05:36Z
+intent_001142,I want to assess my PTSD symptoms.,assessment_request,information_request,0.88,synthetic,ann_002,2024-09-29T14:26:52Z
+intent_001143,I want to stop existing.,crisis_emergency,,0.99,synthetic,ann_002,2025-02-04T09:56:24Z
+intent_001144,What would you recommend I try first?,general_chat,seek_support,0.92,synthetic,ann_002,2024-08-13T02:24:04Z
+intent_001145,I need help with the anxiety that's been consuming my life.,seek_support,,0.88,synthetic,ann_004,2025-02-24T15:55:25Z
+intent_001146,I need to make an appointment for mental health support.,book_appointment,,0.9,synthetic,ann_003,2024-11-06T18:54:57Z
+intent_001147,My mental health has been really suffering.,seek_support,,0.85,synthetic,ann_001,2024-07-04T03:39:12Z
+intent_001148,I want to kill myself.,crisis_emergency,,0.95,synthetic,ann_004,2024-06-05T10:12:53Z
+intent_001149,What qualifications do your therapists have?,information_request,assessment_request,0.9,synthetic,ann_004,2025-02-02T22:47:58Z
+intent_001150,I need help processing some really hard emotions.,seek_support,book_appointment,0.9,synthetic,ann_004,2024-09-03T16:58:19Z
+intent_001151,PHQ-9 test lena hai mujhe.,assessment_request,information_request,0.93,synthetic,ann_005,2024-07-03T23:42:51Z
+intent_001152,I've been feeling really hopeless about the future.,seek_support,,0.92,synthetic,ann_003,2025-03-10T22:31:55Z
+intent_001153,I've been hurting myself regularly and can't stop.,crisis_emergency,seek_support,0.97,synthetic,ann_005,2024-09-20T06:15:35Z
+intent_001154,Can I do a baseline mental health check?,assessment_request,seek_support,0.88,synthetic,ann_002,2024-12-13T19:26:25Z
+intent_001155,What are the signs of burnout?,information_request,,0.95,synthetic,ann_003,2024-09-06T11:14:51Z
+intent_001156,What does 'going to therapy' actually involve?,information_request,seek_support,0.95,synthetic,ann_004,2025-01-10T06:31:08Z
+intent_001157,Everything I try seems to fail and I feel defeated.,seek_support,,0.95,synthetic,ann_002,2024-06-28T02:40:37Z
+intent_001158,Mujhe kisi se baat karni hai.,seek_support,,0.97,synthetic,ann_004,2025-03-09T05:51:34Z
+intent_001159,I need to schedule a session to discuss my anxiety.,book_appointment,,0.9,synthetic,ann_003,2025-01-02T03:51:14Z
+intent_001160,I've heard about this app and wanted to try it.,general_chat,seek_support,0.95,synthetic,ann_003,2025-02-19T04:47:27Z
+intent_001161,My thoughts have been really negative and I can't stop them.,seek_support,,0.85,synthetic,ann_004,2024-06-06T09:43:52Z
+intent_001162,I don't think I'll make it through the night.,crisis_emergency,,0.9,synthetic,ann_002,2024-10-16T23:28:52Z
+intent_001163,What is the connection between exercise and mental health?,information_request,seek_support,0.97,synthetic,ann_003,2024-06-03T04:36:59Z
+intent_001164,Can we do the depression and anxiety tests?,assessment_request,information_request,0.97,synthetic,ann_005,2024-06-27T12:56:50Z
+intent_001165,I have a plan to kill myself.,crisis_emergency,,0.95,synthetic,ann_003,2024-10-06T02:39:56Z
+intent_001166,I've been struggling with my mental health for a while now.,seek_support,,0.97,synthetic,ann_001,2025-03-25T07:51:31Z
+intent_001167,I've been thinking about ways to end my life for weeks.,crisis_emergency,seek_support,0.9,synthetic,ann_003,2024-06-08T19:08:25Z
+intent_001168,I'm struggling with my anxiety more than ever.,seek_support,,0.97,synthetic,ann_002,2024-12-11T06:35:41Z
+intent_001169,This is a terrible experience.,feedback_complaint,,0.88,synthetic,ann_001,2024-06-13T08:33:26Z
+intent_001170,I'd like to take the PTSD screening.,assessment_request,,0.95,synthetic,ann_003,2024-12-02T19:01:20Z
+intent_001171,I need help dealing with my emotions.,seek_support,general_chat,0.9,synthetic,ann_004,2025-02-27T04:09:43Z
+intent_001172,How does trauma affect the brain?,information_request,,0.92,synthetic,ann_002,2025-02-16T16:55:41Z
+intent_001173,"I'm fine right now, just exploring the app.",general_chat,,0.95,synthetic,ann_001,2025-03-21T12:02:04Z
+intent_001174,Can I do the stress test?,assessment_request,,0.95,synthetic,ann_005,2025-02-14T14:13:17Z
+intent_001175,The chatbot doesn't understand me at all.,feedback_complaint,,0.93,synthetic,ann_004,2024-10-20T20:32:28Z
+intent_001176,I need support to deal with what I'm going through.,seek_support,,0.92,synthetic,ann_005,2024-10-07T14:32:25Z
+intent_001177,Can you tell me more about yourself?,general_chat,,0.92,synthetic,ann_004,2025-02-18T06:10:09Z
+intent_001178,What can I do here?,general_chat,,0.92,synthetic,ann_003,2024-08-23T22:34:10Z
+intent_001179,I don't want to live but I'm scared.,crisis_emergency,,0.9,synthetic,ann_003,2025-02-27T08:07:52Z
+intent_001180,I'm concerned about how my data is being used.,feedback_complaint,,0.93,synthetic,ann_003,2025-01-23T06:49:25Z
+intent_001181,Can I get an appointment today?,book_appointment,,0.92,synthetic,ann_002,2024-12-11T12:10:17Z
+intent_001182,Depression ka assessment karna hai.,assessment_request,,0.95,synthetic,ann_002,2025-01-02T20:33:37Z
+intent_001183,"Main bahut bura feeling kar raha hun, kuch kar lunga.",crisis_emergency,,0.9,synthetic,ann_004,2024-06-27T18:26:27Z
+intent_001184,I'd like to arrange a therapy session.,book_appointment,,0.96,synthetic,ann_005,2024-10-24T02:26:09Z
+intent_001185,My anxiety is stopping me from living my life.,seek_support,,0.95,synthetic,ann_002,2024-08-06T00:21:44Z
+intent_001186,I'm having thoughts of self-harm right now.,crisis_emergency,,0.99,synthetic,ann_003,2024-11-07T13:46:21Z
+intent_001187,I'm scared of my own thoughts lately.,seek_support,,0.85,synthetic,ann_001,2024-10-04T02:17:59Z
+intent_001188,I need to rebook my cancelled appointment.,book_appointment,,0.92,synthetic,ann_001,2024-06-11T01:31:47Z
+intent_001189,I've been very overwhelmed and need guidance.,seek_support,book_appointment,0.92,synthetic,ann_005,2024-11-06T11:54:56Z
+intent_001190,"Hi, I'm new here.",general_chat,seek_support,0.88,synthetic,ann_004,2025-01-31T22:12:13Z
+intent_001191,What is the difference between stress and anxiety?,information_request,assessment_request,0.9,synthetic,ann_001,2024-09-16T03:55:04Z
+intent_001192,What are the benefits of therapy?,information_request,,0.88,synthetic,ann_001,2024-08-02T21:56:40Z
+intent_001193,Your AI responses are generic and unhelpful.,feedback_complaint,general_chat,0.93,synthetic,ann_005,2025-03-04T18:14:02Z
+intent_001194,I don't want to live anymore.,crisis_emergency,,0.99,synthetic,ann_001,2024-08-07T11:20:58Z
+intent_001195,What is the fight-or-flight response?,information_request,seek_support,0.95,synthetic,ann_005,2025-01-19T22:40:11Z
+intent_001196,I've been crying myself to sleep and need support.,seek_support,,0.92,synthetic,ann_001,2024-11-16T08:43:51Z
+intent_001197,The therapist cancelled without notice.,feedback_complaint,,0.88,synthetic,ann_003,2025-03-08T00:14:25Z
+intent_001198,I feel like there is no point to anything.,seek_support,book_appointment,0.9,synthetic,ann_002,2024-07-19T21:41:44Z
+intent_001199,What does 'going to therapy' actually involve?,information_request,seek_support,0.97,synthetic,ann_001,2025-01-09T05:56:11Z
+intent_001200,How long does therapy usually take?,information_request,seek_support,0.97,synthetic,ann_003,2024-08-10T23:40:28Z
+intent_001201,I want to set up a video session.,book_appointment,,0.94,synthetic,ann_004,2024-06-29T08:09:28Z
+intent_001202,I'd like to track my mental health with assessments.,assessment_request,seek_support,0.93,synthetic,ann_003,2024-08-08T01:36:38Z
+intent_001203,What is the fight-or-flight response?,information_request,,0.95,synthetic,ann_005,2024-09-15T16:41:50Z
+intent_001204,I feel like crying but I don't even know why.,seek_support,general_chat,0.92,synthetic,ann_003,2025-03-25T20:00:30Z
+intent_001205,"I want to start regular sessions, how do I book?",book_appointment,,0.9,synthetic,ann_002,2024-12-19T10:28:40Z
+intent_001206,I want to make an appointment for this Thursday.,book_appointment,,0.96,synthetic,ann_001,2025-03-08T13:22:57Z
+intent_001207,I want to do the depression test today.,assessment_request,,0.95,synthetic,ann_001,2024-10-28T10:25:11Z
+intent_001208,I need to get an appointment booked urgently.,book_appointment,,0.96,synthetic,ann_005,2024-10-29T06:59:01Z
+intent_001209,I want to book a session for Thursday.,book_appointment,,0.9,synthetic,ann_003,2025-03-05T08:16:45Z
+intent_001210,I feel deeply unhappy and I don't know why.,seek_support,,0.95,synthetic,ann_005,2024-09-18T21:44:20Z
+intent_001211,What is emotional regulation?,information_request,assessment_request,0.9,synthetic,ann_004,2024-10-28T16:45:54Z
+intent_001212,I've been waiting for a response for too long.,feedback_complaint,,0.95,synthetic,ann_004,2025-03-13T12:16:54Z
+intent_001213,I need to get an appointment booked urgently.,book_appointment,,0.9,synthetic,ann_003,2025-02-15T08:43:04Z
+intent_001214,I'd like to check my anxiety levels.,assessment_request,,0.93,synthetic,ann_003,2024-07-08T05:13:55Z
+intent_001215,I'm thinking about jumping off a bridge.,crisis_emergency,,0.93,synthetic,ann_001,2024-12-22T10:51:20Z
+intent_001216,I'm ready to schedule my first appointment.,book_appointment,,0.94,synthetic,ann_003,2025-03-13T03:14:15Z
+intent_001217,What medications are used for depression?,information_request,seek_support,0.97,synthetic,ann_005,2024-08-02T13:49:56Z
+intent_001218,What are your capabilities?,general_chat,seek_support,0.95,synthetic,ann_003,2024-11-21T03:55:19Z
+intent_001219,This platform is too expensive for what it offers.,feedback_complaint,,0.93,synthetic,ann_001,2024-06-22T17:14:14Z
+intent_001220,I'm ready to schedule my first appointment.,book_appointment,,0.98,synthetic,ann_001,2025-03-10T10:07:11Z
+intent_001221,I'd like to get an appointment booked.,book_appointment,,0.9,synthetic,ann_005,2024-08-17T14:16:17Z
+intent_001222,I'd like to assess my current state of mind.,assessment_request,,0.93,synthetic,ann_003,2024-07-24T23:42:15Z
+intent_001223,How does journaling help mental health?,information_request,seek_support,0.95,synthetic,ann_004,2024-10-20T20:48:45Z
+intent_001224,I'm scared I will hurt myself tonight.,crisis_emergency,,0.93,synthetic,ann_003,2025-03-18T20:49:25Z
+intent_001225,I feel like there's no way out except death.,crisis_emergency,seek_support,0.9,synthetic,ann_004,2024-10-20T08:30:24Z
+intent_001226,The interface is very unintuitive.,feedback_complaint,,0.95,synthetic,ann_003,2024-06-20T01:30:40Z
+intent_001227,I need help working through some really painful feelings.,seek_support,,0.92,synthetic,ann_004,2025-03-11T08:28:53Z
+intent_001228,I think I need some support right now.,seek_support,,0.95,synthetic,ann_005,2025-02-15T11:58:04Z
+intent_001229,I want to see where I'm at with a proper evaluation.,assessment_request,seek_support,0.93,synthetic,ann_001,2024-10-10T02:36:23Z
+intent_001230,Mujhe kisi se baat karni hai.,seek_support,,0.88,synthetic,ann_005,2024-08-23T20:48:44Z
+intent_001231,I'm not ready to talk about anything deep yet.,general_chat,,0.85,synthetic,ann_004,2024-11-24T07:54:38Z
+intent_001232,I feel overwhelmed by my responsibilities and I'm burning out.,seek_support,,0.85,synthetic,ann_003,2025-02-19T09:26:56Z
+intent_001233,What is the Socratic method in therapy?,information_request,,0.9,synthetic,ann_002,2024-08-12T14:05:13Z
+intent_001234,I've been waiting for a response for too long.,feedback_complaint,general_chat,0.9,synthetic,ann_004,2024-11-30T23:48:43Z
+intent_001235,I want to check if I have anxiety.,assessment_request,seek_support,0.9,synthetic,ann_001,2024-12-04T05:26:01Z
+intent_001236,Bahut mushkil ho raha hai sambhalna.,seek_support,,0.92,synthetic,ann_003,2025-01-30T10:11:30Z
+intent_001237,Bas hello kehna tha.,general_chat,seek_support,0.92,synthetic,ann_005,2024-08-05T15:55:57Z
+intent_001238,What is complex PTSD?,information_request,seek_support,0.92,synthetic,ann_002,2024-08-29T00:22:08Z
+intent_001239,Khud ko hurt karna chahta hun.,crisis_emergency,seek_support,0.95,synthetic,ann_004,2024-11-28T14:39:15Z
+intent_001240,The interface is very unintuitive.,feedback_complaint,general_chat,0.93,synthetic,ann_003,2024-09-11T06:35:35Z
+intent_001241,Your onboarding process was very confusing.,feedback_complaint,general_chat,0.95,synthetic,ann_004,2024-08-13T13:53:56Z
+intent_001242,Can I see if there are any openings today?,book_appointment,,0.92,synthetic,ann_002,2025-01-13T13:09:40Z
+intent_001243,I want to take a self-assessment test.,assessment_request,,0.97,synthetic,ann_002,2024-12-25T05:54:46Z
+intent_001244,"I want to see a therapist, how do I book?",book_appointment,seek_support,0.96,synthetic,ann_005,2024-09-28T11:45:54Z
+intent_001245,I want to take a mental health assessment.,assessment_request,,0.9,synthetic,ann_005,2024-09-25T07:44:13Z
+intent_001246,I need someone to help me find my way through this.,seek_support,,0.97,synthetic,ann_004,2025-03-02T16:35:39Z
+intent_001247,The platform is hard to navigate.,feedback_complaint,,0.85,synthetic,ann_002,2025-01-14T08:46:05Z
+intent_001248,I've been having trouble concentrating because of how I feel.,seek_support,,0.9,synthetic,ann_003,2024-07-11T05:37:38Z
+intent_001249,I'm in danger right now.,crisis_emergency,seek_support,0.99,synthetic,ann_005,2024-08-13T18:08:15Z
+intent_001250,Can you explain what mindfulness is?,information_request,,0.95,synthetic,ann_002,2024-06-16T12:16:23Z
+intent_001251,I don't think I can keep myself safe.,crisis_emergency,,0.9,synthetic,ann_001,2024-11-27T00:47:02Z
+intent_001252,I feel like I want to end my suffering permanently.,crisis_emergency,,0.97,synthetic,ann_004,2024-11-04T15:53:59Z
+intent_001253,This is a terrible experience.,feedback_complaint,,0.88,synthetic,ann_005,2025-03-18T22:59:51Z
+intent_001254,I want to set up a consultation.,book_appointment,,0.98,synthetic,ann_005,2024-12-17T00:17:41Z
+intent_001255,I feel overwhelmed by my responsibilities and I'm burning out.,seek_support,,0.9,synthetic,ann_001,2024-07-13T02:23:05Z
+intent_001256,I feel like I need professional support but I'm not sure where to start.,seek_support,,0.9,synthetic,ann_003,2024-09-17T14:36:21Z
+intent_001257,I'm not sure what I need yet.,general_chat,,0.92,synthetic,ann_004,2024-07-23T17:31:18Z
+intent_001258,What do you like to talk about?,general_chat,,0.95,synthetic,ann_001,2024-10-12T10:04:56Z
+intent_001259,I feel like I need to escape permanently.,crisis_emergency,,0.97,synthetic,ann_005,2025-02-06T17:00:25Z
+intent_001260,I want to see where I'm at with a proper evaluation.,assessment_request,information_request,0.97,synthetic,ann_003,2024-10-01T19:17:41Z
+intent_001261,Can I set up my first therapy session?,book_appointment,,0.92,synthetic,ann_005,2025-02-05T06:05:51Z
+intent_001262,I'd like to assess my current state of mind.,assessment_request,seek_support,0.97,synthetic,ann_002,2025-03-25T15:45:40Z
+intent_001263,I want to do the depression test today.,assessment_request,,0.95,synthetic,ann_005,2025-03-15T07:57:28Z
+intent_001264,I need help processing some really hard emotions.,seek_support,general_chat,0.85,synthetic,ann_005,2025-03-24T21:07:45Z
+intent_001265,I've been matched with the wrong type of therapist.,feedback_complaint,,0.85,synthetic,ann_002,2024-09-22T01:59:18Z
+intent_001266,I feel like I'm at my breaking point.,seek_support,,0.92,synthetic,ann_003,2025-02-14T23:24:21Z
+intent_001267,I've been having a really hard time lately.,seek_support,,0.92,synthetic,ann_004,2024-09-20T22:23:04Z
+intent_001268,Can I schedule a session for sometime next week?,book_appointment,,0.98,synthetic,ann_005,2024-08-05T20:37:38Z
+intent_001269,Kaise ho aap?,general_chat,seek_support,0.9,synthetic,ann_002,2024-07-23T03:33:23Z
+intent_001270,Apni condition check karni hai test se.,assessment_request,seek_support,0.9,synthetic,ann_003,2024-10-14T11:46:02Z
+intent_001271,I feel like death is the only way out.,crisis_emergency,seek_support,0.93,synthetic,ann_002,2025-02-25T08:07:08Z
+intent_001272,I need to get an appointment booked urgently.,book_appointment,,0.96,synthetic,ann_004,2024-10-24T21:16:12Z
+intent_001273,What is bipolar disorder?,information_request,,0.88,synthetic,ann_003,2024-08-25T21:42:55Z
+intent_001274,I can't take this anymore and I'm thinking of a way out.,crisis_emergency,,0.9,synthetic,ann_004,2024-07-25T14:53:28Z
+intent_001275,I'm struggling to keep up with life right now.,seek_support,,0.88,synthetic,ann_001,2024-10-14T23:17:56Z
+intent_001276,What is motivational interviewing?,information_request,seek_support,0.88,synthetic,ann_001,2024-07-01T11:33:25Z
+intent_001277,I need to talk about some things that have been bothering me deeply.,seek_support,,0.97,synthetic,ann_004,2025-02-19T01:03:38Z
+intent_001278,I need support to deal with what I'm going through.,seek_support,,0.97,synthetic,ann_004,2025-03-01T21:12:00Z
+intent_001279,What is the difference between OCD and anxiety?,information_request,,0.92,synthetic,ann_004,2024-11-05T11:04:36Z
+intent_001280,Just wanted to say hi.,general_chat,,0.85,synthetic,ann_003,2024-12-24T21:32:54Z
+intent_001281,I feel completely trapped and want to die.,crisis_emergency,seek_support,0.97,synthetic,ann_003,2024-09-09T18:01:41Z
+intent_001282,I want to book a morning appointment.,book_appointment,,0.98,synthetic,ann_005,2025-01-18T07:28:30Z
+intent_001283,What is GAD-7?,information_request,,0.95,synthetic,ann_002,2025-02-12T00:57:41Z
+intent_001284,I'd like to complete an assessment form.,assessment_request,seek_support,0.95,synthetic,ann_003,2024-08-09T15:10:18Z
+intent_001285,Can I evaluate my current wellbeing?,assessment_request,information_request,0.9,synthetic,ann_001,2024-11-12T23:28:12Z
+intent_001286,Can I evaluate my burnout levels?,assessment_request,,0.97,synthetic,ann_002,2024-12-02T01:06:50Z
+intent_001287,I've been fantasizing about dying.,crisis_emergency,,0.97,synthetic,ann_003,2024-11-26T01:08:18Z
+intent_001288,I feel really vulnerable and could use some guidance.,seek_support,,0.92,synthetic,ann_001,2024-10-30T00:24:42Z
+intent_001289,I think I'm going through depression but I'm not sure.,seek_support,general_chat,0.95,synthetic,ann_005,2025-02-15T10:39:36Z
+intent_001290,Kya main apni anxiety test kar sakta hun?,assessment_request,,0.88,synthetic,ann_001,2024-08-08T16:32:24Z
+intent_001291,Can I reschedule my appointment?,book_appointment,,0.9,synthetic,ann_005,2024-12-04T14:06:26Z
+intent_001292,What is the cycle of trauma?,information_request,,0.97,synthetic,ann_002,2025-01-06T15:19:36Z
+intent_001293,How do I get started with booking a therapist?,book_appointment,seek_support,0.94,synthetic,ann_004,2025-02-10T18:06:09Z
+intent_001294,I'm scared of what I might do to myself.,crisis_emergency,seek_support,0.99,synthetic,ann_003,2024-07-17T08:53:50Z
+intent_001295,I'd like to make an appointment.,book_appointment,,0.92,synthetic,ann_003,2024-08-13T04:45:54Z
+intent_001296,I want to complete the full assessment battery.,assessment_request,seek_support,0.95,synthetic,ann_004,2025-01-07T14:36:15Z
+intent_001297,I want to arrange a session with a counselor.,book_appointment,,0.94,synthetic,ann_005,2024-11-19T14:15:08Z
+intent_001298,What is the difference between coaching and therapy?,information_request,,0.95,synthetic,ann_004,2025-01-21T15:39:16Z
+intent_001299,Can you assess my current mental health?,assessment_request,,0.95,synthetic,ann_005,2025-03-13T21:38:34Z
+intent_001300,I have overdosed before and I'm thinking of doing it again.,crisis_emergency,seek_support,0.99,synthetic,ann_002,2025-03-11T18:14:10Z
+intent_001301,Can we do the GAD-7 today?,assessment_request,,0.93,synthetic,ann_002,2025-02-07T12:26:38Z
+intent_001302,Main jeena nahi chahta.,crisis_emergency,,0.95,synthetic,ann_001,2024-10-09T02:35:17Z
+intent_001303,Can I get an appointment today?,book_appointment,,0.98,synthetic,ann_004,2025-01-13T02:54:27Z
+intent_001304,I want to book a session and need to know the available times.,book_appointment,seek_support,0.98,synthetic,ann_005,2024-09-01T22:16:13Z
+intent_001305,Can I book a session for Monday morning?,book_appointment,,0.92,synthetic,ann_002,2024-12-03T16:58:42Z
+intent_001306,I want to take a mental wellness quiz.,assessment_request,,0.95,synthetic,ann_005,2024-10-12T03:03:26Z
+intent_001307,My relationships are falling apart and I don't know how to cope.,seek_support,,0.9,synthetic,ann_002,2024-07-13T16:35:16Z
+intent_001308,Mujhe refund chahiye.,feedback_complaint,general_chat,0.85,synthetic,ann_005,2024-10-20T09:25:36Z
+intent_001309,What is the Socratic method in therapy?,information_request,,0.88,synthetic,ann_001,2024-09-11T04:11:42Z
+intent_001310,How does therapy actually help people?,information_request,,0.88,synthetic,ann_002,2024-06-17T18:08:03Z
+intent_001311,The waiting time is too long.,feedback_complaint,,0.95,synthetic,ann_001,2024-07-14T16:51:15Z
+intent_001312,I feel so alone in all of this.,seek_support,book_appointment,0.9,synthetic,ann_005,2025-02-13T19:33:58Z
+intent_001313,I've been feeling very stressed and anxious for weeks.,seek_support,general_chat,0.9,synthetic,ann_002,2025-01-18T10:57:05Z
+intent_001314,I just wanted to check in.,general_chat,,0.95,synthetic,ann_001,2024-06-02T14:18:24Z
+intent_001315,Is there a therapist available this weekend?,book_appointment,,0.9,synthetic,ann_001,2024-09-18T06:25:52Z
+intent_001316,Can I take a formal mental health assessment?,assessment_request,information_request,0.95,synthetic,ann_004,2025-02-25T22:12:55Z
+intent_001317,PHQ-9 test lena hai mujhe.,assessment_request,seek_support,0.95,synthetic,ann_002,2024-09-20T23:49:41Z
+intent_001318,I want to schedule a family therapy session.,book_appointment,seek_support,0.94,synthetic,ann_003,2025-03-01T10:06:28Z
+intent_001319,"I want to see someone about my mental health, how do I book?",book_appointment,seek_support,0.96,synthetic,ann_003,2025-01-27T20:36:36Z
+intent_001320,Can we keep things light today?,general_chat,,0.92,synthetic,ann_004,2024-10-16T23:42:12Z
+intent_001321,What is GAD-7?,information_request,,0.88,synthetic,ann_005,2025-02-02T01:16:20Z
+intent_001322,"Hi, I'm new here.",general_chat,seek_support,0.95,synthetic,ann_004,2024-06-05T14:34:17Z
+intent_001323,What is a mental health crisis?,information_request,,0.88,synthetic,ann_005,2025-03-27T05:31:39Z
+intent_001324,I need help dealing with my trauma.,seek_support,,0.95,synthetic,ann_005,2024-10-12T12:03:04Z
+intent_001325,Session book karna hai mujhe.,book_appointment,,0.96,synthetic,ann_003,2024-12-11T03:49:37Z
+intent_001326,"I want to see a therapist, how do I book?",book_appointment,,0.92,synthetic,ann_004,2024-10-02T22:34:43Z
+intent_001327,Can I take the standard mental health screening?,assessment_request,information_request,0.9,synthetic,ann_002,2024-07-16T09:44:54Z
+intent_001328,What is attachment theory?,information_request,,0.95,synthetic,ann_005,2024-12-05T19:45:26Z
+intent_001329,I feel so alone in all of this.,seek_support,,0.97,synthetic,ann_001,2024-10-06T14:27:11Z
+intent_001330,I'd like to set up fortnightly therapy sessions.,book_appointment,,0.94,synthetic,ann_004,2024-11-29T01:46:09Z
+intent_001331,"Hey, what can you help me with?",general_chat,,0.95,synthetic,ann_002,2024-07-14T01:09:03Z
+intent_001332,What can I do here?,general_chat,,0.85,synthetic,ann_005,2024-08-07T19:31:08Z
+intent_001333,Can we do the depression and anxiety tests?,assessment_request,seek_support,0.95,synthetic,ann_005,2025-02-19T10:17:29Z
+intent_001334,There was a technical error during my session.,feedback_complaint,,0.85,synthetic,ann_005,2024-07-26T05:46:09Z
+intent_001335,I need emotional support more than anything right now.,seek_support,,0.9,synthetic,ann_003,2024-12-27T18:35:01Z
+intent_001336,I feel like there is no point to anything.,seek_support,,0.92,synthetic,ann_002,2025-03-16T19:22:15Z
+intent_001337,Is there an appointment available this week?,book_appointment,,0.96,synthetic,ann_002,2024-09-08T00:43:54Z
+intent_001338,Let's just talk.,general_chat,seek_support,0.88,synthetic,ann_003,2024-07-15T10:50:53Z
+intent_001339,I need immediate help -- I'm not safe.,crisis_emergency,,0.9,synthetic,ann_002,2024-07-24T08:20:13Z
+intent_001340,What is motivational interviewing?,information_request,assessment_request,0.95,synthetic,ann_001,2024-11-14T09:58:56Z
+intent_001341,I'd like to make an appointment.,book_appointment,seek_support,0.92,synthetic,ann_001,2024-11-19T06:46:38Z
+intent_001342,I feel completely hopeless and suicidal.,crisis_emergency,,0.9,synthetic,ann_004,2024-06-25T19:00:16Z
+intent_001343,How do antidepressants work?,information_request,seek_support,0.88,synthetic,ann_002,2025-02-16T13:58:02Z
+intent_001344,I just want to feel better.,seek_support,,0.92,synthetic,ann_004,2024-10-03T23:10:56Z
+intent_001345,I want to book a session for Thursday.,book_appointment,,0.92,synthetic,ann_005,2025-02-04T01:21:21Z
+intent_001346,I've been thinking about ways to end my life for weeks.,crisis_emergency,,0.97,synthetic,ann_002,2024-10-03T23:24:43Z
+intent_001347,I've been thinking about suicide every day.,crisis_emergency,,0.97,synthetic,ann_003,2024-12-30T01:18:44Z
+intent_001348,Hi there!,general_chat,,0.88,synthetic,ann_003,2024-06-25T05:42:30Z
+intent_001349,I need to set up a regular appointment.,book_appointment,,0.98,synthetic,ann_005,2024-07-17T03:23:56Z
+intent_001350,"Main therapist se milna chahta hun, booking kaise hogi?",book_appointment,,0.94,synthetic,ann_004,2024-10-08T23:58:03Z
+intent_001351,I need someone to help me find my way through this.,seek_support,,0.9,synthetic,ann_001,2025-03-24T03:59:58Z
+intent_001352,How does trauma affect the brain?,information_request,,0.9,synthetic,ann_002,2025-03-14T19:42:37Z
+intent_001353,What are the stages of grief?,information_request,assessment_request,0.9,synthetic,ann_004,2025-02-27T14:03:18Z
+intent_001354,I've been having violent thoughts about myself.,crisis_emergency,seek_support,0.97,synthetic,ann_004,2025-02-08T02:47:55Z
+intent_001355,What is self-harm and why do people do it?,information_request,seek_support,0.9,synthetic,ann_004,2024-12-29T22:31:14Z
+intent_001356,Let's just talk.,general_chat,,0.95,synthetic,ann_003,2024-07-13T14:27:44Z
+intent_001357,I feel like I'm falling apart.,seek_support,,0.88,synthetic,ann_005,2024-06-24T07:03:47Z
+intent_001358,I want to take a self-assessment test.,assessment_request,seek_support,0.88,synthetic,ann_002,2024-09-16T03:58:21Z
+intent_001359,The scheduling system is very confusing.,feedback_complaint,,0.9,synthetic,ann_001,2025-03-11T19:27:01Z
+intent_001360,How do I schedule time with a counselor?,book_appointment,,0.98,synthetic,ann_004,2024-11-15T17:06:52Z
+intent_001361,Is there a therapist available this weekend?,book_appointment,,0.92,synthetic,ann_002,2024-10-04T07:24:58Z
+intent_001362,I'm struggling to find any joy in things I used to love.,seek_support,,0.85,synthetic,ann_001,2024-08-31T04:29:41Z
+intent_001363,I've been having a really tough week emotionally.,seek_support,,0.85,synthetic,ann_003,2025-03-09T23:17:08Z
+intent_001364,"I'm fine right now, just exploring the app.",general_chat,,0.92,synthetic,ann_005,2024-10-17T02:39:31Z
+intent_001365,Can you assess my current mental health?,assessment_request,information_request,0.93,synthetic,ann_005,2024-08-31T16:53:22Z
+intent_001366,I feel like ending everything.,crisis_emergency,,0.99,synthetic,ann_002,2025-02-07T09:04:19Z
+intent_001367,"Hello, testing testing!",general_chat,,0.9,synthetic,ann_003,2024-08-02T21:37:58Z
+intent_001368,"I want to see a therapist, how do I book?",book_appointment,,0.96,synthetic,ann_003,2024-09-05T07:57:59Z
+intent_001369,What is the difference between stress and anxiety?,information_request,assessment_request,0.95,synthetic,ann_003,2024-12-27T19:22:36Z
+intent_001370,I've been having a lot of self-doubt.,seek_support,general_chat,0.92,synthetic,ann_003,2024-09-17T04:46:07Z
+intent_001371,I feel like I'm always on edge.,seek_support,,0.9,synthetic,ann_003,2024-06-03T08:54:36Z
+intent_001372,Can I complete the GAD-7 questionnaire?,assessment_request,,0.88,synthetic,ann_001,2024-10-28T11:20:05Z
+intent_001373,Anxiety aur depression mein kya fark hai?,information_request,,0.97,synthetic,ann_004,2024-10-22T20:10:04Z
+intent_001374,Tell me about yourself.,general_chat,,0.88,synthetic,ann_005,2024-10-31T11:37:05Z
+intent_001375,I need to schedule a session to discuss my anxiety.,book_appointment,,0.98,synthetic,ann_003,2025-02-13T04:24:04Z
+intent_001376,Can I start the mental health evaluation?,assessment_request,,0.88,synthetic,ann_003,2025-01-14T06:32:10Z
+intent_001377,I'd like to do a wellbeing assessment.,assessment_request,,0.97,synthetic,ann_001,2024-09-24T04:25:08Z
+intent_001378,I feel completely alone even when I'm around people.,seek_support,,0.97,synthetic,ann_002,2024-08-14T09:17:28Z
+intent_001379,I'm not coping well at all.,seek_support,,0.97,synthetic,ann_005,2025-01-21T06:43:17Z
+intent_001380,What is the 5-4-3-2-1 grounding technique?,information_request,assessment_request,0.88,synthetic,ann_002,2024-12-01T04:16:13Z
+intent_001381,I feel completely worthless and like dying.,crisis_emergency,,0.97,synthetic,ann_002,2024-11-08T18:56:17Z
+intent_001382,This platform doesn't feel safe to use.,feedback_complaint,general_chat,0.88,synthetic,ann_002,2024-06-11T04:11:06Z
+intent_001383,"Hi, I wanted to check out this platform.",general_chat,,0.95,synthetic,ann_003,2024-06-13T23:53:14Z
+intent_001384,What is solution-focused therapy?,information_request,,0.92,synthetic,ann_004,2025-01-01T05:57:14Z
+intent_001385,I'm having a mental health crisis.,crisis_emergency,,0.93,synthetic,ann_001,2025-03-17T14:53:31Z
+intent_001386,I need support to get through this difficult time.,seek_support,general_chat,0.85,synthetic,ann_001,2024-08-04T10:30:44Z
+intent_001387,Your onboarding process was very confusing.,feedback_complaint,,0.93,synthetic,ann_001,2024-08-04T18:46:31Z
+intent_001388,"Therapist se milna hai, kaise book karein?",book_appointment,,0.98,synthetic,ann_002,2024-09-25T16:15:35Z
+intent_001389,I'd like to complete a standardized test.,assessment_request,seek_support,0.97,synthetic,ann_001,2024-12-23T09:08:03Z
+intent_001390,I've been feeling like a burden to everyone around me.,seek_support,,0.9,synthetic,ann_002,2025-01-22T18:15:21Z
+intent_001391,What is the difference between OCD and anxiety?,information_request,assessment_request,0.97,synthetic,ann_005,2024-11-05T08:07:36Z
+intent_001392,Khud ko hurt karna chahta hun.,crisis_emergency,seek_support,0.97,synthetic,ann_005,2025-03-08T09:52:58Z
+intent_001393,What is EMDR therapy?,information_request,,0.9,synthetic,ann_003,2024-08-22T05:31:52Z
+intent_001394,What is CBT?,information_request,,0.9,synthetic,ann_005,2024-09-17T20:16:27Z
+intent_001395,I can't access my previous sessions.,feedback_complaint,general_chat,0.95,synthetic,ann_003,2024-10-04T16:55:27Z
+intent_001396,Mujhe kisi se baat karni hai.,seek_support,,0.92,synthetic,ann_002,2024-11-25T09:33:30Z
+intent_001397,I've been thinking that everyone would be better off without me.,crisis_emergency,,0.99,synthetic,ann_001,2024-09-29T02:47:32Z
+intent_001398,I've been having a lot of dark thoughts.,seek_support,book_appointment,0.97,synthetic,ann_001,2025-03-20T21:57:46Z
+intent_001399,How does cognitive behavioral therapy work?,information_request,,0.95,synthetic,ann_004,2025-01-31T18:03:02Z
+intent_001400,I'd like to do a clinical assessment.,assessment_request,seek_support,0.97,synthetic,ann_002,2024-07-24T18:02:08Z
+intent_001401,I've been thinking that everyone would be better off without me.,crisis_emergency,seek_support,0.95,synthetic,ann_001,2024-06-09T12:14:34Z
+intent_001402,I wanted to introduce myself.,general_chat,,0.85,synthetic,ann_004,2025-03-05T20:00:51Z
+intent_001403,What is the fight-or-flight response?,information_request,seek_support,0.9,synthetic,ann_004,2025-01-20T08:13:21Z
+intent_001404,Can I make a booking for couples therapy?,book_appointment,,0.92,synthetic,ann_005,2025-03-07T20:47:03Z
+intent_001405,I want to set up a video session.,book_appointment,seek_support,0.9,synthetic,ann_004,2024-10-12T19:14:30Z
+intent_001406,Main jeena nahi chahta.,crisis_emergency,,0.93,synthetic,ann_003,2024-11-01T21:15:57Z
+intent_001407,I'd like to schedule a weekly session.,book_appointment,seek_support,0.9,synthetic,ann_004,2024-07-24T09:30:50Z
+intent_001408,I'd like to evaluate my anxiety symptoms.,assessment_request,,0.97,synthetic,ann_001,2024-10-01T22:07:38Z
+intent_001409,I've already taken some pills.,crisis_emergency,,0.9,synthetic,ann_005,2025-01-14T15:01:21Z
+intent_001410,Can I book therapy for this week?,book_appointment,,0.96,synthetic,ann_001,2025-03-09T12:02:03Z
+intent_001411,What is the difference between anxiety and depression?,information_request,seek_support,0.88,synthetic,ann_002,2024-08-07T11:53:16Z
+intent_001412,I've been having panic attacks and don't know how to cope.,seek_support,,0.85,synthetic,ann_003,2025-01-29T00:13:45Z
+intent_001413,I've been thinking about this for a long time and I'm ready.,crisis_emergency,seek_support,0.9,synthetic,ann_003,2025-03-04T04:01:35Z
+intent_001414,What are the benefits of therapy?,information_request,assessment_request,0.88,synthetic,ann_004,2025-02-12T01:59:04Z
+intent_001415,I want to set up a consultation.,book_appointment,,0.98,synthetic,ann_004,2024-10-23T22:28:57Z
+intent_001416,This app is not working properly.,feedback_complaint,,0.9,synthetic,ann_003,2024-07-12T21:37:15Z
+intent_001417,I've been carrying so much pain for so long.,seek_support,,0.88,synthetic,ann_005,2024-06-17T20:11:29Z
+intent_001418,Can I take the depression screening test?,assessment_request,,0.9,synthetic,ann_003,2024-06-12T04:03:29Z
+intent_001419,Can you give me a questionnaire about my depression?,assessment_request,information_request,0.93,synthetic,ann_002,2025-01-18T01:26:12Z
+intent_001420,Stress test lena hai mujhe aaj.,assessment_request,seek_support,0.88,synthetic,ann_004,2025-02-15T19:51:49Z
+intent_001421,I don't think I can keep myself safe.,crisis_emergency,,0.95,synthetic,ann_002,2024-06-11T02:55:28Z
+intent_001422,I've been thinking about ways to end my life for weeks.,crisis_emergency,,0.99,synthetic,ann_005,2024-09-27T21:11:58Z
+intent_001423,I can't find the settings to change my preferences.,feedback_complaint,general_chat,0.93,synthetic,ann_005,2024-12-08T06:35:55Z
+intent_001424,I need to rebook my cancelled appointment.,book_appointment,,0.9,synthetic,ann_002,2024-11-15T09:01:12Z
+intent_001425,I need to get an appointment booked urgently.,book_appointment,,0.92,synthetic,ann_002,2025-01-27T16:46:34Z
+intent_001426,I want to see where I'm at with a proper evaluation.,assessment_request,,0.93,synthetic,ann_005,2025-01-25T14:49:51Z
+intent_001427,I'd like to track my mental health with assessments.,assessment_request,seek_support,0.9,synthetic,ann_003,2025-01-12T03:40:27Z
+intent_001428,I feel really vulnerable and could use some guidance.,seek_support,,0.88,synthetic,ann_003,2024-06-18T16:14:13Z
+intent_001429,Can I evaluate my current wellbeing?,assessment_request,seek_support,0.93,synthetic,ann_001,2024-11-03T23:27:43Z
+intent_001430,I feel like I'm not myself anymore.,seek_support,,0.88,synthetic,ann_002,2024-07-20T00:27:53Z
+intent_001431,I just wanted to test the app.,general_chat,,0.85,synthetic,ann_005,2025-01-12T02:31:43Z
+intent_001432,I want to take an assessment for OCD symptoms.,assessment_request,,0.97,synthetic,ann_002,2025-03-20T12:05:08Z
+intent_001433,I'm struggling with trust issues after being hurt.,seek_support,,0.92,synthetic,ann_003,2025-03-19T23:04:03Z
+intent_001434,I've been having thoughts of suicide.,crisis_emergency,,0.97,synthetic,ann_005,2024-12-06T05:32:24Z
+intent_001435,I feel like the world would be better without me.,crisis_emergency,,0.95,synthetic,ann_003,2024-09-16T12:45:16Z
+intent_001436,What are the types of anxiety disorders?,information_request,,0.95,synthetic,ann_005,2024-10-12T05:53:26Z
+intent_001437,I've been thinking of ways to hurt myself.,crisis_emergency,seek_support,0.9,synthetic,ann_004,2024-07-22T09:15:24Z
+intent_001438,I need help processing some really hard emotions.,seek_support,book_appointment,0.92,synthetic,ann_004,2024-08-08T05:35:39Z
+intent_001439,I don't want to be here anymore.,crisis_emergency,,0.9,synthetic,ann_003,2025-03-04T15:20:01Z
+intent_001440,I need to schedule a session to discuss my anxiety.,book_appointment,,0.98,synthetic,ann_004,2025-02-18T22:25:23Z
+intent_001441,I'd like to evaluate my anxiety symptoms.,assessment_request,information_request,0.97,synthetic,ann_002,2024-08-13T04:10:18Z
+intent_001442,What qualifications do your therapists have?,information_request,seek_support,0.97,synthetic,ann_003,2024-09-01T02:17:49Z
+intent_001443,What is complex PTSD?,information_request,,0.9,synthetic,ann_003,2024-10-31T10:20:59Z
+intent_001444,I want to delete my account.,feedback_complaint,general_chat,0.88,synthetic,ann_003,2024-07-27T12:22:15Z
+intent_001445,I feel like hurting someone else too.,crisis_emergency,seek_support,0.93,synthetic,ann_003,2025-03-06T10:20:35Z
+intent_001446,I need to talk about my pain.,seek_support,,0.85,synthetic,ann_003,2024-08-24T09:06:00Z
+intent_001447,I want to complete the full assessment battery.,assessment_request,seek_support,0.95,synthetic,ann_001,2024-11-01T22:26:02Z
+intent_001448,I'm scared of what I might do to myself.,crisis_emergency,,0.95,synthetic,ann_005,2024-09-23T04:45:18Z
+intent_001449,The reminder emails are too frequent.,feedback_complaint,general_chat,0.85,synthetic,ann_003,2024-08-17T22:37:22Z
+intent_001450,I feel like my privacy is not being respected.,feedback_complaint,,0.93,synthetic,ann_005,2024-09-23T10:56:20Z
+intent_001451,Can we talk about what I've been going through?,seek_support,book_appointment,0.95,synthetic,ann_003,2024-11-30T07:05:47Z
+intent_001452,Can we talk about something light today?,general_chat,seek_support,0.95,synthetic,ann_001,2025-03-22T00:28:32Z
+intent_001453,Can you tell me how to book a session on here?,book_appointment,,0.9,synthetic,ann_001,2024-07-05T19:18:29Z
+intent_001454,What is interpersonal therapy?,information_request,assessment_request,0.92,synthetic,ann_005,2024-07-12T05:15:17Z
+intent_001455,What medications are used for depression?,information_request,,0.9,synthetic,ann_003,2024-11-24T02:38:53Z
+intent_001456,I've been having thoughts of suicide.,crisis_emergency,,0.93,synthetic,ann_001,2024-06-05T22:02:45Z
+intent_001457,I need to schedule a session to discuss my anxiety.,book_appointment,,0.9,synthetic,ann_001,2024-09-24T20:56:40Z
+intent_001458,I want to book a session and need to know the available times.,book_appointment,,0.92,synthetic,ann_005,2024-12-15T17:21:56Z
+intent_001459,I've been feeling really down and unmotivated.,seek_support,,0.95,synthetic,ann_001,2024-11-24T14:54:46Z
+intent_001460,I feel like my mind is working against me.,seek_support,,0.9,synthetic,ann_003,2024-07-17T14:20:06Z
+intent_001461,I need to get an appointment booked urgently.,book_appointment,,0.92,synthetic,ann_005,2024-08-24T09:05:44Z
+intent_001462,What are grounding techniques?,information_request,seek_support,0.88,synthetic,ann_005,2024-09-10T05:07:12Z
+intent_001463,GAD-7 questionnaire dena hai.,assessment_request,,0.95,synthetic,ann_002,2024-10-13T21:13:27Z
+intent_001464,I've been thinking about this for a long time and I'm ready.,crisis_emergency,,0.9,synthetic,ann_001,2025-02-09T19:41:30Z
+intent_001465,"Hello, how are you today?",general_chat,seek_support,0.92,synthetic,ann_004,2024-06-26T15:43:23Z
+intent_001466,I've planned how I would end my life.,crisis_emergency,,0.95,synthetic,ann_001,2024-06-29T19:35:52Z
+intent_001467,I'm going to hurt myself tonight.,crisis_emergency,,0.95,synthetic,ann_005,2024-06-11T22:54:15Z
+intent_001468,I've been feeling anxious and sad all the time.,seek_support,,0.9,synthetic,ann_004,2025-02-05T20:22:11Z
+intent_001469,Can we keep things light today?,general_chat,seek_support,0.92,synthetic,ann_005,2024-11-12T17:07:42Z
+intent_001470,Mujhe ek session schedule karna hai.,book_appointment,,0.9,synthetic,ann_001,2024-12-23T14:31:48Z
+intent_001471,I'd like to evaluate my anxiety symptoms.,assessment_request,,0.97,synthetic,ann_002,2024-06-08T05:23:43Z
+intent_001472,The app keeps crashing.,feedback_complaint,,0.9,synthetic,ann_003,2024-11-07T03:39:18Z
+intent_001473,I want to schedule my next appointment.,book_appointment,,0.96,synthetic,ann_003,2024-10-19T01:58:11Z
+intent_001474,I want a refund for my last session.,feedback_complaint,general_chat,0.85,synthetic,ann_003,2024-11-15T00:30:11Z
+intent_001475,I'm just looking around at the moment.,general_chat,,0.85,synthetic,ann_001,2024-12-02T14:26:14Z
+intent_001476,Can you give me the PHQ-9 now?,assessment_request,,0.9,synthetic,ann_001,2024-07-03T11:06:39Z
+intent_001477,I want to give feedback about my recent session.,feedback_complaint,general_chat,0.88,synthetic,ann_003,2024-07-03T01:22:34Z
+intent_001478,I've been feeling anxious and sad all the time.,seek_support,book_appointment,0.92,synthetic,ann_004,2024-10-19T14:26:52Z
+intent_001479,I want to make a formal complaint.,feedback_complaint,general_chat,0.85,synthetic,ann_002,2025-02-10T16:01:37Z
+intent_001480,I'm here for the first time.,general_chat,seek_support,0.95,synthetic,ann_005,2024-12-17T15:23:33Z
+intent_001481,I've been feeling really hopeless about the future.,seek_support,,0.97,synthetic,ann_002,2024-11-09T03:00:14Z
+intent_001482,Can I make a booking for couples therapy?,book_appointment,,0.9,synthetic,ann_002,2024-06-04T13:12:16Z
+intent_001483,I just need someone to listen to me.,seek_support,,0.97,synthetic,ann_004,2024-12-06T14:41:42Z
+intent_001484,Can I do a formal evaluation of my symptoms?,assessment_request,,0.97,synthetic,ann_003,2024-08-17T16:51:09Z
+intent_001485,What services does Saathi AI offer?,information_request,seek_support,0.9,synthetic,ann_005,2024-06-27T11:27:02Z
+intent_001486,I feel deeply sad and I don't know how to feel better.,seek_support,,0.95,synthetic,ann_001,2025-01-26T19:08:21Z
+intent_001487,Can I take a formal mental health assessment?,assessment_request,,0.93,synthetic,ann_003,2024-08-11T15:37:58Z
+intent_001488,Mujhe mental health evaluation chahiye.,assessment_request,information_request,0.95,synthetic,ann_003,2025-01-02T02:24:50Z
+intent_001489,I've been thinking about driving into traffic.,crisis_emergency,,0.93,synthetic,ann_005,2024-06-04T06:53:15Z
+intent_001490,What is DBT therapy?,information_request,,0.95,synthetic,ann_003,2024-06-07T13:26:06Z
+intent_001491,I feel like everything is falling apart around me.,seek_support,,0.85,synthetic,ann_002,2024-09-20T21:19:55Z
+intent_001492,I'm in a very dark place and I'm not safe.,crisis_emergency,,0.9,synthetic,ann_003,2024-09-10T00:55:48Z
+intent_001493,"Hello, testing testing!",general_chat,seek_support,0.95,synthetic,ann_003,2024-11-07T13:17:09Z
+intent_001494,I don't want to live but I'm scared.,crisis_emergency,,0.95,synthetic,ann_005,2025-01-05T21:11:35Z
+intent_001495,I feel overwhelmed by my responsibilities and I'm burning out.,seek_support,,0.9,synthetic,ann_003,2025-01-01T08:14:35Z
+intent_001496,I feel like my mind is working against me.,seek_support,general_chat,0.97,synthetic,ann_004,2024-07-10T20:11:10Z
+intent_001497,I feel numb and disconnected from everything.,seek_support,,0.95,synthetic,ann_005,2024-10-02T05:25:52Z
+intent_001498,What is bipolar disorder?,information_request,,0.92,synthetic,ann_005,2025-02-06T08:31:13Z
+intent_001499,Can I take a questionnaire about my mental health?,assessment_request,seek_support,0.97,synthetic,ann_001,2025-01-16T20:34:42Z
+intent_001500,I've been having a lot of self-doubt.,seek_support,,0.97,synthetic,ann_003,2025-01-26T04:43:09Z

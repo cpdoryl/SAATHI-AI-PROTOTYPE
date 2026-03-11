@@ -1,0 +1,76 @@
+text,sentiment_label,valence_score,therapeutic_relabeled,session_turn
+"I feel completely hopeless. Nothing I try makes any difference.",negative,-0.9,false,early
+"I dread waking up every morning. The day feels like a burden before it starts.",negative,-0.85,false,early
+"I've been crying without knowing why. It's been going on for weeks.",negative,-0.8,false,early
+"I can't concentrate on anything. My mind keeps going to dark places.",negative,-0.82,false,middle
+"I feel numb most of the time. Like my emotions are turned off.",negative,-0.75,false,early
+"Work is unbearable. I feel like I'm suffocating there.",negative,-0.78,false,early
+"My relationship is falling apart and I don't know how to fix it.",negative,-0.72,false,middle
+"I feel worthless. Like I don't contribute anything meaningful.",negative,-0.88,false,early
+"I can't sleep properly. I lie awake replaying all my mistakes.",negative,-0.7,false,early
+"I've stopped enjoying things I used to love. Everything feels grey.",negative,-0.83,false,middle
+"My anxiety is at an all-time high. Even small tasks feel enormous.",negative,-0.77,false,early
+"I feel like I'm failing my family every single day.",negative,-0.8,false,early
+"I've been isolating myself. I don't have the energy to interact with people.",negative,-0.73,false,middle
+"The loneliness is crushing. I feel invisible to everyone around me.",negative,-0.85,false,early
+"I lost my job and I feel completely lost. I don't know who I am without it.",negative,-0.82,false,early
+"My depression medication doesn't seem to be working. I feel worse.",negative,-0.87,false,middle
+"I've been having panic attacks twice a week. I'm scared to go outside.",negative,-0.79,false,early
+"My marriage is loveless. We live like roommates. I'm deeply unhappy.",negative,-0.81,false,early
+"I feel trapped in a life I didn't choose. There's no joy in anything.",negative,-0.89,false,middle
+"I've been crying since I found out about the miscarriage. I can't stop.",negative,-0.92,false,early
+"I'm exhausted from pretending to be okay at work.",negative,-0.74,false,middle
+"I hate looking in the mirror. I feel disgusting.",negative,-0.76,false,early
+"My intrusive thoughts are getting worse. I'm scared of my own mind.",negative,-0.84,false,middle
+"I've been having suicidal thoughts. Not a plan, but thoughts.",negative,-0.95,false,early
+"I feel like a burden to my family. They'd be better off without me.",negative,-0.91,false,early
+"I screamed into a pillow today. I don't know how much more I can take.",negative,-0.78,false,middle
+"My grief comes in waves. Today is a bad day.",negative,-0.83,false,middle
+"I feel angry all the time for no obvious reason. I snap at everyone.",negative,-0.71,false,early
+"I've been having nightmares about the accident. I wake up terrified.",negative,-0.86,false,early
+"I don't feel like myself anymore. I can't remember the last time I felt okay.",negative,-0.8,false,middle
+"I'm fine, don't worry about me.",negative,-0.4,true,early
+"Everything is great, honestly. Never been better.",negative,-0.3,true,early
+"I've been keeping myself very busy lately.",negative,-0.35,true,early
+"I'm managing. It's all under control.",negative,-0.2,true,middle
+"No complaints. Life goes on.",negative,-0.25,true,early
+"I shouldn't complain. Others have it worse.",negative,-0.45,true,early
+"I'm dealing with it. I always do.",negative,-0.3,true,early
+"Things could be worse, I suppose.",negative,-0.2,true,middle
+"I've been staying productive. That helps.",negative,-0.15,true,middle
+"I don't really talk about these things. I prefer to handle things myself.",negative,-0.35,true,early
+"I feel okay. Not great, not bad.",neutral,0.0,false,early
+"It's been a mixed week. Some good moments, some difficult ones.",neutral,0.05,false,middle
+"I'm not sure how I feel right now. Kind of in between.",neutral,0.0,false,early
+"Things are what they are. I'm taking it day by day.",neutral,-0.05,false,middle
+"I've had better weeks but I've also had worse.",neutral,0.02,false,middle
+"My mood has been stable. Nothing dramatic either way.",neutral,0.0,false,middle
+"I completed the exercises. I haven't noticed a big difference yet.",neutral,0.0,false,middle
+"I'm attending the sessions because my company recommended it.",neutral,-0.1,false,early
+"I'm not sure if therapy is working yet. It's only been a few sessions.",neutral,0.0,false,middle
+"I feel fairly neutral today. I wanted to check in.",neutral,0.0,false,early
+"I've been okay. No major crises, but no real progress either.",neutral,-0.05,false,middle
+"I understand what you're saying but I'm not sure how to apply it.",neutral,0.0,false,middle
+"My energy levels are moderate. I've been eating and sleeping normally.",neutral,0.05,false,middle
+"I'm cautiously optimistic. Things seem slightly better.",neutral,0.15,false,late
+"I don't feel worse than before, but I'm not sure I feel better either.",neutral,-0.05,false,middle
+"I feel a lot better this week. The journaling is making a difference.",positive,0.72,false,late
+"I finally talked to my manager and it went surprisingly well.",positive,0.68,false,late
+"I had a really good therapy session. I feel lighter.",positive,0.75,false,late
+"I completed 30 days of meditation. I feel genuinely more grounded.",positive,0.80,false,late
+"Things at home are improving. My partner and I communicated better this week.",positive,0.70,false,late
+"I got the promotion. It's a relief after all the hard work.",positive,0.82,false,late
+"I spoke to my parents about my feelings. They listened. It was healing.",positive,0.73,false,late
+"My anxiety has reduced significantly since starting medication.",positive,0.65,false,late
+"I feel proud of myself for asking for help. That was hard.",positive,0.70,false,late
+"I slept 8 hours last night. It's been months since that happened.",positive,0.68,false,late
+"I'm starting to feel like myself again. Slowly, but surely.",positive,0.72,false,late
+"I signed up for the exercise class I've been putting off for a year.",positive,0.60,false,late
+"I feel hopeful for the first time in a long time.",positive,0.75,false,late
+"I set a boundary at work and my manager actually respected it.",positive,0.65,false,late
+"My relationship is stronger after the couples counselling.",positive,0.78,false,late
+"I passed my exam. The hard work paid off.",positive,0.82,false,late
+"I'm not fully healed but I can see the path forward now.",positive,0.58,false,late
+"I'm grateful for this platform. It has genuinely helped me.",positive,0.70,false,late
+"I took a real holiday for the first time in 3 years. No emails. I feel restored.",positive,0.85,false,late
+"I opened up to a colleague today. It felt good to not be alone in this.",positive,0.65,false,late

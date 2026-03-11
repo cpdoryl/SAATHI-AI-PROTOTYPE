@@ -1,0 +1,202 @@
+[
+  {
+    "id": "rag_001",
+    "title": "Cognitive Restructuring — The Thought Record Technique",
+    "content": "Cognitive restructuring is a core CBT technique used to identify and challenge unhelpful thought patterns. The 5-column thought record is the most widely used format: (1) Situation — describe the event that triggered the distress; (2) Automatic Thought — the immediate thought that came to mind; (3) Emotion — the feeling and its intensity (0–100%); (4) Evidence For and Against — examine what supports and contradicts the thought; (5) Balanced Thought — a more realistic, nuanced alternative.\n\nExample: Situation: 'Made a mistake in the client report.' Automatic Thought: 'I'm incompetent.' Emotion: Shame (80%). Evidence For: I made an error. Evidence Against: I've delivered 50+ error-free reports; everyone makes mistakes; my manager has not questioned my competence. Balanced Thought: 'I made one mistake in many good reports. This doesn't define my competence.'\n\nResearch shows that regular practice of thought records reduces depressive and anxious cognitions over time (Beck et al., 1979). Therapists recommend daily use for 3–4 weeks to see meaningful change. The technique helps create distance between the self and thoughts — a process called cognitive defusion in ACT.",
+    "category": "cbt_techniques",
+    "tags": ["thought_record", "cognitive_restructuring", "automatic_thoughts", "CBT", "depression", "anxiety"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_002",
+    "title": "DBT TIPP Skill — Emergency Emotional Regulation",
+    "content": "TIPP is a DBT (Dialectical Behaviour Therapy) crisis survival skill designed to rapidly reduce extreme emotional arousal. It is used when emotions reach a 7+ on a 0–10 scale and the person is unable to use other skills. TIPP stands for:\n\nT — Temperature: Cold water activates the diving reflex, slowing heart rate and reducing emotional intensity within seconds. Submerge your face in cold water, or hold ice cubes for 30 seconds. This is physiologically grounded and very effective.\n\nI — Intense Exercise: 10–20 minutes of vigorous physical activity burns off the adrenaline fueling emotional intensity. Running, jumping jacks, or stairs work well.\n\nP — Paced Breathing: Slow your exhale to longer than your inhale. Inhale for 4 counts, exhale for 6–8 counts. This activates the parasympathetic nervous system (rest-and-digest response).\n\nP — Progressive Muscle Relaxation: Tense each muscle group for 5 seconds then release, moving from feet to face. The contrast between tension and release signals safety to the nervous system.\n\nTIPP should be used before attempting any interpersonal problem-solving or CBT techniques — when emotional intensity is extreme, the prefrontal cortex cannot function effectively.",
+    "category": "dbt_skills",
+    "tags": ["TIPP", "emotional_regulation", "DBT", "crisis_skill", "temperature", "paced_breathing"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_003",
+    "title": "DBT DEAR MAN — Asking for What You Need",
+    "content": "DEAR MAN is a DBT interpersonal effectiveness skill for assertively asking for what you need or saying no without damaging relationships. It is particularly useful in the workplace and in family contexts. The acronym stands for:\n\nD — Describe: State the facts of the situation objectively. 'In the last two months, I have taken on three additional projects.'\nE — Express: Express your feelings using 'I' statements. 'I feel overwhelmed and undervalued.'\nA — Assert: Clearly state what you want. 'I need to discuss reallocating one of these projects.'\nR — Reinforce: Explain why meeting your request benefits the other person. 'If my workload is more manageable, I can give higher quality work to each project.'\nM — stay Mindful: Stay focused on your request regardless of distractions or pushback. Return to your ask if the conversation drifts.\nA — Appear confident: Use confident body language, eye contact, steady voice — even if you don't feel confident internally.\nN — Negotiate: Be willing to find a middle ground. Offer alternatives.\n\nIn Indian workplace contexts, DEAR MAN is particularly useful for navigating hierarchical structures where direct requests to managers feel culturally uncomfortable. Framing requests in terms of team benefit (the Reinforce step) is especially effective in high power-distance cultures.",
+    "category": "dbt_skills",
+    "tags": ["DEAR_MAN", "assertiveness", "DBT", "interpersonal_effectiveness", "communication", "workplace"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_004",
+    "title": "5-4-3-2-1 Grounding Technique for Anxiety and Dissociation",
+    "content": "The 5-4-3-2-1 grounding technique is a mindfulness-based sensory awareness exercise that anchors attention to the present moment. It is highly effective for anxiety, panic attacks, and dissociative episodes. It requires no equipment and takes 3–5 minutes.\n\nThe technique uses five senses in descending order:\n5 — Name 5 things you can SEE right now (lamp, hands, coffee, window, plant)\n4 — Name 4 things you can physically FEEL (chair supporting your back, cold air, fabric of clothing, feet on floor)\n3 — Name 3 things you can HEAR (traffic, computer fan, own breathing)\n2 — Name 2 things you can SMELL (even faint: coffee, air, soap)\n1 — Name 1 thing you can TASTE\n\nThe mechanism: chronic anxiety keeps the brain in default mode network activity (rumination about past/future). Sensory attention redirects neural resources to the sensory cortex, interrupting the ruminative loop. The descending number reduces cognitive load progressively.\n\nClinical use: recommend daily practice during low-anxiety periods to build familiarity; then use during acute episodes. Research by Steil & Ehlers (2000) and others supports sensory grounding for trauma-related dissociation. Particularly effective for PTSD clients during flashbacks.",
+    "category": "mindfulness",
+    "tags": ["grounding", "5-4-3-2-1", "anxiety", "dissociation", "PTSD", "panic", "mindfulness"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_005",
+    "title": "Understanding Depression — Psychoeducation for Clients",
+    "content": "Depression is not a character flaw, weakness, or the result of 'not trying hard enough.' It is a medical condition involving changes in brain chemistry, particularly the regulation of serotonin, dopamine, and norepinephrine. It affects approximately 280 million people globally (WHO, 2023).\n\nKey facts clients find helpful:\n1. Depression affects the reward system — this is why activities that used to bring pleasure feel flat. The brain's ability to anticipate and experience reward is dampened, not deleted. It can be restored.\n2. Depression often has a cognitive component — negative thought patterns (cognitive distortions like catastrophising, all-or-nothing thinking, mind-reading) both result from and reinforce depression. This is why CBT is effective.\n3. Withdrawal makes it worse — the instinct to stay in bed and avoid activities deepens depression because it further reduces the brain's exposure to potential reward. Behavioural activation (small, achievable activities) is evidence-based.\n4. Recovery is non-linear — good days and bad days are both part of the process. A bad day after several good ones is not relapse; it's the normal trajectory of recovery.\n5. Help works — 60–80% of people with depression respond to treatment (therapy, medication, or both). Untreated depression has worse outcomes and higher recurrence rates.\n\nIndia context: Depression remains heavily stigmatised in India. Many patients present with somatic complaints (headaches, body pain, fatigue) rather than mood symptoms. Families may attribute depression to laziness or weakness. Psychoeducation for family members alongside the client improves outcomes.",
+    "category": "psychoeducation",
+    "tags": ["depression", "psychoeducation", "stigma", "reward_system", "behavioural_activation", "india"],
+    "source": "psychoeducation",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_006",
+    "title": "India Crisis Helplines and Mental Health Resources",
+    "content": "The following crisis and mental health support resources are available in India. All are free and confidential unless otherwise noted.\n\nCRISIS LINES (IMMEDIATE SUPPORT):\n• iCall (Tata Institute of Social Sciences): 9152987821 | Mon–Sat, 8am–10pm | English, Hindi | Trained counsellors | Free\n• Vandrevala Foundation: 1860-2662-345 | 24 hours, 7 days | English, Hindi, Marathi, Telugu, Kannada | Free\n• AASRA: 9820466627 | 24 hours | English, Hindi | Suicide prevention focus | Free\n• SNEHI: 044-24640050 | Monday–Saturday | Chennai-based | Free\n• iCall WhatsApp: Available through TISS website\n\nGOVERNMENT SERVICES:\n• NIMHANS (National Institute of Mental Health): 080-46110007 | Bengaluru | Specialist referrals\n• KIRAN Mental Health Helpline: 1800-599-0019 | Government of India | 24×7 | 13 languages | Toll-free\n• VANDREVALA Foundation: Also has an online chat option\n\nFOR DOMESTIC VIOLENCE:\n• iCall covers DV support\n• NCW Helpline: 7827170170 | National Commission for Women\n• Women Helpline: 1091 | National Women's Helpline\n\nNOTE FOR SAFE MESSAGING: When sharing crisis resources, always provide multiple options (not just one), validate that help is available, and avoid implying that calling a helpline will 'fix' the problem. Frame it as: 'You don't have to face this alone right now.'",
+    "category": "crisis_resources",
+    "tags": ["crisis", "helpline", "india", "suicide_prevention", "iCall", "Vandrevala", "AASRA", "KIRAN", "domestic_violence"],
+    "source": "india_specific",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_007",
+    "title": "Indian Corporate Burnout — Context and Statistics",
+    "content": "Burnout in Indian workplaces has reached significant proportions, particularly in IT/ITES, finance, consulting, and startup sectors. Key contextual factors unique to India:\n\nSTATISTICS:\n• India has the second-highest burnout rate globally among software professionals (Blind survey, 2023)\n• 74% of Indian IT professionals reported experiencing burnout in the past year (Deloitte India, 2022)\n• Average working hours in Indian IT sectors: 55–65 hours/week vs. ILO recommended 40 hours\n• The average age of first burnout presentation in Indian therapy practices: 28–32 years\n\nINDIA-SPECIFIC BURNOUT FACTORS:\n1. Dual performance demands: High-pressure work roles combined with significant family obligations (supporting parents, contributing to extended family)\n2. Long-distance family separation: A large proportion of working professionals live far from family; urban loneliness is a significant risk factor\n3. Cultural prohibition on rest: Taking time off is perceived as laziness in many corporate cultures and family systems\n4. Promotions as the only recognised health: Ambition and achievement are culturally coded as wellness; slowing down is stigmatised\n5. Lack of pension/job security: For first-generation corporate employees, job loss triggers family-system catastrophising, intensifying workplace fear\n\nIMPACT ON THERAPY: Indian clients often present burnout through somatic symptoms or performance anxiety before acknowledging psychological distress. The therapeutic relationship must earn trust before deeper emotional disclosure becomes possible. Normalising rest as productivity is often the first necessary reframe.",
+    "category": "india_mental_health",
+    "tags": ["burnout", "india", "IT_sector", "workplace_stress", "first_generation", "statistics"],
+    "source": "india_specific",
+    "evidence_level": "B",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_008",
+    "title": "Understanding the PHQ-9 Depression Screening Tool",
+    "content": "The Patient Health Questionnaire-9 (PHQ-9) is a validated, widely-used depression screening and severity measurement tool. It was developed by Spitzer, Kroenke, and Williams (1999) and is available in the public domain.\n\nWHAT IT MEASURES: The PHQ-9 maps directly onto the 9 DSM-5 criteria for Major Depressive Disorder. Each item is rated 0–3 (Not at all / Several days / More than half the days / Nearly every day). Total score: 0–27.\n\nSCORE INTERPRETATION:\n• 0–4: No/minimal depression\n• 5–9: Mild depression\n• 10–14: Moderate depression\n• 15–19: Moderately severe depression\n• 20–27: Severe depression\n\nCLINICAL SIGNIFICANCE:\n• Score ≥10 is a clinical cut-point for probable Major Depressive Disorder (Sensitivity 88%, Specificity 88% — Kroenke et al., 2001)\n• Item 9 (thoughts of death/self-harm) should always be reviewed individually regardless of total score\n• PHQ-9 score change of ≥5 points is clinically meaningful (MCID)\n\nINDIA VALIDATION: PHQ-9 has been validated in Indian populations (Ganguli et al., 2010; Patel et al., 2008). Hindi and 12 other Indian language versions are available through the MacArthur Initiative.\n\nHOW TO EXPLAIN TO CLIENTS: 'This is a questionnaire used by clinicians worldwide to understand the kind of difficulties you've been experiencing. There are no right or wrong answers. Your honest responses give us the most useful picture.'",
+    "category": "assessment_explanations",
+    "tags": ["PHQ-9", "depression_screening", "scoring", "clinical_cutpoint", "india_validation"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_009",
+    "title": "Mindful Breathing — Box Breathing and 4-7-8 Technique",
+    "content": "Mindful breathing techniques are among the most evidence-based and immediately accessible tools for anxiety and stress regulation. Two protocols are particularly useful in clinical and workplace settings:\n\nBOX BREATHING (Used by military, surgeons, and elite athletes):\n• Inhale slowly for 4 counts\n• Hold for 4 counts\n• Exhale slowly for 4 counts\n• Hold empty for 4 counts\n• Repeat 4 cycles\nMechanism: Creates rhythmic heart rate variability (HRV), activating the prefrontal cortex and reducing amygdala reactivity. 4 minutes of box breathing produces measurable cortisol reduction.\n\n4-7-8 BREATHING (Dr. Andrew Weil; based on pranayama):\n• Inhale through nose for 4 counts\n• Hold breath for 7 counts\n• Exhale through mouth with a whoosh for 8 counts\n• Repeat 4 cycles\nMechanism: The extended exhale activates the parasympathetic nervous system via the vagus nerve. Particularly effective before sleep.\n\nCLINICAL USE:\n• Box breathing: daytime, pre-meeting, pre-presentation anxiety\n• 4-7-8: sleep onset anxiety, post-conflict deescalation\n• Both: daily practice for 10+ minutes produces long-term HRV improvement\n\nINDIAN CONTEXT: Both techniques can be framed within the context of pranayama (yogic breathing), which many Indian clients are already familiar with. This framing reduces resistance and increases engagement.",
+    "category": "mindfulness",
+    "tags": ["breathing", "box_breathing", "4-7-8", "anxiety", "HRV", "vagus_nerve", "pranayama"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_010",
+    "title": "Sleep Hygiene — Evidence-Based Practices for Insomnia",
+    "content": "Sleep disturbance is both a symptom and driver of mental health conditions including depression and anxiety. Sleep hygiene refers to behavioural and environmental practices that improve sleep quality. Evidence-based recommendations:\n\nSLEEP ENVIRONMENT:\n• Keep bedroom cool (18–20°C optimal)\n• Eliminate light sources completely or use a sleep mask\n• Silence or white noise — avoid notifications\n• Reserve the bed for sleep and sex only (stimulus control therapy)\n\nDAYTIME BEHAVIOURS:\n• Consistent wake time regardless of sleep quality (most important sleep hygiene factor)\n• Limit caffeine after 2pm (caffeine half-life is 5–7 hours)\n• Exercise — even 30 minutes of walking improves sleep quality; avoid vigorous exercise within 3 hours of bedtime\n• Limit alcohol — alcohol fragments sleep architecture; reduces REM sleep\n\nPRE-SLEEP ROUTINE:\n• Wind-down period of 30–60 minutes: dim lights, no screens, calming activity\n• Worry journaling: write down tomorrow's concerns + one action step for each — offloads rumination from the brain\n• Progressive muscle relaxation or 4-7-8 breathing at bedtime\n\nCOGNITIVE COMPONENT (CBT-I):\n• Sleep restriction therapy: temporarily restrict sleep to increase sleep efficiency\n• Cognitive restructuring of sleep-related beliefs: 'If I don't get 8 hours I'll be useless tomorrow'\n• Stimulus control: break the bed-anxiety association\n\nIndia-specific context: Many Indian professionals report working past midnight on calls with US/UK counterparts, fundamentally disrupting circadian rhythm. Blue-light exposure from mobile screens in bed is near-universal. Naps longer than 20 minutes during the day are common and counter-productive for insomnia.",
+    "category": "sleep_hygiene",
+    "tags": ["sleep", "insomnia", "CBT-I", "sleep_restriction", "sleep_hygiene", "circadian"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_011",
+    "title": "ACT — Values Clarification Exercise",
+    "content": "Acceptance and Commitment Therapy (ACT) places values — what you stand for, not what you want to achieve — at the centre of psychological wellbeing. Unlike goals (which can be completed), values are ongoing directions: you never 'finish' being a caring parent; you simply move toward or away from that value each day.\n\nVALUES CLARIFICATION EXERCISE:\nStep 1: Identify key life domains: Relationships, Family, Work/Career, Personal Growth, Health, Community, Spirituality\n\nStep 2: For each domain, answer: 'What kind of person do I want to be in this area? What qualities do I want to bring?'\n\nStep 3: Distinguish values from goals:\n• Goal: 'Get promoted to Director by 40'\n• Value: 'I want to lead with integrity and develop the people around me'\n\nStep 4: Rate current alignment — 0 (completely disconnected) to 10 (living fully aligned with this value)\n\nStep 5: Identify one small committed action this week that moves you toward a value where alignment is low\n\nCOMMON PITFALLS:\n• Confusing other people's values with your own (internalised parental expectations, cultural scripts)\n• Treating values as fixed — values can evolve\n• Paralysis from values conflict (career vs. family)\n\nINDIAN CONTEXT: In collectivist culture, individual values are often subsumed under family values. A useful therapeutic question: 'If you could separate what you were raised to want from what you actually want, what would remain?' Values clarification in India must acknowledge and respect family obligations while creating space for individual authenticity.",
+    "category": "cbt_techniques",
+    "tags": ["ACT", "values_clarification", "committed_action", "meaning", "psychological_flexibility"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_012",
+    "title": "Mental Health Stigma in India — Facts and Therapeutic Approaches",
+    "content": "Stigma is one of the primary barriers to mental health treatment in India. Understanding its forms and addressing it in the therapeutic relationship is essential for engagement and retention.\n\nFORMS OF STIGMA IN THE INDIAN CONTEXT:\n• Family stigma: Disclosure of mental health issues can trigger fears about marriage prospects, social reputation, or shame on the family\n• Professional stigma: Many corporate professionals fear career consequences, performance evaluation, or being seen as unable to 'handle pressure'\n• Self-stigma (internalised): Many clients believe mental health struggles reflect personal weakness or spiritual failing\n• Gendered stigma: Men in India face particular pressure around stoicism; emotional expression is culturally coded as unmasculine\n• Generational stigma: Older generations often attribute depression/anxiety to 'overthinking', lack of willpower, or insufficient faith\n\nTHERAPEUTIC APPROACHES TO STIGMA:\n1. Normalisation: Share epidemiological data without being dismissive ('Depression affects 1 in 5 Indians at some point')\n2. Reframing: 'Seeking therapy is a sign of self-awareness, not weakness — it's what high performers do'\n3. Medical model where helpful: 'Depression involves changes in brain chemistry — it's as medical as diabetes'\n4. Cultural bridge: Many clients respond well to framing mental health work within Indian philosophical traditions (yoga, Ayurveda's view of mind-body, Vedantic non-attachment)\n5. Confidentiality assurance: Explicit, repeated confirmation of privacy reduces disclosure barriers\n\nEVIDENCE: Stigma-reduction interventions in India show greater effectiveness when delivered through trusted community channels (doctors, employers) than through media campaigns (Shidhaye & Kermode, 2013).",
+    "category": "india_mental_health",
+    "tags": ["stigma", "india", "barrier_to_treatment", "family_stigma", "professional_stigma", "self_stigma"],
+    "source": "india_specific",
+    "evidence_level": "B",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_013",
+    "title": "Understanding the GAD-7 Anxiety Screening Tool",
+    "content": "The Generalised Anxiety Disorder-7 (GAD-7) is a validated 7-item screening tool for generalised anxiety disorder developed by Spitzer et al. (2006). It is one of the most widely used anxiety measures in primary care and clinical settings.\n\nWHAT IT MEASURES: The GAD-7 assesses the frequency of 7 anxiety symptoms over the past 2 weeks, each rated 0–3 (Not at all / Several days / More than half the days / Nearly every day). Total score: 0–21.\n\nSCORE INTERPRETATION:\n• 0–4: Minimal anxiety\n• 5–9: Mild anxiety\n• 10–14: Moderate anxiety\n• 15–21: Severe anxiety\n\nCLINICAL SIGNIFICANCE:\n• Score ≥10: Sensitivity 89%, Specificity 82% for GAD diagnosis (Spitzer et al., 2006)\n• Score ≥10 also performs well for panic disorder, social anxiety, and PTSD\n• Clinically meaningful change: ≥4-point reduction\n\nHOW TO EXPLAIN TO CLIENTS: 'This questionnaire helps us understand how anxiety has been affecting you recently. It's used worldwide to capture the type of worry and anxiety you've been experiencing over the last two weeks. It's not a diagnosis — it's a starting point for our conversation.'\n\nINDIA VALIDATION: GAD-7 has been validated in Indian settings (Ganguli et al.; multiple state-level studies). Available in Hindi, Tamil, Bengali, and other major Indian languages.",
+    "category": "assessment_explanations",
+    "tags": ["GAD-7", "anxiety_screening", "generalised_anxiety", "scoring", "clinical_cutpoint"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_014",
+    "title": "Workplace Boundary Setting — Skills and Scripts",
+    "content": "Boundary setting in the workplace is a core self-care competency, particularly relevant in Indian corporate environments where boundaries are frequently violated due to hierarchical dynamics and cultural norms around loyalty and availability.\n\nCOMMON WORKPLACE BOUNDARY VIOLATIONS:\n• After-hours communication expectations\n• Unpaid scope creep (being given work beyond job description)\n• Emotional labour demands (listening to manager's personal problems)\n• Micromanagement and loss of autonomy\n• Pressure to not take leave\n\nPRINCIPLES OF WORKPLACE BOUNDARIES:\n1. Boundaries must be communicated, not assumed\n2. Frame around impact on work quality, not personal preference\n3. Offer an alternative when declining ('I can't do X this week, but I can do Y by Thursday')\n4. Consistency matters — inconsistent boundaries create confusion\n\nSCRIPTS FOR COMMON SITUATIONS:\n\n**Setting availability hours:** 'I work best when I can respond thoughtfully. I'll reply to messages during work hours. For genuine emergencies outside hours, you can call me directly.'\n\n**Declining scope creep:** 'I want to make sure I can give this the quality it deserves. I currently have [X, Y, Z]. Which should I deprioritise to take this on?'\n\n**Addressing micromanagement:** 'I work best when I have some autonomy over how I approach problems. Can we set a check-in schedule so you have visibility while I have space to work?'\n\nINDIA CONTEXT: The POSH Act (Prevention of Sexual Harassment at Workplace, 2013) provides legal protection for certain boundary violations. Employees can report to the Internal Complaints Committee (ICC) at their organisation.",
+    "category": "workplace_wellness",
+    "tags": ["boundaries", "workplace", "assertiveness", "scope_creep", "POSH_act", "india", "scripts"],
+    "source": "psychoeducation",
+    "evidence_level": "B",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_015",
+    "title": "RAIN Mindfulness Technique for Difficult Emotions",
+    "content": "RAIN is a mindfulness technique developed by Tara Brach, particularly effective for working with shame, self-criticism, grief, and difficult emotions. It offers a structured way to turn toward emotional experience rather than away from it.\n\nThe four steps of RAIN:\n\nR — RECOGNISE: Name what's happening. 'I notice there is shame here.' 'I notice fear.' Recognition creates a small but important gap between you and the emotion.\n\nA — ALLOW: Let it be there. Do not fight it, push it away, or try to fix it immediately. Resistance intensifies emotion; allowing creates space. This does not mean you like the emotion — it means you're not at war with it.\n\nI — INVESTIGATE: With curiosity, explore the emotion in the body. Where do you feel it? What shape does it have? What does it believe about you or the situation? What does this part of you need? This step moves from intellectual understanding to embodied awareness.\n\nN — NURTURE (or Non-identification): Offer yourself the compassion you would offer a close friend. A hand on the heart, a kind internal voice, or simply acknowledging: 'This is hard. This is part of being human.' The N also stands for Non-identification — recognising that this emotion is something you're experiencing, not who you are.\n\nAFTER RAIN: There is often a natural release or settling. Notice what's present after the process. Many people report feeling less alone with their emotions.\n\nCLINICAL USE: RAIN is particularly powerful for self-critical clients who struggle with self-compassion. It is also used in trauma processing when combined with somatic awareness. Suitable for independent home practice.",
+    "category": "mindfulness",
+    "tags": ["RAIN", "self_compassion", "shame", "mindfulness", "Tara_Brach", "difficult_emotions"],
+    "source": "clinical_guidelines",
+    "evidence_level": "B",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_016",
+    "title": "Grief — What Is Normal and When to Seek Help",
+    "content": "Grief is the natural response to significant loss — the death of a loved one, the end of a relationship, job loss, health decline, or any major life change. It is not a disorder; it is a human process.\n\nNORMAL GRIEF RESPONSES:\n• Waves of sadness, crying, or numbness\n• Difficulty concentrating, memory lapses\n• Disrupted sleep and appetite\n• Irritability, anger (including at the deceased)\n• Social withdrawal\n• Continuing bonds — looking for the deceased, feeling their presence, dreaming about them\n\nGRIEF IS NOT LINEAR: The Kübler-Ross stages (Denial, Anger, Bargaining, Depression, Acceptance) describe experiences that can occur in grief — they are not a fixed sequence. Many people cycle through them, skip some, or experience them simultaneously.\n\nWHEN GRIEF BECOMES COMPLICATED (Prolonged Grief Disorder, DSM-5-TR):\n• Intense grief lasting >12 months (>6 months for children)\n• Significant impairment in daily functioning\n• Difficulty accepting the loss\n• Bitter resentment, difficulty trusting others since the loss\n• Sense that life is meaningless without the deceased\n\nINDIAN CONTEXT:\n• Hindu and Muslim mourning rituals (Antim Sanskar, Janaza) provide structured grief containment — their disruption (as occurred during COVID) is associated with complicated grief\n• Male grief expression is heavily suppressed in Indian culture — widowers have higher mental health risk partly due to this\n• 'Shraddha' (annual commemoration) creates a cultural continuing bond framework that can be therapeutically supported\n\nTREATMENT: Complicated grief responds to Complicated Grief Treatment (CGT, Shear et al.) and CBT. Bereavement counselling is effective for normal grief with social support deficits.",
+    "category": "grief_support",
+    "tags": ["grief", "bereavement", "loss", "complicated_grief", "india", "mourning_rituals", "continuing_bonds"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_017",
+    "title": "Understanding Trauma and PTSD — Psychoeducation",
+    "content": "Trauma is the emotional and physiological response to events that overwhelm the nervous system's ability to cope. Not all people who experience traumatic events develop PTSD — individual resilience factors, social support, and previous trauma history play significant roles.\n\nTRAUMA RESPONSES (not PTSD): Immediately after trauma, common responses include shock, numbness, hypervigilance, sleep disturbance, and intrusive memories. These are normal nervous system responses, not signs of weakness.\n\nPTSD (Post-Traumatic Stress Disorder) requires:\n• Exposure to actual or threatened death, serious injury, or sexual violence\n• Re-experiencing (intrusive memories, flashbacks, nightmares)\n• Avoidance of trauma-related stimuli\n• Negative alterations in cognition/mood (shame, blame, emotional numbing)\n• Hyperarousal (hypervigilance, exaggerated startle, sleep disturbance)\n• Duration >1 month with significant impairment\n\nHOW TRAUMA AFFECTS THE BRAIN: Traumatic memories are stored differently from normal memories — they remain vivid, emotionally activated, and present-tense. The amygdala (threat detection) becomes overactive; the hippocampus (contextual memory) underperforms. This is why trauma feels 'present' even when it happened years ago.\n\nEFFECTIVE TREATMENTS: EMDR (Eye Movement Desensitisation and Reprocessing), Prolonged Exposure, CPT (Cognitive Processing Therapy). All are evidence-based with strong research support.\n\nINDIAN CONTEXT: Domestic violence, road traffic accidents, and childhood emotional/physical abuse are the most common trauma presentations in Indian mental health clinics. Structural trauma (poverty, caste discrimination) also presents in complex PTSD patterns.",
+    "category": "trauma_recovery",
+    "tags": ["trauma", "PTSD", "psychoeducation", "EMDR", "re_experiencing", "flashbacks", "india"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_018",
+    "title": "Alcohol Use Disorder — Psychoeducation and Harm Reduction",
+    "content": "Alcohol use disorder (AUD) exists on a spectrum from hazardous use (drinking that carries health or social risk) to dependence (physical and psychological reliance). The WHO AUDIT screening tool categorises risk from 0–40.\n\nKEY FACTS:\n• 1 standard drink = 14g pure alcohol (a 330ml beer at 5%, 150ml wine at 12%, or 45ml spirits at 40%)\n• Low-risk drinking: ≤14 units/week for men, ≤7 units/week for women, spread across days\n• Hazardous use: >14 units/week, or binge drinking (>4 drinks on one occasion for men)\n\nINDIA-SPECIFIC CONTEXT:\n• Alcohol use disorder is the leading substance use disorder in India (NMHS, 2015-16)\n• Male drinking is normalised in many Indian social contexts, making self-assessment difficult\n• Treatment-seeking is low due to stigma and family shame\n• Alcohol dependence in India is associated with domestic violence, financial instability, and liver disease\n\nHARM REDUCTION PRINCIPLES (for clients not ready for abstinence):\n• Track units consumed weekly (awareness intervention reduces drinking)\n• Eat before drinking — slower alcohol absorption reduces impulsive escalation\n• Designate alcohol-free days\n• Avoid mixing alcohol with medications\n• Never drive after drinking\n\nWITHDRAWAL WARNING: Alcohol withdrawal (stopping suddenly after heavy regular use) can be medically dangerous — seizures, delirium tremens. Always advise clients with heavy regular use to taper under medical supervision.",
+    "category": "psychoeducation",
+    "tags": ["alcohol", "AUDIT", "harm_reduction", "dependence", "india", "withdrawal", "units"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_019",
+    "title": "Behavioural Activation for Depression — Step-by-Step Protocol",
+    "content": "Behavioural Activation (BA) is one of the most evidence-based treatments for depression. It targets the withdrawal-depression cycle by gradually increasing engagement with activities that produce meaning, pleasure, or mastery.\n\nTHEORY: Depression creates withdrawal (staying in bed, cancelling plans, giving up hobbies). Withdrawal reduces positive reinforcement, which deepens depression. BA breaks this cycle by scheduling activities before motivation returns — because motivation follows action, not the other way around.\n\nSTEP-BY-STEP PROTOCOL:\n\nStep 1 — Activity Monitoring (Week 1): Track current activities and mood rating (0–10) for each. Identify patterns — what activities correlate with slightly better mood?\n\nStep 2 — Mastery/Pleasure List: Create a list of activities rated for mastery (sense of accomplishment) and pleasure (enjoyment). Include activities from before depression and small new ones.\n\nStep 3 — Activity Scheduling: Schedule 2–3 activities per day, starting absurdly small. The goal is to build momentum, not performance.\n\nStep 4 — Graded Task Assignment: For larger tasks that feel overwhelming, break into micro-steps. 'Clean the flat' → 'Put away 5 items on the kitchen counter' → 'Clean one shelf'.\n\nStep 5 — Anti-procrastination: Use 2-minute rule — if it takes less than 2 minutes, do it now. Reduces the queue of avoided tasks.\n\nStep 6 — Weekly Review: Track which activities correlated with mood improvement. Increase frequency of those.\n\nEVIDENCE: BA is as effective as CBT for depression (Jacobson et al., 1996; Cuijpers et al., 2007). It's particularly useful for clients who cannot engage with cognitive techniques due to severe anhedonia.",
+    "category": "cbt_techniques",
+    "tags": ["behavioural_activation", "depression", "CBT", "activity_scheduling", "graded_task_assignment"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  },
+  {
+    "id": "rag_020",
+    "title": "DBT Radical Acceptance — Reducing Suffering Through Non-Resistance",
+    "content": "Radical Acceptance is a DBT distress tolerance skill that addresses a key source of unnecessary suffering: the fight against reality. It is based on Marsha Linehan's observation that 'Pain is inevitable; suffering is optional.' Suffering = Pain + Non-acceptance.\n\nWHAT RADICAL ACCEPTANCE IS:\n• Acknowledging that reality is what it is right now\n• Releasing the fight against what cannot currently be changed\n• Not the same as approval — you can accept something you hate\n• Not the same as giving up — accepting reality is the basis for effective action\n\nWHAT RADICAL ACCEPTANCE IS NOT:\n• Saying the situation is okay or fair\n• Never trying to change things\n• Suppressing feelings about the situation\n\nPRACTICE STEPS:\n1. Notice resistance: 'I notice I'm fighting the fact that...'\n2. Remind yourself: 'It is what it is right now. Fighting it doesn't change it.'\n3. Acknowledge the pain: 'This is genuinely painful and it makes sense that it is.'\n4. Explore what becomes possible if you stop fighting it\n\nAPPLICATIONS:\n• Grieving a relationship you cannot change\n• Accepting a health diagnosis\n• Accepting that a parent/partner cannot give you what you need\n• Accepting workplace realities while working to change them\n\nINDIAN CONTEXT: Radical acceptance has resonance with concepts in Indian philosophy — specifically the Bhagavad Gita's emphasis on acting without attachment to outcomes, and Buddhist teachings on impermanence. This connection can make the skill more accessible to clients with Indian philosophical backgrounds.",
+    "category": "dbt_skills",
+    "tags": ["radical_acceptance", "DBT", "distress_tolerance", "suffering", "non_resistance", "Bhagavad_Gita"],
+    "source": "clinical_guidelines",
+    "evidence_level": "A",
+    "last_updated": "2025-01"
+  }
+]

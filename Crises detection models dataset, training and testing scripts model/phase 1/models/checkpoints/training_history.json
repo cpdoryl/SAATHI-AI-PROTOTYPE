@@ -1,0 +1,10 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.4040998888738228,
+    "val_loss": 1.375514547030131,
+    "val_accuracy": 0.10222222222222223,
+    "high_risk_recall": 1.0,
+    "sev_07_predictions": 0
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "test_accuracy": 1.0,
+  "test_weighted_f1": 1.0,
+  "test_macro_f1": 1.0,
+  "per_class_f1": {
+    "seek_support": 1.0,
+    "book_appointment": 1.0,
+    "crisis_emergency": 1.0,
+    "information_request": 1.0,
+    "feedback_complaint": 1.0,
+    "general_chat": 1.0,
+    "assessment_request": 1.0
+  },
+  "per_class_report": {
+    "seek_support": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "book_appointment": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "crisis_emergency": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "information_request": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "feedback_complaint": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 15.0
+    },
+    "general_chat": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 15.0
+    },
+    "assessment_request": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      25,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20
+    ]
+  ],
+  "qualification_gates": {
+    "accuracy_ge_88pct": true,
+    "macro_f1_ge_0_85": true,
+    "crisis_emergency_recall_ge_95pct": true,
+    "overall_approved": true
+  },
+  "best_epoch": "P2 Epoch 2",
+  "best_val_macro_f1": 0.9894,
+  "model": "distilbert-base-uncased",
+  "num_labels": 7
+}

@@ -1,0 +1,7 @@
+{
+  "epoch": 5,
+  "val_macro_f1": 0.854,
+  "val_accuracy": 0.8438,
+  "val_weighted_f1": 0.8442,
+  "saved_at": "2026-03-11T07:16:34.498580"
+}

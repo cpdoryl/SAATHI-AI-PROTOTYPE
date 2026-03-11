@@ -1,0 +1,119 @@
+{
+  "source_file": "emotion_detection_v2_comprehensive.csv",
+  "total": 1307,
+  "splits": {
+    "train": 1043,
+    "val": 128,
+    "test": 136
+  },
+  "strategy": "stratified 80/10/10",
+  "random_seed": 42,
+  "train_dist": {
+    "anxiety": {
+      "count": 174,
+      "pct": 16.7
+    },
+    "sadness": {
+      "count": 160,
+      "pct": 15.3
+    },
+    "anger": {
+      "count": 136,
+      "pct": 13.0
+    },
+    "fear": {
+      "count": 122,
+      "pct": 11.7
+    },
+    "hopelessness": {
+      "count": 120,
+      "pct": 11.5
+    },
+    "guilt": {
+      "count": 108,
+      "pct": 10.4
+    },
+    "shame": {
+      "count": 104,
+      "pct": 10.0
+    },
+    "neutral": {
+      "count": 119,
+      "pct": 11.4
+    }
+  },
+  "val_dist": {
+    "anxiety": {
+      "count": 21,
+      "pct": 16.4
+    },
+    "sadness": {
+      "count": 20,
+      "pct": 15.6
+    },
+    "anger": {
+      "count": 17,
+      "pct": 13.3
+    },
+    "fear": {
+      "count": 15,
+      "pct": 11.7
+    },
+    "hopelessness": {
+      "count": 15,
+      "pct": 11.7
+    },
+    "guilt": {
+      "count": 13,
+      "pct": 10.2
+    },
+    "shame": {
+      "count": 13,
+      "pct": 10.2
+    },
+    "neutral": {
+      "count": 14,
+      "pct": 10.9
+    }
+  },
+  "test_dist": {
+    "anxiety": {
+      "count": 23,
+      "pct": 16.9
+    },
+    "sadness": {
+      "count": 20,
+      "pct": 14.7
+    },
+    "anger": {
+      "count": 17,
+      "pct": 12.5
+    },
+    "fear": {
+      "count": 16,
+      "pct": 11.8
+    },
+    "hopelessness": {
+      "count": 15,
+      "pct": 11.0
+    },
+    "guilt": {
+      "count": 15,
+      "pct": 11.0
+    },
+    "shame": {
+      "count": 14,
+      "pct": 10.3
+    },
+    "neutral": {
+      "count": 16,
+      "pct": 11.8
+    }
+  },
+  "leakage_check": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0
+  },
+  "generated_at": "2026-03-11T01:33:50.870201"
+}

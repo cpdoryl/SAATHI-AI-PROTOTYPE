@@ -9,11 +9,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from services.chatbot_service import ChatbotService
 from services.crisis_detection_service import CrisisDetectionService
+from services.emotion_classifier_service import get_emotion_service
+from services.intent_classifier_service import get_intent_service
 from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
 from services.websocket_manager import ws_manager
 from services.redis_session_service import redis_session_store
+from config.emotion_prompt_context import build_emotion_context_block
+from config.intent_prompt_context import build_intent_context_block
 from models import Patient, PatientStage, TherapySession, SessionStatus, ChatMessage
 from loguru import logger
 
@@ -99,6 +103,55 @@ class TherapeuticAIService:
         # Step 1: Crisis scan — always first, always fast
         crisis_result = self.crisis_detector.scan(message)
 
+        # Step 2: Emotion + Intent classification (concurrent, ~30ms each)
+        import asyncio as _asyncio
+
+        emotion_result       = None
+        emotion_context_block = ""
+        intent_result        = None
+        intent_context_block  = ""
+
+        try:
+            emo_svc    = get_emotion_service()
+            intent_svc = get_intent_service()
+
+            async def _classify_emotion():
+                if emo_svc.is_ready:
+                    return await _asyncio.get_event_loop().run_in_executor(
+                        None, emo_svc.classify, message
+                    )
+                return None
+
+            async def _classify_intent():
+                if intent_svc.is_ready:
+                    return await _asyncio.get_event_loop().run_in_executor(
+                        None, intent_svc.classify, message
+                    )
+                return None
+
+            emo_r, int_r = await _asyncio.gather(
+                _classify_emotion(), _classify_intent()
+            )
+
+            if emo_r:
+                emotion_result        = emo_r
+                emotion_context_block = build_emotion_context_block(emo_r)
+                logger.debug(
+                    f"Emotion: {emo_r.primary_emotion} ({emo_r.intensity:.2f}) "
+                    f"high_hope={emo_r.high_intensity_hopelessness}"
+                )
+
+            if int_r:
+                intent_result        = int_r
+                intent_context_block = build_intent_context_block(int_r)
+                logger.debug(
+                    f"Intent: {int_r.primary_intent} ({int_r.confidence:.2f}) "
+                    f"routing={int_r.routing_action}"
+                )
+
+        except Exception as _exc:
+            logger.warning(f"Classifier step skipped: {_exc}")
+
         # Persist user message (with any detected crisis keywords)
         user_msg = ChatMessage(
             session_id=session_id,
@@ -113,8 +166,13 @@ class TherapeuticAIService:
                 session.status = SessionStatus.CRISIS_ESCALATED
                 session.crisis_score = crisis_result["severity"]
             await self.db.commit()
-            logger.warning(f"Crisis detected in session {session_id}: score={crisis_result['severity']}")
-            return await self._handle_crisis(session_id, crisis_result, session)
+            logger.warning(
+                f"Crisis detected in session {session_id}: "
+                f"score={crisis_result['severity']}"
+            )
+            return await self._handle_crisis(
+                session_id, crisis_result, session, emotion_result
+            )
 
         # Resolve tenant_id for RAG (fall back to "default" if session not found)
         tenant_id = "default"
@@ -127,9 +185,11 @@ class TherapeuticAIService:
                 tenant_id = patient.tenant_id
 
         # RAG retrieval for tenant-specific context
-        rag_context = await self.rag.query(query=message, tenant_id=tenant_id, top_k=3)
+        rag_context = await self.rag.query(
+            query=message, tenant_id=tenant_id, top_k=3
+        )
 
-        # Build prompt using current step position
+        # Build prompt using current step + emotion context block
         current_step = session.current_step if session else 0
         prompt = self.chatbot.build_response_prompt(
             message=message,
@@ -137,6 +197,11 @@ class TherapeuticAIService:
             rag_context=rag_context,
             current_step=current_step,
         )
+        # Append classifier context blocks to enrich the LLM's system prompt
+        if emotion_context_block:
+            prompt = f"{prompt}\n\n{emotion_context_block}"
+        if intent_context_block:
+            prompt = f"{prompt}\n\n{intent_context_block}"
 
         # LLM inference
         response = await self.llm.generate(prompt=prompt, stage=stage)
@@ -160,10 +225,20 @@ class TherapeuticAIService:
         await self.db.commit()
 
         return {
-            "response": response,
-            "crisis_score": crisis_result["severity"],
-            "stage": stage,
-            "current_step": session.current_step if session else 0,
+            "response":             response,
+            "crisis_score":         crisis_result["severity"],
+            "stage":                stage,
+            "current_step":         session.current_step if session else 0,
+            "ml_crisis_class":      crisis_result.get("ml_crisis_class", "unknown"),
+            "ml_model_phase":       crisis_result.get("ml_model_phase", "none"),
+            "detection_method":     crisis_result.get("detection_method", "keyword_only"),
+            "emotion":              emotion_result.primary_emotion if emotion_result else None,
+            "emotion_intensity":    emotion_result.intensity if emotion_result else None,
+            "emotion_secondary":    emotion_result.secondary_emotion if emotion_result else None,
+            "intent":               intent_result.primary_intent if intent_result else None,
+            "intent_confidence":    intent_result.confidence if intent_result else None,
+            "routing_action":       intent_result.routing_action if intent_result else None,
+            "intent_secondary":     intent_result.secondary_intent if intent_result else None,
         }
 
     async def end_session(self, session_id: str) -> dict:
@@ -285,7 +360,9 @@ class TherapeuticAIService:
         }
         return stage_map.get(patient.stage, 1)
 
-    async def _handle_crisis(self, session_id: str, crisis_result: dict, session: TherapySession = None) -> dict:
+    async def _handle_crisis(self, session_id: str, crisis_result: dict,
+                              session: TherapySession = None,
+                              emotion_result=None) -> dict:
         """
         Trigger escalation protocol:
         - Broadcast WebSocket alert to clinician dashboard
@@ -313,9 +390,16 @@ class TherapeuticAIService:
             "response": (
                 "I hear that you're going through something very difficult. "
                 "Please know that help is available right now.\n\n"
-                "iCall: +91-9152987821 | Vandrevala Foundation: 1860-2662-345 | NIMHANS: 080-46110007"
+                "iCall: +91-9152987821 | "
+                "Vandrevala Foundation: 1860-2662-345 | "
+                "NIMHANS: 080-46110007"
             ),
-            "crisis_detected": True,
-            "severity": crisis_result["severity"],
-            "escalated": True,
+            "crisis_detected":   True,
+            "severity":          crisis_result["severity"],
+            "escalated":         True,
+            "ml_crisis_class":   crisis_result.get("ml_crisis_class", "unknown"),
+            "ml_model_phase":    crisis_result.get("ml_model_phase", "none"),
+            "detection_method":  crisis_result.get("detection_method", "keyword_only"),
+            "emotion":           emotion_result.primary_emotion if emotion_result else None,
+            "emotion_intensity": emotion_result.intensity if emotion_result else None,
         }

@@ -70,6 +70,40 @@ async def lifespan(app: FastAPI):
     except Exception as _exc:
         logger.warning(f"ML crisis model warm-up failed: {_exc}. Keyword fallback active.")
 
+    # ─── Emotion Classifier: warm up on startup ──────────────────────────────
+    try:
+        import asyncio as _asyncio2
+        from services.emotion_classifier_service import get_emotion_service
+        emo_svc = await _asyncio2.get_event_loop().run_in_executor(
+            None, get_emotion_service
+        )
+        if emo_svc.is_ready:
+            logger.info("Emotion classifier loaded and ready (DistilBERT 8-class).")
+        else:
+            logger.warning(
+                "Emotion classifier NOT loaded — emotion detection disabled. "
+                "Run: python scripts/setup_emotion_model.py to install weights."
+            )
+    except Exception as _exc:
+        logger.warning(f"Emotion classifier warm-up failed: {_exc}.")
+
+    # ─── Intent Classifier: warm up on startup ───────────────────────────────
+    try:
+        import asyncio as _asyncio3
+        from services.intent_classifier_service import get_intent_service
+        intent_svc = await _asyncio3.get_event_loop().run_in_executor(
+            None, get_intent_service
+        )
+        if intent_svc.is_ready:
+            logger.info("Intent classifier loaded and ready (DistilBERT 7-class).")
+        else:
+            logger.warning(
+                "Intent classifier NOT loaded — intent routing disabled. "
+                "Run: python scripts/setup_intent_model.py to install weights."
+            )
+    except Exception as _exc:
+        logger.warning(f"Intent classifier warm-up failed: {_exc}.")
+
     # ─── APScheduler: daily dropout re-engagement cron ────────────────────────
     try:
         from apscheduler.schedulers.asyncio import AsyncIOScheduler

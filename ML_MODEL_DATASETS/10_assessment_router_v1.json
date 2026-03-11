@@ -1,0 +1,282 @@
+[
+  {
+    "id": "ar_001",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been feeling really sad for weeks. I can't sleep, I've lost my appetite, and I have no energy."},
+      {"turn": 2, "speaker": "assistant", "text": "I'm sorry to hear you're going through this. How long has this been going on?"},
+      {"turn": 3, "speaker": "user", "text": "About 6 weeks. I've also lost interest in things I used to enjoy. I don't see the point."}
+    ],
+    "recommended_assessments": ["PHQ-9", "DASS-21"],
+    "primary_assessment": "PHQ-9",
+    "routing_confidence": 0.95,
+    "routing_reason": "Classic depression symptoms: anhedonia, sleep disturbance, appetite loss, low energy lasting >2 weeks",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_002",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I worry constantly. About work, about my family, about money. I can't turn my brain off."},
+      {"turn": 2, "speaker": "assistant", "text": "That sounds exhausting. How long have you been experiencing this?"},
+      {"turn": 3, "speaker": "user", "text": "For months. I also feel restless and irritable all the time. My muscles are tense."}
+    ],
+    "recommended_assessments": ["GAD-7", "PSS-10"],
+    "primary_assessment": "GAD-7",
+    "routing_confidence": 0.93,
+    "routing_reason": "Excessive worry, restlessness, irritability, muscle tension — hallmark GAD-7 indicators",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_003",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been working 80-hour weeks and I feel completely burned out."},
+      {"turn": 2, "speaker": "assistant", "text": "That sounds like an enormous amount of pressure. How are you coping day to day?"},
+      {"turn": 3, "speaker": "user", "text": "Not well. I feel overwhelmed, detached, and unable to concentrate. Everything feels like too much."}
+    ],
+    "recommended_assessments": ["PSS-10", "DASS-21"],
+    "primary_assessment": "PSS-10",
+    "routing_confidence": 0.91,
+    "routing_reason": "Overwhelm, detachment, cognitive difficulties — stress overload indicators; PSS-10 appropriate for burnout assessment",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_004",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I was in a road accident 3 months ago. I keep having nightmares about it."},
+      {"turn": 2, "speaker": "assistant", "text": "That sounds really traumatic. Are there other ways the accident has been affecting you?"},
+      {"turn": 3, "speaker": "user", "text": "Yes. I avoid driving now. I get flashbacks randomly during the day. I feel numb and detached."}
+    ],
+    "recommended_assessments": ["PCL-5", "PHQ-9"],
+    "primary_assessment": "PCL-5",
+    "routing_confidence": 0.96,
+    "routing_reason": "Trauma exposure + nightmares + avoidance + flashbacks + emotional numbing = PTSD symptom cluster (DSM-5 criteria B/C/D)",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_005",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I have a drink every evening to unwind. I think it's become a habit."},
+      {"turn": 2, "speaker": "assistant", "text": "I appreciate you sharing that. How much would you typically drink on those evenings?"},
+      {"turn": 3, "speaker": "user", "text": "Maybe 3-4 drinks. Sometimes more on weekends. I've been told I drink too much but I don't think it's a problem."}
+    ],
+    "recommended_assessments": ["AUDIT", "CAGE-AID"],
+    "primary_assessment": "AUDIT",
+    "routing_confidence": 0.94,
+    "routing_reason": "Regular alcohol use, quantity suggesting hazardous drinking, denial of problem — AUDIT for full screening, CAGE-AID for quick dependence check",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_006",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been feeling depressed and anxious at the same time. I don't know which one it is."},
+      {"turn": 2, "speaker": "assistant", "text": "Both can occur together. Can you tell me more about what you're experiencing?"},
+      {"turn": 3, "speaker": "user", "text": "Persistent sadness, constant worry, and I'm so stressed I can't function. It's all mixed up."}
+    ],
+    "recommended_assessments": ["DASS-21"],
+    "primary_assessment": "DASS-21",
+    "routing_confidence": 0.94,
+    "routing_reason": "Mixed depression, anxiety, and stress presentation — DASS-21 measures all three subscales simultaneously",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_007",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've completed 8 therapy sessions and feel significantly better."},
+      {"turn": 2, "speaker": "assistant", "text": "That's wonderful progress. How are you finding your day-to-day wellbeing compared to when we started?"},
+      {"turn": 3, "speaker": "user", "text": "Much better. I feel more optimistic, connected with people, and purposeful."}
+    ],
+    "recommended_assessments": ["WEMWBS"],
+    "primary_assessment": "WEMWBS",
+    "routing_confidence": 0.88,
+    "routing_reason": "Treatment progress monitoring — WEMWBS measures positive wellbeing to track therapeutic gains",
+    "no_assessment_needed": false,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_008",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been using sleeping tablets every night for 6 months. I tried to stop but I couldn't."},
+      {"turn": 2, "speaker": "assistant", "text": "Can you tell me more about the tablets? Are they prescribed?"},
+      {"turn": 3, "speaker": "user", "text": "They were prescribed but I'm taking more than prescribed. I also use alcohol to help me sleep on some nights."}
+    ],
+    "recommended_assessments": ["CAGE-AID", "AUDIT"],
+    "primary_assessment": "CAGE-AID",
+    "routing_confidence": 0.95,
+    "routing_reason": "Substance dependence indicators (tolerance, inability to stop, mixing substances) — CAGE-AID for rapid dependence screening",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_009",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "My UPSC exam is in 2 months. I've been studying 16 hours a day."},
+      {"turn": 2, "speaker": "assistant", "text": "That's an intense schedule. How are you feeling physically and mentally?"},
+      {"turn": 3, "speaker": "user", "text": "Exhausted. I feel like I'm going to break. I can't stop even if I want to."}
+    ],
+    "recommended_assessments": ["PSS-10", "DASS-21"],
+    "primary_assessment": "PSS-10",
+    "routing_confidence": 0.90,
+    "routing_reason": "High stress, exhaustion, loss of perceived control — PSS-10 appropriate for academic stress quantification",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_010",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been experiencing low mood for a while but I'm managing okay day to day."},
+      {"turn": 2, "speaker": "assistant", "text": "I'm glad you're coping. Would you like to do a quick check-in to see where you are?"},
+      {"turn": 3, "speaker": "user", "text": "Sure, that might be useful to have a baseline."}
+    ],
+    "recommended_assessments": ["PHQ-9", "WEMWBS"],
+    "primary_assessment": "PHQ-9",
+    "routing_confidence": 0.80,
+    "routing_reason": "Low-grade mood concerns with adequate functioning — PHQ-9 for clinical baseline, WEMWBS for wellbeing contrast",
+    "no_assessment_needed": false,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_011",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I witnessed domestic violence as a child. I've never processed it."},
+      {"turn": 2, "speaker": "assistant", "text": "Thank you for trusting me with this. Has it been affecting you in your adult life?"},
+      {"turn": 3, "speaker": "user", "text": "Yes. I startle easily, I have trust issues, and I sometimes feel like I'm reliving it."}
+    ],
+    "recommended_assessments": ["PCL-5", "DASS-21"],
+    "primary_assessment": "PCL-5",
+    "routing_confidence": 0.93,
+    "routing_reason": "Childhood trauma exposure + hypervigilance + re-experiencing + trust issues = developmental trauma presentation requiring PTSD screen",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_012",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I feel fine most days. I'm here because my company recommended it."},
+      {"turn": 2, "speaker": "assistant", "text": "That's great your company supports this. Would you like to start with a wellbeing check?"},
+      {"turn": 3, "speaker": "user", "text": "Sure, I'm open to it. I don't have any major issues."}
+    ],
+    "recommended_assessments": ["WEMWBS"],
+    "primary_assessment": "WEMWBS",
+    "routing_confidence": 0.82,
+    "routing_reason": "No clinical indicators — wellbeing baseline appropriate for company-referred users with no presenting issues",
+    "no_assessment_needed": false,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_013",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been having dark thoughts. Not quite suicidal but I sometimes wish I didn't exist."},
+      {"turn": 2, "speaker": "assistant", "text": "I hear you. These kinds of thoughts can be very distressing. Are they intrusive or do they feel more like wishes?"},
+      {"turn": 3, "speaker": "user", "text": "More like passive wishes. I wouldn't act on it. I just feel tired of everything."}
+    ],
+    "recommended_assessments": ["PHQ-9", "DASS-21"],
+    "primary_assessment": "PHQ-9",
+    "routing_confidence": 0.97,
+    "routing_reason": "Passive suicidal ideation (PHQ-9 item 9 trigger) + depressive features — PHQ-9 mandatory, item 9 score will inform crisis protocol",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_014",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I'm worried I might have a drinking problem. I drink to cope with stress."},
+      {"turn": 2, "speaker": "assistant", "text": "Thank you for being open about this. How often would you say you drink?"},
+      {"turn": 3, "speaker": "user", "text": "Most days. Sometimes I get drunk at work events and regret it. I feel like I can't control it."}
+    ],
+    "recommended_assessments": ["AUDIT", "CAGE-AID"],
+    "primary_assessment": "AUDIT",
+    "routing_confidence": 0.96,
+    "routing_reason": "Daily drinking + loss of control + regret after drinking — AUDIT for severity, CAGE-AID for dependence indicators",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_015",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I'm feeling somewhat stressed from the new project."},
+      {"turn": 2, "speaker": "assistant", "text": "Project pressure can be tough. Is it affecting other areas of your life?"},
+      {"turn": 3, "speaker": "user", "text": "Not really. Just work hours are longer. I'm coping otherwise."}
+    ],
+    "recommended_assessments": [],
+    "primary_assessment": null,
+    "routing_confidence": 0.78,
+    "routing_reason": "Mild situational stress with adequate coping — no clinical threshold indicators; monitor in next session",
+    "no_assessment_needed": true,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_016",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I'm a new mother and I've been feeling really low and disconnected from my baby."},
+      {"turn": 2, "speaker": "assistant", "text": "That sounds really hard. When did these feelings start?"},
+      {"turn": 3, "speaker": "user", "text": "About 3 weeks after delivery. I feel guilty for not bonding properly. I cry a lot."}
+    ],
+    "recommended_assessments": ["PHQ-9", "DASS-21"],
+    "primary_assessment": "PHQ-9",
+    "routing_confidence": 0.95,
+    "routing_reason": "Postpartum onset, emotional disconnection, guilt, crying — PHQ-9 for postpartum depression screening (Edinburgh variant also applicable)",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_017",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've just returned from working abroad for 3 years. I feel out of place everywhere."},
+      {"turn": 2, "speaker": "assistant", "text": "Reverse culture shock can be very real. How are you managing day to day?"},
+      {"turn": 3, "speaker": "user", "text": "With difficulty. I feel disconnected from family and friends. My sense of self feels fragmented."}
+    ],
+    "recommended_assessments": ["WEMWBS", "PSS-10"],
+    "primary_assessment": "WEMWBS",
+    "routing_confidence": 0.84,
+    "routing_reason": "Reverse culture shock / identity disruption — wellbeing and stress baseline appropriate; no acute clinical indicators",
+    "no_assessment_needed": false,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_018",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I think I might be using cannabis too much. It's daily now."},
+      {"turn": 2, "speaker": "assistant", "text": "Daily use can sometimes become a pattern that's hard to change. Has it affected your life?"},
+      {"turn": 3, "speaker": "user", "text": "Yes. My motivation is low. I smoke to feel normal. I get anxious without it."}
+    ],
+    "recommended_assessments": ["CAGE-AID", "GAD-7"],
+    "primary_assessment": "CAGE-AID",
+    "routing_confidence": 0.93,
+    "routing_reason": "Daily substance use + psychological dependence + anxiety without substance = CAGE-AID primary; GAD-7 to assess underlying anxiety disorder",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  },
+  {
+    "id": "ar_019",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I feel great today. I've been making a lot of progress in therapy."},
+      {"turn": 2, "speaker": "assistant", "text": "That's wonderful to hear. What's been making the biggest difference?"},
+      {"turn": 3, "speaker": "user", "text": "I feel more confident, more connected to people, and more purposeful in my work."}
+    ],
+    "recommended_assessments": [],
+    "primary_assessment": null,
+    "routing_confidence": 0.72,
+    "routing_reason": "Strong positive indicators across life domains — no clinical assessment needed; wellbeing gains being demonstrated",
+    "no_assessment_needed": true,
+    "proactive_trigger": false
+  },
+  {
+    "id": "ar_020",
+    "conversation_context": [
+      {"turn": 1, "speaker": "user", "text": "I've been getting headaches and can't sleep. I'm under a lot of pressure at work."},
+      {"turn": 2, "speaker": "assistant", "text": "Somatic stress symptoms are common when pressure is very high. How long has this been going on?"},
+      {"turn": 3, "speaker": "user", "text": "About a month. I feel overwhelmed and unable to relax even on weekends."}
+    ],
+    "recommended_assessments": ["PSS-10", "GAD-7"],
+    "primary_assessment": "PSS-10",
+    "routing_confidence": 0.89,
+    "routing_reason": "Somatic stress (headache, insomnia), sustained pressure, inability to relax — PSS-10 for stress severity; GAD-7 to rule out anxiety disorder",
+    "no_assessment_needed": false,
+    "proactive_trigger": true
+  }
+]

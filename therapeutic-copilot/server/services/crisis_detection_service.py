@@ -147,6 +147,8 @@ class CrisisDetectionService:
         ml_class      = "unknown"
         ml_confidence = 0.0
         ml_available  = False
+        ml_phase      = "none"
+        ml_raw_probs  = []
 
         try:
             svc = get_ml_crisis_service()
@@ -157,6 +159,8 @@ class CrisisDetectionService:
                     ml_class      = ml_result.crisis_class
                     ml_confidence = ml_result.confidence
                     ml_available  = True
+                    ml_phase      = ml_result.model_phase
+                    ml_raw_probs  = ml_result.raw_probs
         except Exception as exc:
             logger.warning(f"ML crisis inference skipped: {exc}")
 
@@ -176,14 +180,16 @@ class CrisisDetectionService:
         )
 
         return {
-            "severity":         round(final_severity, 2),
-            "escalate":         escalate,
+            "severity":          round(final_severity, 2),
+            "escalate":          escalate,
             "detected_keywords": kw["detected_keywords"],
-            "ml_crisis_class":  ml_class,
-            "ml_confidence":    ml_confidence,
-            "ml_available":     ml_available,
-            "detection_method": method,
-            "message_scanned":  True,
+            "ml_crisis_class":   ml_class,
+            "ml_confidence":     ml_confidence,
+            "ml_available":      ml_available,
+            "ml_model_phase":    ml_phase,
+            "ml_raw_probs":      ml_raw_probs,
+            "detection_method":  method,
+            "message_scanned":   True,
         }
 
     async def escalate(

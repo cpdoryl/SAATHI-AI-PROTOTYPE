@@ -1,0 +1,137 @@
+id,utterance,primary_emotion,secondary_emotion,intensity,confidence,annotator_id,source,created_at
+emot_001210,I've been taking short breaks during the work day. It helps.,neutral,,0.2556,0.9434,ann_003,forum_scrape,2025-10-21T00:00:00Z
+emot_001031,I feel like the worst thing about me is not what I've done but what I am.,shame,hopelessness,0.814,0.9343,ann_007,synthetic,2025-09-01T00:00:00Z
+emot_000683,I'm afraid of what I'll find if I really look at myself.,fear,sadness,0.9614,0.9292,ann_015,synthetic,2025-03-03T00:00:00Z
+emot_000487,I feel like I'm always the one making compromises while everyone else does exactly what they want.,anger,,0.9323,0.8492,ann_003,clinical_notes,2025-12-01T00:00:00Z
+emot_000160,I rehearse conversations in my head for hours before I have them.,anxiety,,0.523,0.8267,ann_013,clinical_notes,2025-03-06T00:00:00Z
+emot_001027,I should have noticed something was wrong. I missed it. Now I can't forgive myself.,guilt,shame,0.8663,0.8252,ann_010,clinical_notes,2025-06-05T00:00:00Z
+emot_001032,I'm ashamed of the things I've allowed to happen to me.,shame,hopelessness,0.6891,0.8194,ann_007,forum_scrape,2025-06-03T00:00:00Z
+emot_001180,"I had a quiet weekend. Did some reading, did some cooking, slept reasonably well.",neutral,,0.3405,0.8558,ann_006,synthetic,2025-11-03T00:00:00Z
+emot_000556,I'm furious at my body for failing me.,anger,sadness,0.9362,0.8893,ann_007,crisis_text_line,2025-03-12T00:00:00Z
+emot_000909,I feel guilty for the ways I've checked out when people needed me to be present.,guilt,sadness,0.8967,0.9421,ann_014,crisis_text_line,2025-02-02T00:00:00Z
+emot_000833,I feel like I've been carrying a weight that's slowly killing me.,hopelessness,anxiety,0.8926,0.8124,ann_008,synthetic,2025-02-14T00:00:00Z
+emot_000679,I'm terrified of something happening to my children when I'm not with them.,fear,,0.7872,0.8418,ann_014,synthetic,2026-01-19T00:00:00Z
+emot_001173,I've been sorting through my flat and decluttering. It feels good to have less.,neutral,,0.3524,0.7887,ann_009,synthetic,2025-05-06T00:00:00Z
+emot_000466,I feel a low-level rage that never fully dissipates.,anger,guilt,0.6842,0.8231,ann_012,synthetic,2026-01-13T00:00:00Z
+emot_000219,I feel like a shadow of myself.,sadness,fear,0.618,0.8505,ann_012,synthetic,2025-07-24T00:00:00Z
+emot_000927,I didn't stand up for him when I had the chance. I'll always regret that.,guilt,,0.9296,0.7957,ann_015,synthetic,2025-12-13T00:00:00Z
+emot_000342,I've been unable to read. The words don't stick.,sadness,anxiety,0.4904,0.8769,ann_001,clinical_notes,2025-01-07T00:00:00Z
+emot_000075,I'm scared of losing control in public.,anxiety,fear,0.9289,0.7529,ann_014,synthetic,2025-08-04T00:00:00Z
+emot_000850,I feel like I'm at the end of a very long road that went nowhere.,hopelessness,sadness,0.8958,0.8214,ann_012,crisis_text_line,2025-11-26T00:00:00Z
+emot_001137,I'm ashamed of the way I've treated my body.,shame,guilt,0.6256,0.8507,ann_014,crisis_text_line,2025-08-23T00:00:00Z
+emot_000530,I've been turning the anger inward and I know it's coming out as self-destructive behaviour.,anger,,0.9096,0.9066,ann_001,forum_scrape,2026-01-05T00:00:00Z
+emot_000970,I chose my career over my family for years and I can't get those years back.,guilt,anxiety,0.9138,0.973,ann_010,forum_scrape,2026-01-22T00:00:00Z
+emot_000725,I've been shaking since I got the news.,fear,,0.9695,0.8237,ann_001,clinical_notes,2025-03-19T00:00:00Z
+emot_000438,I've been snapping at my partner and I know it's not about them.,anger,fear,0.5955,0.8365,ann_012,synthetic,2026-01-13T00:00:00Z
+emot_000194,My body is always braced for impact. I'm exhausted.,anxiety,hopelessness,0.6438,0.9207,ann_001,synthetic,2025-08-12T00:00:00Z
+emot_000791,I feel like the world has decided I don't get to be happy.,hopelessness,guilt,0.942,0.8627,ann_014,synthetic,2025-06-16T00:00:00Z
+emot_000653,I'm terrified of being fully present. What if I feel too much?,fear,sadness,0.9474,0.8377,ann_013,forum_scrape,2025-10-29T00:00:00Z
+emot_000934,I made a selfish choice and others paid for it. I can't stop thinking about it.,guilt,,0.6974,0.8967,ann_015,synthetic,2025-11-10T00:00:00Z
+emot_000919,I feel guilty for letting my mental health get this bad without asking for help sooner.,guilt,shame,0.9515,0.8871,ann_008,clinical_notes,2026-01-03T00:00:00Z
+emot_000762,I've stopped looking for reasons. I can't find any.,hopelessness,sadness,0.8402,0.8304,ann_010,synthetic,2025-08-15T00:00:00Z
+emot_001226,I made a decision I'd been putting off. Feels like a relief.,neutral,,0.3893,0.9536,ann_015,synthetic,2025-06-23T00:00:00Z
+emot_000348,"I feel like the grief keeps shapeshifting. Just when I think I've moved through one layer, there's another.",sadness,guilt,0.655,0.9444,ann_013,synthetic,2025-11-27T00:00:00Z
+emot_000129,Even breathing feels hard when the anxiety peaks.,anxiety,sadness,0.6482,0.9729,ann_010,forum_scrape,2025-06-23T00:00:00Z
+emot_000548,I'm angry at my parents for things that happened decades ago and I hate that they still have power over me.,anger,sadness,0.5679,0.8169,ann_009,clinical_notes,2026-01-08T00:00:00Z
+emot_000299,I've been playing old messages over and over so I don't forget the sound of her voice.,sadness,hopelessness,0.7674,0.86,ann_012,clinical_notes,2025-08-21T00:00:00Z
+emot_000783,I've lost faith in the possibility of being okay.,hopelessness,,0.9669,0.7772,ann_014,synthetic,2025-06-12T00:00:00Z
+emot_001280,I worked from home today and had a productive morning.,neutral,,0.2603,0.7526,ann_003,synthetic,2025-05-20T00:00:00Z
+emot_000472,I feel the anger building every time I have to explain why what happened wasn't okay.,anger,guilt,0.9823,0.7826,ann_014,clinical_notes,2025-02-26T00:00:00Z
+emot_000416,I feel the kind of sadness that makes everything grey.,sadness,fear,0.8373,0.8623,ann_001,crisis_text_line,2025-10-25T00:00:00Z
+emot_000064,I can't enjoy anything because I'm always anticipating something going wrong.,anxiety,fear,0.6586,0.7812,ann_003,synthetic,2025-08-25T00:00:00Z
+emot_000997,I made a promise I didn't keep. It cost someone something important.,guilt,,0.8453,0.7875,ann_003,clinical_notes,2025-04-22T00:00:00Z
+emot_000675,I'm afraid that the fear is permanent. That this is what I am now.,fear,,0.8617,0.9722,ann_008,crisis_text_line,2025-10-16T00:00:00Z
+emot_000282,I can't remember the last time I genuinely laughed.,sadness,fear,0.6566,0.9204,ann_004,synthetic,2025-05-03T00:00:00Z
+emot_000506,I've been replaying the confrontation in my head and I'm angrier each time.,anger,,0.6671,0.9495,ann_015,synthetic,2025-06-26T00:00:00Z
+emot_000307,"I feel profoundly alone, even when I'm surrounded by people.",sadness,guilt,0.7447,0.7604,ann_012,synthetic,2025-06-26T00:00:00Z
+emot_000703,I'm terrified of being alone for the rest of my life.,fear,,0.9379,0.7833,ann_011,crisis_text_line,2025-03-27T00:00:00Z
+emot_001083,"I'm ashamed of my body, my mind, my life. All of it.",shame,,0.8642,0.8105,ann_015,synthetic,2026-01-25T00:00:00Z
+emot_001305,I'm building a small reading habit—just ten pages before bed.,neutral,,0.2775,0.7899,ann_014,crisis_text_line,2025-10-09T00:00:00Z
+emot_000957,I've been unable to forgive myself for missing the signs.,guilt,shame,0.9471,0.7552,ann_011,clinical_notes,2025-08-02T00:00:00Z
+emot_000465,They lied to my face and acted like it was nothing. I'm furious.,anger,guilt,0.9908,0.9334,ann_015,crisis_text_line,2025-07-01T00:00:00Z
+emot_000962,I said I'd be there and I wasn't. It's not something I can apologise for enough.,guilt,anxiety,0.6974,0.8022,ann_005,crisis_text_line,2025-07-10T00:00:00Z
+emot_000242,I've been having a hard time forgiving myself for not being there at the end.,sadness,hopelessness,0.8668,0.8693,ann_014,synthetic,2025-05-26T00:00:00Z
+emot_000975,I feel guilty for choosing my own happiness at someone else's expense.,guilt,sadness,0.6223,0.8525,ann_002,clinical_notes,2025-12-10T00:00:00Z
+emot_000396,I feel the pull of sadness whenever I'm still.,sadness,fear,0.581,0.9095,ann_007,synthetic,2025-09-19T00:00:00Z
+emot_001086,I feel like I've been playing a role my whole life and the role is wearing thin.,shame,sadness,0.5838,0.7582,ann_003,forum_scrape,2025-05-14T00:00:00Z
+emot_000846,I feel like whatever thread I was holding on to has frayed.,hopelessness,,0.893,0.7567,ann_001,synthetic,2025-12-12T00:00:00Z
+emot_000059,I've been over-preparing for everything because I'm scared of being caught unprepared.,anxiety,,0.5714,0.9261,ann_008,synthetic,2025-07-14T00:00:00Z
+emot_001132,I carry the shame of my illness like a mark I can't wash off.,shame,,0.9082,0.7982,ann_001,synthetic,2025-01-25T00:00:00Z
+emot_000893,I feel guilty for having good things in my life when others have so little.,guilt,sadness,0.9537,0.9288,ann_015,synthetic,2025-01-10T00:00:00Z
+emot_000692,I'm terrified of silence after years of abuse. It usually means something is about to happen.,fear,,0.8926,0.9112,ann_006,crisis_text_line,2025-07-10T00:00:00Z
+emot_000188,Main darta hoon ki log mujhe judgemental nazaron se dekhenge.,anxiety,hopelessness,0.9097,0.8617,ann_007,synthetic,2025-08-15T00:00:00Z
+emot_001184,I finished a work project that had been going on for a while. Feels good to have it wrapped up.,neutral,,0.3783,0.8366,ann_006,synthetic,2025-11-04T00:00:00Z
+emot_001172,I picked up a second-hand book from a charity shop. Looking forward to reading it.,neutral,,0.3241,0.8526,ann_009,synthetic,2025-11-22T00:00:00Z
+emot_000757,I've stopped believing that the future will be different from the past.,hopelessness,,0.8858,0.8417,ann_013,forum_scrape,2025-08-11T00:00:00Z
+emot_000174,I can't sleep without replaying everything I did wrong that day.,anxiety,,0.875,0.7719,ann_006,forum_scrape,2025-08-07T00:00:00Z
+emot_000839,I don't see anything worth holding on for.,hopelessness,sadness,0.6387,0.7601,ann_014,synthetic,2025-11-01T00:00:00Z
+emot_000852,I've given up on things working out the way I hoped.,hopelessness,,0.792,0.903,ann_008,synthetic,2025-06-16T00:00:00Z
+emot_001107,I feel like the worst thing that could happen is for people to really know me.,shame,hopelessness,0.8014,0.818,ann_009,synthetic,2025-01-25T00:00:00Z
+emot_000531,I've been a pressure cooker. I know I'm going to blow.,anger,,0.7856,0.8463,ann_012,synthetic,2025-07-18T00:00:00Z
+emot_000908,I should have known better. I was an adult. I should have protected them.,guilt,shame,0.5303,0.7615,ann_014,crisis_text_line,2025-06-07T00:00:00Z
+emot_000255,I've been unable to talk about her without breaking down.,sadness,anxiety,0.928,0.9522,ann_001,synthetic,2025-09-12T00:00:00Z
+emot_000274,I've been sad in a way that doesn't want company.,sadness,hopelessness,0.9124,0.8248,ann_008,clinical_notes,2025-12-06T00:00:00Z
+emot_000211,I've been losing my hair from stress. It's been going on for months.,anxiety,,0.9214,0.7865,ann_015,synthetic,2025-07-10T00:00:00Z
+emot_000240,I've been struggling with the weight of accumulated losses.,sadness,,0.9309,0.9722,ann_009,crisis_text_line,2025-08-10T00:00:00Z
+emot_000624,I'm terrified of the confrontation I know is coming.,fear,sadness,0.864,0.8941,ann_002,synthetic,2026-01-08T00:00:00Z
+emot_001063,I'm ashamed of who I am when I'm at my worst.,shame,guilt,0.6595,0.8688,ann_014,forum_scrape,2026-01-29T00:00:00Z
+emot_000742,I'm so exhausted from trying and failing. I don't have anything left.,hopelessness,,0.9228,0.9261,ann_005,synthetic,2026-01-17T00:00:00Z
+emot_000989,I've been carrying guilt for things that happened years ago.,guilt,anxiety,0.9388,0.8503,ann_011,forum_scrape,2025-05-13T00:00:00Z
+emot_000065,I feel like a disaster is just around the corner. Always.,anxiety,hopelessness,0.8696,0.8546,ann_013,synthetic,2025-06-22T00:00:00Z
+emot_001163,I've been journaling in the evenings. Helps me process the day.,neutral,,0.3608,0.7555,ann_006,synthetic,2025-09-28T00:00:00Z
+emot_000479,"I'm furious at the way people look at me now. With pity. Or worse, suspicion.",anger,,0.6762,0.7823,ann_002,synthetic,2026-01-17T00:00:00Z
+emot_001243,I attended a webinar about something related to my field. Useful.,neutral,,0.2759,0.7664,ann_009,synthetic,2025-01-20T00:00:00Z
+emot_000827,I feel a deep despair about things ever changing.,hopelessness,guilt,0.9,0.9621,ann_015,synthetic,2025-09-03T00:00:00Z
+emot_000345,I mourn the life I thought I'd be living by now.,sadness,,0.8189,0.8115,ann_002,synthetic,2025-07-23T00:00:00Z
+emot_000669,I'm afraid of the dark in a way that has gotten much worse since the incident.,fear,anxiety,0.8644,0.7501,ann_002,synthetic,2025-03-22T00:00:00Z
+emot_001059,I feel like the most fundamental parts of me are the most shameful.,shame,,0.883,0.9517,ann_014,synthetic,2025-02-21T00:00:00Z
+emot_000658,I'm scared of the things I don't know about what's ahead.,fear,,0.9454,0.8341,ann_011,synthetic,2025-05-22T00:00:00Z
+emot_000091,"I'm scared that if I admit I'm struggling, people won't think I can handle things.",anxiety,,0.8318,0.779,ann_008,synthetic,2026-01-21T00:00:00Z
+emot_000101,I haven't been able to eat properly in two weeks.,anxiety,sadness,0.8373,0.8938,ann_013,synthetic,2025-12-05T00:00:00Z
+emot_000872,Nothing is ever going to change. I know this now.,hopelessness,sadness,0.7933,0.8619,ann_003,synthetic,2025-08-12T00:00:00Z
+emot_000518,I feel a righteous fury that I'm trying not to let consume me.,anger,guilt,0.8493,0.8526,ann_010,clinical_notes,2025-08-31T00:00:00Z
+emot_000659,I've been scared of what the tests might show. The wait is unbearable.,fear,sadness,0.9131,0.8782,ann_006,clinical_notes,2025-04-02T00:00:00Z
+emot_000169,I'm scared of everything going quiet—it means something is about to go wrong.,anxiety,fear,0.9127,0.852,ann_006,clinical_notes,2025-02-11T00:00:00Z
+emot_000154,I've been unable to relax for months. My body is constantly braced.,anxiety,fear,0.6341,0.8736,ann_008,synthetic,2025-07-18T00:00:00Z
+emot_000822,Every time I think I'm making progress I get knocked back further.,hopelessness,guilt,0.6271,0.8569,ann_012,crisis_text_line,2025-03-02T00:00:00Z
+emot_000681,I've been scared of being alone with my thoughts.,fear,,0.7668,0.9071,ann_008,forum_scrape,2025-04-08T00:00:00Z
+emot_000235,I've been sad for a long time. I'm starting to wonder if this is just who I am now.,sadness,hopelessness,0.8405,0.7779,ann_013,synthetic,2025-04-13T00:00:00Z
+emot_001114,I feel like the shame is the thing that's kept me small.,shame,guilt,0.877,0.7895,ann_008,forum_scrape,2025-09-02T00:00:00Z
+emot_000186,Even small decisions feel overwhelming. What if I make the wrong choice?,anxiety,hopelessness,0.7122,0.916,ann_010,clinical_notes,2026-02-02T00:00:00Z
+emot_000562,I'm furious at my own body for not fighting back harder.,anger,sadness,0.8087,0.8551,ann_005,synthetic,2025-06-01T00:00:00Z
+emot_000051,The anxious thoughts come in waves and the waves are getting bigger.,anxiety,fear,0.905,0.9451,ann_003,crisis_text_line,2025-08-22T00:00:00Z
+emot_000664,Mujhe darr lagta hai. Dil mein ek khouf sa baith gaya hai.,fear,sadness,0.9556,0.8501,ann_005,synthetic,2025-02-02T00:00:00Z
+emot_000618,I've been sleeping with the light on for three months.,fear,anxiety,0.8572,0.957,ann_008,synthetic,2025-06-12T00:00:00Z
+emot_001299,I had a walk with a friend and we caught up. Nothing complicated.,neutral,,0.1843,0.9168,ann_012,synthetic,2025-08-16T00:00:00Z
+emot_000275,I keep playing the last conversation I had with him over and over.,sadness,anxiety,0.8674,0.8557,ann_006,clinical_notes,2025-09-30T00:00:00Z
+emot_000572,I'm furious at the injustice of what happened to me and there's nothing I can do.,anger,sadness,0.8093,0.7528,ann_009,crisis_text_line,2025-12-14T00:00:00Z
+emot_000066,I overanalyse everything. Was that a weird look from my boss?,anxiety,hopelessness,0.8651,0.7688,ann_012,clinical_notes,2025-01-10T00:00:00Z
+emot_001292,I've been listening to podcasts about mental health lately. It's been informative.,neutral,,0.429,0.7734,ann_013,crisis_text_line,2025-10-02T00:00:00Z
+emot_000940,I feel guilty for how many times I've let people down.,guilt,,0.8744,0.8785,ann_012,forum_scrape,2025-01-07T00:00:00Z
+emot_000749,I've given up on the things I used to want.,hopelessness,anxiety,0.9004,0.9399,ann_012,clinical_notes,2025-12-20T00:00:00Z
+emot_000286,I feel like I'm walking through fog. Nothing feels real.,sadness,guilt,0.6091,0.8034,ann_012,crisis_text_line,2026-01-14T00:00:00Z
+emot_001143,I feel like there's something wrong with me that predates anything I've done.,shame,,0.8572,0.7894,ann_006,forum_scrape,2025-05-17T00:00:00Z
+emot_000754,I've been unable to see any way through this.,hopelessness,anxiety,0.9519,0.7852,ann_012,synthetic,2025-12-11T00:00:00Z
+emot_000493,I'm furious that the anger is all I have left of that relationship.,anger,sadness,0.8171,0.8583,ann_005,synthetic,2025-12-05T00:00:00Z
+emot_000730,"I'm scared that if I fall apart, I won't be able to put myself back together.",fear,sadness,0.869,0.9405,ann_013,forum_scrape,2025-03-04T00:00:00Z
+emot_000222,I've been having trouble caring about anything.,sadness,hopelessness,0.9176,0.7736,ann_011,synthetic,2025-06-17T00:00:00Z
+emot_000354,I feel like there are whole parts of me that died with the relationship.,sadness,fear,0.8953,0.7822,ann_012,synthetic,2025-12-19T00:00:00Z
+emot_000509,I've been having intrusive angry thoughts in situations where I should be calm.,anger,,0.8614,0.7613,ann_015,synthetic,2025-09-01T00:00:00Z
+emot_000357,I feel like I've lost my sense of self along with everything else.,sadness,anxiety,0.8937,0.8772,ann_007,synthetic,2025-07-12T00:00:00Z
+emot_001195,I've been thinking about making some changes to my routine. Still deciding.,neutral,,0.4007,0.8436,ann_011,clinical_notes,2025-03-04T00:00:00Z
+emot_000965,I feel guilty for surviving the crash that killed my friend.,guilt,shame,0.6643,0.7595,ann_010,synthetic,2025-06-12T00:00:00Z
+emot_001174,I took a different route on my walk today. Nothing significant but it was a change.,neutral,,0.3725,0.9369,ann_005,forum_scrape,2025-11-14T00:00:00Z
+emot_000184,The anxiety spikes whenever I'm still. I have to keep moving.,anxiety,hopelessness,0.5309,0.7829,ann_007,synthetic,2025-12-03T00:00:00Z
+emot_000062,I've been rehearsing how to say no for three days and I still haven't done it.,anxiety,fear,0.8702,0.9062,ann_012,synthetic,2025-07-27T00:00:00Z
+emot_001101,I'm ashamed of how much I've needed to be held together by other people.,shame,,0.7315,0.7721,ann_009,synthetic,2025-07-08T00:00:00Z
+emot_000697,I've been scared of the intimacy I know I need but can't seem to let in.,fear,,0.5939,0.9088,ann_004,crisis_text_line,2025-01-31T00:00:00Z
+emot_000510,I'm angry that asking for basic respect has become something I have to fight for.,anger,fear,0.5703,0.9325,ann_005,crisis_text_line,2025-06-09T00:00:00Z
+emot_000181,I keep asking for reassurance but it only helps for a few minutes.,anxiety,hopelessness,0.9336,0.8487,ann_013,crisis_text_line,2025-10-15T00:00:00Z
+emot_000298,I miss being happy. I can't remember when that last felt natural.,sadness,,0.8114,0.8969,ann_006,clinical_notes,2025-06-01T00:00:00Z
+emot_001048,"I feel like I don't deserve to be loved, only tolerated.",shame,hopelessness,0.8899,0.9196,ann_012,synthetic,2026-01-19T00:00:00Z
+emot_000172,I overthink every conversation I have. Did I say something wrong?,anxiety,,0.6676,0.7763,ann_011,crisis_text_line,2025-12-02T00:00:00Z
+emot_001118,I feel like my flaws aren't just bad habits—they're proof of what I am.,shame,sadness,0.9205,0.9474,ann_004,synthetic,2025-10-03T00:00:00Z
+emot_001190,I'm looking for a new apartment. Just browsing for now.,neutral,,0.4196,0.8769,ann_012,clinical_notes,2025-12-04T00:00:00Z
+emot_000067,I feel like my brain is always running at 200%.,anxiety,fear,0.8335,0.7658,ann_001,crisis_text_line,2025-11-30T00:00:00Z
+emot_000106,I've been making decisions purely to reduce anxiety rather than because they're right.,anxiety,hopelessness,0.935,0.771,ann_014,crisis_text_line,2025-12-12T00:00:00Z
+emot_001183,I wrote down some things I'm grateful for. Felt useful.,neutral,,0.2523,0.9553,ann_008,forum_scrape,2025-12-10T00:00:00Z

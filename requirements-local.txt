@@ -1,0 +1,54 @@
+# SAATHI AI -- local dev requirements (Python 3.14 compatible, unpinned)
+# psycopg2 excluded -- using aiosqlite for local SQLite dev
+
+# FastAPI core
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Database
+sqlalchemy
+alembic
+aiosqlite
+
+# Auth & Security
+python-jose[cryptography]
+passlib[bcrypt]
+cryptography
+
+# HTTP client
+httpx
+aiohttp
+
+# AI / Inference
+together
+openai
+
+# RAG / Embeddings
+pinecone
+sentence-transformers
+
+# Payments
+razorpay
+
+# Email / Calendar
+sendgrid
+google-api-python-client
+google-auth-oauthlib
+
+# Redis / Caching
+redis
+aioredis
+
+# Utilities
+pydantic
+pydantic-settings
+python-dotenv
+loguru
+
+# WebSockets
+websockets
+
+# Testing
+pytest
+pytest-asyncio

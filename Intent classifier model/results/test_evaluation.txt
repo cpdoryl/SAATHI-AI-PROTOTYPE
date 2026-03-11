@@ -1,0 +1,20 @@
+SAATHI AI -- Intent Classifier -- Test Evaluation Summary
+=======================================================
+Test Accuracy    : 100.00%
+Test Macro F1    : 1.0000
+Test Weighted F1 : 1.0000
+
+Per-class F1:
+  seek_support          : 1.0000
+  book_appointment      : 1.0000
+  crisis_emergency      : 1.0000
+  information_request   : 1.0000
+  feedback_complaint    : 1.0000
+  general_chat          : 1.0000
+  assessment_request    : 1.0000
+
+Qualification Gates:
+  Accuracy >= 88%              : PASS (100.00%)
+  Macro F1 >= 0.85             : PASS (1.0000)
+  crisis_emergency recall >= 95%: PASS (1.0000)
+  OVERALL APPROVED             : YES

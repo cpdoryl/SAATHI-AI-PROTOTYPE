@@ -1,0 +1,122 @@
+{
+  "model": "distilbert-base-uncased",
+  "phase": "Emotion Detection 8-Class",
+  "trained_at": "2026-03-11T07:16:37.770689",
+  "training_seconds": 655.0,
+  "best_epoch": 5,
+  "test_metrics": {
+    "accuracy": 0.9044,
+    "weighted_f1": 0.9038,
+    "macro_f1": 0.9056,
+    "per_class_f1": {
+      "anxiety": 0.898,
+      "sadness": 0.8571,
+      "anger": 0.9714,
+      "fear": 0.8571,
+      "hopelessness": 0.8276,
+      "guilt": 0.9333,
+      "shame": 0.963,
+      "neutral": 0.9375
+    },
+    "loss": 0.3425,
+    "confusion_matrix": [
+      [
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        18,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        0,
+        12,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        0,
+        12,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        14,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        13,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ]
+  },
+  "qualification": {
+    "accuracy_pass": true,
+    "macro_f1_pass": true,
+    "hopelessness_pass": true,
+    "overall_approved": true
+  },
+  "config": {
+    "num_labels": 8,
+    "max_length": 128,
+    "batch_size": 16,
+    "p1_epochs": 2,
+    "p2_epochs": 5,
+    "p1_lr": 0.001,
+    "p2_lr": 2e-05,
+    "early_stopping_patience": 3,
+    "random_seed": 42
+  }
+}

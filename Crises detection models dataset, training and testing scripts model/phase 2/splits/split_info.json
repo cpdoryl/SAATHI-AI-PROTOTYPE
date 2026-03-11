@@ -1,0 +1,19 @@
+{
+  "created_at": "2025-12-31T12:50:28.321719",
+  "source": "combined_crisis_dataset_3500.csv",
+  "random_seed": 42,
+  "splits": {
+    "train": {
+      "file": "data/splits/train_combined.csv",
+      "records": 2450
+    },
+    "val": {
+      "file": "data/splits/val_combined.csv",
+      "records": 525
+    },
+    "test": {
+      "file": "data/splits/test_combined.csv",
+      "records": 525
+    }
+  }
+}

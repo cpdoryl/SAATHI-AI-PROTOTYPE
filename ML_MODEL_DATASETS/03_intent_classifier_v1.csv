@@ -1,0 +1,97 @@
+text,intent,confidence_tier
+"I've been feeling very overwhelmed lately and just need someone to talk to.",seek_support,high
+"I'm struggling with work stress and don't know how to cope.",seek_support,high
+"I've been going through a difficult time with my family and want to talk about it.",seek_support,high
+"I'm feeling really down today and needed to reach out.",seek_support,high
+"Can I just vent for a bit? I've had a terrible week.",seek_support,high
+"I'm exhausted and burnt out. I don't know what to do anymore.",seek_support,high
+"I feel like I'm failing at everything. I just need support.",seek_support,high
+"I've been anxious for weeks. I want to talk through it.",seek_support,high
+"My relationship is falling apart. I need someone to listen.",seek_support,high
+"I'm dealing with grief and struggling to process it alone.",seek_support,high
+"I feel really isolated in my new city. Just wanted to chat.",seek_support,medium
+"Things are tough right now but I wanted someone to hear me out.",seek_support,medium
+"I've been struggling with motivation. Can we talk?",seek_support,medium
+"I'm not sure if I'm depressed but I've not felt like myself for months.",seek_support,medium
+"I could use some emotional support today.",seek_support,medium
+"I need to talk to a therapist about my anxiety.",seek_support,medium
+"I want to understand what's happening with my emotions.",seek_support,medium
+"I'm feeling stuck and want to work through it.",seek_support,medium
+"I have some personal issues I'd like to discuss.",seek_support,medium
+"I just want someone to listen without judging.",seek_support,low
+"I want to schedule an appointment with a therapist for next week.",book_appointment,high
+"Can I book a session for Thursday afternoon?",book_appointment,high
+"How do I schedule a therapy session through this app?",book_appointment,high
+"I'd like to meet a female therapist this Saturday if possible.",book_appointment,high
+"Please book me in for a 60-minute session as soon as possible.",book_appointment,high
+"Can I set up a recurring weekly appointment?",book_appointment,high
+"I want to see a therapist in person, not online. Can I arrange that?",book_appointment,high
+"I need an urgent appointment. Is there something available today or tomorrow?",book_appointment,high
+"Can I reschedule my appointment from Tuesday to Friday?",book_appointment,high
+"Can I cancel my appointment for this week?",book_appointment,high
+"I'd like to book a session. What time slots do you have?",book_appointment,medium
+"Is there availability this weekend for a therapy session?",book_appointment,medium
+"When is the earliest I can meet a counsellor?",book_appointment,medium
+"I think I'm ready to see a professional. How do I start?",book_appointment,medium
+"I want to set up an appointment but I'm not sure which therapist to choose.",book_appointment,medium
+"I NEED HELP RIGHT NOW. I'm having thoughts of suicide.",crisis_emergency,high
+"I don't want to live anymore. Please help me.",crisis_emergency,high
+"I'm having a panic attack and I can't breathe. Please help.",crisis_emergency,high
+"I just took all my pills. I'm scared.",crisis_emergency,high
+"My partner is hurting me and I'm trapped. I need help immediately.",crisis_emergency,high
+"I'm about to harm myself. I need someone right now.",crisis_emergency,high
+"This is an emergency. I'm in crisis.",crisis_emergency,high
+"I feel like I might hurt myself tonight.",crisis_emergency,high
+"I can't stop these thoughts. I'm scared of what I might do.",crisis_emergency,medium
+"I'm in a very dark place and I don't know how much longer I can hold on.",crisis_emergency,medium
+"What is CBT and how does it work?",information_request,high
+"Can you explain what the PHQ-9 test measures?",information_request,high
+"What are the symptoms of generalized anxiety disorder?",information_request,high
+"How many sessions does therapy usually take?",information_request,high
+"What is the difference between a psychologist and a psychiatrist?",information_request,high
+"Is this app covered under my company's insurance?",information_request,high
+"Can you explain what mindfulness-based therapy involves?",information_request,high
+"What is DBT and who is it for?",information_request,high
+"How does the waitlist for therapist appointments work?",information_request,medium
+"How confidential are my sessions? Who can access my data?",information_request,high
+"Is therapy suitable for someone who's never tried it before?",information_request,medium
+"What types of therapy are available through this platform?",information_request,medium
+"Can I talk to a psychiatrist or only a therapist?",information_request,medium
+"What's the difference between depression and burnout?",information_request,medium
+"What crisis resources are available through the app?",information_request,medium
+"The chatbot gave me advice that I found unhelpful and inappropriate.",feedback_complaint,high
+"I've been waiting 3 days for a therapist to respond to my message.",feedback_complaint,high
+"The appointment booking system is broken. I've tried 5 times.",feedback_complaint,high
+"I feel judged by the questions the app is asking me. I don't like it.",feedback_complaint,high
+"The therapist I was assigned doesn't seem to understand my cultural background.",feedback_complaint,high
+"I want to give feedback on my last session. The therapist was excellent.",feedback_complaint,high
+"The app keeps logging me out. It's very frustrating.",feedback_complaint,medium
+"I reported a crisis situation and nobody followed up for hours.",feedback_complaint,high
+"The video call quality was terrible during my last session.",feedback_complaint,medium
+"I'm unhappy with the response time from the support team.",feedback_complaint,medium
+"I want to leave a review for my therapist.",feedback_complaint,medium
+"Hi there! How are you today?",general_chat,high
+"Good morning! I'm just exploring this app for the first time.",general_chat,high
+"What a busy week it's been.",general_chat,high
+"I was just thinking about how weird the weather has been lately.",general_chat,high
+"Just checking in. No specific issue today.",general_chat,high
+"Hello! Is anyone there?",general_chat,high
+"I'm just browsing what this platform offers.",general_chat,medium
+"I read something interesting about mindfulness today.",general_chat,medium
+"This app was recommended by my HR. Just exploring.",general_chat,medium
+"I'm curious to see how this works before committing to sessions.",general_chat,medium
+"I want to take the depression screening test.",assessment_request,high
+"Can I do the anxiety assessment?",assessment_request,high
+"How do I take the PHQ-9?",assessment_request,high
+"I want to check my stress levels. Is there a test for that?",assessment_request,high
+"My therapist mentioned I should do a DASS-21. Can I do that here?",assessment_request,high
+"I want to track my mental health progress through regular assessments.",assessment_request,high
+"Is there a burnout questionnaire?",assessment_request,medium
+"Can I retake the anxiety test? I took it last month.",assessment_request,medium
+"I want to do a wellbeing check-in.",assessment_request,medium
+"My company says I need to complete the wellness survey. Where is it?",assessment_request,medium
+"I think I might have trauma symptoms. Is there a PTSD screening?",assessment_request,medium
+"How do I start the mental health screening?",assessment_request,medium
+"I'd like to assess where I am mentally before starting therapy.",assessment_request,medium
+"Can you send me a link to the GAD-7?",assessment_request,low
+"I want to see how I score on the stress assessment today.",assessment_request,medium

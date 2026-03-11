@@ -1,0 +1,73 @@
+{
+  "created_at": "2025-12-31T12:47:51.622330",
+  "created_by": "CPDO",
+  "version": "1.0",
+  "sources": {
+    "phase1": {
+      "file": "phase_1_suicidal_ideation_1500_FIXED.csv",
+      "records": 1500,
+      "crisis_types": [
+        "suicidal_ideation"
+      ]
+    },
+    "phase2": {
+      "file": "phase_2_high_risk_2000_FIXED.csv",
+      "records": 2000,
+      "crisis_types": [
+        "self_harm",
+        "suicide_plan",
+        "suicide_attempt"
+      ]
+    }
+  },
+  "combined": {
+    "file": "combined_crisis_dataset_3500.csv",
+    "total_records": 3500,
+    "crisis_types": [
+      "suicidal_ideation",
+      "self_harm",
+      "suicide_plan",
+      "suicide_attempt"
+    ],
+    "severity_levels": [
+      0.1,
+      0.2,
+      0.6,
+      0.7,
+      0.9,
+      1.0
+    ],
+    "high_risk_count": 1450,
+    "high_risk_percentage": 41.43
+  },
+  "schema": {
+    "columns": [
+      "id",
+      "utterance",
+      "crisis_label",
+      "cssrs_q1",
+      "cssrs_q2",
+      "cssrs_q3",
+      "cssrs_q4",
+      "cssrs_q5",
+      "cssrs_q6",
+      "high_risk_flag",
+      "severity_score",
+      "severity_method",
+      "clinical_scale",
+      "context",
+      "metadata",
+      "language_code",
+      "region",
+      "age_group",
+      "gender",
+      "socioeconomic_context",
+      "cultural_markers",
+      "annotator_id",
+      "validation_flag",
+      "source",
+      "created_at"
+    ],
+    "column_count": 25
+  }
+}

@@ -1,0 +1,33 @@
+SAATHI AI -- EMOTION DETECTION MODEL -- TEST EVALUATION
+========================================================
+
+Model     : distilbert-base-uncased fine-tuned (8-class)
+Phase     : Emotion Detection
+Test set  : 136 samples
+Trained   : 2026-03-11 07:16
+Duration  : 0.18 hours
+
+RESULTS
+------------------------------
+Accuracy        : 0.9044 (90.44%)
+Weighted F1     : 0.9038
+Macro F1        : 0.9056
+
+Per-class F1:
+  anxiety               : 0.8980
+  sadness               : 0.8571
+  anger                 : 0.9714
+  fear                  : 0.8571
+  hopelessness          : 0.8276
+  guilt                 : 0.9333
+  shame                 : 0.9630
+  neutral               : 0.9375
+
+QUALIFICATION GATES
+------------------------------
+Accuracy >= 80%        : PASS
+Macro F1 >= 0.75       : PASS
+Hopelessness F1 >= 0.70: PASS
+APPROVED               : YES
+
+Model saved: models/best_model/

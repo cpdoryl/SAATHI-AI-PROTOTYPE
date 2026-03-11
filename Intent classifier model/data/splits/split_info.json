@@ -1,0 +1,47 @@
+{
+  "total": 1500,
+  "train": 1200,
+  "val": 150,
+  "test": 150,
+  "strategy": "stratified_80_10_10",
+  "seed": 42,
+  "split_by": "primary_intent",
+  "classes": [
+    "seek_support",
+    "book_appointment",
+    "crisis_emergency",
+    "information_request",
+    "feedback_complaint",
+    "general_chat",
+    "assessment_request"
+  ],
+  "class_counts": {
+    "train": {
+      "seek_support": 240,
+      "book_appointment": 200,
+      "crisis_emergency": 200,
+      "information_request": 160,
+      "feedback_complaint": 120,
+      "general_chat": 120,
+      "assessment_request": 160
+    },
+    "val": {
+      "seek_support": 30,
+      "book_appointment": 25,
+      "crisis_emergency": 25,
+      "information_request": 20,
+      "feedback_complaint": 15,
+      "general_chat": 15,
+      "assessment_request": 20
+    },
+    "test": {
+      "seek_support": 30,
+      "book_appointment": 25,
+      "crisis_emergency": 25,
+      "information_request": 20,
+      "feedback_complaint": 15,
+      "general_chat": 15,
+      "assessment_request": 20
+    }
+  }
+}

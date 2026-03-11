@@ -1,0 +1,6 @@
+{
+  "best_epoch": "P2 Epoch 2",
+  "val_macro_f1": 0.9894393241167434,
+  "val_acc": 0.9866666666666667,
+  "model": "distilbert-base-uncased"
+}

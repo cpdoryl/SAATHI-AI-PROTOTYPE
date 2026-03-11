@@ -1,0 +1,77 @@
+text,topic_labels,primary_topic
+"My manager keeps assigning me extra projects on weekends without any notice.",workplace_stress,workplace_stress
+"I've been working 14-hour days in this IT company. I barely sleep.",workplace_stress,workplace_stress
+"My team's toxic culture is making me dread going to work.",workplace_stress,workplace_stress
+"I got a poor performance rating even though I worked harder than anyone.",workplace_stress,workplace_stress
+"There's office politics everywhere. It's exhausting trying to navigate.",workplace_stress,workplace_stress
+"My boss micromanages everything. I don't have any autonomy.",workplace_stress,workplace_stress
+"The targets they set are completely unrealistic. I'm drowning.",workplace_stress,workplace_stress
+"I've been in back-to-back meetings for weeks. I can't do any actual work.",workplace_stress,workplace_stress
+"My company just announced layoffs. I don't know if I'm safe.",workplace_stress,workplace_stress
+"I was passed over for promotion three years in a row.",workplace_stress,workplace_stress
+"My startup team has no boundaries. People message at midnight expecting replies.",workplace_stress,workplace_stress
+"My work from home setup is poor and my employer won't support it financially.",workplace_stress,workplace_stress
+"I got a bad review. I know my manager doesn't like me personally.",workplace_stress,workplace_stress
+"My colleagues don't respect my time. They interrupt constantly.",workplace_stress,workplace_stress
+"My wife and I argue constantly. We've stopped communicating properly.",relationship_issues,relationship_issues
+"My parents want me to get married but I'm not ready. They're pressuring me daily.",relationship_issues,relationship_issues
+"My mother-in-law interferes in every aspect of my marriage.",relationship_issues,relationship_issues
+"My best friend betrayed my confidence and I don't know how to move forward.",relationship_issues,relationship_issues
+"I've been in a long-distance relationship for 2 years. The strain is showing.",relationship_issues,relationship_issues
+"My parents disapprove of my partner because he's from a different caste.",relationship_issues,relationship_issues
+"I'm going through a divorce. It's painful for both of us and for our children.",relationship_issues,relationship_issues
+"My siblings are fighting over my parents' property. It's tearing the family apart.",relationship_issues,relationship_issues
+"I feel unseen and unheard in my marriage. My partner doesn't listen.",relationship_issues,relationship_issues
+"I'm in an arranged marriage and we're very different. I feel lonely.",relationship_issues,relationship_issues
+"My parents have been fighting a lot. The environment at home is toxic.",relationship_issues,relationship_issues
+"I don't have any real friends. All my relationships feel superficial.",relationship_issues,relationship_issues
+"My adult children barely call. It's painful.",relationship_issues,relationship_issues
+"I failed my UPSC exam for the third time. I don't know what to do next.",academic_stress,academic_stress
+"My CA exams are next month and I'm completely unprepared.",academic_stress,academic_stress
+"I'm a medical student. The pressure is unbearable. I haven't slept in days.",academic_stress,academic_stress
+"My parents want me to crack JEE but I don't even like engineering.",academic_stress,academic_stress
+"I'm doing a PhD and my supervisor is abusive. I can't focus on research.",academic_stress,academic_stress
+"I failed my first year college exams. I'm too ashamed to tell my parents.",academic_stress,academic_stress
+"The competition in my batch is cutthroat. I feel like I'm always behind.",academic_stress,academic_stress
+"I'm preparing for competitive exams while also working part-time. I'm burnt out.",academic_stress,academic_stress
+"I missed the cut-off for my dream college by 2 marks. I'm devastated.",academic_stress,academic_stress
+"I have a project submission tomorrow and I haven't started.",academic_stress,academic_stress
+"I've been having chest pain and shortness of breath. The doctor says it's stress-related.",health_concerns,health_concerns
+"I've been diagnosed with Type 2 diabetes and I'm struggling to accept it.",health_concerns,health_concerns
+"My sleep is terrible. I wake up multiple times and never feel rested.",health_concerns,health_concerns
+"I've been having migraines every week for the past 3 months.",health_concerns,health_concerns
+"I was diagnosed with PCOS and it's affecting my mood badly.",health_concerns,health_concerns
+"Since the COVID infection I've had brain fog and fatigue that hasn't gone away.",health_concerns,health_concerns
+"I've been gaining weight rapidly and I'm worried about my health.",health_concerns,health_concerns
+"I can't stop eating when I'm stressed. I feel terrible about my body.",health_concerns,health_concerns
+"I've had panic attacks that sent me to the ER twice.",health_concerns,health_concerns
+"My doctor told me I have high blood pressure at 32. I'm shocked.",health_concerns,health_concerns
+"I can't pay my EMI this month. I'm terrified the bank will take my house.",financial_stress,financial_stress
+"I have 3 credit cards maxed out and I don't know how to manage the debt.",financial_stress,financial_stress
+"I lost my job and I have a family to support. I have no savings.",financial_stress,financial_stress
+"My business collapsed during the pandemic. I borrowed heavily and can't repay.",financial_stress,financial_stress
+"I supported my family through college. Now I have nothing saved for retirement.",financial_stress,financial_stress
+"I'm earning well but my expenses have grown faster. I live paycheck to paycheck.",financial_stress,financial_stress
+"I trusted someone with a financial investment and lost everything.",financial_stress,financial_stress
+"I can't afford therapy but I desperately need it.",financial_stress,financial_stress
+"My husband lost his job and we're both stressed. Money is very tight.",financial_stress|relationship_issues,financial_stress
+"Work is suffocating me and my marriage is suffering because I bring stress home.",workplace_stress|relationship_issues,workplace_stress
+"My exam pressure is making me fight with my parents at home.",academic_stress|relationship_issues,academic_stress
+"I have chest pain from work stress but my doctor says there's nothing physical.",workplace_stress|health_concerns,workplace_stress
+"I'm not eating or sleeping because of exam pressure.",academic_stress|health_concerns,academic_stress
+"I've been stress-eating since the layoff announcement. I've gained 5kg.",workplace_stress|health_concerns,workplace_stress
+"Constant financial worry is giving me headaches and insomnia.",financial_stress|health_concerns,financial_stress
+"My in-laws and my boss are both making my life impossible simultaneously.",relationship_issues|workplace_stress,relationship_issues
+"My loan repayments are overdue and my partner blames me for everything.",financial_stress|relationship_issues,financial_stress
+"I can't afford the medical treatment I need. I'm scared and broke.",financial_stress|health_concerns,financial_stress
+"I'm studying for finals while taking care of my sick mother.",academic_stress|relationship_issues,academic_stress
+"I lost my job and my partner of 5 years in the same month.",workplace_stress|relationship_issues,workplace_stress
+"My health is bad because I don't take care of myself. Work always comes first.",workplace_stress|health_concerns,health_concerns
+"I'm working two jobs to pay off my student loans and my health is deteriorating.",financial_stress|health_concerns,financial_stress
+"My parents want me to quit my job and focus on exams but I need the income.",academic_stress|financial_stress,academic_stress
+"I'm failing academically and can't afford a tutor.",academic_stress|financial_stress,academic_stress
+"We fight constantly about money. My husband spends, I save. There's no alignment.",financial_stress|relationship_issues,financial_stress
+"My long distance partner is stressed about his career and I'm stressed about mine. We barely connect.",relationship_issues|workplace_stress,relationship_issues
+"I've been having panic attacks at work during presentations.",workplace_stress|health_concerns,workplace_stress
+"I'm worried about my blood pressure from work stress. My doctor warned me.",workplace_stress|health_concerns,health_concerns
+"The company sent me abroad for 2 years. My marriage is strained and I'm lonely.",workplace_stress|relationship_issues,relationship_issues
