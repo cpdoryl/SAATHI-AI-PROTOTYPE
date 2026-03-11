@@ -104,6 +104,23 @@ async def lifespan(app: FastAPI):
     except Exception as _exc:
         logger.warning(f"Intent classifier warm-up failed: {_exc}.")
 
+    # ─── Topic Classifier: warm up on startup ────────────────────────────────
+    try:
+        import asyncio as _asyncio4
+        from services.topic_classifier_service import get_topic_service
+        topic_svc = await _asyncio4.get_event_loop().run_in_executor(
+            None, get_topic_service
+        )
+        if topic_svc.is_ready:
+            logger.info("Topic classifier loaded and ready (DistilBERT 5-label multi-label).")
+        else:
+            logger.warning(
+                "Topic classifier NOT loaded — topic context disabled. "
+                "Run: python scripts/setup_topic_model.py to install weights."
+            )
+    except Exception as _exc:
+        logger.warning(f"Topic classifier warm-up failed: {_exc}.")
+
     # ─── APScheduler: daily dropout re-engagement cron ────────────────────────
     try:
         from apscheduler.schedulers.asyncio import AsyncIOScheduler

@@ -1,0 +1,19 @@
+SAATHI AI -- Topic Classifier -- Test Evaluation Summary
+=======================================================
+F1 Samples (optimized thresholds): 0.9833
+F1 Macro   (optimized thresholds): 0.9816
+F1 Micro   (optimized thresholds): 0.9818
+Exact Match Accuracy             : 95.00%
+
+Per-class F1 (optimized thresholds):
+  workplace_stress        : 0.9412  (thresh=0.25)
+  relationship_issues     : 1.0000  (thresh=0.25)
+  academic_stress         : 1.0000  (thresh=0.25)
+  health_concerns         : 0.9667  (thresh=0.25)
+  financial_stress        : 1.0000  (thresh=0.45)
+
+Qualification Gates:
+  F1_samples >= 0.82       : PASS (0.9833)
+  F1_macro   >= 0.80       : PASS (0.9816)
+  All per-class F1 >= 0.75 : PASS
+  OVERALL APPROVED         : YES

@@ -1,0 +1,64 @@
+{
+  "f1_samples_optimized": 0.9833,
+  "f1_macro_optimized": 0.9816,
+  "f1_micro_optimized": 0.9818,
+  "f1_samples_default": 0.9929,
+  "f1_macro_default": 0.9917,
+  "exact_match": 0.95,
+  "per_class_report": {
+    "workplace_stress": {
+      "precision": 0.8889,
+      "recall": 1.0,
+      "f1": 0.9412,
+      "support": 40
+    },
+    "relationship_issues": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 50
+    },
+    "academic_stress": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 33
+    },
+    "health_concerns": {
+      "precision": 0.9667,
+      "recall": 0.9667,
+      "f1": 0.9667,
+      "support": 30
+    },
+    "financial_stress": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 37
+    }
+  },
+  "per_class_f1": {
+    "workplace_stress": 0.9412,
+    "relationship_issues": 1.0,
+    "academic_stress": 1.0,
+    "health_concerns": 0.9667,
+    "financial_stress": 1.0
+  },
+  "thresholds_applied": {
+    "workplace_stress": 0.25,
+    "relationship_issues": 0.25,
+    "academic_stress": 0.25,
+    "health_concerns": 0.25,
+    "financial_stress": 0.45
+  },
+  "qualification_gates": {
+    "f1_samples_ge_0_82": true,
+    "f1_macro_ge_0_80": true,
+    "all_per_class_f1_ge_75": true,
+    "overall_approved": true
+  },
+  "best_epoch": "P2 Epoch 2",
+  "best_val_f1_samples": 0.9952,
+  "model": "distilbert-base-uncased",
+  "num_labels": 5
+}

@@ -1,0 +1,33 @@
+{
+  "model_path": "C:\\saath ai prototype\\Topic classifier model\\models\\best_model",
+  "test_samples": 140,
+  "metrics": {
+    "f1_samples": 0.9833,
+    "f1_macro": 0.9816,
+    "f1_micro": 0.9818,
+    "hamming_loss": 0.01,
+    "subset_accuracy": 0.95,
+    "inference_ms_total": 2750.0,
+    "inference_ms_per_sample": 19.64
+  },
+  "per_class_f1": {
+    "workplace_stress": 0.9412,
+    "relationship_issues": 1.0,
+    "academic_stress": 1.0,
+    "health_concerns": 0.9667,
+    "financial_stress": 1.0
+  },
+  "thresholds": {
+    "workplace_stress": 0.25,
+    "relationship_issues": 0.25,
+    "academic_stress": 0.25,
+    "health_concerns": 0.25,
+    "financial_stress": 0.45
+  },
+  "qualification_gates": {
+    "F1_samples >= 0.82": true,
+    "F1_macro   >= 0.8": true,
+    "All per-class F1 >= 0.75": true
+  },
+  "all_gates_passed": true
+}

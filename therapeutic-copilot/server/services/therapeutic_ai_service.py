@@ -11,6 +11,7 @@ from services.chatbot_service import ChatbotService
 from services.crisis_detection_service import CrisisDetectionService
 from services.emotion_classifier_service import get_emotion_service
 from services.intent_classifier_service import get_intent_service
+from services.topic_classifier_service import get_topic_service
 from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
@@ -18,6 +19,7 @@ from services.websocket_manager import ws_manager
 from services.redis_session_service import redis_session_store
 from config.emotion_prompt_context import build_emotion_context_block
 from config.intent_prompt_context import build_intent_context_block
+from config.topic_prompt_context import build_topic_context_block
 from models import Patient, PatientStage, TherapySession, SessionStatus, ChatMessage
 from loguru import logger
 
@@ -110,10 +112,13 @@ class TherapeuticAIService:
         emotion_context_block = ""
         intent_result        = None
         intent_context_block  = ""
+        topic_result         = None
+        topic_context_block  = ""
 
         try:
             emo_svc    = get_emotion_service()
             intent_svc = get_intent_service()
+            topic_svc  = get_topic_service()
 
             async def _classify_emotion():
                 if emo_svc.is_ready:
@@ -129,8 +134,15 @@ class TherapeuticAIService:
                     )
                 return None
 
-            emo_r, int_r = await _asyncio.gather(
-                _classify_emotion(), _classify_intent()
+            async def _classify_topic():
+                if topic_svc.is_ready:
+                    return await _asyncio.get_event_loop().run_in_executor(
+                        None, topic_svc.classify, message
+                    )
+                return None
+
+            emo_r, int_r, top_r = await _asyncio.gather(
+                _classify_emotion(), _classify_intent(), _classify_topic()
             )
 
             if emo_r:
@@ -147,6 +159,13 @@ class TherapeuticAIService:
                 logger.debug(
                     f"Intent: {int_r.primary_intent} ({int_r.confidence:.2f}) "
                     f"routing={int_r.routing_action}"
+                )
+
+            if top_r:
+                topic_result        = top_r
+                topic_context_block = build_topic_context_block(top_r)
+                logger.debug(
+                    f"Topic: {top_r.primary_topics} multi={top_r.is_multi_label}"
                 )
 
         except Exception as _exc:
@@ -202,6 +221,8 @@ class TherapeuticAIService:
             prompt = f"{prompt}\n\n{emotion_context_block}"
         if intent_context_block:
             prompt = f"{prompt}\n\n{intent_context_block}"
+        if topic_context_block:
+            prompt = f"{prompt}\n\n{topic_context_block}"
 
         # LLM inference
         response = await self.llm.generate(prompt=prompt, stage=stage)
@@ -239,6 +260,8 @@ class TherapeuticAIService:
             "intent_confidence":    intent_result.confidence if intent_result else None,
             "routing_action":       intent_result.routing_action if intent_result else None,
             "intent_secondary":     intent_result.secondary_intent if intent_result else None,
+            "topics":               topic_result.primary_topics if topic_result else None,
+            "topic_multi_label":    topic_result.is_multi_label if topic_result else False,
         }
 
     async def end_session(self, session_id: str) -> dict:

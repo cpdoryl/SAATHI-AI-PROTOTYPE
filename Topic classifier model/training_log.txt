@@ -1,0 +1,116 @@
+2026-03-11 08:27:56 [INFO] ============================================================
+2026-03-11 08:27:56 [INFO] SAATHI AI -- Topic Classifier Training (Multi-Label)
+2026-03-11 08:27:56 [INFO] ============================================================
+2026-03-11 08:27:56 [INFO] Model      : distilbert-base-uncased
+2026-03-11 08:27:56 [INFO] Topics     : ['workplace_stress', 'relationship_issues', 'academic_stress', 'health_concerns', 'financial_stress']
+2026-03-11 08:27:56 [INFO] P1 epochs  : 2  lr=0.001
+2026-03-11 08:27:56 [INFO] P2 epochs  : 4  lr=3e-05
+2026-03-11 08:27:56 [INFO] Batch size : 16 | Max length: 128
+2026-03-11 08:27:56 [INFO] Loss       : BCEWithLogitsLoss (multi-label)
+2026-03-11 08:27:56 [INFO] Early stop : patience=3 on val F1_samples
+2026-03-11 08:27:56 [INFO] Seed       : 42
+2026-03-11 08:27:56 [INFO] Log        : C:\saath ai prototype\Topic classifier model\logs\training_20260311_082756.log
+2026-03-11 08:27:56 [INFO] 
+Loading data splits...
+2026-03-11 08:27:56 [INFO]   Train: 1120 | Val: 140 | Test: 140
+2026-03-11 08:27:56 [INFO]   Device: cpu
+2026-03-11 08:27:56 [INFO] 
+Loading tokenizer: distilbert-base-uncased
+2026-03-11 08:27:56 [INFO] HTTP Request: HEAD https://huggingface.co/distilbert-base-uncased/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-03-11 08:27:57 [INFO] HTTP Request: HEAD https://huggingface.co/distilbert-base-uncased/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-11 08:27:57 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-11 08:27:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/distilbert-base-uncased/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-11 08:27:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/distilbert/distilbert-base-uncased/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-11 08:27:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/distilbert-base-uncased/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-11 08:27:58 [INFO] HTTP Request: GET https://huggingface.co/api/models/distilbert/distilbert-base-uncased/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-11 08:27:58 [INFO] Loading model: distilbert-base-uncased (num_labels=5, multi_label)
+2026-03-11 08:27:58 [INFO] HTTP Request: HEAD https://huggingface.co/distilbert-base-uncased/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|##########| 100/100 [00:00<00:00, 9951.37it/s]
+[1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.weight  | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+classifier.bias         | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING[3m	:those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.[0m
+2026-03-11 08:27:58 [INFO] Total parameters: 66,957,317
+2026-03-11 08:27:58 [INFO] 
+============================================================
+2026-03-11 08:27:58 [INFO] PHASE 1: Train classifier head only (encoder frozen)
+2026-03-11 08:27:58 [INFO] ============================================================
+2026-03-11 08:27:58 [INFO] Trainable params (Phase 1): 594,437
+2026-03-11 08:28:55 [INFO] P1 Epoch 1/2 | TrLoss=0.5009 TrF1s=0.1005 TrF1m=0.1634 | ValLoss=0.4000 ValF1s=0.3440 ValF1m=0.4076 | 56s
+2026-03-11 08:29:44 [INFO] P1 Epoch 2/2 | TrLoss=0.3284 TrF1s=0.5737 TrF1m=0.6739 | ValLoss=0.2862 ValF1s=0.6286 ValF1m=0.7135 | 48s
+2026-03-11 08:29:44 [INFO] 
+============================================================
+2026-03-11 08:29:44 [INFO] PHASE 2: Full fine-tuning (all layers unfrozen)
+2026-03-11 08:29:44 [INFO] ============================================================
+2026-03-11 08:29:44 [INFO] Trainable params (Phase 2): 66,957,317
+2026-03-11 08:29:44 [INFO] Total P2 steps: 280 | Warmup: 28
+2026-03-11 08:31:41 [INFO] P2 Epoch 1/4 | TrLoss=0.1354 TrF1s=0.8767 TrF1m=0.8988 | ValLoss=0.0669 ValF1s=0.9569 ValF1m=0.9549 | 117s -- NEW BEST -- checkpoint saved
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|##########| 1/1 [00:00<00:00,  4.68it/s]Writing model shards: 100%|##########| 1/1 [00:00<00:00,  4.68it/s]
+2026-03-11 08:33:38 [INFO] P2 Epoch 2/4 | TrLoss=0.0301 TrF1s=0.9812 TrF1m=0.9823 | ValLoss=0.0138 ValF1s=0.9952 ValF1m=0.9933 | 117s -- NEW BEST -- checkpoint saved
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|##########| 1/1 [00:00<00:00,  3.97it/s]Writing model shards: 100%|##########| 1/1 [00:00<00:00,  3.97it/s]
+2026-03-11 08:35:37 [INFO] P2 Epoch 3/4 | TrLoss=0.0070 TrF1s=0.9967 TrF1m=0.9969 | ValLoss=0.0070 ValF1s=0.9952 ValF1m=0.9933 | 118s
+2026-03-11 08:37:33 [INFO] P2 Epoch 4/4 | TrLoss=0.0028 TrF1s=0.9994 TrF1m=0.9992 | ValLoss=0.0067 ValF1s=0.9952 ValF1m=0.9933 | 116s
+2026-03-11 08:37:33 [INFO] 
+Optimizing per-class classification thresholds on validation set...
+2026-03-11 08:37:33 [INFO]   workplace_stress        : optimal threshold=0.25  F1=1.0000
+2026-03-11 08:37:33 [INFO]   relationship_issues     : optimal threshold=0.25  F1=1.0000
+2026-03-11 08:37:33 [INFO]   academic_stress         : optimal threshold=0.25  F1=1.0000
+2026-03-11 08:37:33 [INFO]   health_concerns         : optimal threshold=0.25  F1=0.9667
+2026-03-11 08:37:33 [INFO]   financial_stress        : optimal threshold=0.45  F1=1.0000
+2026-03-11 08:37:33 [INFO] Thresholds saved: C:\saath ai prototype\Topic classifier model\models\best_model\thresholds.json
+2026-03-11 08:37:33 [INFO] 
+Training history saved.
+2026-03-11 08:37:33 [INFO] 
+============================================================
+2026-03-11 08:37:33 [INFO] TEST EVALUATION (best checkpoint: P2 Epoch 2)
+2026-03-11 08:37:33 [INFO] ============================================================
+2026-03-11 08:37:33 [INFO] Reloading best checkpoint from disk...
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|##########| 104/104 [00:00<00:00, 5872.95it/s]
+2026-03-11 08:37:36 [INFO] 
+With optimized thresholds:
+2026-03-11 08:37:36 [INFO]   F1 (samples) : 0.9833
+2026-03-11 08:37:36 [INFO]   F1 (macro)   : 0.9816
+2026-03-11 08:37:36 [INFO]   F1 (micro)   : 0.9818
+2026-03-11 08:37:36 [INFO] 
+With default threshold (0.50):
+2026-03-11 08:37:36 [INFO]   F1 (samples) : 0.9929
+2026-03-11 08:37:36 [INFO]   F1 (macro)   : 0.9917
+2026-03-11 08:37:36 [INFO] 
+Per-class F1 (optimized thresholds):
+2026-03-11 08:37:36 [INFO]   workplace_stress        : 0.9412  (threshold=0.25)
+2026-03-11 08:37:36 [INFO]   relationship_issues     : 1.0000  (threshold=0.25)
+2026-03-11 08:37:36 [INFO]   academic_stress         : 1.0000  (threshold=0.25)
+2026-03-11 08:37:36 [INFO]   health_concerns         : 0.9667  (threshold=0.25)
+2026-03-11 08:37:36 [INFO]   financial_stress        : 1.0000  (threshold=0.45)
+2026-03-11 08:37:36 [INFO] 
+Exact match (all labels correct): 0.9500 (95.00%)
+2026-03-11 08:37:36 [INFO] 
+QUALIFICATION GATES:
+2026-03-11 08:37:36 [INFO]   F1_samples >= 0.82       : PASS (0.9833)
+2026-03-11 08:37:36 [INFO]   F1_macro   >= 0.80       : PASS (0.9816)
+2026-03-11 08:37:36 [INFO]   All per-class F1 >= 0.75 : PASS
+2026-03-11 08:37:36 [INFO]     workplace_stress        : 0.9412 OK
+2026-03-11 08:37:36 [INFO]     relationship_issues     : 1.0000 OK
+2026-03-11 08:37:36 [INFO]     academic_stress         : 1.0000 OK
+2026-03-11 08:37:36 [INFO]     health_concerns         : 0.9667 OK
+2026-03-11 08:37:36 [INFO]     financial_stress        : 1.0000 OK
+2026-03-11 08:37:36 [INFO]   OVERALL APPROVED         : YES
+2026-03-11 08:37:36 [INFO] 
+Results saved: C:\saath ai prototype\Topic classifier model\results\test_evaluation.json
+2026-03-11 08:37:36 [INFO] Best model  : C:\saath ai prototype\Topic classifier model\models\best_model
+2026-03-11 08:37:36 [INFO] Total time  : 9.7 minutes
+2026-03-11 08:37:36 [INFO] 
+Training complete.

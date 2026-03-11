@@ -1,0 +1,15 @@
+{
+  "total": 1400,
+  "train": 1120,
+  "val": 140,
+  "test": 140,
+  "strategy": "stratified_80_10_10_multilabel",
+  "seed": 42,
+  "topics": [
+    "workplace_stress",
+    "relationship_issues",
+    "academic_stress",
+    "health_concerns",
+    "financial_stress"
+  ]
+}

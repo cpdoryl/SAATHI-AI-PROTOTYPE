@@ -1,0 +1,141 @@
+id,utterance,topics,primary_topic,confidence,source,annotator_id,created_at
+topic_001295,Exams ka stress hai aur tabiyat bhi theek nahi reh rahi.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.82,synthetic,ann_001,2024-09-05T01:51:42Z
+topic_001377,I'm supporting my family alone and the financial pressure is crushing.,"[""financial_stress""]",financial_stress,0.9,synthetic,ann_005,2024-06-27T11:27:02Z
+topic_000197,I'm worried I'll never be financially stable.,"[""financial_stress""]",financial_stress,0.92,synthetic,ann_005,2024-12-15T13:45:33Z
+topic_000020,I feel trapped in a bad job because of my financial obligations.,"[""workplace_stress"", ""financial_stress""]",workplace_stress,0.82,synthetic,ann_004,2024-07-09T10:30:43Z
+topic_000240,I feel like I'm not smart enough to be where I am academically.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_003,2024-08-18T21:17:07Z
+topic_000401,Ghar mein tension hai toh studies pe dhyan nahi rehta.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.82,synthetic,ann_005,2025-02-14T15:38:36Z
+topic_000876,Bimari ki wajah se job bhi gayi aur paise bhi nahi hain.,"[""health_concerns"", ""financial_stress""]",health_concerns,0.87,synthetic,ann_005,2024-10-02T16:29:40Z
+topic_000822,Exams ka stress hai aur tabiyat bhi theek nahi reh rahi.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.82,synthetic,ann_001,2024-10-29T22:26:07Z
+topic_000382,I'm going through grief after losing my best friend.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_003,2024-11-21T15:33:01Z
+topic_000804,Kaam ki wajah se ghar mein bhi tension rehti hai.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.9,synthetic,ann_002,2024-08-29T07:40:09Z
+topic_000699,Tabiyat theek nahi rehti aur main darr gaya hun.,"[""health_concerns""]",health_concerns,0.87,synthetic,ann_002,2025-01-20T22:40:09Z
+topic_001237,I'm on the verge of eviction and I'm completely panicking.,"[""financial_stress""]",financial_stress,0.95,synthetic,ann_001,2024-10-14T16:40:17Z
+topic_000172,I feel deeply lonely and isolated and it's affecting my mental health.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_001,2024-08-10T01:35:58Z
+topic_001303,I had a heart scare last week and I haven't recovered mentally.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_002,2024-11-23T12:10:20Z
+topic_000858,My health problems have cost me my job and my savings.,"[""health_concerns"", ""financial_stress""]",health_concerns,0.85,synthetic,ann_003,2025-03-26T05:44:01Z
+topic_000759,Breakup ki wajah se padhai bilkul nahi ho rahi.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.87,synthetic,ann_001,2024-07-08T09:10:25Z
+topic_000768,My relationships always fall apart and I don't understand why.,"[""relationship_issues""]",relationship_issues,0.9,synthetic,ann_005,2024-11-26T16:24:50Z
+topic_001399,The stress of my studies is manifesting in physical symptoms.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.85,synthetic,ann_003,2024-12-13T02:43:20Z
+topic_000005,I'm working in a terrible environment but the pay is keeping me there.,"[""workplace_stress"", ""financial_stress""]",workplace_stress,0.9,synthetic,ann_004,2024-12-28T00:19:21Z
+topic_000006,Ghar mein financial stress aur rishton mein khichaav ek saath chal raha hai.,"[""relationship_issues"", ""financial_stress""]",relationship_issues,0.9,synthetic,ann_005,2024-06-26T05:09:10Z
+topic_000899,I have a chronic illness and it's making it impossible to keep up with my studies.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.85,synthetic,ann_004,2025-01-04T05:01:05Z
+topic_000850,I was recently fired and I feel ashamed and worthless.,"[""workplace_stress""]",workplace_stress,0.88,synthetic,ann_002,2025-03-07T15:34:56Z
+topic_000863,The communication in my relationship has completely broken down.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_003,2024-10-06T10:19:19Z
+topic_001268,My job requires me to be available 24/7 and I have no boundaries.,"[""workplace_stress""]",workplace_stress,0.88,synthetic,ann_002,2025-01-29T22:13:21Z
+topic_000325,I'm going through a divorce and the financial situation is devastating.,"[""relationship_issues"", ""financial_stress""]",relationship_issues,0.9,synthetic,ann_004,2024-09-27T06:39:01Z
+topic_001227,My promotion means relocating and it's causing a crisis in my relationship.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.82,synthetic,ann_005,2024-12-13T11:22:05Z
+topic_001235,I was humiliated in front of my colleagues by my manager.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_005,2025-01-12T05:16:39Z
+topic_001123,I'm dealing with imposter syndrome at university.,"[""academic_stress""]",academic_stress,0.88,synthetic,ann_005,2025-01-01T05:41:26Z
+topic_001050,I feel completely ashamed of how much debt I'm in.,"[""financial_stress""]",financial_stress,0.95,synthetic,ann_001,2024-11-07T17:26:49Z
+topic_000345,Naukri chali gayi aur bills nahi bhar sakta.,"[""financial_stress""]",financial_stress,0.92,synthetic,ann_001,2025-03-02T20:04:12Z
+topic_000062,Financial difficulties after having a baby are straining my relationship.,"[""relationship_issues"", ""financial_stress""]",relationship_issues,0.9,synthetic,ann_001,2025-01-03T14:08:58Z
+topic_001270,I spent years building my business and it collapsed — I've lost everything.,"[""financial_stress""]",financial_stress,0.87,synthetic,ann_003,2024-10-12T02:24:26Z
+topic_001094,I'm exhausted and I feel like I can never do enough at work.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_005,2025-02-10T06:17:55Z
+topic_001170,I can't work because of my illness and I'm in serious financial trouble.,"[""health_concerns"", ""financial_stress""]",health_concerns,0.82,synthetic,ann_004,2024-10-29T12:35:02Z
+topic_001363,Job ja sakti hai meri aur main darr raha hun.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_003,2024-11-30T07:05:47Z
+topic_001083,My family never understands me no matter how hard I try.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_002,2025-02-14T00:23:21Z
+topic_000925,I can't stop googling my symptoms and it's making my anxiety worse.,"[""health_concerns""]",health_concerns,0.95,synthetic,ann_001,2024-08-05T05:46:22Z
+topic_000807,Exams se pehle bahut ghabra jaata hun.,"[""academic_stress""]",academic_stress,0.93,synthetic,ann_004,2024-10-20T18:11:29Z
+topic_000046,I'm in a high-pressure sales job and the targets are impossible.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_004,2024-10-08T10:39:33Z
+topic_000427,Appraisal mein phir se ignore kiya gaya mujhe.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_002,2024-11-14T22:50:52Z
+topic_000226,I'm behind on all my assignments and I don't know how to catch up.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_003,2024-11-18T23:10:30Z
+topic_000248,My spouse and I can't communicate without it turning into a fight.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_005,2024-10-21T17:55:02Z
+topic_000313,We can't afford to buy a house and it's causing constant tension.,"[""relationship_issues"", ""financial_stress""]",relationship_issues,0.85,synthetic,ann_004,2025-03-19T00:18:23Z
+topic_000740,I can't stop googling my symptoms and it's making my anxiety worse.,"[""health_concerns""]",health_concerns,0.87,synthetic,ann_004,2024-11-23T14:49:13Z
+topic_000388,I can't work because of my illness and I'm in serious financial trouble.,"[""health_concerns"", ""financial_stress""]",health_concerns,0.87,synthetic,ann_003,2024-08-16T22:51:54Z
+topic_001244,I spent years building my business and it collapsed — I've lost everything.,"[""financial_stress""]",financial_stress,0.9,synthetic,ann_005,2025-03-24T21:30:17Z
+topic_000940,I'm convinced something is very wrong with me but doctors can't find it.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_003,2024-09-24T11:58:29Z
+topic_000696,Tabiyat theek nahi rehti aur main darr gaya hun.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_003,2024-11-23T20:00:32Z
+topic_000581,I spent years building my business and it collapsed — I've lost everything.,"[""financial_stress""]",financial_stress,0.92,synthetic,ann_005,2025-01-29T00:02:13Z
+topic_000122,I have been micromanaged to the point where I can't do anything right.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_005,2025-01-18T06:01:04Z
+topic_000518,I was laid off and now my relationship is under enormous strain.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.82,synthetic,ann_002,2025-02-11T02:36:16Z
+topic_000583,I was hospitalised during my exams and now I'm way behind.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.87,synthetic,ann_004,2024-10-04T14:24:53Z
+topic_000451,I have reproductive health issues that have devastated me.,"[""health_concerns""]",health_concerns,0.87,synthetic,ann_004,2025-01-24T19:01:11Z
+topic_000359,I'm worried I'll never get a job in my field after all this studying.,"[""academic_stress""]",academic_stress,0.93,synthetic,ann_003,2024-09-12T19:38:49Z
+topic_000340,My boyfriend and I broke up right before finals and I'm falling apart.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.87,synthetic,ann_001,2025-02-11T15:42:07Z
+topic_000394,I struggle to form close friendships and I often feel alone.,"[""relationship_issues""]",relationship_issues,0.87,synthetic,ann_001,2024-06-08T09:07:44Z
+topic_000893,I have severe IBS that controls my life and makes me anxious.,"[""health_concerns""]",health_concerns,0.9,synthetic,ann_004,2024-08-02T11:44:18Z
+topic_000255,Rishton mein bahut takleef ho rahi hai.,"[""relationship_issues""]",relationship_issues,0.87,synthetic,ann_004,2024-11-28T21:52:48Z
+topic_000131,I struggle to form close friendships and I often feel alone.,"[""relationship_issues""]",relationship_issues,0.87,synthetic,ann_005,2025-02-19T10:57:13Z
+topic_000701,Future ke baare mein dar lag raha hai.,"[""academic_stress""]",academic_stress,0.88,synthetic,ann_005,2024-11-21T00:11:58Z
+topic_001312,I'm afraid my illness will get worse and I'll be unable to work.,"[""health_concerns""]",health_concerns,0.9,synthetic,ann_001,2024-06-20T06:38:09Z
+topic_001302,I can't stop thinking about work even when I'm at home.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_004,2024-12-05T09:13:19Z
+topic_001018,I'm in a high-pressure sales job and the targets are impossible.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_003,2025-01-26T04:43:09Z
+topic_000486,My boyfriend and I broke up right before finals and I'm falling apart.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.82,synthetic,ann_001,2025-01-08T18:13:09Z
+topic_000067,I have multiple assignments due this week and I'm completely overwhelmed.,"[""academic_stress""]",academic_stress,0.9,synthetic,ann_004,2024-09-03T07:36:19Z
+topic_000927,Office mein sab kuch bahut stressful ho gaya hai.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_003,2024-11-18T19:54:35Z
+topic_000765,My health problems have caused me to miss so much university that I might fail.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.9,synthetic,ann_002,2024-10-26T20:23:32Z
+topic_000882,Financial stress is affecting my health and my relationships.,"[""financial_stress""]",financial_stress,0.95,synthetic,ann_001,2024-09-07T18:08:53Z
+topic_000211,Appraisal mein phir se ignore kiya gaya mujhe.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_003,2024-06-15T20:34:58Z
+topic_000234,I'm on the verge of eviction and I'm completely panicking.,"[""financial_stress""]",financial_stress,0.95,synthetic,ann_003,2024-07-17T02:25:40Z
+topic_001276,I have trust issues after being cheated on and I can't let my guard down.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_005,2024-12-06T23:44:45Z
+topic_001139,I have borrowed money from family and I'm too embarrassed to face them.,"[""financial_stress""]",financial_stress,0.87,synthetic,ann_003,2024-08-18T20:54:36Z
+topic_000745,My job stress is bleeding into my marriage and we fight constantly about it.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.85,synthetic,ann_004,2025-01-01T09:59:27Z
+topic_000119,I've been passed over again and I feel invisible at work.,"[""workplace_stress""]",workplace_stress,0.95,synthetic,ann_005,2024-09-13T05:37:39Z
+topic_000870,I'm struggling academically because my physical health has collapsed.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.87,synthetic,ann_005,2024-11-19T17:41:48Z
+topic_001071,I chose the wrong field and now I'm stuck and don't know what to do.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_004,2025-01-06T10:12:07Z
+topic_000355,I keep attracting the wrong kind of people into my life.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_003,2024-09-06T20:46:15Z
+topic_000698,I'm suffering from severe burnout and I don't know how to recover.,"[""workplace_stress""]",workplace_stress,0.88,synthetic,ann_002,2024-09-02T03:42:19Z
+topic_000509,Health ki wajah se sab kuch rok diya hai mujhne.,"[""health_concerns""]",health_concerns,0.95,synthetic,ann_001,2024-11-15T12:13:29Z
+topic_000625,I have a sleep disorder and the exhaustion is destroying my quality of life.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_001,2024-06-09T11:11:32Z
+topic_000003,I'm struggling to study because my family is going through a crisis.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.82,synthetic,ann_002,2024-10-28T10:34:34Z
+topic_000711,My relationships always fall apart and I don't understand why.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_001,2024-08-25T15:22:50Z
+topic_000051,My manager keeps criticising everything I do and I can't take it anymore.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_002,2024-09-20T20:37:34Z
+topic_001187,My mother is very critical and it has impacted my self-esteem my whole life.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_003,2024-10-10T23:23:43Z
+topic_000534,I'm a first-generation student and I feel completely out of place.,"[""academic_stress""]",academic_stress,0.93,synthetic,ann_004,2024-09-25T09:53:36Z
+topic_000559,I'm exhausted and I feel like I can never do enough at work.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_002,2024-06-25T22:39:22Z
+topic_000969,I keep having panic attacks before important meetings.,"[""workplace_stress""]",workplace_stress,0.95,synthetic,ann_001,2024-12-19T22:00:31Z
+topic_000455,I feel like my body is betraying me and I don't know how to cope.,"[""health_concerns""]",health_concerns,0.9,synthetic,ann_004,2024-11-28T23:56:54Z
+topic_000555,My work environment is making me physically sick.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_001,2025-01-16T22:45:07Z
+topic_000763,I'm in my third year and I'm having a massive crisis about my future.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_002,2025-02-01T23:07:11Z
+topic_000596,I'm burning out from studying and my body is breaking down.,"[""academic_stress"", ""health_concerns""]",academic_stress,0.87,synthetic,ann_001,2024-09-27T11:54:22Z
+topic_001279,I feel like my family doesn't love me the way I need to be loved.,"[""relationship_issues""]",relationship_issues,0.87,synthetic,ann_004,2025-01-09T00:13:35Z
+topic_000107,I was diagnosed with a neurological condition and I'm in shock.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_001,2024-10-24T02:07:06Z
+topic_000266,I have no close friends and the isolation is becoming unbearable.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_003,2024-08-01T03:09:38Z
+topic_000796,I've been passed over again and I feel invisible at work.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_001,2024-11-11T03:13:52Z
+topic_001134,I was humiliated in front of my colleagues by my manager.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_002,2024-06-10T04:34:06Z
+topic_001297,My parents don't support my choice of career and we've stopped speaking.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.9,synthetic,ann_002,2024-12-21T12:41:03Z
+topic_000192,I was recently diagnosed with a serious illness and I'm terrified.,"[""health_concerns""]",health_concerns,0.87,synthetic,ann_002,2025-01-14T19:35:37Z
+topic_001098,I'm struggling with procrastination and my grades are suffering.,"[""academic_stress""]",academic_stress,0.9,synthetic,ann_004,2024-06-30T21:06:33Z
+topic_000187,I'm constantly comparing myself to other students and feeling inferior.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_003,2024-06-24T11:26:09Z
+topic_000997,I feel intense pressure to be the best in my class.,"[""academic_stress""]",academic_stress,0.93,synthetic,ann_001,2025-01-06T02:26:01Z
+topic_000837,The office politics are exhausting and I'm thinking of quitting.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_002,2024-11-13T02:34:56Z
+topic_000661,I feel completely alone at university and my grades are reflecting that.,"[""academic_stress"", ""relationship_issues""]",academic_stress,0.82,synthetic,ann_002,2024-09-16T05:26:20Z
+topic_001019,Marks ache nahi aaye aur sab naraaz hain mujhse.,"[""academic_stress""]",academic_stress,0.88,synthetic,ann_003,2024-11-27T19:30:32Z
+topic_000348,I'm a junior employee being asked to do a senior employee's job.,"[""workplace_stress""]",workplace_stress,0.95,synthetic,ann_004,2024-09-09T15:50:25Z
+topic_000337,I have persistent back pain that has ended my ability to do things I love.,"[""health_concerns""]",health_concerns,0.95,synthetic,ann_001,2025-02-04T18:14:24Z
+topic_000762,My thesis is due and I've barely started — I'm in panic mode.,"[""academic_stress""]",academic_stress,0.9,synthetic,ann_002,2024-07-22T20:57:04Z
+topic_001288,I've been divorced for two years and still feel like a failure.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_003,2024-08-01T04:03:19Z
+topic_000389,I'm supporting my family alone and the financial pressure is crushing.,"[""financial_stress""]",financial_stress,0.92,synthetic,ann_002,2024-09-30T17:13:51Z
+topic_000878,Bimari ki wajah se job bhi gayi aur paise bhi nahi hain.,"[""health_concerns"", ""financial_stress""]",health_concerns,0.82,synthetic,ann_005,2024-07-04T19:36:22Z
+topic_000695,I feel like I give so much in relationships and get nothing back.,"[""relationship_issues""]",relationship_issues,0.9,synthetic,ann_005,2024-07-30T08:50:58Z
+topic_000298,I'm supporting my family alone and the financial pressure is crushing.,"[""financial_stress""]",financial_stress,0.92,synthetic,ann_005,2025-01-05T09:19:10Z
+topic_001360,My mental health is suffering because of my work situation.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_005,2025-03-24T06:29:19Z
+topic_000703,I'm scared to get medical tests because I'm afraid of what they'll find.,"[""health_concerns""]",health_concerns,0.95,synthetic,ann_001,2024-08-30T11:41:46Z
+topic_000743,Rishton mein bahut takleef ho rahi hai.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_001,2025-02-20T20:02:28Z
+topic_001307,My company is going under and I'm terrified about my financial future.,"[""workplace_stress"", ""financial_stress""]",workplace_stress,0.87,synthetic,ann_004,2024-09-25T12:31:16Z
+topic_000098,I'm struggling with procrastination and my grades are suffering.,"[""academic_stress""]",academic_stress,0.9,synthetic,ann_004,2025-03-20T17:31:16Z
+topic_000560,My romantic relationship ended and I feel completely lost.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_003,2025-03-17T15:24:17Z
+topic_000519,Padhai mein focus nahi ho raha kuch bhi.,"[""academic_stress""]",academic_stress,0.95,synthetic,ann_001,2024-06-07T11:53:56Z
+topic_001113,I can't balance work demands and my family keeps suffering for it.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.9,synthetic,ann_003,2025-01-15T18:19:33Z
+topic_000299,I'm struggling with jealousy in my relationship and it's driving me crazy.,"[""relationship_issues""]",relationship_issues,0.95,synthetic,ann_005,2024-07-16T17:36:43Z
+topic_001108,My mental health is suffering because of my work situation.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_002,2024-08-03T02:37:34Z
+topic_001250,Kaam ki wajah se zindagi kharab ho rahi hai.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_001,2024-10-16T08:31:25Z
+topic_000962,I feel deeply misunderstood by everyone around me.,"[""relationship_issues""]",relationship_issues,0.92,synthetic,ann_002,2024-12-10T16:56:57Z
+topic_001020,I feel trapped in a bad job because of my financial obligations.,"[""workplace_stress"", ""financial_stress""]",workplace_stress,0.85,synthetic,ann_002,2025-02-04T18:38:39Z
+topic_000864,Financially bahut stress mein hun aur neend nahi aa rahi.,"[""financial_stress""]",financial_stress,0.95,synthetic,ann_003,2024-08-02T06:47:25Z
+topic_000193,I feel embarrassed about not being able to afford things my peers can.,"[""financial_stress""]",financial_stress,0.87,synthetic,ann_004,2025-02-04T16:13:30Z
+topic_000070,I have an autoimmune disease that is unpredictable and frightening.,"[""health_concerns""]",health_concerns,0.92,synthetic,ann_004,2024-09-11T22:03:10Z
+topic_000843,I'm afraid of making mistakes at work and it's paralyzing me.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_001,2024-09-07T01:16:08Z
+topic_001052,My partner left me and I don't know how to cope with the loneliness.,"[""relationship_issues""]",relationship_issues,0.9,synthetic,ann_003,2024-08-03T22:42:54Z
+topic_000538,My career ambition and my relationship are in constant conflict.,"[""workplace_stress"", ""relationship_issues""]",workplace_stress,0.85,synthetic,ann_004,2024-10-18T08:13:00Z
+topic_001027,I work so much that I have no time for anything else in my life.,"[""workplace_stress""]",workplace_stress,0.97,synthetic,ann_005,2024-10-12T12:03:04Z
+topic_000113,I was told I might need surgery and I'm absolutely terrified.,"[""health_concerns""]",health_concerns,0.87,synthetic,ann_003,2024-10-01T21:44:20Z
+topic_000218,I gave up everything for this job and it's not working out.,"[""workplace_stress""]",workplace_stress,0.9,synthetic,ann_004,2024-08-25T05:09:28Z
+topic_000357,I'm struggling to perform at work because of the pressure.,"[""workplace_stress""]",workplace_stress,0.92,synthetic,ann_001,2024-07-06T20:17:02Z
+topic_001135,I feel ashamed of my financial situation in front of my partner.,"[""relationship_issues"", ""financial_stress""]",relationship_issues,0.85,synthetic,ann_001,2024-11-10T22:47:05Z
+topic_001145,I have test anxiety that makes me forget everything I've studied.,"[""academic_stress""]",academic_stress,0.9,synthetic,ann_003,2024-06-03T15:04:35Z
+topic_000462,Financially bahut stress mein hun aur neend nahi aa rahi.,"[""financial_stress""]",financial_stress,0.87,synthetic,ann_005,2024-09-13T20:22:09Z
+topic_000128,I owe money to people I love and I feel terrible about it.,"[""financial_stress""]",financial_stress,0.87,synthetic,ann_002,2025-01-25T15:21:58Z
+topic_000390,Naukri ka pressure aur karza — dono saath mein sata rahe hain.,"[""workplace_stress"", ""financial_stress""]",workplace_stress,0.9,synthetic,ann_001,2024-07-01T17:22:35Z
