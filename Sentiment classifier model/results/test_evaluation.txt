@@ -1,0 +1,26 @@
+SENTIMENT CLASSIFIER - TEST SET EVALUATION
+======================================================================
+
+OVERALL METRICS
+Accuracy:    1.0000
+Macro F1:    1.0000
+Weighted F1: 1.0000
+Micro F1:    1.0000
+
+QUALIFICATION GATES
+  [PASS] Overall accuracy >= 85% | Value=1.0000
+  [PASS] Macro F1 >= 0.83 | Value=1.0000
+  [PASS] Negative class F1 >= 0.87 | Value=1.0000
+
+All gates passed: True
+
+PER-CLASS METRICS
+              precision    recall  f1-score   support
+
+    negative     1.0000    1.0000    1.0000        90
+     neutral     1.0000    1.0000    1.0000        45
+    positive     1.0000    1.0000    1.0000        65
+
+    accuracy                         1.0000       200
+   macro avg     1.0000    1.0000    1.0000       200
+weighted avg     1.0000    1.0000    1.0000       200

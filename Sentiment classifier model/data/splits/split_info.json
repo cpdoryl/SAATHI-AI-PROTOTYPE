@@ -1,0 +1,33 @@
+{
+  "total_examples": 2000,
+  "train": {
+    "examples": 1600,
+    "ratio": 0.8,
+    "sentiment_distribution": {
+      "negative": 720,
+      "positive": 520,
+      "neutral": 360
+    }
+  },
+  "validation": {
+    "examples": 200,
+    "ratio": 0.1,
+    "sentiment_distribution": {
+      "negative": 90,
+      "positive": 65,
+      "neutral": 45
+    }
+  },
+  "test": {
+    "examples": 200,
+    "ratio": 0.1,
+    "sentiment_distribution": {
+      "negative": 90,
+      "positive": 65,
+      "neutral": 45
+    }
+  },
+  "stratification_column": "sentiment",
+  "random_state": 42,
+  "no_leakage": true
+}

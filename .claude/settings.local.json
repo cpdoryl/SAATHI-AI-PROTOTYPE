@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import pandas as pd; df = pd.read_csv\\(''c:/saath ai prototype/Crises detection models dataset, training and testing scripts model/Phase 3/phase_3_lower_risk_1500.csv''\\); print\\(''Shape:'', df.shape\\); print\\(''Columns:'', list\\(df.columns\\)\\); print\\(''\\\\nFirst row crisis_label:'', df[''crisis_label''].iloc[0]\\); print\\(''Value counts:\\\\n'', df[''crisis_label''].value_counts\\(\\).sort_index\\(\\)\\)\")",
+      "Bash(python -c \":*)"
+    ]
+  }
+}

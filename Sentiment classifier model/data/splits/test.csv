@@ -1,0 +1,201 @@
+id,utterance,sentiment,valence_score,confidence,session_context,source,annotator_id,created_at
+sent_001907,That makes sense,neutral,0.0890863841613006,0.94,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.025896Z
+sent_001537,I'm becoming more aware of myself,positive,0.6818293374025303,0.91,therapeutic_progress,synthetic,ann_003,2026-03-12T01:12:00.024563Z
+sent_001290,I managed to go for a walk,positive,0.7680861161258662,0.86,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.023796Z
+sent_001834,That's noted,neutral,0.0670218393295077,0.92,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.025632Z
+sent_000463,"It's all fine, don't worry",negative,-0.8045015915170053,0.87,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.019401Z
+sent_001261,I feel clearer now after that,positive,0.7493289009497537,0.84,crisis_moment,synthetic,ann_003,2026-03-12T01:12:00.023711Z
+sent_000750,"Everything is fine, truly",negative,-0.7259190196469086,0.86,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.020322Z
+sent_001621,That makes sense,neutral,-0.0626702147690175,0.83,resistance_avoidance,synthetic,ann_001,2026-03-12T01:12:00.024914Z
+sent_001066,I pushed myself just a little bit,positive,0.7697168440744317,0.95,therapeutic_progress,synthetic,ann_001,2026-03-12T01:12:00.023106Z
+sent_001149,I feel more in control now,positive,0.7411264692636987,0.93,processing_emotion,synthetic,ann_002,2026-03-12T01:12:00.023360Z
+sent_001244,I'm surprised by how much better I feel,positive,0.3853134878944738,0.87,breakthrough_realization,synthetic,ann_003,2026-03-12T01:12:00.023648Z
+sent_001697,What is the difference between anxiety and stress?,neutral,-0.0723383496689509,0.89,breakthrough_realization,synthetic,ann_002,2026-03-12T01:12:00.025157Z
+sent_000886,I don't know what I feel,negative,-0.612154284493502,0.85,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.020764Z
+sent_001577,Can we move on to something else?,neutral,0.0077888672638459,0.81,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.024762Z
+sent_000827,I've given up trying to change things,negative,-0.744498372893176,0.89,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.020579Z
+sent_000959,I'm proud of myself for that,positive,0.5515798264068243,0.97,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.022772Z
+sent_000121,I'm just going through the motions,negative,-0.4032720055700795,0.89,insight_moment,synthetic,ann_005,2026-03-12T01:12:00.018364Z
+sent_000517,"I'm fine, everything is okay",negative,-0.6258856298353508,0.88,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.019571Z
+sent_001699,That makes sense,neutral,0.0935113289157283,0.92,processing_emotion,synthetic,ann_003,2026-03-12T01:12:00.025164Z
+sent_000351,Main haara hua hoon ab,negative,-0.5433051205836054,0.91,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.019049Z
+sent_001853,Same situation as before,neutral,0.0525803371042819,0.92,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.025698Z
+sent_001698,Aaj bhi aisa hi tha,neutral,0.1253178825142521,0.91,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.025160Z
+sent_000397,I'm not going to think about it,negative,-0.4681253752105186,0.8,insight_moment,synthetic,ann_001,2026-03-12T01:12:00.019193Z
+sent_000060,"I'm managing, everything's fine",negative,-0.2805591576590415,0.82,routine_conversation,synthetic,ann_001,2026-03-12T01:12:00.018188Z
+sent_000606,Nothing ever goes my way,negative,-0.7925406056395579,0.9,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.019858Z
+sent_001982,I hear you,neutral,-0.1078872201619346,0.88,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.026176Z
+sent_001068,Things are looking up a little,positive,0.4855247411423126,0.96,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.023112Z
+sent_000928,I feel lighter than I did,positive,0.5816968319121212,0.83,processing_emotion,synthetic,ann_003,2026-03-12T01:12:00.022659Z
+sent_001284,I understand myself a bit better now,positive,0.5245804624207746,0.77,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.023779Z
+sent_001186,I feel like a weight has lifted,positive,0.575641167086127,0.86,therapeutic_progress,synthetic,ann_005,2026-03-12T01:12:00.023470Z
+sent_001835,I acknowledge that,neutral,0.1735659762957063,0.8,processing_emotion,synthetic,ann_002,2026-03-12T01:12:00.025635Z
+sent_001739,Same situation as before,neutral,-0.2359935735828929,0.92,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.025299Z
+sent_001642,Got it,neutral,-0.2274617335476346,0.86,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.024982Z
+sent_001649,"Yes, I follow",neutral,-0.1433682398575645,1.01,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.025004Z
+sent_001677,I'd like to focus on that,neutral,-0.1149371642430536,1.01,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.025092Z
+sent_000655,I'm slipping deeper into this hole,negative,-0.6271840110659,0.87,crisis_moment,synthetic,ann_001,2026-03-12T01:12:00.020020Z
+sent_000321,Each day is harder than the last,negative,-0.549582546148241,0.89,processing_emotion,synthetic,ann_002,2026-03-12T01:12:00.018963Z
+sent_001002,I appreciate your perspective,positive,0.4612415015278437,0.86,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.022909Z
+sent_000471,I don't want to talk about it,negative,-0.9152567124080756,0.97,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.019426Z
+sent_000180,I don't want to face what's happening,negative,-0.7892132774085612,0.86,processing_emotion,synthetic,ann_003,2026-03-12T01:12:00.018534Z
+sent_000512,"I'm alright, completely alright",negative,-1.0,0.87,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.019553Z
+sent_001133,I managed to get out of bed today,positive,0.6055228903727693,0.74,processing_emotion,synthetic,ann_005,2026-03-12T01:12:00.023310Z
+sent_000838,I don't want to get out of bed anymore,negative,-0.5189087225996807,0.8,breakthrough_realization,synthetic,ann_004,2026-03-12T01:12:00.020611Z
+sent_001001,I feel hopeful about the future,positive,0.5773791851143628,0.82,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.022906Z
+sent_001691,I need information about mindfulness,neutral,-0.0680275808478651,0.92,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.025137Z
+sent_001807,Tell me more about therapeutic techniques,neutral,0.252012067777797,0.88,resistance_avoidance,synthetic,ann_002,2026-03-12T01:12:00.025536Z
+sent_000912,Main halka mahsoos kar raha hoon,positive,0.7436318715221616,0.88,therapeutic_progress,synthetic,ann_003,2026-03-12T01:12:00.022608Z
+sent_000901,I cooked something healthy today,positive,0.8361036430948234,0.87,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.022540Z
+sent_000995,I'm making tiny steps forward,positive,0.887113817766541,0.85,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.022886Z
+sent_001912,What should we discuss next?,neutral,-0.0949262459406257,0.83,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.025917Z
+sent_000749,I've been avoiding dealing with this,negative,-0.8524863252594841,0.92,breakthrough_realization,synthetic,ann_002,2026-03-12T01:12:00.020319Z
+sent_000918,I cooked something healthy today,positive,0.621645322485585,0.9,therapeutic_progress,synthetic,ann_002,2026-03-12T01:12:00.022625Z
+sent_001391,I did something good for myself today,positive,0.7320227017625893,0.88,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.024098Z
+sent_001619,That's noted,neutral,-0.1599671712700378,0.85,breakthrough_realization,synthetic,ann_003,2026-03-12T01:12:00.024908Z
+sent_000866,Things have gotten so much darker,negative,-0.5186942288370099,0.78,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.020704Z
+sent_001709,I need information about mindfulness,neutral,-0.0282115645618405,0.77,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.025197Z
+sent_000002,Everything feels pointless,negative,-0.25,0.88,therapeutic_progress,synthetic,ann_005,2026-03-12T01:12:00.018012Z
+sent_000244,Kuch bhi theek nahi hai mere liye,negative,-0.9516973071468204,0.93,therapeutic_progress,synthetic,ann_004,2026-03-12T01:12:00.018726Z
+sent_000853,This pain is unbearable,negative,-0.4808078059961831,0.96,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.020662Z
+sent_001433,"That makes sense, thank you",positive,0.8200133671698957,0.92,therapeutic_progress,synthetic,ann_005,2026-03-12T01:12:00.024253Z
+sent_000411,I'm slipping deeper into this hole,negative,-0.4793517381908514,0.77,insight_moment,synthetic,ann_005,2026-03-12T01:12:00.019231Z
+sent_000563,I'm just numbing myself to it all,negative,-0.7664711004540825,0.91,resistance_avoidance,synthetic,ann_003,2026-03-12T01:12:00.019722Z
+sent_000713,Main har din badtar ho raha hoon,negative,-0.8032389990852872,0.92,routine_conversation,synthetic,ann_001,2026-03-12T01:12:00.020205Z
+sent_001252,I'm learning to be kinder to myself,positive,0.4252277882273002,0.89,resistance_avoidance,synthetic,ann_004,2026-03-12T01:12:00.023673Z
+sent_001406,I feel like I have a path forward now,positive,0.6690851388289707,0.87,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.024164Z
+sent_000694,Kuch bhi theek nahi hai mere liye,negative,-0.8773164686432078,0.89,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.020142Z
+sent_000573,I'm disconnected from everything,negative,-0.5826951870224004,0.84,resistance_avoidance,synthetic,ann_001,2026-03-12T01:12:00.019754Z
+sent_001680,Mera appointment Tuesday ko hai,neutral,-0.0753665231738564,0.73,processing_emotion,synthetic,ann_005,2026-03-12T01:12:00.025101Z
+sent_000046,I'm broken beyond repair,negative,-0.6920778330873443,0.85,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.018148Z
+sent_000492,This will never change,negative,-0.3949958144154791,0.95,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.019490Z
+sent_000668,I'm broken beyond repair,negative,-0.850990722870816,0.91,breakthrough_realization,synthetic,ann_002,2026-03-12T01:12:00.020061Z
+sent_000425,I'm just numbing myself to it all,negative,-0.3532410975215621,0.81,therapeutic_progress,synthetic,ann_001,2026-03-12T01:12:00.019284Z
+sent_001915,"Okay, I see",neutral,-0.0944547040959448,0.99,crisis_moment,synthetic,ann_001,2026-03-12T01:12:00.025927Z
+sent_001769,I need information about mindfulness,neutral,0.0896030048176243,0.9,crisis_moment,synthetic,ann_001,2026-03-12T01:12:00.025406Z
+sent_001623,Kuch naya nahi hua,neutral,-0.1165157749466504,0.88,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.024922Z
+sent_000926,I feel so much better after talking about it,positive,0.5124137540737672,0.85,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.022653Z
+sent_000044,"I'm okay, nothing to worry about",negative,-0.4235971701636319,0.93,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.018141Z
+sent_000518,I feel completely hopeless right now,negative,-0.344578712178318,0.81,therapeutic_progress,synthetic,ann_004,2026-03-12T01:12:00.019574Z
+sent_000945,Not as bad as I feared,positive,0.9149769236397968,0.94,crisis_moment,synthetic,ann_003,2026-03-12T01:12:00.022710Z
+sent_001936,Let's talk about something different,neutral,-0.0104686891129449,0.88,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.026014Z
+sent_001549,I can see some light in this,positive,0.35,0.77,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.024598Z
+sent_000265,My situation is only getting worse,negative,-0.7367557297152643,0.86,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.018787Z
+sent_001851,"Okay, I understand",neutral,-0.18655644746695,0.81,information_seeking,synthetic,ann_005,2026-03-12T01:12:00.025692Z
+sent_000394,I'm angry at myself for this mess,negative,-0.8276908724840243,0.87,processing_emotion,synthetic,ann_005,2026-03-12T01:12:00.019184Z
+sent_001283,This is helping me understand my patterns,positive,0.768749382028227,0.93,processing_emotion,synthetic,ann_005,2026-03-12T01:12:00.023776Z
+sent_000094,Let's just move on from this,negative,-0.7836025895874541,0.84,therapeutic_progress,synthetic,ann_004,2026-03-12T01:12:00.018288Z
+sent_000712,I'm emotionally numb,negative,-0.2980851829164107,0.94,information_seeking,synthetic,ann_005,2026-03-12T01:12:00.020202Z
+sent_000198,Nothing I do matters anymore,negative,-0.25,0.84,insight_moment,synthetic,ann_005,2026-03-12T01:12:00.018588Z
+sent_001355,I feel grateful for this conversation,positive,0.6186922431965631,0.87,resistance_avoidance,synthetic,ann_001,2026-03-12T01:12:00.023990Z
+sent_000442,Sab kuch bekaar hai,negative,-0.5325318486880593,0.85,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.019334Z
+sent_001450,I did something good for myself today,positive,0.5291226932410773,0.81,therapeutic_progress,synthetic,ann_003,2026-03-12T01:12:00.024304Z
+sent_001598,I've been busy with work,neutral,0.008088153432478,0.82,information_seeking,synthetic,ann_005,2026-03-12T01:12:00.024843Z
+sent_001061,Not as bad as I feared,positive,0.6400622963531114,0.87,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.023092Z
+sent_000836,I don't want to talk about it,negative,-0.6991963982230054,0.89,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.020605Z
+sent_001104,I had a good cry and felt relieved,positive,0.3975534983417412,0.85,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.023221Z
+sent_000774,I'm angry at myself for this mess,negative,-0.8531749427357174,0.89,resistance_avoidance,synthetic,ann_003,2026-03-12T01:12:00.020408Z
+sent_000434,Kuch bhi sahi nahi hota mere saath,negative,-0.6316353225874076,0.86,insight_moment,synthetic,ann_001,2026-03-12T01:12:00.019310Z
+sent_000773,I don't want to get out of bed anymore,negative,-0.9489228670814192,0.95,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.020406Z
+sent_000965,Aaj mene khud ko samjha,positive,0.5967020666190893,0.81,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.022790Z
+sent_000508,I don't want to face what's happening,negative,-0.9132056047794684,0.91,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.019542Z
+sent_000725,Main har din badtar ho raha hoon,negative,-0.5572718501746334,0.8,crisis_moment,synthetic,ann_003,2026-03-12T01:12:00.020242Z
+sent_000844,I feel like I'm falling apart,negative,-0.666850011483184,0.93,insight_moment,synthetic,ann_001,2026-03-12T01:12:00.020632Z
+sent_000331,I'm slipping deeper into this hole,negative,-0.544723929439713,0.88,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.018990Z
+sent_000256,Sab kuch bekaar hai,negative,-0.7948054701819992,0.79,therapeutic_progress,synthetic,ann_001,2026-03-12T01:12:00.018761Z
+sent_000119,I hate feeling this powerless,negative,-0.5777167268562853,0.77,resistance_avoidance,synthetic,ann_002,2026-03-12T01:12:00.018359Z
+sent_001043,I feel more at peace now,positive,0.6309736658361295,0.8,therapeutic_progress,synthetic,ann_004,2026-03-12T01:12:00.023033Z
+sent_001692,Things remain the same,neutral,-0.0446250067975258,0.79,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.025140Z
+sent_000568,Kuch bhi sahi nahi hota mere saath,negative,-0.4364494890414294,0.89,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.019736Z
+sent_000114,I'm a complete failure,negative,-0.4223250727638309,0.97,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.018344Z
+sent_000322,Main haara hua hoon ab,negative,-0.5327447637115376,0.94,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.018966Z
+sent_000534,This will never change,negative,-0.6546179297047493,0.9,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.019623Z
+sent_000360,I'm not going to think about it,negative,-0.6468686618820716,0.79,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.019074Z
+sent_000400,I don't want to face what's happening,negative,-0.6736911588055483,0.81,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.019201Z
+sent_001437,I appreciate your perspective,positive,0.7214267791605339,0.98,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.024265Z
+sent_000630,Everything feels empty inside,negative,-0.5989206579486891,0.8,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.019931Z
+sent_001846,How do I practice meditation?,neutral,0.3422047557127122,0.81,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.025676Z
+sent_000420,This pain is unbearable,negative,-0.4505409968141485,0.85,therapeutic_progress,synthetic,ann_001,2026-03-12T01:12:00.019270Z
+sent_001752,Can we move on to something else?,neutral,-0.0639647253124876,0.98,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.025344Z
+sent_001159,There are some good moments now,positive,0.4151715569679489,0.86,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.023391Z
+sent_000818,I've given up trying to change things,negative,-0.7947297374308675,0.95,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.020548Z
+sent_000154,I can't bear to think about it,negative,-0.6452693957728245,0.9,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.018459Z
+sent_000260,Kuch bhi theek nahi hai mere liye,negative,-1.0,0.92,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.018774Z
+sent_001429,I cooked something healthy today,positive,0.4428427548071587,0.87,breakthrough_realization,synthetic,ann_002,2026-03-12T01:12:00.024240Z
+sent_001636,Same situation as before,neutral,-0.35,0.78,breakthrough_realization,synthetic,ann_003,2026-03-12T01:12:00.024963Z
+sent_001378,Mujhe sukhd raha hoon,positive,0.7568112097301242,0.76,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.024060Z
+sent_001047,I'm accepting things more easily,positive,0.8323540718574249,0.92,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.023045Z
+sent_001482,I'm accepting things more easily,positive,0.35,0.94,breakthrough_realization,synthetic,ann_004,2026-03-12T01:12:00.024397Z
+sent_001417,I feel grateful for this conversation,positive,0.5324134004756368,0.83,therapeutic_progress,synthetic,ann_001,2026-03-12T01:12:00.024204Z
+sent_000220,"I'm okay, nothing to worry about",negative,-0.7258363564584766,0.85,resistance_avoidance,synthetic,ann_002,2026-03-12T01:12:00.018656Z
+sent_001491,I'm grateful for having support,positive,0.5750778272223156,1.0,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.024425Z
+sent_001603,That's an interesting perspective,neutral,-0.1379053593683006,0.94,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.024858Z
+sent_000461,This pain is unbearable,negative,-0.671224077237167,0.86,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.019396Z
+sent_001033,I'm starting to feel a bit better today,positive,0.6597765727161258,0.82,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.023001Z
+sent_000006,I don't know what I feel,negative,-0.3831375519502941,0.82,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.018031Z
+sent_000660,I don't want to get out of bed anymore,negative,-0.5067454208308428,0.82,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.020035Z
+sent_001528,Aaj mera din badhiya gaya,positive,0.8635868490433773,0.86,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.024537Z
+sent_000656,I don't want to talk about it,negative,-0.4682296857325737,0.79,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.020023Z
+sent_001356,Getting this out was exactly what I needed,positive,0.9119726005979576,0.88,breakthrough_realization,synthetic,ann_004,2026-03-12T01:12:00.023992Z
+sent_001017,I'm proud of myself for that,positive,0.555132963358794,0.79,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.022954Z
+sent_000128,Kuch bhi theek nahi hai mere liye,negative,-0.5920230146225782,0.84,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.018387Z
+sent_000008,I feel completely hopeless right now,negative,-0.4700197463304563,0.84,resistance_avoidance,synthetic,ann_002,2026-03-12T01:12:00.018036Z
+sent_000960,I feel like I have a path forward now,positive,0.5696449812099272,0.74,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.022774Z
+sent_000263,"I'm managing, everything's fine",negative,-0.9146743185871804,0.9,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.018782Z
+sent_001881,That's logical,neutral,-0.0194272058587845,0.86,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.025805Z
+sent_000226,I'm sick of struggling like this,negative,-0.4641121572515513,0.84,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.018674Z
+sent_000768,I can't feel anything at all,negative,-0.5506683274600901,0.84,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.020380Z
+sent_001235,I can see some light in this,positive,0.35,0.87,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.023619Z
+sent_000138,I don't feel alive,negative,-0.3799968580358379,0.85,therapeutic_progress,synthetic,ann_004,2026-03-12T01:12:00.018415Z
+sent_001317,Aaj mene khud ko samjha,positive,0.9351356515599902,0.95,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.023879Z
+sent_001658,Can we move on to something else?,neutral,-0.0859280070174914,0.86,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.025034Z
+sent_001586,Sab kuch normal hai,neutral,-0.233440600101911,0.78,insight_moment,synthetic,ann_004,2026-03-12T01:12:00.024806Z
+sent_000837,I feel nothing anymore,negative,-0.7530618767579853,1.01,routine_conversation,synthetic,ann_005,2026-03-12T01:12:00.020608Z
+sent_001990,Can we move on to something else?,neutral,-0.0776451135133616,0.81,resistance_avoidance,synthetic,ann_001,2026-03-12T01:12:00.026218Z
+sent_001750,Yeh samajh aaya,neutral,0.0482706289153459,0.9,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.025336Z
+sent_001862,Kuch naya nahi hua,neutral,0.0729948702206803,0.86,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.025739Z
+sent_000358,I'm just fine really,negative,-0.8284211740821622,1.0,information_seeking,synthetic,ann_004,2026-03-12T01:12:00.019069Z
+sent_001797,My appointment is on Tuesday at 3pm,neutral,-0.0701254391833618,0.8,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.025501Z
+sent_001643,Same situation as before,neutral,0.282818220546629,0.84,processing_emotion,synthetic,ann_005,2026-03-12T01:12:00.024985Z
+sent_000883,I don't see any way out of this,negative,-0.3308510871508112,0.84,crisis_moment,synthetic,ann_002,2026-03-12T01:12:00.020756Z
+sent_001289,I did something I thought I couldn't do,positive,1.0,0.83,information_seeking,synthetic,ann_001,2026-03-12T01:12:00.023793Z
+sent_000013,Everything feels pointless,negative,-0.616269791009647,0.83,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.018051Z
+sent_001412,I managed to go for a walk,positive,0.7969212792243641,0.87,crisis_moment,synthetic,ann_005,2026-03-12T01:12:00.024184Z
+sent_001044,I did something good for myself today,positive,0.8585449521441326,0.82,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.023036Z
+sent_001780,Got it,neutral,0.1015950339364531,0.94,information_seeking,synthetic,ann_004,2026-03-12T01:12:00.025442Z
+sent_000081,Why does everything go wrong for me?,negative,-0.7072310848934725,0.88,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.018248Z
+sent_001049,I actually made it through the day,positive,0.8482490511410761,0.93,processing_emotion,synthetic,ann_003,2026-03-12T01:12:00.023052Z
+sent_000039,Each day is harder than the last,negative,-0.7157807666220188,0.87,information_seeking,synthetic,ann_005,2026-03-12T01:12:00.018126Z
+sent_001867,Can you explain attachment theory?,neutral,0.0020276288310894,0.85,resistance_avoidance,synthetic,ann_003,2026-03-12T01:12:00.025755Z
+sent_001364,This is helping me understand my patterns,positive,0.7574756474159128,0.87,processing_emotion,synthetic,ann_004,2026-03-12T01:12:00.024016Z
+sent_001707,Things are as they usually are,neutral,0.35,0.83,crisis_moment,synthetic,ann_004,2026-03-12T01:12:00.025191Z
+sent_000409,I'm done with trying,negative,-0.5964143902308142,0.83,insight_moment,synthetic,ann_005,2026-03-12T01:12:00.019226Z
+sent_001345,I cooked something healthy today,positive,0.7059906568080292,0.9,routine_conversation,synthetic,ann_002,2026-03-12T01:12:00.023961Z
+sent_000007,Mujhe koi umeed nahi hai,negative,-0.4336124038630775,0.88,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.018033Z
+sent_000852,I've given up trying to change things,negative,-0.7907898637406141,0.99,routine_conversation,synthetic,ann_004,2026-03-12T01:12:00.020659Z
+sent_001641,Tell me more about therapeutic techniques,neutral,-0.2045767764182476,0.84,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.024979Z
+sent_000149,I don't deserve to feel better,negative,-0.8369835211992012,0.95,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.018446Z
+sent_000667,I'm feeling worse than I was before,negative,-0.4033007143151298,0.94,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.020058Z
+sent_001325,Parts of me feel hopeful,positive,0.5414422271052174,1.04,crisis_moment,synthetic,ann_004,2026-03-12T01:12:00.023901Z
+sent_000472,I'm angry at myself for this mess,negative,-1.0,0.83,resistance_avoidance,synthetic,ann_002,2026-03-12T01:12:00.019429Z
+sent_000450,I'm angry at myself for this mess,negative,-0.5961472254668282,0.86,insight_moment,synthetic,ann_003,2026-03-12T01:12:00.019362Z
+sent_001593,Can we move on to something else?,neutral,-0.0240895410159611,0.91,crisis_moment,synthetic,ann_001,2026-03-12T01:12:00.024828Z
+sent_001229,I've had a breakthrough moment,positive,0.35,0.9,resistance_avoidance,synthetic,ann_003,2026-03-12T01:12:00.023599Z
+sent_000615,"This is so frustrating, nothing works",negative,-0.8897862278025734,0.93,information_seeking,synthetic,ann_003,2026-03-12T01:12:00.019886Z
+sent_001228,I'm proud of myself for that,positive,0.7326059812692041,0.89,insight_moment,synthetic,ann_001,2026-03-12T01:12:00.023595Z
+sent_000921,I feel clearer now after that,positive,0.6258645093953746,0.8,insight_moment,synthetic,ann_002,2026-03-12T01:12:00.022634Z
+sent_000541,I'm slipping deeper into this hole,negative,-0.4341561687717651,0.91,insight_moment,synthetic,ann_001,2026-03-12T01:12:00.019646Z
+sent_000223,I'm angry at myself for this mess,negative,-0.6950766862167648,0.81,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.018666Z
+sent_001718,I hear you,neutral,-0.0835460135707105,0.8,processing_emotion,synthetic,ann_002,2026-03-12T01:12:00.025228Z
+sent_000709,"I'm okay, nothing to worry about",negative,-0.5168688901729205,0.97,processing_emotion,synthetic,ann_003,2026-03-12T01:12:00.020191Z
+sent_001036,Letting it out actually helped,positive,0.8694209600096564,0.91,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.023009Z
+sent_001492,Not as bad as I feared,positive,0.760974356725694,0.97,resistance_avoidance,synthetic,ann_001,2026-03-12T01:12:00.024428Z
+sent_001319,I did something I thought I couldn't do,positive,0.35,0.88,processing_emotion,synthetic,ann_001,2026-03-12T01:12:00.023885Z
+sent_001029,I've had a breakthrough moment,positive,0.6768059926687745,0.93,breakthrough_realization,synthetic,ann_001,2026-03-12T01:12:00.022990Z
+sent_000973,I'm finding strength I didn't know I had,positive,0.3537898901371907,0.92,resistance_avoidance,synthetic,ann_003,2026-03-12T01:12:00.022816Z
+sent_001301,Aaj mujhe thoda acha lag raha hai,positive,0.5400419177278107,0.78,resistance_avoidance,synthetic,ann_005,2026-03-12T01:12:00.023829Z
+sent_000458,I can't bear to think about it,negative,-0.8139155314253226,0.86,crisis_moment,synthetic,ann_003,2026-03-12T01:12:00.019387Z
+sent_001506,Aaj mera din badhiya gaya,positive,0.6190341595390424,0.89,crisis_moment,synthetic,ann_001,2026-03-12T01:12:00.024470Z
+sent_001308,I'm grateful for having support,positive,0.7189236670442909,0.85,insight_moment,synthetic,ann_005,2026-03-12T01:12:00.023851Z
+sent_000577,"This is so frustrating, nothing works",negative,-1.0,0.85,therapeutic_progress,synthetic,ann_005,2026-03-12T01:12:00.019766Z
+sent_000519,Everything feels pointless,negative,-0.9554770034291096,0.85,information_seeking,synthetic,ann_002,2026-03-12T01:12:00.019577Z

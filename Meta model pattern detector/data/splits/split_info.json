@@ -1,0 +1,33 @@
+{
+  "total_examples": 3000,
+  "train": {
+    "examples": 2100,
+    "ratio": 0.7,
+    "category_distribution": {
+      "generalization": 637,
+      "distortion": 868,
+      "deletion": 595
+    }
+  },
+  "validation": {
+    "examples": 449,
+    "ratio": 0.14966666666666667,
+    "category_distribution": {
+      "distortion": 186,
+      "deletion": 127,
+      "generalization": 136
+    }
+  },
+  "test": {
+    "examples": 451,
+    "ratio": 0.15033333333333335,
+    "category_distribution": {
+      "generalization": 137,
+      "distortion": 186,
+      "deletion": 128
+    }
+  },
+  "stratification_column": "pattern_category",
+  "random_state": 42,
+  "no_leakage": true
+}

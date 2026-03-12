@@ -1,0 +1,6 @@
+{
+  "best_epoch": "P2 Epoch 2",
+  "val_f1_samples": 0.9952,
+  "model": "distilbert-base-uncased",
+  "problem_type": "multi_label"
+}

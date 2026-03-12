@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-03-12T07:09:37.095409",
+  "test_samples": 200,
+  "overall_metrics": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "micro_f1": 1.0
+  },
+  "per_class_metrics": {
+    "negative": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 90
+    },
+    "neutral": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    },
+    "positive": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 65
+    }
+  },
+  "qualification_gates": {
+    "accuracy": {
+      "value": 1.0,
+      "threshold": 0.85,
+      "passed": true
+    },
+    "macro_f1": {
+      "value": 1.0,
+      "threshold": 0.83,
+      "passed": true
+    },
+    "negative_f1": {
+      "value": 1.0,
+      "threshold": 0.87,
+      "passed": true
+    }
+  },
+  "all_gates_passed": true
+}

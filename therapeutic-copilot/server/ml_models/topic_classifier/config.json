@@ -1,0 +1,41 @@
+{
+  "activation": "gelu",
+  "architectures": [
+    "DistilBertForSequenceClassification"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": null,
+  "dim": 768,
+  "dropout": 0.1,
+  "dtype": "float32",
+  "eos_token_id": null,
+  "hidden_dim": 3072,
+  "id2label": {
+    "0": "workplace_stress",
+    "1": "relationship_issues",
+    "2": "academic_stress",
+    "3": "health_concerns",
+    "4": "financial_stress"
+  },
+  "initializer_range": 0.02,
+  "label2id": {
+    "academic_stress": 2,
+    "financial_stress": 4,
+    "health_concerns": 3,
+    "relationship_issues": 1,
+    "workplace_stress": 0
+  },
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "pad_token_id": 0,
+  "problem_type": "multi_label_classification",
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "tie_word_embeddings": true,
+  "transformers_version": "5.3.0",
+  "vocab_size": 30522
+}

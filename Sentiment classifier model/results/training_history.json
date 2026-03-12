@@ -1,0 +1,8 @@
+{
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "test_samples": 200,
+  "training_time": 882.9563446044922,
+  "best_epoch": 1,
+  "best_val_f1": 1.0
+}
