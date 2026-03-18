@@ -318,7 +318,14 @@ python 04_deploy_adapter.py
 **File**: `therapeutic-copilot/client/src/`
 **Problem**: Backend WebSocket rooms defined; frontend subscription handlers not fully wired
 **Fix**: Wire crisis alert subscription in `ClinicianDashboard.tsx` to show real-time popup on `crisis_alert` event
-**Status**: ⚠️ PARTIAL
+**Status**: DONE (2026-03-18)
+
+**Implemented**:
+- Exponential-backoff reconnect (`onclose` → `setTimeout` retry, max 30 s, resets on success)
+- Toast banner (top-right, red, auto-dismiss 8 s, manual &times; close)
+- Auto-switch to Alerts tab on incoming `CRISIS_ALERT`
+- Dismiss button on each `CrisisAlertCard` (removes entry from state)
+- WS status dot in header (green=connected / yellow-pulse=connecting / red-pulse=disconnected)
 
 ---
 
@@ -524,10 +531,15 @@ CORS_ORIGINS=http://localhost:3000,http://localhost:5173
 
 | Task | File(s) | Status | Completed |
 |------|---------|--------|-----------|
-| P0.1 — `_detect_patient_stage()` DB query | `therapeutic_ai_service.py` | ❌ | — |
-| P0.2 — `end_session()` LLM summary | `therapeutic_ai_service.py` | ❌ | — |
-| P0.3 — LoRA Stage 1 train + deploy | `fine_tune/stage1/` | ❌ | — |
-| P0.4 — Auth DB integration (login/register/token) | `auth_routes.py`, `widget_routes.py` | ❌ | — |
+| P0.1 — `_detect_patient_stage()` DB query | `therapeutic_ai_service.py` | ✅ DONE | 2026-03-06 (initial scaffold) |
+| P0.2 — `end_session()` LLM summary | `therapeutic_ai_service.py` | ✅ DONE | 2026-03-06 (initial scaffold) |
+| P0.3 — LoRA Stage 1 dataset prep | `fine_tune/stage1/01_prepare_dataset.py` | ✅ DONE | 2026-03-18 |
+| P0.3 — LoRA Stage 1 GPU training | `fine_tune/stage1/02_train_stage1_lora.py` | ⚠️ NEEDS GPU | Together AI fallback active |
+| P0.4 — Auth DB integration (login/register/token) | `auth_routes.py`, `widget_routes.py` | ✅ DONE | 2026-03-06 (initial scaffold) |
+
+> **Note**: P0.1, P0.2, P0.4 were already fully implemented in Session 1 scaffold.
+> P0.3 training requires GPU (A100/A10G). Service falls back to Together AI until weights are deployed.
+> Set `TOGETHER_API_KEY` in `.env` to use cloud fallback for Stage 1.
 
 ## P1 Work Tracking
 
@@ -538,7 +550,7 @@ CORS_ORIGINS=http://localhost:3000,http://localhost:5173
 | P1.3 — Build Booking Page UI | `pages/BookingPage.tsx` | ❌ | — |
 | P1.4 — Wire lead_service into Stage 1 | `lead_service.py`, `therapeutic_ai_service.py` | ❌ | — |
 | P1.5 — Verify Together AI / Qwen inference | `.env`, `qwen_inference.py` | ❌ | — |
-| P1.6 — Frontend WebSocket crisis handler | `ClinicianDashboard.tsx` | ⚠️ | — |
+| P1.6 — Frontend WebSocket crisis handler | `ClinicianDashboard.tsx` | ✅ | Reconnect + toast + dismiss + WS status dot |
 
 ## P2 Work Tracking
 

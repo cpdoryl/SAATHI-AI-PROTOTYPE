@@ -14,7 +14,9 @@ from services.emotion_classifier_service import get_emotion_service
 from services.intent_classifier_service import get_intent_service
 from services.topic_classifier_service import get_topic_service
 from services.meta_model_detector_service import get_meta_model_detector_service
+from services.sentiment_classifier_service import get_sentiment_classifier_service
 from services.safety_guardrail_service import get_guardrail_service, GuardrailResult
+from services.lead_service import LeadService
 from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
@@ -125,12 +127,14 @@ class TherapeuticAIService:
         topic_context_block   = ""
         meta_model_result     = None
         meta_model_block      = ""
+        sentiment_result      = None
 
         try:
-            emo_svc       = get_emotion_service()
-            intent_svc    = get_intent_service()
-            topic_svc     = get_topic_service()
+            emo_svc        = get_emotion_service()
+            intent_svc     = get_intent_service()
+            topic_svc      = get_topic_service()
             meta_model_svc = get_meta_model_detector_service()
+            sentiment_svc  = get_sentiment_classifier_service()
 
             async def _classify_emotion():
                 if emo_svc.is_ready:
@@ -161,9 +165,17 @@ class TherapeuticAIService:
                     )
                 return None
 
-            emo_r, int_r, top_r, meta_r = await _asyncio.gather(
+            async def _classify_sentiment():
+                if sentiment_svc.is_ready:
+                    return await _asyncio.get_event_loop().run_in_executor(
+                        None, sentiment_svc.classify, message, session_id
+                    )
+                return None
+
+            emo_r, int_r, top_r, meta_r, sent_r = await _asyncio.gather(
                 _classify_emotion(), _classify_intent(),
-                _classify_topic(), _detect_meta_model()
+                _classify_topic(), _detect_meta_model(),
+                _classify_sentiment(),
             )
 
             if emo_r:
@@ -193,8 +205,15 @@ class TherapeuticAIService:
                 meta_model_result = meta_r
                 meta_model_block  = meta_model_svc.build_prompt_context(meta_r)
                 logger.debug(
-                    f"MetaModel: {meta_r.get('pattern_count', 0)} patterns detected "
+                    f"MetaModel: {meta_r.get('pattern_count', 0)} patterns "
                     f"({meta_r.get('processing_time_ms', 0):.0f}ms)"
+                )
+
+            if sent_r:
+                sentiment_result = sent_r
+                logger.debug(
+                    f"Sentiment: {sent_r.get('sentiment')} "
+                    f"valence={sent_r.get('valence_score', 0):.2f}"
                 )
 
         except Exception as _exc:
@@ -289,6 +308,22 @@ class TherapeuticAIService:
                 intent_result=int_dict,
             )
             response = stage1_result.get("response", "")
+
+            # Update lead score + check booking conversion (fire-and-forget style;
+            # commit happens at the end of process_message)
+            if session and session.patient_id:
+                try:
+                    await LeadService().update_lead_score(
+                        db=self.db,
+                        patient_id=session.patient_id,
+                        lead_score=stage1_result.get("lead_score", 0.0),
+                        booking_intent_detected=stage1_result.get(
+                            "booking_intent_detected", False
+                        ),
+                        lead_factors=stage1_result.get("lead_factors", {}),
+                    )
+                except Exception as _le:
+                    logger.warning(f"LeadService update skipped: {_le}")
 
         elif stage == 2:
             # ── Stage 2: Therapeutic Support via Stage 2 LoRA / Together AI ────
@@ -443,6 +478,9 @@ class TherapeuticAIService:
             "topic_multi_label":    topic_result.is_multi_label if topic_result else False,
             "meta_model_patterns":  meta_model_result.get("patterns_detected") if meta_model_result else None,
             "meta_model_count":     meta_model_result.get("pattern_count", 0) if meta_model_result else 0,
+            "sentiment":            sentiment_result.get("sentiment") if sentiment_result else None,
+            "sentiment_valence":    sentiment_result.get("valence_score") if sentiment_result else None,
+            "sentiment_trend":      sentiment_result.get("session_trend", {}).get("trend_direction") if sentiment_result else None,
         }
 
         # Stage 1 — enrich response with lead generation signals

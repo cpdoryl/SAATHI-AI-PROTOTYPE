@@ -8,6 +8,7 @@ Backend selection:
 
 Embedding model: all-MiniLM-L6-v2 (384 dimensions, cosine similarity)
 """
+import asyncio
 import uuid
 from typing import List, Dict, Optional
 
@@ -141,9 +142,18 @@ class RAGService:
     # ── Embedding ──
 
     async def _embed(self, text: str) -> List[float]:
-        """Generate 384-dim embedding via the singleton SentenceTransformer."""
+        """Generate 384-dim embedding via the singleton SentenceTransformer.
+
+        Runs in a thread pool executor so the synchronous CPU-bound
+        SentenceTransformer.encode() call does not block the event loop.
+        """
         model = _get_embedding_model()
-        return model.encode(text, normalize_embeddings=True).tolist()
+        loop = asyncio.get_event_loop()
+        vector = await loop.run_in_executor(
+            None,
+            lambda: model.encode(text, normalize_embeddings=True).tolist(),
+        )
+        return vector
 
     # ── Query ──
 

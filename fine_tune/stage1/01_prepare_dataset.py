@@ -2,7 +2,7 @@
 """
 SAATHI AI — Stage 1 LoRA Dataset Preparation Pipeline
 ======================================================
-Expands 8 seed conversations → 634 balanced training examples across
+Expands 8 seed conversations -> 634 balanced training examples across
 7 conversation types. Produces train/val/test splits in ChatML format.
 
 Usage:
@@ -583,7 +583,7 @@ def main():
     coverage = verify_objection_coverage(dataset)
     print(f"\nObjection coverage:")
     for obj, count in coverage.items():
-        status = "✓" if count >= 15 else "⚠ LOW"
+        status = "[OK]" if count >= 15 else "[LOW]"
         print(f"  {status} {obj}: {count}")
 
     # Type distribution
@@ -614,11 +614,11 @@ def main():
     with open(output_dir / "dataset_report.json", "w") as f:
         json.dump(report, f, indent=2)
 
-    print(f"\n✓ Saved to {output_dir}/")
-    print(f"  train.jsonl       → {len(train)} examples")
-    print(f"  val.jsonl         → {len(val)} examples")
-    print(f"  test.jsonl        → {len(test)} examples")
-    print(f"  train_chatml.jsonl → ChatML format for SFTTrainer")
+    print(f"\n[DONE] Saved to {output_dir}/")
+    print(f"  train.jsonl       -> {len(train)} examples")
+    print(f"  val.jsonl         -> {len(val)} examples")
+    print(f"  test.jsonl        -> {len(test)} examples")
+    print(f"  train_chatml.jsonl -> ChatML format for SFTTrainer")
     print(f"  dataset_report.json")
     print("\nDataset is ready for training. Run: python 02_train_stage1_lora.py")
 

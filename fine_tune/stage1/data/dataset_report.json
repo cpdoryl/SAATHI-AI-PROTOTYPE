@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-03-18T18:28:17.304626",
+  "total_conversations": 634,
+  "splits": {
+    "train": 508,
+    "val": 63,
+    "test": 63
+  },
+  "type_distribution": {
+    "package_inquiry": 150,
+    "objection_handling": 120,
+    "crisis_triage_referral": 80,
+    "booking_initiation": 100,
+    "budget_concerns": 60,
+    "follow_up_reengagement": 74,
+    "peer_comparison": 50
+  },
+  "outcome_distribution": {
+    "assessment_offered": 122,
+    "booking_triggered": 399,
+    "crisis_escalated": 53,
+    "information_provided": 60
+  },
+  "avg_turns": 6.8,
+  "objection_coverage": {
+    "price_too_high": 0,
+    "not_sure_therapy_helps_me": 60,
+    "not_enough_time": 60,
+    "therapy_is_for_weak_people": 90,
+    "my_problems_arent_serious_enough": 0,
+    "skeptical_about_ai": 106,
+    "company_is_watching": 90
+  },
+  "red_line_violations": 0,
+  "ready_for_training": true
+}

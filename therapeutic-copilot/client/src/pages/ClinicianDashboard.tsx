@@ -2,7 +2,7 @@
  * SAATHI AI — Clinician Dashboard
  * Main hub for: patient overview, crisis alerts, session monitoring, analytics, appointments.
  */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import {
   BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
@@ -43,6 +43,11 @@ export default function ClinicianDashboard() {
   const [activeTab, setActiveTab] = useState<'patients' | 'alerts' | 'analytics' | 'appointments'>('patients')
   const [loadingPatients, setLoadingPatients] = useState(true)
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null)
+  const [wsStatus, setWsStatus] = useState<'connecting' | 'connected' | 'disconnected'>('connecting')
+  const [toastAlert, setToastAlert] = useState<CrisisAlert | null>(null)
+  const wsRef = useRef<WebSocket | null>(null)
+  const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const reconnectDelayRef = useRef(1000)
 
   // Load patients from API on mount
   useEffect(() => {
@@ -52,30 +57,94 @@ export default function ClinicianDashboard() {
       .finally(() => setLoadingPatients(false))
   }, [])
 
-  // Connect to clinician WebSocket for real-time crisis alerts
-  useEffect(() => {
+  // Connect to clinician WebSocket with exponential-backoff reconnect
+  const connectWs = useCallback(() => {
     const clinicianId = localStorage.getItem('clinician_id') || ''
     const ws = new WebSocket(`ws://localhost:8000/ws/clinician/${clinicianId}`)
+    wsRef.current = ws
+    setWsStatus('connecting')
+
+    ws.onopen = () => {
+      setWsStatus('connected')
+      reconnectDelayRef.current = 1000  // reset backoff on successful connect
+    }
+
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data)
-      if (data.type === 'CRISIS_ALERT') {
-        setCrisisAlerts((prev) => [data.data, ...prev])
+      try {
+        const data = JSON.parse(event.data)
+        if (data.type === 'CRISIS_ALERT') {
+          const alert: CrisisAlert = data.data
+          setCrisisAlerts((prev) => [alert, ...prev])
+          setToastAlert(alert)
+          setActiveTab('alerts')  // auto-switch to alerts tab
+          // Auto-dismiss toast after 8 seconds
+          setTimeout(() => setToastAlert(null), 8000)
+        }
+      } catch {
+        // Ignore malformed WS messages
       }
     }
-    return () => ws.close()
+
+    ws.onclose = () => {
+      setWsStatus('disconnected')
+      // Exponential backoff reconnect (max 30 s)
+      const delay = Math.min(reconnectDelayRef.current, 30000)
+      reconnectDelayRef.current = delay * 2
+      reconnectTimerRef.current = setTimeout(connectWs, delay)
+    }
+
+    ws.onerror = () => ws.close()  // triggers onclose → reconnect
   }, [])
+
+  useEffect(() => {
+    connectWs()
+    return () => {
+      if (reconnectTimerRef.current) clearTimeout(reconnectTimerRef.current)
+      wsRef.current?.close()
+    }
+  }, [connectWs])
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Toast notification for incoming crisis alert */}
+      {toastAlert && (
+        <div className="fixed top-4 right-4 z-50 bg-red-600 text-white rounded-lg shadow-xl px-5 py-3 flex items-start gap-3 max-w-sm animate-in slide-in-from-right">
+          <div className="flex-1">
+            <p className="font-semibold text-sm">Crisis Alert — Severity {toastAlert.severity}/10</p>
+            <p className="text-xs mt-0.5 text-red-100">
+              {toastAlert.detectedKeywords?.slice(0, 3).join(', ')}
+            </p>
+          </div>
+          <button
+            onClick={() => setToastAlert(null)}
+            className="text-red-200 hover:text-white text-lg leading-none mt-0.5"
+            aria-label="Dismiss"
+          >
+            &times;
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <header className="bg-white shadow-sm px-6 py-4 flex items-center justify-between">
         <h1 className="text-xl font-bold text-gray-900">Saathi AI — Clinician Dashboard</h1>
-        {crisisAlerts.length > 0 && (
-          <div className="flex items-center space-x-2 bg-red-50 border border-red-200 rounded-lg px-3 py-1">
-            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-            <span className="text-red-700 text-sm font-medium">{crisisAlerts.length} Crisis Alert(s)</span>
+        <div className="flex items-center gap-3">
+          {/* WS connection status indicator */}
+          <div className="flex items-center gap-1.5" title={`WebSocket: ${wsStatus}`}>
+            <span className={`w-2 h-2 rounded-full ${
+              wsStatus === 'connected' ? 'bg-green-500' :
+              wsStatus === 'connecting' ? 'bg-yellow-400 animate-pulse' :
+              'bg-red-500 animate-pulse'
+            }`} />
+            <span className="text-xs text-gray-400 capitalize">{wsStatus}</span>
           </div>
-        )}
+          {crisisAlerts.length > 0 && (
+            <div className="flex items-center space-x-2 bg-red-50 border border-red-200 rounded-lg px-3 py-1">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-red-700 text-sm font-medium">{crisisAlerts.length} Crisis Alert(s)</span>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Tabs */}
@@ -133,7 +202,11 @@ export default function ClinicianDashboard() {
             ) : (
               <div className="space-y-3">
                 {crisisAlerts.map((alert, i) => (
-                  <CrisisAlertCard key={i} alert={alert} />
+                  <CrisisAlertCard
+                    key={i}
+                    alert={alert}
+                    onDismiss={() => setCrisisAlerts((prev) => prev.filter((_, idx) => idx !== i))}
+                  />
                 ))}
               </div>
             )}
@@ -834,12 +907,21 @@ function PatientCard({ patient, onClick }: { patient: Patient; onClick: () => vo
   )
 }
 
-function CrisisAlertCard({ alert }: { alert: CrisisAlert }) {
+function CrisisAlertCard({ alert, onDismiss }: { alert: CrisisAlert; onDismiss: () => void }) {
   return (
     <div className="bg-red-50 border border-red-200 rounded-lg p-4">
       <div className="flex items-center justify-between mb-1">
         <span className="font-medium text-red-800 text-sm">Crisis Detected — Severity {alert.severity}/10</span>
-        <span className="text-xs text-red-500">{new Date(alert.timestamp).toLocaleTimeString()}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-red-500">{new Date(alert.timestamp).toLocaleTimeString()}</span>
+          <button
+            onClick={onDismiss}
+            className="text-xs text-red-400 hover:text-red-700 border border-red-200 rounded px-1.5 py-0.5 hover:border-red-400 transition-colors"
+            aria-label="Dismiss alert"
+          >
+            Dismiss
+          </button>
+        </div>
       </div>
       <p className="text-xs text-red-700">Keywords: {alert.detectedKeywords?.join(', ')}</p>
       <p className="text-xs text-red-600 mt-1">Session: {alert.sessionId}</p>
