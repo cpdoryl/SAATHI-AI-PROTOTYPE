@@ -1,0 +1,85 @@
+{
+  "model_name": "qwen-lora-stage2-saathi-v1",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "num_epochs": 4,
+  "batch_size_eff": 32,
+  "learning_rate": 0.0001,
+  "max_seq_length": 2048,
+  "perplexity": 1.04,
+  "perplexity_target": 30,
+  "perplexity_pass": true,
+  "training_time_minutes": 218.6,
+  "loss_history": [
+    {
+      "step": 30,
+      "loss": 64.9148,
+      "learning_rate": 9.942208795257786e-05,
+      "epoch": 0.4
+    },
+    {
+      "step": 60,
+      "loss": 12.4093,
+      "learning_rate": 9.43888236306766e-05,
+      "epoch": 0.8
+    },
+    {
+      "step": 90,
+      "loss": 1.7342,
+      "learning_rate": 8.467640063447289e-05,
+      "epoch": 1.19
+    },
+    {
+      "step": 120,
+      "loss": 1.3709,
+      "learning_rate": 7.130863452369636e-05,
+      "epoch": 1.58
+    },
+    {
+      "step": 150,
+      "loss": 1.3094,
+      "learning_rate": 5.569466150960852e-05,
+      "epoch": 1.98
+    },
+    {
+      "step": 180,
+      "loss": 1.1261,
+      "learning_rate": 3.9480397191979876e-05,
+      "epoch": 2.37
+    },
+    {
+      "step": 210,
+      "loss": 1.1784,
+      "learning_rate": 2.4375035672472395e-05,
+      "epoch": 2.77
+    },
+    {
+      "step": 240,
+      "loss": 1.1378,
+      "learning_rate": 1.1970878291859423e-05,
+      "epoch": 3.16
+    },
+    {
+      "step": 270,
+      "loss": 1.1373,
+      "learning_rate": 3.5754843828193716e-06,
+      "epoch": 3.56
+    },
+    {
+      "step": 300,
+      "loss": 1.1145,
+      "learning_rate": 7.383752952010992e-08,
+      "epoch": 3.96
+    }
+  ]
+}

@@ -5,6 +5,7 @@ Coordinates: Stage routing → Crisis scan → RAG retrieval → LLM inference �
 import json
 import re
 from datetime import datetime
+from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from services.chatbot_service import ChatbotService
@@ -12,9 +13,16 @@ from services.crisis_detection_service import CrisisDetectionService
 from services.emotion_classifier_service import get_emotion_service
 from services.intent_classifier_service import get_intent_service
 from services.topic_classifier_service import get_topic_service
+from services.meta_model_detector_service import get_meta_model_detector_service
 from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
+from services.lora_stage1_service import get_stage1_service
+from services.lora_stage2_service import (
+    get_stage2_service,
+    determine_therapeutic_step,
+    should_advance_step,
+)
 from services.websocket_manager import ws_manager
 from services.redis_session_service import redis_session_store
 from config.emotion_prompt_context import build_emotion_context_block
@@ -108,17 +116,20 @@ class TherapeuticAIService:
         # Step 2: Emotion + Intent classification (concurrent, ~30ms each)
         import asyncio as _asyncio
 
-        emotion_result       = None
+        emotion_result        = None
         emotion_context_block = ""
-        intent_result        = None
+        intent_result         = None
         intent_context_block  = ""
-        topic_result         = None
-        topic_context_block  = ""
+        topic_result          = None
+        topic_context_block   = ""
+        meta_model_result     = None
+        meta_model_block      = ""
 
         try:
-            emo_svc    = get_emotion_service()
-            intent_svc = get_intent_service()
-            topic_svc  = get_topic_service()
+            emo_svc       = get_emotion_service()
+            intent_svc    = get_intent_service()
+            topic_svc     = get_topic_service()
+            meta_model_svc = get_meta_model_detector_service()
 
             async def _classify_emotion():
                 if emo_svc.is_ready:
@@ -141,8 +152,17 @@ class TherapeuticAIService:
                     )
                 return None
 
-            emo_r, int_r, top_r = await _asyncio.gather(
-                _classify_emotion(), _classify_intent(), _classify_topic()
+            async def _detect_meta_model():
+                # Only run for Stage 2 (therapeutic co-pilot)
+                if stage == 2 and meta_model_svc.is_ready:
+                    return await _asyncio.get_event_loop().run_in_executor(
+                        None, meta_model_svc.detect, message
+                    )
+                return None
+
+            emo_r, int_r, top_r, meta_r = await _asyncio.gather(
+                _classify_emotion(), _classify_intent(),
+                _classify_topic(), _detect_meta_model()
             )
 
             if emo_r:
@@ -166,6 +186,14 @@ class TherapeuticAIService:
                 topic_context_block = build_topic_context_block(top_r)
                 logger.debug(
                     f"Topic: {top_r.primary_topics} multi={top_r.is_multi_label}"
+                )
+
+            if meta_r:
+                meta_model_result = meta_r
+                meta_model_block  = meta_model_svc.build_prompt_context(meta_r)
+                logger.debug(
+                    f"MetaModel: {meta_r.get('pattern_count', 0)} patterns detected "
+                    f"({meta_r.get('processing_time_ms', 0):.0f}ms)"
                 )
 
         except Exception as _exc:
@@ -208,24 +236,149 @@ class TherapeuticAIService:
             query=message, tenant_id=tenant_id, top_k=3
         )
 
-        # Build prompt using current step + emotion context block
         current_step = session.current_step if session else 0
-        prompt = self.chatbot.build_response_prompt(
-            message=message,
-            stage=stage,
-            rag_context=rag_context,
-            current_step=current_step,
-        )
-        # Append classifier context blocks to enrich the LLM's system prompt
-        if emotion_context_block:
-            prompt = f"{prompt}\n\n{emotion_context_block}"
-        if intent_context_block:
-            prompt = f"{prompt}\n\n{intent_context_block}"
-        if topic_context_block:
-            prompt = f"{prompt}\n\n{topic_context_block}"
+        response = ""
+        stage1_result: dict = {}
 
-        # LLM inference
-        response = await self.llm.generate(prompt=prompt, stage=stage)
+        if stage == 1:
+            # ── Stage 1: Lead Generation via LoRA / Together AI / mock ──────────
+            # Load recent chat history for conversation context
+            hist_result = await self.db.execute(
+                select(ChatMessage)
+                .where(ChatMessage.session_id == session_id)
+                .order_by(ChatMessage.created_at)
+                .limit(20)
+            )
+            history_msgs = hist_result.scalars().all()
+            conversation_history = [
+                {"role": m.role, "content": m.content} for m in history_msgs
+            ]
+            # Append the current user message (not yet persisted)
+            conversation_history.append({"role": "user", "content": message})
+
+            # Convert classifier results to plain dicts for Stage 1 service
+            emo_dict: Optional[dict] = None
+            if emotion_result:
+                emo_dict = {
+                    "primary_emotion": emotion_result.primary_emotion,
+                    "intensity": emotion_result.intensity,
+                    "secondary_emotion": emotion_result.secondary_emotion,
+                }
+            top_dict: Optional[dict] = None
+            if topic_result:
+                primary_topics = topic_result.primary_topics or []
+                top_dict = {
+                    "primary_topic": primary_topics[0] if primary_topics else None,
+                    "all_topics": primary_topics,
+                }
+            int_dict: Optional[dict] = None
+            if intent_result:
+                int_dict = {
+                    "primary_intent": intent_result.primary_intent,
+                    "confidence": intent_result.confidence,
+                    "routing_action": intent_result.routing_action,
+                }
+
+            stage1_result = await get_stage1_service().generate(
+                conversation_history=conversation_history,
+                company_name=tenant_id,           # use tenant_id as company name
+                turn_number=current_step + 1,     # 1-indexed turn
+                emotion_result=emo_dict,
+                topic_result=top_dict,
+                intent_result=int_dict,
+            )
+            response = stage1_result.get("response", "")
+
+        elif stage == 2:
+            # ── Stage 2: Therapeutic Support via Stage 2 LoRA / Together AI ────
+            hist_result = await self.db.execute(
+                select(ChatMessage)
+                .where(ChatMessage.session_id == session_id)
+                .order_by(ChatMessage.created_at)
+                .limit(30)
+            )
+            history_msgs = hist_result.scalars().all()
+            conversation_history = [
+                {"role": m.role, "content": m.content} for m in history_msgs
+            ]
+            conversation_history.append({"role": "user", "content": message})
+
+            # Build ML context dicts for Stage 2 service
+            emo_dict_s2: Optional[dict] = None
+            if emotion_result:
+                emo_dict_s2 = {
+                    "primary_emotion": emotion_result.primary_emotion,
+                    "intensity": emotion_result.intensity,
+                    "secondary_emotion": emotion_result.secondary_emotion,
+                    "high_intensity_hopelessness": (
+                        emotion_result.primary_emotion == "hopelessness"
+                        and emotion_result.intensity == "high"
+                    ),
+                }
+
+            meta_dict_s2: Optional[dict] = None
+            if meta_model_result:
+                meta_dict_s2 = {
+                    "patterns_detected": meta_model_result.get("patterns_detected", []),
+                }
+
+            top_dict_s2: Optional[dict] = None
+            if topic_result:
+                primary_topics = topic_result.primary_topics or []
+                top_dict_s2 = {
+                    "primary_topic": primary_topics[0] if primary_topics else None,
+                    "all_topics": primary_topics,
+                }
+
+            crisis_ctx_s2: Optional[dict] = {
+                "crisis_active": crisis_result["severity"] >= 0.6,
+                "severity_score": crisis_result["severity"],
+            }
+
+            # Determine presenting issue from topic (best available proxy)
+            presenting_issue = "general"
+            if top_dict_s2 and top_dict_s2.get("primary_topic"):
+                presenting_issue = top_dict_s2["primary_topic"]
+
+            # Determine step name; pass advance hint via current_step + 1 if needed
+            therapeutic_step = determine_therapeutic_step(current_step)
+            step_for_call = current_step
+            if session and should_advance_step(
+                therapeutic_step, current_step, emo_dict_s2
+            ):
+                step_for_call = current_step + 1
+
+            stage2_result = await get_stage2_service().generate(
+                conversation_history=conversation_history,
+                current_step=step_for_call,
+                presenting_issue=presenting_issue,
+                session_number=getattr(session, "session_number", 1) if session else 1,
+                emotion_result=emo_dict_s2,
+                meta_model_result=meta_dict_s2,
+                assessment_context=None,   # clinician scores wired separately
+                topic_result=top_dict_s2,
+                crisis_context=crisis_ctx_s2,
+            )
+            response = stage2_result.get("response", "")
+
+        else:
+            # ── Stage 3: Re-engagement via base Qwen LLM ─────────────────────
+            prompt = self.chatbot.build_response_prompt(
+                message=message,
+                stage=stage,
+                rag_context=rag_context,
+                current_step=current_step,
+            )
+            if emotion_context_block:
+                prompt = f"{prompt}\n\n{emotion_context_block}"
+            if intent_context_block:
+                prompt = f"{prompt}\n\n{intent_context_block}"
+            if topic_context_block:
+                prompt = f"{prompt}\n\n{topic_context_block}"
+            if meta_model_block:
+                prompt = f"{prompt}\n\n{meta_model_block}"
+
+            response = await self.llm.generate(prompt=prompt, stage=stage)
 
         # Persist assistant message
         ai_msg = ChatMessage(
@@ -235,17 +388,20 @@ class TherapeuticAIService:
         )
         self.db.add(ai_msg)
 
-        # Advance step for Stage 2 (caps at step 10, the final step)
-        if session and stage == 2 and session.current_step < 10:
-            session.current_step += 1
-            # Sync updated step back to Redis cache
-            await redis_session_store.update_step(session_id, session.current_step)
+        # Advance step (Stage 1 caps at 8 turns; Stage 2 caps at 10 steps)
+        if session:
+            if stage == 1 and session.current_step < 8:
+                session.current_step += 1
+                await redis_session_store.update_step(session_id, session.current_step)
+            elif stage == 2 and session.current_step < 10:
+                session.current_step += 1
+                await redis_session_store.update_step(session_id, session.current_step)
         if session:
             session.crisis_score = max(session.crisis_score or 0.0, crisis_result["severity"])
 
         await self.db.commit()
 
-        return {
+        base_response = {
             "response":             response,
             "crisis_score":         crisis_result["severity"],
             "stage":                stage,
@@ -262,7 +418,33 @@ class TherapeuticAIService:
             "intent_secondary":     intent_result.secondary_intent if intent_result else None,
             "topics":               topic_result.primary_topics if topic_result else None,
             "topic_multi_label":    topic_result.is_multi_label if topic_result else False,
+            "meta_model_patterns":  meta_model_result.get("patterns_detected") if meta_model_result else None,
+            "meta_model_count":     meta_model_result.get("pattern_count", 0) if meta_model_result else 0,
         }
+
+        # Stage 1 — enrich response with lead generation signals
+        if stage == 1 and stage1_result:
+            base_response.update({
+                "lead_score":               stage1_result.get("lead_score", 0),
+                "lead_factors":             stage1_result.get("lead_factors", {}),
+                "booking_intent_detected":  stage1_result.get("booking_intent_detected", False),
+                "stage1_backend":           stage1_result.get("backend", "unknown"),
+                "stage1_latency_ms":        stage1_result.get("latency_ms", 0),
+                "conversation_stage_order": stage1_result.get("stage_order", 1),
+            })
+
+        # Stage 2 — enrich response with therapeutic session signals
+        elif stage == 2 and stage2_result:
+            base_response.update({
+                "therapeutic_step":         stage2_result.get("therapeutic_step"),
+                "therapeutic_step_number":  stage2_result.get("step_number", current_step),
+                "techniques_suggested":     stage2_result.get("techniques_suggested", []),
+                "stage2_backend":           stage2_result.get("backend", "unknown"),
+                "stage2_latency_ms":        stage2_result.get("latency_ms", 0),
+                "safety_check_passed":      stage2_result.get("safety_check_passed", True),
+            })
+
+        return base_response
 
     async def end_session(self, session_id: str) -> dict:
         """

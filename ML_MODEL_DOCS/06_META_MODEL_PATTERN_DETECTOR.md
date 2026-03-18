@@ -206,7 +206,7 @@ meta_model_patterns/
 ### 4.2 Expert Annotation Requirements
 
 This dataset requires highly specialized annotation:
-- **Primary annotators**: Must have completed NLP Practitioner training (minimum 7-day certified course)
+- **Primary annotators**: Must have completed Neurolinguistic  Practitioner training (minimum 7-day certified course)
 - **Clinical reviewer**: Licensed psychotherapist familiar with CBT and NLP frameworks
 - All examples with `mind_reading` and `cause_and_effect` patterns reviewed by clinical reviewer (therapeutic implications)
 

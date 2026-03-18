@@ -47,23 +47,24 @@ def load_seq2seq_data(json_path, max_examples: int = None):
 
 def preprocess_function(examples, tokenizer, max_input_length=256, max_output_length=128):
     """Tokenize inputs and targets."""
-    inputs = [ex["input"] for ex in examples]
-    targets = [ex["output"] for ex in examples]
+    # Simple single example processing (batched=False)
+    input_text = examples["input"]
+    target_text = examples["output"]
 
     model_inputs = tokenizer(
-        inputs,
+        input_text,
         max_length=max_input_length,
         truncation=True,
         padding="max_length"
     )
 
-    with tokenizer.as_target_tokenizer():
-        labels = tokenizer(
-            targets,
-            max_length=max_output_length,
-            truncation=True,
-            padding="max_length"
-        )
+    # T5 tokenizer doesn't need as_target_tokenizer context
+    labels = tokenizer(
+        target_text,
+        max_length=max_output_length,
+        truncation=True,
+        padding="max_length"
+    )
 
     model_inputs["labels"] = labels["input_ids"]
     return model_inputs
@@ -124,15 +125,13 @@ def train_lightweight_demo(
 
     train_dataset = train_dataset.map(
         preprocess_train,
-        batched=True,
-        remove_columns=["input", "output"],
-        batch_size=32
+        batched=False,  # Disable batching to avoid complexity
+        remove_columns=["input", "output"]
     )
     val_dataset = val_dataset.map(
         preprocess_train,
-        batched=True,
-        remove_columns=["input", "output"],
-        batch_size=32
+        batched=False,  # Disable batching to avoid complexity
+        remove_columns=["input", "output"]
     )
 
     # Training arguments
@@ -144,8 +143,8 @@ def train_lightweight_demo(
         num_train_epochs=num_epochs,
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=8,
-        evaluation_strategy="epoch",
-        save_strategy="best",
+        eval_strategy="epoch",  # Changed from evaluation_strategy
+        save_strategy="epoch",  # Changed from "best" which may not be supported
         load_best_model_at_end=True,
         predict_with_generate=True,
         generation_max_length=128,
@@ -170,8 +169,7 @@ def train_lightweight_demo(
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=val_dataset,
-        data_collator=data_collator,
-        tokenizer=tokenizer
+        data_collator=data_collator
     )
 
     # Train

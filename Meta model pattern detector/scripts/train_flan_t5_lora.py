@@ -8,14 +8,15 @@ Expected training time: 45-60 min (GPU A100), 2-3 hours (GPU T4), 12-16 hours (C
 
 import json
 import os
+
+# Required for Blackwell GPU (RTX 50xx) memory fragmentation fix
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 import torch
-import numpy as np
-from pathlib import Path
-from typing import Optional
 
 try:
     from transformers import (
-        T5Tokenizer,
+        AutoTokenizer,
         T5ForConditionalGeneration,
         DataCollatorForSeq2Seq,
         Seq2SeqTrainer,
@@ -26,7 +27,7 @@ try:
     from peft import get_peft_model, LoraConfig, TaskType
 except ImportError as e:
     print(f"[ERROR] Required library missing: {e}")
-    print("Install with: pip install transformers datasets peft torch")
+    print("Install with: pip install transformers datasets peft torch sentencepiece")
     exit(1)
 
 
@@ -39,23 +40,27 @@ def load_seq2seq_data(json_path):
 
 def preprocess_function(examples, tokenizer, max_input_length=512, max_output_length=256):
     """Tokenize inputs and targets."""
-    inputs = [ex["input"] for ex in examples]
-    targets = [ex["output"] for ex in examples]
+    # Simple single example processing (batched=False)
+    input_text = examples["input"]
+    target_text = examples["output"]
 
     model_inputs = tokenizer(
-        inputs,
+        input_text,
         max_length=max_input_length,
         truncation=True,
         padding="max_length"
     )
 
-    with tokenizer.as_target_tokenizer():
-        labels = tokenizer(
-            targets,
-            max_length=max_output_length,
-            truncation=True,
-            padding="max_length"
-        )
+    # Do NOT pre-pad labels — DataCollatorForSeq2Seq pads them and replaces
+    # pad_token_id with -100 so the loss ignores padding positions.
+    # Pre-padding with pad_token_id (0) would force the model to predict
+    # padding tokens as real targets, corrupting training.
+    labels = tokenizer(
+        target_text,
+        max_length=max_output_length,
+        truncation=True,
+        padding=False
+    )
 
     model_inputs["labels"] = labels["input_ids"]
     return model_inputs
@@ -66,12 +71,12 @@ def train_flan_t5_lora(
     val_data_path: str = "Meta model pattern detector/data/seq2seq/val.json",
     output_dir: str = "Meta model pattern detector/models/best_model",
     num_epochs: int = 5,
-    batch_size: int = 8,
-    gradient_accumulation_steps: int = 4,
-    learning_rate: float = 3e-4,
+    batch_size: int = 2,
+    gradient_accumulation_steps: int = 16,
+    learning_rate: float = 1e-4,
     lora_rank: int = 16,
-    max_input_length: int = 512,
-    max_output_length: int = 256,
+    max_input_length: int = 256,
+    max_output_length: int = 128,
     seed: int = 42
 ):
     """Fine-tune Flan-T5 with LoRA."""
@@ -85,14 +90,12 @@ def train_flan_t5_lora(
     # Device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"\nDevice: {device}")
-    if torch.cuda.is_available():
-        print(f"GPU: {torch.cuda.get_device_name(0)}")
-        print(f"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
+
 
     # Load model and tokenizer
     print("\n1. Loading base model: google/flan-t5-large")
     model_name = "google/flan-t5-large"
-    tokenizer = T5Tokenizer.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     print(f"   Model parameters: {model.num_parameters() / 1e6:.1f}M")
 
@@ -135,39 +138,46 @@ def train_flan_t5_lora(
 
     train_dataset = train_dataset.map(
         preprocess_train,
-        batched=True,
-        remove_columns=["input", "output"],
-        batch_size=64
+        batched=False,  # Disable batching to avoid complexity
+        remove_columns=["input", "output"]
     )
     val_dataset = val_dataset.map(
         preprocess_train,
-        batched=True,
-        remove_columns=["input", "output"],
-        batch_size=64
+        batched=False,  # Disable batching to avoid complexity
+        remove_columns=["input", "output"]
     )
 
     # Training arguments
     print(f"\n5. Setting training arguments")
     os.makedirs(output_dir, exist_ok=True)
 
+    # bf16 is numerically stable on Ampere+ (RTX 30xx/40xx/50xx); fp16 causes
+    # NaN gradients with LoRA due to narrow dynamic range.
+    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    print(f"   Precision: {'bf16' if use_bf16 else 'fp32'}")
+
     training_args = Seq2SeqTrainingArguments(
         output_dir=output_dir,
         num_train_epochs=num_epochs,
         per_device_train_batch_size=batch_size,
-        per_device_eval_batch_size=16,
+        per_device_eval_batch_size=8,
         gradient_accumulation_steps=gradient_accumulation_steps,
         learning_rate=learning_rate,
         warmup_ratio=0.1,
-        evaluation_strategy="epoch",
-        save_strategy="best",
+        max_grad_norm=1.0,            # Gradient clipping prevents NaN explosions
+        eval_strategy="epoch",
+        save_strategy="epoch",
         load_best_model_at_end=True,
+        metric_for_best_model="eval_loss",
         predict_with_generate=True,
         generation_max_length=max_output_length,
-        fp16=torch.cuda.is_available(),
+        fp16=False,                   # Disabled — causes NaN with LoRA
+        bf16=use_bf16,                # Stable bfloat16 on Ampere+/Blackwell
         seed=seed,
-        logging_steps=50,
-        save_total_limit=3,
-        dataloader_pin_memory=True
+        logging_steps=10,
+        save_total_limit=2,
+        dataloader_pin_memory=False,
+        report_to="none",             # Disable wandb/tensorboard
     )
 
     print(f"   Epochs: {num_epochs}")
@@ -185,8 +195,7 @@ def train_flan_t5_lora(
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=val_dataset,
-        data_collator=data_collator,
-        tokenizer=tokenizer
+        data_collator=data_collator
     )
 
     # Train

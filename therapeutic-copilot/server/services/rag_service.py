@@ -1,18 +1,22 @@
 """
-SAATHI AI — RAG Service (Pinecone vector database)
-Per-tenant namespaces for clinic-specific knowledge bases.
-Embedding model: all-MiniLM-L6-v2 (384 dimensions)
+SAATHI AI — RAG Service
+Dual-backend: Pinecone (production) + ChromaDB (local dev/demo fallback).
+
+Backend selection:
+  - If PINECONE_API_KEY is set → Pinecone (per-tenant namespaces)
+  - Otherwise               → ChromaDB persistent local store
+
+Embedding model: all-MiniLM-L6-v2 (384 dimensions, cosine similarity)
 """
 import uuid
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 from config import settings
 from loguru import logger
 
-# ─── Module-level singleton ───────────────────────────────────────────────────
-# Loaded once on first use; shared across all RAGService instances.
-# Avoids ~2s model reload penalty on every _embed() call.
+# ── Module-level singletons ──
 _sentence_transformer_model = None
+_chroma_client = None
 
 
 def _get_embedding_model():
@@ -25,72 +29,153 @@ def _get_embedding_model():
     return _sentence_transformer_model
 
 
-class RAGService:
-    """Pinecone-backed RAG for per-tenant knowledge retrieval."""
+def _get_chroma_client():
+    """Return persistent ChromaDB client (lazy-init)."""
+    global _chroma_client
+    if _chroma_client is None:
+        import chromadb
+        db_path = getattr(settings, "LOCAL_RAG_DB_PATH", "./chroma_db")
+        _chroma_client = chromadb.PersistentClient(path=str(db_path))
+        logger.info(f"ChromaDB client initialised at: {db_path}")
+    return _chroma_client
 
-    SIMILARITY_THRESHOLD_TENANT = 0.75
+
+# ─── Normalise namespace → valid ChromaDB collection name ────────────────────
+def _safe_collection_name(namespace: str) -> str:
+    """ChromaDB names: 3-63 chars, alphanumeric + hyphens only."""
+    safe = "".join(
+        c if c.isalnum() or c == "-" else "_" for c in namespace
+    )
+    safe = safe[:63]
+    if len(safe) < 3:
+        safe = safe + "_kb"
+    return safe
+
+
+class RAGService:
+    """
+    Unified RAG service with Pinecone (prod) and ChromaDB (local dev) backends.
+
+    Automatic backend selection:
+      • PINECONE_API_KEY set → Pinecone (namespaced per tenant)
+      • PINECONE_API_KEY empty → ChromaDB persistent local store
+
+    Ingestion pipeline:
+      1. Chunk text into ~512-token segments (50-token overlap)
+      2. Embed each chunk with all-MiniLM-L6-v2 (384-dim)
+      3. Upsert vectors + metadata to chosen backend
+
+    Query pipeline:
+      1. Embed query
+      2. Similarity search in tenant namespace (top-k=5)
+      3. Filter by similarity threshold (0.75 tenant / 0.70 default)
+      4. Fallback to 'default' namespace when tenant returns nothing
+    """
+
+    SIMILARITY_THRESHOLD_TENANT  = 0.75
     SIMILARITY_THRESHOLD_DEFAULT = 0.70
-    DEFAULT_NAMESPACE = "default"
+    DEFAULT_NAMESPACE            = "default"
 
     def __init__(self):
-        self._client = None
-        self._index = None
+        self._pinecone_client = None
+        self._pinecone_index  = None
+        self._use_pinecone: Optional[bool] = None   # resolved on first access
 
-    def _get_client(self):
-        """Lazy-initialise Pinecone client."""
-        if not self._client:
-            try:
-                from pinecone import Pinecone
-                self._client = Pinecone(api_key=settings.PINECONE_API_KEY)
-                self._index = self._client.Index(settings.PINECONE_INDEX)
-            except Exception as e:
-                logger.warning(f"Pinecone unavailable: {e}. RAG disabled.")
-        return self._index
+    # ── Backend selection ──
 
-    def _chunk_text(self, text: str, chunk_size: int = 512, overlap: int = 50) -> List[str]:
+    def _backend(self) -> str:
+        """Return 'pinecone' or 'chroma' based on config."""
+        if self._use_pinecone is None:
+            self._use_pinecone = bool(settings.PINECONE_API_KEY)
+            backend_name = "Pinecone" if self._use_pinecone else "ChromaDB"
+            logger.info(f"RAG backend: {backend_name}")
+        return "pinecone" if self._use_pinecone else "chroma"
+
+    def _get_pinecone_index(self):
+        """Lazy-initialise Pinecone client and return the index."""
+        if self._pinecone_index:
+            return self._pinecone_index
+        try:
+            from pinecone import Pinecone
+            self._pinecone_client = Pinecone(
+                api_key=settings.PINECONE_API_KEY
+            )
+            self._pinecone_index = self._pinecone_client.Index(
+                settings.PINECONE_INDEX
+            )
+            return self._pinecone_index
+        except Exception as e:
+            logger.warning(f"Pinecone init failed: {e}. Using ChromaDB.")
+            self._use_pinecone = False
+            return None
+
+    def _get_chroma_collection(self, namespace: str):
+        """Get-or-create a ChromaDB collection for the given namespace."""
+        client = _get_chroma_client()
+        name   = _safe_collection_name(namespace)
+        return client.get_or_create_collection(
+            name=name,
+            metadata={"hnsw:space": "cosine"},
+        )
+
+    # ── Chunking ──
+
+    def _chunk_text(
+        self, text: str, chunk_size: int = 512, overlap: int = 50
+    ) -> List[str]:
         """
-        Split text into overlapping chunks of ~chunk_size tokens.
-        Uses character-based approximation (1 token ≈ 4 chars).
-        Discards chunks of 50 chars or fewer (too small to be meaningful).
+        Split text into overlapping chunks (~512 tokens, 50-token overlap).
+        Uses 1 token ≈ 4 chars approximation.
         """
-        char_size = chunk_size * 4      # 512 tokens ≈ 2048 chars
-        char_overlap = overlap * 4      # 50 tokens  ≈ 200 chars
-        stride = char_size - char_overlap
+        char_size    = chunk_size * 4   # ≈ 2048 chars
+        char_overlap = overlap * 4      # ≈ 200 chars
+        stride       = char_size - char_overlap
 
-        chunks = []
-        start = 0
+        chunks, start = [], 0
         while start < len(text):
-            end = start + char_size
-            chunks.append(text[start:end])
+            chunks.append(text[start:start + char_size])
             start += stride
 
         return [c for c in chunks if len(c.strip()) > 50]
 
-    async def query(self, query: str, tenant_id: str, top_k: int = 5) -> List[str]:
+    # ── Embedding ──
+
+    async def _embed(self, text: str) -> List[float]:
+        """Generate 384-dim embedding via the singleton SentenceTransformer."""
+        model = _get_embedding_model()
+        return model.encode(text, normalize_embeddings=True).tolist()
+
+    # ── Query ──
+
+    async def query(
+        self, query: str, tenant_id: str, top_k: int = 5
+    ) -> List[str]:
         """
-        Retrieve top-k relevant passages from the tenant's knowledge base.
+        Retrieve top-k relevant passages.
 
-        Similarity thresholds:
-          - Tenant namespace: score >= 0.75
-          - Default namespace (fallback): score >= 0.70
-
-        Falls back to the 'default' namespace when the tenant namespace
-        returns no results above the similarity threshold.
-
-        Returns list of text passages for LLM context injection.
+        1. Try tenant namespace with threshold 0.75
+        2. Fallback to 'default' namespace with threshold 0.70
         """
-        index = self._get_client()
+        backend = self._backend()
+
+        if backend == "pinecone":
+            return await self._query_pinecone(query, tenant_id, top_k)
+        else:
+            return await self._query_chroma(query, tenant_id, top_k)
+
+    async def _query_pinecone(
+        self, query: str, tenant_id: str, top_k: int
+    ) -> List[str]:
+        index = self._get_pinecone_index()
         if not index:
-            return []
+            return await self._query_chroma(query, tenant_id, top_k)
 
         embedding = await self._embed(query)
 
-        # Try tenant namespace first
-        results = index.query(
-            vector=embedding,
-            top_k=top_k,
-            namespace=tenant_id,
-            include_metadata=True,
+        # Tenant namespace
+        results  = index.query(
+            vector=embedding, top_k=top_k,
+            namespace=tenant_id, include_metadata=True,
         )
         contexts = [
             m.metadata.get("text", "")
@@ -98,78 +183,202 @@ class RAGService:
             if m.score >= self.SIMILARITY_THRESHOLD_TENANT
         ]
 
-        # Fallback: if tenant has no high-confidence results, query default namespace
+        # Fallback to default
         if not contexts and tenant_id != self.DEFAULT_NAMESPACE:
             logger.debug(
-                f"RAG: no results for tenant '{tenant_id}' "
-                f"(threshold={self.SIMILARITY_THRESHOLD_TENANT}), "
-                f"falling back to '{self.DEFAULT_NAMESPACE}' namespace"
+                f"RAG Pinecone: tenant '{tenant_id}' miss → default"
             )
-            results = index.query(
-                vector=embedding,
-                top_k=top_k,
-                namespace=self.DEFAULT_NAMESPACE,
-                include_metadata=True,
+            results  = index.query(
+                vector=embedding, top_k=top_k,
+                namespace=self.DEFAULT_NAMESPACE, include_metadata=True,
             )
             contexts = [
                 m.metadata.get("text", "")
                 for m in results.matches
                 if m.score >= self.SIMILARITY_THRESHOLD_DEFAULT
             ]
-
         return contexts
 
-    async def ingest(self, content: str, tenant_id: str, metadata: Dict) -> Dict:
+    async def _query_chroma(
+        self, query: str, tenant_id: str, top_k: int
+    ) -> List[str]:
+        try:
+            embedding   = await self._embed(query)
+            collection  = self._get_chroma_collection(tenant_id)
+            count       = collection.count()
+
+            contexts = []
+            if count > 0:
+                results = collection.query(
+                    query_embeddings=[embedding],
+                    n_results=min(top_k, count),
+                    include=["documents", "distances"],
+                )
+                # ChromaDB cosine distance: 0 = identical, 2 = opposite.
+                # Convert to similarity: sim = 1 - (distance / 2)
+                docs      = results["documents"][0]
+                distances = results["distances"][0]
+                contexts  = [
+                    doc for doc, dist in zip(docs, distances)
+                    if (1 - dist / 2) >= self.SIMILARITY_THRESHOLD_TENANT
+                ]
+
+            # Fallback to default namespace
+            if not contexts and tenant_id != self.DEFAULT_NAMESPACE:
+                logger.debug(
+                    f"RAG ChromaDB: '{tenant_id}' miss → default"
+                )
+                default_col = self._get_chroma_collection(
+                    self.DEFAULT_NAMESPACE
+                )
+                default_count = default_col.count()
+                if default_count > 0:
+                    results = default_col.query(
+                        query_embeddings=[embedding],
+                        n_results=min(top_k, default_count),
+                        include=["documents", "distances"],
+                    )
+                    docs      = results["documents"][0]
+                    distances = results["distances"][0]
+                    contexts  = [
+                        doc for doc, dist in zip(docs, distances)
+                        if (1 - dist / 2) >= self.SIMILARITY_THRESHOLD_DEFAULT
+                    ]
+            return contexts
+
+        except Exception as e:
+            logger.warning(f"RAG ChromaDB query error: {e}")
+            return []
+
+    # ── Ingest ──
+
+    async def ingest(
+        self, content: str, tenant_id: str, metadata: Dict
+    ) -> Dict:
         """
-        Ingest a document into the tenant's Pinecone namespace.
+        Ingest a document into the tenant's vector store.
 
         Pipeline:
-          1. Chunk content into ~512-token segments with 50-token overlap.
-          2. Embed each chunk with all-MiniLM-L6-v2.
-          3. Upsert all vectors to Pinecone in batches of 100.
-
-        Returns a summary dict with chunk count and tenant_id.
+          1. Chunk into ~512-token segments with 50-token overlap
+          2. Embed each chunk
+          3. Upsert to Pinecone (prod) or ChromaDB (local)
         """
-        index = self._get_client()
+        backend = self._backend()
+
+        if backend == "pinecone":
+            return await self._ingest_pinecone(content, tenant_id, metadata)
+        else:
+            return await self._ingest_chroma(content, tenant_id, metadata)
+
+    async def _ingest_pinecone(
+        self, content: str, tenant_id: str, metadata: Dict
+    ) -> Dict:
+        index = self._get_pinecone_index()
         if not index:
-            return {"status": "error", "reason": "Pinecone not configured"}
+            return await self._ingest_chroma(content, tenant_id, metadata)
 
         chunks = self._chunk_text(content)
         if not chunks:
-            return {"status": "error", "reason": "No valid chunks produced from content"}
+            return {"status": "error", "reason": "No valid chunks produced"}
 
-        source = metadata.get("source", "doc")
+        source  = metadata.get("source", "doc")
         vectors = []
         for i, chunk in enumerate(chunks):
-            embedding = await self._embed(chunk)
-            chunk_id = f"{source}_{tenant_id}_{i}_{uuid.uuid4().hex[:8]}"
+            embedding  = await self._embed(chunk)
+            chunk_id   = f"{source}_{tenant_id}_{i}_{uuid.uuid4().hex[:8]}"
             vectors.append({
-                "id": chunk_id,
+                "id":     chunk_id,
                 "values": embedding,
                 "metadata": {
-                    "text": chunk,
-                    "tenant_id": tenant_id,
-                    "chunk_index": i,
+                    "text":         chunk,
+                    "tenant_id":    tenant_id,
+                    "chunk_index":  i,
                     "total_chunks": len(chunks),
                     **metadata,
                 },
             })
 
-        # Batch upsert — Pinecone limit is 100 vectors per call
         for batch in [vectors[i:i + 100] for i in range(0, len(vectors), 100)]:
             index.upsert(vectors=batch, namespace=tenant_id)
 
         logger.info(
-            f"RAG: ingested {len(chunks)} chunks for tenant '{tenant_id}' "
-            f"source='{source}'"
+            f"RAG Pinecone: ingested {len(chunks)} chunks | "
+            f"tenant='{tenant_id}' source='{source}'"
         )
         return {
-            "status": "ingested",
+            "status":          "ingested",
+            "backend":         "pinecone",
             "chunks_ingested": len(chunks),
-            "tenant_id": tenant_id,
+            "tenant_id":       tenant_id,
         }
 
-    async def _embed(self, text: str) -> List[float]:
-        """Generate 384-dim embedding using the module-level singleton model."""
-        model = _get_embedding_model()
-        return model.encode(text).tolist()
+    async def _ingest_chroma(
+        self, content: str, tenant_id: str, metadata: Dict
+    ) -> Dict:
+        try:
+            chunks = self._chunk_text(content)
+            if not chunks:
+                return {
+                    "status": "error",
+                    "reason": "No valid chunks produced",
+                }
+
+            source     = metadata.get("source", "doc")
+            collection = self._get_chroma_collection(tenant_id)
+
+            ids, embeddings, documents, metadatas = [], [], [], []
+            for i, chunk in enumerate(chunks):
+                embedding = await self._embed(chunk)
+                chunk_id  = f"{source}_{tenant_id}_{i}_{uuid.uuid4().hex[:8]}"
+                ids.append(chunk_id)
+                embeddings.append(embedding)
+                documents.append(chunk)
+                metadatas.append({
+                    "tenant_id":    tenant_id,
+                    "chunk_index":  i,
+                    "total_chunks": len(chunks),
+                    "source":       source,
+                    **{k: str(v) for k, v in metadata.items()},
+                })
+
+            # ChromaDB upsert in batches of 100
+            for start in range(0, len(ids), 100):
+                collection.upsert(
+                    ids=ids[start:start + 100],
+                    embeddings=embeddings[start:start + 100],
+                    documents=documents[start:start + 100],
+                    metadatas=metadatas[start:start + 100],
+                )
+
+            logger.info(
+                f"RAG ChromaDB: ingested {len(chunks)} chunks | "
+                f"tenant='{tenant_id}' source='{source}'"
+            )
+            return {
+                "status":          "ingested",
+                "backend":         "chroma",
+                "chunks_ingested": len(chunks),
+                "tenant_id":       tenant_id,
+            }
+        except Exception as e:
+            logger.error(f"RAG ChromaDB ingest error: {e}")
+            return {"status": "error", "reason": str(e)}
+
+    # ── Stats / Health ──
+
+    def stats(self, tenant_id: str = "default") -> Dict:
+        """Return document count and backend info for a namespace."""
+        backend = self._backend()
+        try:
+            if backend == "chroma":
+                col   = self._get_chroma_collection(tenant_id)
+                count = col.count()
+                return {
+                    "backend": "chroma",
+                    "namespace": tenant_id,
+                    "chunk_count": count,
+                }
+            else:
+                return {"backend": "pinecone", "namespace": tenant_id}
+        except Exception as e:
+            return {"backend": backend, "error": str(e)}

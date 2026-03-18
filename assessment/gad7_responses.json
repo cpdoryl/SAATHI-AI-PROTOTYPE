@@ -1,0 +1,42 @@
+[
+  {
+    "assessment_id": "gad7_001",
+    "responses": {
+      "q1_nervous": 2,
+      "q2_unable_to_stop_worrying": 3,
+      "q3_excessive_worry": 2,
+      "q4_trouble_relaxing": 3,
+      "q5_restless": 1,
+      "q6_irritable": 2,
+      "q7_afraid_something_awful": 1
+    },
+    "total_score": 14,
+    "severity": "moderate",
+    "severity_category": 3,
+    "recommendations": [
+      "Therapy strongly recommended",
+      "CBT for anxiety"
+    ],
+    "panic_flag": false
+  },
+  {
+    "assessment_id": "gad7_002",
+    "responses": {
+      "q1_nervous": 0,
+      "q2_unable_to_stop_worrying": 1,
+      "q3_excessive_worry": 0,
+      "q4_trouble_relaxing": 1,
+      "q5_restless": 0,
+      "q6_irritable": 1,
+      "q7_afraid_something_awful": 0
+    },
+    "total_score": 3,
+    "severity": "minimal",
+    "severity_category": 1,
+    "recommendations": [
+      "Monitor symptoms",
+      "Relaxation techniques"
+    ],
+    "panic_flag": false
+  }
+]

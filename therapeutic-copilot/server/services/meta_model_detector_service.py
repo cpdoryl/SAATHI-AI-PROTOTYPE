@@ -20,7 +20,8 @@ from typing import Optional, Dict, List
 from pathlib import Path
 
 try:
-    from transformers import T5Tokenizer, T5ForConditionalGeneration
+    from transformers import AutoTokenizer, T5ForConditionalGeneration
+    from peft import PeftModel
     TRANSFORMERS_AVAILABLE = True
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
@@ -101,8 +102,19 @@ class MetaModelDetectorService:
         try:
             model_dir = Path(self.model_path)
             if model_dir.exists():
-                self.tokenizer = T5Tokenizer.from_pretrained(str(model_dir))
-                self.model = T5ForConditionalGeneration.from_pretrained(str(model_dir))
+                self.tokenizer = AutoTokenizer.from_pretrained(str(model_dir))
+                if (model_dir / "adapter_config.json").exists():
+                    # LoRA adapter — load base model then merge adapters
+                    base = T5ForConditionalGeneration.from_pretrained(
+                        "google/flan-t5-large"
+                    )
+                    peft_model = PeftModel.from_pretrained(base, str(model_dir))
+                    self.model = peft_model.merge_and_unload()
+                else:
+                    # Fully merged model
+                    self.model = T5ForConditionalGeneration.from_pretrained(
+                        str(model_dir)
+                    )
                 self.model.eval()
                 self.model.to(self.device)
         except Exception as e:
@@ -165,7 +177,7 @@ class MetaModelDetectorService:
             inputs = self.tokenizer(
                 input_text,
                 return_tensors='pt',
-                max_length=512,
+                max_length=256,
                 truncation=True,
                 padding='max_length'
             )
@@ -175,7 +187,7 @@ class MetaModelDetectorService:
                 outputs = self.model.generate(
                     inputs['input_ids'],
                     attention_mask=inputs['attention_mask'],
-                    max_length=256,
+                    max_length=128,
                     num_beams=4,
                     early_stopping=True,
                     do_sample=False

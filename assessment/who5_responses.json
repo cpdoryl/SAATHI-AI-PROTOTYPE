@@ -1,0 +1,24 @@
+[
+  {
+    "assessment_id": "who5_001",
+    "responses": {
+      "q1": 4, "q2": 3, "q3": 4, "q4": 3, "q5": 4
+    },
+    "total_score": 18,
+    "wellbeing": "good",
+    "recommendations": [
+      "Maintain current lifestyle"
+    ]
+  },
+  {
+    "assessment_id": "who5_002",
+    "responses": {
+      "q1": 1, "q2": 1, "q3": 1, "q4": 1, "q5": 1
+    },
+    "total_score": 5,
+    "wellbeing": "poor",
+    "recommendations": [
+      "Consider positive psychology interventions"
+    ]
+  }
+]

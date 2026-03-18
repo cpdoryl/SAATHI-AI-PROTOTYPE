@@ -1,0 +1,12 @@
+{
+  "test_set_size": 451,
+  "exact_match_rate": 0.3902439024390244,
+  "exact_match_passed": false,
+  "category_f1": 0.40789898446910394,
+  "category_f1_passed": false,
+  "subtype_f1": 0.3790814827785438,
+  "subtype_f1_passed": false,
+  "false_positive_rate": 0.0,
+  "false_positive_rate_passed": true,
+  "all_gates_passed": false
+}

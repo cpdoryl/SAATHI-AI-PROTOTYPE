@@ -25,12 +25,27 @@ from typing import Optional, Dict, List
 import argparse
 
 try:
-    from transformers import T5Tokenizer, T5ForConditionalGeneration
+    from transformers import AutoTokenizer, T5ForConditionalGeneration
+    from peft import PeftModel
     from sklearn.metrics import f1_score
 except ImportError as e:
     print(f"[ERROR] Required library missing: {e}")
-    print("Install with: pip install transformers scikit-learn torch")
+    print("Install with: pip install transformers peft scikit-learn torch")
     exit(1)
+
+
+def load_lora_model(model_path: str, device):
+    """Load Flan-T5 base + LoRA adapter weights."""
+    base_model_name = "google/flan-t5-large"
+    print(f"   Loading base model: {base_model_name}")
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    base_model = T5ForConditionalGeneration.from_pretrained(base_model_name)
+    print(f"   Loading LoRA adapters from: {model_path}")
+    model = PeftModel.from_pretrained(base_model, model_path)
+    model = model.merge_and_unload()  # Merge for faster inference
+    model.eval()
+    model.to(device)
+    return tokenizer, model
 
 
 def load_jsonl(path):
@@ -61,8 +76,41 @@ Patterns:"""
     return prompt.format(utterance=utterance)
 
 
+_CATEGORY_NORM = {
+    'deletion': 'deletion', 'deleted': 'deletion', 'delete': 'deletion',
+    'generalization': 'generalization', 'generalized': 'generalization',
+    'general': 'generalization', 'generalisation': 'generalization',
+    'distortion': 'distortion', 'distorted': 'distortion', 'distort': 'distortion',
+}
+
+_SUBTYPE_NORM = {
+    'unspecified_referential_index': 'unspecified_referential_index',
+    'referential_index': 'unspecified_referential_index',
+    'unspecified_verb': 'unspecified_verb',
+    'verb': 'unspecified_verb',
+    'comparative_deletion': 'comparative_deletion',
+    'comparative': 'comparative_deletion',
+    'universal_quantifiers': 'universal_quantifiers',
+    'universal': 'universal_quantifiers',
+    'modal_operators_necessity': 'modal_operators_necessity',
+    'modal_necessity': 'modal_operators_necessity',
+    'necessity': 'modal_operators_necessity',
+    'modal_operators_possibility': 'modal_operators_possibility',
+    'modal_possibility': 'modal_operators_possibility',
+    'possibility': 'modal_operators_possibility',
+    'nominalization': 'nominalization',
+    'nominalisation': 'nominalization',
+    'mind_reading': 'mind_reading',
+    'mind_read': 'mind_reading',
+    'cause_and_effect': 'cause_and_effect',
+    'cause_effect': 'cause_and_effect',
+    'complex_equivalence': 'complex_equivalence',
+    'presupposition': 'presupposition',
+}
+
+
 def parse_pattern_output(output_text: str) -> set:
-    """Parse 'CATEGORY|SUBTYPE|MATCHED_TEXT' format."""
+    """Parse 'CATEGORY|SUBTYPE|MATCHED_TEXT' with normalization."""
     patterns = set()
     for line in output_text.strip().split('\n'):
         line = line.strip()
@@ -70,7 +118,9 @@ def parse_pattern_output(output_text: str) -> set:
             continue
         parts = [p.strip() for p in line.split('|')]
         if len(parts) >= 2:
-            patterns.add(f"{parts[0].lower()}|{parts[1]}")
+            cat = _CATEGORY_NORM.get(parts[0].lower().strip(), parts[0].lower())
+            sub = _SUBTYPE_NORM.get(parts[1].lower().strip(), parts[1].lower())
+            patterns.add(f"{cat}|{sub}")
     return patterns
 
 
@@ -88,10 +138,7 @@ def sanity_check(model_path: str = "Meta model pattern detector/models/best_mode
     try:
         print(f"\n1. Loading model from: {model_path}")
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        tokenizer = T5Tokenizer.from_pretrained(model_path)
-        model = T5ForConditionalGeneration.from_pretrained(model_path)
-        model.to(device)
-        model.eval()
+        tokenizer, model = load_lora_model(model_path, device)
         print(f"   Device: {device}")
         print(f"   [PASS] Model loaded successfully")
 
@@ -155,10 +202,7 @@ def sample_evaluation(
     print(f"\n1. Loading model and tokenizer")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     try:
-        tokenizer = T5Tokenizer.from_pretrained(model_path)
-        model = T5ForConditionalGeneration.from_pretrained(model_path)
-        model.to(device)
-        model.eval()
+        tokenizer, model = load_lora_model(model_path, device)
         print(f"   Device: {device}")
         print(f"   [PASS] Model loaded")
     except Exception as e:
@@ -248,10 +292,7 @@ def full_evaluation(
     print(f"\n1. Loading model and tokenizer")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     try:
-        tokenizer = T5Tokenizer.from_pretrained(model_path)
-        model = T5ForConditionalGeneration.from_pretrained(model_path)
-        model.to(device)
-        model.eval()
+        tokenizer, model = load_lora_model(model_path, device)
         print(f"   Device: {device}")
         print(f"   [PASS] Model loaded")
     except Exception as e:
@@ -305,17 +346,23 @@ def full_evaluation(
             predictions.append(pred_patterns)
             references.append(ref_patterns)
 
-            for pred in pred_patterns:
-                parts = pred.split('|')
-                if len(parts) == 2:
-                    all_pred_categories.append(parts[0])
-                    all_pred_subtypes.append(parts[1])
-
-            for ref in ref_patterns:
-                parts = ref.split('|')
-                if len(parts) == 2:
-                    all_ref_categories.append(parts[0])
-                    all_ref_subtypes.append(parts[1])
+            # Build per-example aligned lists for F1 (use first pattern or "none")
+            pred_cat = next(
+                (p.split('|')[0] for p in pred_patterns if '|' in p), "none"
+            )
+            ref_cat = next(
+                (r.split('|')[0] for r in ref_patterns if '|' in r), "none"
+            )
+            pred_sub = next(
+                (p.split('|')[1] for p in pred_patterns if '|' in p), "none"
+            )
+            ref_sub = next(
+                (r.split('|')[1] for r in ref_patterns if '|' in r), "none"
+            )
+            all_pred_categories.append(pred_cat)
+            all_ref_categories.append(ref_cat)
+            all_pred_subtypes.append(pred_sub)
+            all_ref_subtypes.append(ref_sub)
 
         except Exception as e:
             print(f"   Error on example {i+1}: {e}")

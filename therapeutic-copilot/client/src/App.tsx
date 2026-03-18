@@ -4,7 +4,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/contexts/AuthContext'
-import { LandingPage, ClinicianDashboard, PatientPortal, AdminPanel } from '@/pages'
+import { LandingPage, ClinicianDashboard, PatientPortal, AdminPanel, AssessmentPage } from '@/pages'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth()
@@ -20,6 +20,7 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute><ClinicianDashboard /></ProtectedRoute>} />
           <Route path="/patient" element={<ProtectedRoute><PatientPortal /></ProtectedRoute>} />
           <Route path="/admin" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
+          <Route path="/assessments" element={<ProtectedRoute><AssessmentPage /></ProtectedRoute>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,46 @@
+{
+  "universal_quantifiers": [
+    "Always? Is there any time when the opposite is true?",
+    "Never? What would it mean if there were an exception?"
+  ],
+  "mind_reading": [
+    "How do you know that's what they think?",
+    "What evidence do you have for that belief?"
+  ],
+  "modal_operators_necessity": [
+    "What would happen if you didn't?",
+    "Who says you must?"
+  ],
+  "cause_and_effect": [
+    "How specifically does that cause this?",
+    "Is there another way to look at what's happening?"
+  ],
+  "nominalization": [
+    "Who is [doing/experiencing] this specifically?",
+    "What would it look like if you were [verb] instead?"
+  ],
+  "presupposition": [
+    "What are you assuming here?",
+    "Is that necessarily true?"
+  ],
+  "complex_equivalence": [
+    "How does that mean that?",
+    "Could it mean something else?"
+  ],
+  "unspecified_referential_index": [
+    "Who specifically?",
+    "Can you tell me more about who you mean?"
+  ],
+  "unspecified_verb": [
+    "How specifically?",
+    "What would that look like in practice?"
+  ],
+  "comparative_deletion": [
+    "Compared to what?",
+    "Worse than what or whom?"
+  ],
+  "modal_operators_possibility": [
+    "What stops you?",
+    "What would need to change for that to be possible?"
+  ]
+}

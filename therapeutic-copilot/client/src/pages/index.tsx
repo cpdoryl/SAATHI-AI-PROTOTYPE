@@ -1,7 +1,6 @@
-/**
- * SAATHI AI — Page-level route components
- */
-export { LandingPage } from '@/components/landing/LandingPage'
-export { ClinicianDashboard } from '@/components/clinician/ClinicianDashboard'
-export { PatientPortal } from '@/components/patient/PatientPortal'
-export { AdminPanel } from '@/components/admin/AdminPanel'
+export { default as LandingPage } from './LandingPage';
+export { default as ClinicianDashboard } from './ClinicianDashboard';
+export { default as PatientPortal } from './PatientPortal';
+export { default as AssessmentPage } from './AssessmentPage';
+export { default as BookingPage } from './BookingPage';
+export { default as AdminPanel } from './AdminPanel';

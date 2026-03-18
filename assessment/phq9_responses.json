@@ -1,0 +1,58 @@
+[
+  {
+    "assessment_id": "phq9_001",
+    "responses": {
+      "q1_little_interest": 2,
+      "q2_feeling_down": 3,
+      "q3_sleep_problems": 2,
+      "q4_feeling_tired": 3,
+      "q5_poor_appetite": 1,
+      "q6_feeling_bad": 2,
+      "q7_concentration": 2,
+      "q8_moving_slowly": 1,
+      "q9_self_harm_thoughts": 1
+    },
+    "total_score": 17,
+    "severity": "moderately_severe",
+    "severity_category": 4,
+    "recommendations": [
+      "Refer to licensed therapist",
+      "Consider medication evaluation",
+      "Weekly therapy sessions",
+      "Safety plan if q9 > 0"
+    ],
+    "crisis_flag": false,
+    "metadata": {
+      "completion_time_seconds": 180,
+      "hesitation_detected": ["q9"],
+      "response_consistency": 0.89
+    }
+  },
+  {
+    "assessment_id": "phq9_002",
+    "responses": {
+      "q1_little_interest": 0,
+      "q2_feeling_down": 1,
+      "q3_sleep_problems": 0,
+      "q4_feeling_tired": 1,
+      "q5_poor_appetite": 0,
+      "q6_feeling_bad": 1,
+      "q7_concentration": 0,
+      "q8_moving_slowly": 0,
+      "q9_self_harm_thoughts": 0
+    },
+    "total_score": 3,
+    "severity": "minimal",
+    "severity_category": 1,
+    "recommendations": [
+      "Monitor symptoms",
+      "Self-care strategies"
+    ],
+    "crisis_flag": false,
+    "metadata": {
+      "completion_time_seconds": 120,
+      "hesitation_detected": [],
+      "response_consistency": 1.0
+    }
+  }
+]

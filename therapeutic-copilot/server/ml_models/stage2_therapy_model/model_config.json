@@ -1,0 +1,21 @@
+{
+  "model_name": "qwen-lora-stage2-saathi-v1",
+  "model_type": "peft_lora",
+  "stage": 2,
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_path": "C:\\saath ai prototype\\therapeutic-copilot\\server\\ml_models\\stage2_therapy_model",
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "max_new_tokens": 400,
+  "temperature": 0.75,
+  "top_p": 0.9,
+  "top_k": 40,
+  "repetition_penalty": 1.15,
+  "generation_config": {
+    "do_sample": true,
+    "pad_token_id": null
+  },
+  "max_seq_length": 4096,
+  "therapeutic_steps": 11,
+  "ready": true
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "assessment_id": "pss_001",
+    "responses": {
+      "q1": 2, "q2": 3, "q3": 2, "q4": 3, "q5": 2, "q6": 3, "q7": 2, "q8": 3, "q9": 2, "q10": 3
+    },
+    "total_score": 25,
+    "severity": "high_stress",
+    "recommendations": [
+      "Stress management program",
+      "Mindfulness training"
+    ]
+  },
+  {
+    "assessment_id": "pss_002",
+    "responses": {
+      "q1": 0, "q2": 1, "q3": 0, "q4": 1, "q5": 0, "q6": 1, "q7": 0, "q8": 1, "q9": 0, "q10": 1
+    },
+    "total_score": 5,
+    "severity": "low_stress",
+    "recommendations": [
+      "Monitor stress levels"
+    ]
+  }
+]

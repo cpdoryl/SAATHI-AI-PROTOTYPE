@@ -56,6 +56,23 @@ therapeutic-copilot/widget/dist/
 *.pth
 therapeutic-copilot/ml_pipeline/models/
 
+# ─── Vector DB runtime data (large, regenerated via ingest scripts) ───────────
+chroma_db/
+therapeutic-copilot/server/chroma_db/
+
+# ─── Large raw datasets (not tracked in git) ──────────────────────────────────
+POC_Datasets/
+
+# ─── Training output / checkpoints (large, not needed in repo) ───────────────
+fine_tune/stage1/output/
+fine_tune/stage2/output/
+
+# ─── Large tokenizer files in deployed models (downloaded from HF at runtime) -
+therapeutic-copilot/server/ml_models/*/tokenizer.json
+
+# ─── Claude Code local config ─────────────────────────────────────────────────
+.claude/
+
 # ─── IDE & OS ────────────────────────────────────────────────────────────────
 .vscode/
 .idea/

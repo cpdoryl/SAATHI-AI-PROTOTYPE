@@ -40,6 +40,8 @@ class Settings(BaseSettings):
     PINECONE_API_KEY: str = ""
     PINECONE_ENVIRONMENT: str = "us-east-1-aws"
     PINECONE_INDEX: str = "therapeutic-kb"
+    # Local ChromaDB path (used when PINECONE_API_KEY is not set)
+    LOCAL_RAG_DB_PATH: str = "./chroma_db"
 
     # ─── Payments ────────────────────────────────────────────────────────────
     RAZORPAY_KEY_ID: str = ""
