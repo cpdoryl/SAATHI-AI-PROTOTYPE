@@ -14,6 +14,7 @@ from services.emotion_classifier_service import get_emotion_service
 from services.intent_classifier_service import get_intent_service
 from services.topic_classifier_service import get_topic_service
 from services.meta_model_detector_service import get_meta_model_detector_service
+from services.safety_guardrail_service import get_guardrail_service, GuardrailResult
 from services.rag_service import RAGService
 from services.qwen_inference import QwenInferenceService
 from services.lora_model_service import LoRAModelService
@@ -380,6 +381,25 @@ class TherapeuticAIService:
 
             response = await self.llm.generate(prompt=prompt, stage=stage)
 
+        # ── Safety Guardrail -- 5-layer pipeline ─────────────────────────────
+        # Runs on every LLM response before it is persisted or returned.
+        # crisis_active=True only when severity already triggered escalation
+        # (severity >= 7 path returns early above; this catches borderline cases).
+        _guardrail = get_guardrail_service()
+        _gr: GuardrailResult = _guardrail.inspect(
+            response=response,
+            user_message=message,
+            crisis_active=crisis_result["severity"] >= 5,
+            session_id=session_id,
+            stage=stage,
+        )
+        if _gr.action != "PASS":
+            logger.warning(
+                f"[SafetyGuardrail] Response intercepted: {_gr.action} "
+                f"codes={_gr.reason_codes} session={session_id}"
+            )
+        response = _gr.safe_response
+
         # Persist assistant message
         ai_msg = ChatMessage(
             session_id=session_id,
@@ -403,6 +423,9 @@ class TherapeuticAIService:
 
         base_response = {
             "response":             response,
+            "guardrail_action":     _gr.action,
+            "guardrail_codes":      _gr.reason_codes,
+            "guardrail_latency_ms": _gr.latency_ms,
             "crisis_score":         crisis_result["severity"],
             "stage":                stage,
             "current_step":         session.current_step if session else 0,

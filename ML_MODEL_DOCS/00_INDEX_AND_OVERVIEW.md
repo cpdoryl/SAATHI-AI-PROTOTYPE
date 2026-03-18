@@ -23,6 +23,7 @@ This directory contains detailed engineering and clinical documentation for **ev
 | 08 | [LoRA Stage 2 — Therapeutic Support](./08_LORA_STAGE2_THERAPEUTIC_SUPPORT.md) | `qwen-lora-stage2` | Qwen2.5-7B + LoRA r=16 | 3,017 conversations | 11-step evidence-based therapeutic conversation model |
 | 09 | [Booking Intent Detector](./09_BOOKING_INTENT_DETECTOR.md) | `booking_intent_detector_saathi_v1` | DistilBERT Joint (Binary + NER) | 1,000 examples | Detects booking readiness + extracts scheduling entities |
 | 10 | [Assessment Router](./10_ASSESSMENT_ROUTER.md) | `assessment_router_saathi_v1` | RoBERTa-base (multi-label, 9-class) | 4,000 examples | Routes to appropriate clinical assessment (PHQ-9, GAD-7, DASS-21, etc.) |
+| 14 | [Safety Guardrail System](./14_SAFETY_GUARDRAIL_SYSTEM.md) | `saathi-safety-classifier-v1` | DeBERTa-v3-small (multi-label, 6-class) + 5-layer runtime pipeline | 196 examples | Post-LLM response guardrail: hard-block rules, crisis validator, hallucination detector, ML classifier, sanitizer |
 
 ---
 

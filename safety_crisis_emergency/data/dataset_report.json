@@ -1,0 +1,27 @@
+{
+  "total_examples": 196,
+  "train": 137,
+  "val": 29,
+  "test": 30,
+  "label_counts": {
+    "safe": 103,
+    "harmful_content": 56,
+    "crisis_escalation_missing": 3,
+    "hallucinated_fact": 33,
+    "toxic_language": 37,
+    "scope_violation": 5
+  },
+  "sources": {
+    "safety_crisis": 70,
+    "safety_crisis_aug": 25,
+    "hallucination": 50,
+    "toxicity": 50,
+    "toxicity_aug": 1
+  },
+  "action_counts": {
+    "PASS": 103,
+    "BLOCK": 90,
+    "ESCALATE": 3,
+    "REDACT": 0
+  }
+}
